@@ -13,7 +13,6 @@ export const stayService = {
     getById,
     save,
     remove,
-    getEmptyStay,
     subscribe,
     unsubscribe
     
@@ -51,13 +50,6 @@ async function save(stay) {
     return savedStay
 }
 
-function getEmptyStay() {
-    return {
-        vendor: 'Susita-' + (Date.now() % 1000),
-        price: utilService.getRandomIntInclusive(1000, 9000),
-    }
-}
-
 function subscribe(listener) {
     stayChannel.addEventListener('message', listener)
 }
@@ -66,8 +58,6 @@ function unsubscribe(listener) {
 }
 
 
-// TEST DATA
-// storageService.post(STORAGE_KEY, {vendor: 'Subali Rahok 2', price: 980}).then(x => console.log(x))
 
 
 
