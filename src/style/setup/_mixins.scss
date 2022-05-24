@@ -1,0 +1,7 @@
+@mixin button($height:35px, $width: auto, $back: 'white', $color:'black') {
+  height: $height;
+  width: $width;
+  background-color: $back;
+  color: $color;
+  cursor: pointer;
+ }

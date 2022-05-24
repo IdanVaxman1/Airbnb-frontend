@@ -1,0 +1,16 @@
+body{
+    background-color: aqua
+}
+// SETUP
+@import 'setup/variables';
+@import 'setup/mixins';
+@import 'setup/functions';
+
+// BASICS
+@import 'basics/helpers';
+@import 'basics/base';
+
+//CMPS
+@import './components/header';
+@import './components/footer';
+
