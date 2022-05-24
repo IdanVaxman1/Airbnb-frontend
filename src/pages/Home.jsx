@@ -6,9 +6,9 @@ export const Home = () => {
 
 
     return (
-        <section >
+        <article className="main-page-head" >
             hello Home
-        </section>
+        </article>
 
     )
 }

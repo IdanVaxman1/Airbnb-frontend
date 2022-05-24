@@ -1,0 +1,34 @@
+header{
+    position: fixed;
+    width: 100%;
+
+}
+
+
+.main-nav {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+nav {
+    position: relative;
+    display: flex;
+
+    div {
+        display: flex;
+    }
+
+    li {
+        list-style-type: none;
+        margin: 10px;
+
+        a {
+            text-decoration: none;
+            color: #FFFFFF;
+
+        }
+    }
+
+}

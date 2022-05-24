@@ -1,8 +1,10 @@
 import { HashRouter as Router, Route, Routes } from 'react-router-dom'
 import { AppHeader } from './cmps/app-header'
 import {AppFooter} from './cmps/app-footer'
-import {Home} from './pages/stay-home'
-import {Explore} from './pages/stay-explore'
+import {Home} from './pages/Home'
+import {Explore} from './pages/Explore'
+
+import { Login } from './pages/Login'
 
 
 function App() {
@@ -11,11 +13,12 @@ function App() {
             <div className="app">
               <AppHeader/>
                 <main>
-                  <AppHeader/>
+                 
                   
                     <Routes>
-                        <Route path='/explore' element={<Home />} />
-                        <Route path='/home' element={<Explore />} />
+                        <Route path='/home' element={<Home />} />
+                        <Route path='/explore' element={<Explore />} />
+                        <Route path='/login' element={<Login />} />
                     </Routes>
                 </main>
               <AppFooter/>
