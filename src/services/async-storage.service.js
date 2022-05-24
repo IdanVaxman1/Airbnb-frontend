@@ -1,3 +1,4 @@
+import { dataService } from "./stay.data"
 
 export const storageService = {
     query,
@@ -8,8 +9,10 @@ export const storageService = {
     postMany
 }
 
-function query(entityType, delay = 600) {
-    var entities = JSON.parse(localStorage.getItem(entityType)) || []
+console.log(createStays())
+
+function query(entityType, delay = 300) {
+    var entities = JSON.parse(localStorage.getItem(entityType)) || createStays()
 
     return new Promise((resolve, reject)=>{
         setTimeout(()=>{
@@ -76,4 +79,8 @@ function postMany(entityType, newEntities) {
             _save(entityType, entities)
             return entities
         })
+}
+
+function createStays(){
+    return dataService.getStays()
 }
