@@ -1,6 +1,9 @@
-body{
-    background-color: aqua
+body {
+    background-color: aqua;
+    font-family: Cereal;
+
 }
+
 // SETUP
 @import 'setup/variables';
 @import 'setup/mixins';
@@ -13,4 +16,3 @@ body{
 //CMPS
 @import './components/header';
 @import './components/footer';
-

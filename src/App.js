@@ -1,4 +1,6 @@
 import { HashRouter as Router, Route, Routes } from 'react-router-dom'
+import { AppHeader } from './cmps/AppHeader';
+import { Home } from './pages/Home';
 // import './App.css';
 
 function App() {
@@ -9,12 +11,14 @@ function App() {
                 <h1>header</h1>
               </header>
                 <main>
+                  <AppHeader/>
+                  
                     <Routes>
-                        {/* <Route path='/form' element={<Form />} />
-                        <Route path='/time' element={<Time />} />
+                        <Route path='/' element={<Home />} />
+                        {/* <Route path='/time' element={<Time />} />
                         <Route path='/watch' element={<Watch />} /> */}
+                    {/* <p>hello</p> */}
                     </Routes>
-                    <p>hello</p>
                 </main>
                 <footer className="app-footer">
                     <section className="container">
