@@ -1,6 +1,6 @@
 export function changeFilter(filterBy) {
     return (dispatch) => {
-        console.log('action',filterBy)
+        //filter reaches here
         dispatch({ type: 'SET_FILTER', filterBy })
     }
 }
