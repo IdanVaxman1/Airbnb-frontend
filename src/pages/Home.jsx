@@ -12,7 +12,9 @@ export const Home = () => {
 
     return (
         <article className="main-page-head" >
-            <MainFilter/>
+            <div className="home-filterr">
+                <MainFilter />
+            </div>
         </article>
 
     )

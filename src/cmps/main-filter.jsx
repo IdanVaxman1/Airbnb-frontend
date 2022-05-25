@@ -25,22 +25,29 @@ export const MainFilter = () => {
         setFilterBy({ ...filterBy, [field]: value })
     }
 
-    
+
     return (
-        <div>
-            
+        <div className="total-filter">
 
-            <input name="location" value={filterBy.location} type="text" placeholder="Location" onChange={handleChange}/>
+            <div className="inpt-fillter">
+                <input name="location" value={filterBy.location} type="text" placeholder="Anywhere" onChange={handleChange} />
+            </div>
+            <div className="inpt-fillter">
 
-            <input type="date" id="start" name="from" onChange={handleChange}
-                value={filterBy.from}
-                min="2022-01-01" max="2022-12-31"></input>
+                <input type="date" id="start" name="from" onChange={handleChange}
+                    value={filterBy.from}
+                    min="2022-01-01" max="2022-12-31"></input>
+            </div>
 
-            <input type="date" id="to" name="to" onChange={handleChange}
-                value={filterBy.to}
-                min="2022-01-01" max="2022-12-31"></input>
+            <div className="inpt-fillter">
 
-
+                <input type="date" id="to" name="to" onChange={handleChange}
+                    value={filterBy.to}
+                    min="2022-01-01" max="2022-12-31"></input>
+            </div>
+            <span class="material-symbols-outlined">
+home
+</span>
             <NavLink to='/explore'>search</NavLink>
         </div>
     )
