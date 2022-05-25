@@ -16,22 +16,28 @@ export function Explore() {
         getStays()
         document.documentElement.style.setProperty('--headerFontColor', '#000');
     }, [])
-    
+
     const getStays = async () => {
         const stays = await stayService.query(filterBy)
         setStays(stays)
     }
 
 
-{if(!stays) return (<h1>loading</h1>)}
-return (
-    <section className="explore-main">
-    <div className="card-container">
-    {/* <MainFilter/> */}
-           {stays.map(stay =>
-                <StayPreview stay={stay} key={stay._id}/>
-                )}
+    { if (!stays) return (<h1>loading</h1>) }
+    return (
+        <div>
+
+            <div className="explore-filterr">
+                <MainFilter />
+            </div>
+            <section className="explore-main">
+
+                <div className="card-container">
+                    {stays.map(stay =>
+                        <StayPreview stay={stay} key={stay._id} />
+                    )}
+                </div>
+            </section>
         </div>
-                </section>
     )
 }
