@@ -1,11 +1,14 @@
 import { useEffect, useRef, useState } from "react"
-import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux'
+import { changeFilter } from "../store/actions/stay.action"
+import { NavLink } from "react-router-dom"
 export const MainFilter = () => {
+
+    const dispatch = useDispatch()
 
     const [filterBy,setFilterBy] = useState({location:'',from:'2022-04-18',to:'2022-04-22'})
     useEffect(() => {
-        console.log(filterBy)
-        // send filter to reducer
+        dispatch(changeFilter(filterBy))
     }, [filterBy])
 
 
