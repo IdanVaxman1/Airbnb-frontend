@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+import { MainFilter } from "../cmps/main-filter"
 
 
 export const Home = () => {
@@ -11,7 +12,7 @@ export const Home = () => {
 
     return (
         <article className="main-page-head" >
-            hello Home
+            <MainFilter/>
         </article>
 
     )
