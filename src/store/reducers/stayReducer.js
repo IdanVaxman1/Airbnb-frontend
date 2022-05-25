@@ -7,7 +7,6 @@ export function stayReducer(state = INITIAL_STATE, action) {
         case 'SET_FILTER':
             state.filterBy = action.filterBy
             return { filterBy:state.filterBy }
-
         default:
             return state;
     }
