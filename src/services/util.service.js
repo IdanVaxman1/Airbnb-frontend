@@ -2,8 +2,13 @@ export const utilService = {
     makeId,
     makeLorem,
     getRandomIntInclusive,
-    delay
+    delay,
+    capitalizeFirst
 }
+
+function capitalizeFirst(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
 function makeId(length = 6) {
     var txt = '';

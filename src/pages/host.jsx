@@ -1,15 +1,10 @@
 
 
 export const Host = () => {
-
-
-
-
     return (
         <section >
-            hello Home
+            hello host
         </section>
-
     )
 }
 
