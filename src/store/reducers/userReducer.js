@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
-    users: []
+    users: [],
+    loggedinUser:''
 }
 
 export function userReducer(state = INITIAL_STATE, action) {
@@ -17,6 +18,10 @@ export function userReducer(state = INITIAL_STATE, action) {
         case 'ADD_USER':
             state.users = [...state.users]
             return { users:state.users }
+        case 'LOGIN' :
+            state.loggedinUser = action.user
+            console.log('reducer',action.user)
+            return action.user
         default:
             return state;
     }

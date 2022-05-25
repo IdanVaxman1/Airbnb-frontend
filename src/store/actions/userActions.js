@@ -1,4 +1,14 @@
-import {userService} from '../../userService.js'
+import {userService} from '../../services/user.service'
+
+export function login(credentials) {
+    return (dispatch) => {
+      return userService.login(credentials)
+      .then((user) => {
+        dispatch({ type: 'LOGIN', user })
+      })
+    } 
+  }
+
 export function loadUsers() {
     return (dispatch) => {
         const users=userService.query()

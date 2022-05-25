@@ -6,12 +6,22 @@ export const storageService = {
     post,
     put,
     remove,
-    postMany
+    postMany, 
+    queryUser
 }
 
 
 function query(entityType, delay = 50) {
     var entities = JSON.parse(localStorage.getItem(entityType)) || createStays()
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            resolve(entities)
+        }, delay)   
+    })
+}
+
+function queryUser(entityType, delay = 50) {
+    var entities = JSON.parse(localStorage.getItem(entityType)) || createUsers()
     return new Promise((resolve, reject)=>{
         setTimeout(()=>{
             resolve(entities)
@@ -77,4 +87,28 @@ function postMany(entityType, newEntities) {
 
 function createStays(){
     return dataService.getStays()
+}
+
+function createUsers(){
+    return [{
+		"fullname": "Edgar",
+		"imgUrl": "https://a0.muscache.com/im/pictures/d17abb7c-beb0-4dbe-976e-fc633de18b4b.jpg?aki_policy=profile_small",
+		"username": "edgar",
+		"password": "edgar",
+		"_id": "622f3401e36c59e6164fab4d"
+	},
+	{
+		"fullname": "Leo",
+		"imgUrl": "https://robohash.org/59985?set=set1",
+		"username": "leo",
+		"password": "leo",
+		"_id": "622f3401e36c59e6164fab4e"
+	},
+	{
+		"fullname": "Margaux",
+		"imgUrl": "https://robohash.org/3805403?set=set1",
+		"username": "mar",
+		"password": "Margaux",
+		"_id": "622f3401e36c59e6164fab4f"
+	}]
 }
