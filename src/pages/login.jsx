@@ -9,7 +9,6 @@ export const Login = () => {
         <section >
             hello Login
         </section>
-
     )
 }
 
