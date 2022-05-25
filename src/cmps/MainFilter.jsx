@@ -26,7 +26,8 @@ export const MainFilter = () => {
     }
 
     return (
-        <div className="center-h" style={{ position: 'fixed', background: 'white', width: '800px', top: '300px', left: '300px' }}>
+        <div >
+            
 
             <input name="location" value={filterBy.location} type="text" placeholder="Location" onChange={handleChange} />
 

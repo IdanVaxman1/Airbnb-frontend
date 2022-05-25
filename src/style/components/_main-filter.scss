@@ -1,0 +1,31 @@
+.home-filterr {
+     display: flex;
+     // position: fixed; 
+     background-color: #fff; 
+     width: 100%;
+     // top: 300px;
+     // left: 300px; 
+     
+     position: absolute;
+     transform: translateX(-50%);
+     top: 50%;
+     left: 50%
+     
+}
+.explore-filterr {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     // position: fixed; 
+     background-color: #fff; 
+     width: 100%;
+     // top: 300px;
+     // left: 300px; 
+
+     position: absolute;
+     margin: 40px auto;
+     // transform: translateX(-50%);
+     // top: 50%;
+     // left: 50%
+
+ }
