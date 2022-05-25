@@ -25,8 +25,9 @@ export const MainFilter = () => {
         setFilterBy({ ...filterBy, [field]: value })
     }
 
+    
     return (
-        <div >
+        <div>
             
 
             <input name="location" value={filterBy.location} type="text" placeholder="Location" onChange={handleChange}/>

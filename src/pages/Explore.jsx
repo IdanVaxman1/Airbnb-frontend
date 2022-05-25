@@ -1,10 +1,10 @@
 import { storageService } from "../services/async-storage.service"
 import { useEffect, useRef, useState } from "react"
 import { stayService } from "../services/stay.service"
-import { StayPreview } from "../cmps/StayPreview"
+import { StayPreview } from "../cmps/stay-preview"
 // import { stayService } from "../services/stay.service"
 import { useSelector } from 'react-redux'
-import { MainFilter } from "../cmps/MainFilter"
+import { MainFilter } from "../cmps/main-filter"
 
 
 export function Explore() {
@@ -21,6 +21,7 @@ export function Explore() {
         const stays = await stayService.query(filterBy)
         setStays(stays)
     }
+
 
 
     { if (!stays) return (<h1>loading</h1>) }
