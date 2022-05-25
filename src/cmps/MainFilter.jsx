@@ -5,21 +5,28 @@ import { NavLink } from "react-router-dom"
 export const MainFilter = () => {
 
     const dispatch = useDispatch()
+    const [filterBy, setFilterBy] = useState({ location: '', from: '2022-04-18', to: '2022-04-22' })
 
-    const [filterBy,setFilterBy] = useState({location:'',from:'2022-04-18',to:'2022-04-22'})
+    // useEffect(() => {
+    //     loadFilterFromRedux()
+    // }, [])
+
     useEffect(() => {
         dispatch(changeFilter(filterBy))
     }, [filterBy])
 
+    // const loadFilterFromRedux = () => {
+    //     filterBy = useSelector((storeState) => storeState.stayModule.state.FilterBy)
+    // }
 
     const handleChange = (ev) => {
         const field = ev.target.name
         const value = ev.target.value
-        setFilterBy({...filterBy,[field]:value})
-      }
+        setFilterBy({ ...filterBy, [field]: value })
+    }
 
     return (
-        <div className="center-h" style={{position:'fixed', background: 'white', width: '800px', top: '300px', left:'300px'}}>
+        <div className="center-h" style={{ position: 'fixed', background: 'white', width: '800px', top: '300px', left: '300px' }}>
 
             <input name="location" value={filterBy.location} type="text" placeholder="Location" onChange={handleChange} />
 
@@ -30,6 +37,7 @@ export const MainFilter = () => {
             <input type="date" id="to" name="to" onChange={handleChange}
                 value={filterBy.to}
                 min="2022-01-01" max="2022-12-31"></input>
+
 
             <NavLink to='/explore'>search</NavLink>
         </div>
