@@ -1,10 +1,11 @@
-export function StayPreview({name}) {
+export function StayPreview({stay}) {
 
 
     
     return (
-        <div className="center">
-            <h1>{name}</h1>
+        <div className="stay-card">
+            <img src={stay.imgUrls[0]} ></img>
+            <h1>{stay.name}</h1>
         </div>
     )
 }

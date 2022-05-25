@@ -9,6 +9,8 @@ body {
 @import 'setup/mixins';
 @import 'setup/functions';
 @import '/src/style/pages/home';
+@import '/src/style/pages/Explore';
+@import '/src/style/components/stay-priview';
 
 // BASICS
 @import 'basics/helpers';

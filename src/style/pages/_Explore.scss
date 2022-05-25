@@ -1,0 +1,14 @@
+.card-container{
+    position: relative;
+    margin-top: 50px;
+    display: grid;
+    // display: inline-block;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 5px;
+
+}
+
+section{
+    display: inline-block;
+    width:100%
+}
