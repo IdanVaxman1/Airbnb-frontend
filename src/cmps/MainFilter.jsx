@@ -29,7 +29,7 @@ export const MainFilter = () => {
         <div >
             
 
-            <input name="location" value={filterBy.location} type="text" placeholder="Location" onChange={handleChange} />
+            <input name="location" value={filterBy.location} type="text" placeholder="Location" onChange={handleChange}/>
 
             <input type="date" id="start" name="from" onChange={handleChange}
                 value={filterBy.from}
