@@ -26,8 +26,6 @@ export function Explore() {
 {if(!stays) return (<h1>loading</h1>)}
 return (
     <section className="explore-main">
-
-
     <div className="card-container">
     {/* <MainFilter/> */}
            {stays.map(stay =>
