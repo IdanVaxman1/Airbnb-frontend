@@ -1,3 +1,7 @@
+:root{
+    --headerFontColor: #fff;
+}
+
 header{
     position: fixed;
     width: 100%;
@@ -25,8 +29,9 @@ nav {
         margin: 10px;
 
         a {
+            
             text-decoration: none;
-            color: #FFFFFF;
+            color: var(--headerFontColor)
 
         }
     }
