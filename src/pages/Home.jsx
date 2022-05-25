@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { MainFilter } from "../cmps/main-filter"
+import { MainFilter } from "../cmps/MainFilter"
 
 
 export const Home = () => {

@@ -1,6 +1,6 @@
 import { HashRouter as Router, Route, Routes } from 'react-router-dom'
-import { AppHeader } from './cmps/app-header'
-import {AppFooter} from './cmps/app-footer'
+import { AppHeader } from './cmps/AppHeader'
+import {AppFooter} from './cmps/AppFooter'
 import {Home} from './pages/Home'
 import {Explore} from './pages/Explore'
 
