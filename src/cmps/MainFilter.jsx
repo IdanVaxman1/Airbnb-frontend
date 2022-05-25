@@ -3,11 +3,15 @@ import { NavLink } from "react-router-dom";
 export const MainFilter = () => {
 
     const [filterBy,setFilterBy] = useState({location:'',from:'2022-04-18',to:'2022-04-22'})
+    useEffect(() => {
+        console.log(filterBy)
+        // send filter to reducer
+    }, [filterBy])
 
 
     const handleChange = (ev) => {
         const field = ev.target.name
-        const value = field === 'inStock' ? ev.target.checked : ev.target.value
+        const value = ev.target.value
         setFilterBy({...filterBy,[field]:value})
       }
 
