@@ -4,6 +4,7 @@ import {AppFooter} from './cmps/AppFooter'
 import {Home} from './pages/home.jsx'
 import {Explore} from './pages/explore'
 import { Login } from './pages/login'
+import {StayDetails} from './pages/stay-details'
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
                 <main>
                     <Routes>
                         <Route path='/home' element={<Home />} />
+                        <Route path='/details' element={<StayDetails />} />
                         <Route path='/explore' element={<Explore />} />
                         <Route path='/login' element={<Login />} />
                     </Routes>
