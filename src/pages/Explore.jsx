@@ -30,7 +30,7 @@ return (
     <div className="card-container">
     {/* <MainFilter/> */}
            {stays.map(stay =>
-                <StayPreview stay={stay} key={stay.id}/>
+                <StayPreview stay={stay} key={stay._id}/>
                 )}
         </div>
                 </section>
