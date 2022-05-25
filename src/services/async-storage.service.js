@@ -9,7 +9,7 @@ export const storageService = {
     postMany
 }
 
-console.log(createStays())
+// console.log(createStays())
 
 function query(entityType, delay = 300) {
     var entities = JSON.parse(localStorage.getItem(entityType)) || createStays()
