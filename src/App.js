@@ -3,7 +3,6 @@ import { AppHeader } from './cmps/AppHeader'
 import {AppFooter} from './cmps/AppFooter'
 import {Home} from './pages/Home'
 import {Explore} from './pages/Explore'
-
 import { Login } from './pages/Login'
 
 
@@ -14,7 +13,6 @@ function App() {
               <AppHeader/>
                 <main>
                  
-                  
                     <Routes>
                         <Route path='/home' element={<Home />} />
                         <Route path='/explore' element={<Explore />} />
