@@ -4,15 +4,15 @@
 @import 'setup/variables';
 @import 'setup/mixins';
 @import 'setup/functions';
-@import '/src/style/pages/home';
-@import '/src/style/pages/Explore';
-@import '/src/style/components/stay-priview';
 
 // BASICS
 @import 'basics/helpers';
 @import 'basics/base';
 
 //CMPS
+@import '/src/style/pages/home';
+@import '/src/style/pages/Explore';
+@import '/src/style/components/stay-priview';
 @import './components/header';
 @import './components/footer';
 @import './components/main-filter';
