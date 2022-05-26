@@ -19,11 +19,16 @@ export function Explore() {
         getStays()
         document.documentElement.style.setProperty('--headerFontColor', '#000');
     }, [filterBy])
+    
+    
 
     const getStays = async () => {
+      
         const stays = await stayService.query(filterBy)
         setStays(stays)
     }
+
+    
 
 
         
@@ -34,8 +39,8 @@ export function Explore() {
 
             <div className="explore-filterr">
                 <MainFilter />
-                <ExploreFilter/>
             </div>
+                <ExploreFilter/>
             <section className="explore-main">
 
                 <div className="card-container" >

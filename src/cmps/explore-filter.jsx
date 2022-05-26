@@ -1,6 +1,10 @@
 import React from 'react';
+<<<<<<< HEAD
 import 'rc-slider/assets/index.css'
 import Slider from 'rc-slider'
+=======
+// import Slider, { Range } from 'rc-slider'
+>>>>>>> 6fb307ee6ef9022a0d0eb27474b351b6d0cef239
 import { useEffect, useRef, useState } from "react"
 import { useDispatch} from 'react-redux'
 import { changeFilter } from "../store/actions/stay.action"

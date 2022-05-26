@@ -38,17 +38,24 @@ export const MainFilter = () => {
                     value={filterBy.from}
                     min="2022-01-01" max="2022-12-31"></input>
             </div>
-
             <div className="inpt-fillter">
-
                 <input type="date" id="to" name="to" onChange={handleChange}
                     value={filterBy.to}
                     min="2022-01-01" max="2022-12-31"></input>
             </div>
+<<<<<<< HEAD
             <span className="material-symbols-outlined">
 home
 </span>
             <NavLink to='/explore'>search</NavLink>
+=======
+            
+            
+            <div className="inpt-fillter search-symbol">
+            <span className="material-symbols-sharp white">search
+            <NavLink to='/explore'></NavLink></span>
+            </div>
+>>>>>>> 6fb307ee6ef9022a0d0eb27474b351b6d0cef239
         </div>
     )
 }
