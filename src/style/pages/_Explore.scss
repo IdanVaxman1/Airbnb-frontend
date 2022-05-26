@@ -1,5 +1,8 @@
 
+.in-margin-container{
 
+    grid-column: 2;
+}
 .card-container{
     position: relative;
     margin-top: 30px;
@@ -7,7 +10,6 @@
     // display: inline-block;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.2rem;
-    grid-column: 2;
     img{
         width: 100%;
         height: 70%;

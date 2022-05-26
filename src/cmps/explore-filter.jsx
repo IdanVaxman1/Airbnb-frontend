@@ -41,7 +41,7 @@ export const ExploreFilter = () => {
     }
 
     const getClass = (amenity) => {
-        if (exploreFilterBy.amenities.includes(amenity)) return ' small-border'
+        if (exploreFilterBy.amenities.includes(amenity)) return 'mini-filter small-border'
         return 'mini-filter'
     }
 
@@ -62,16 +62,16 @@ export const ExploreFilter = () => {
             </div> */}
             <div >
                 <div className='amn-container'>
-                    <div className='mini-filter'>
+                    <div className="enity-filter">
                         <div className={getClass('Wifi')} onClick={() => handleButtonChange('Wifi')}>Wifi</div>
                     </div>
-                    <div className='mini-filter'>
+                    <div className="enity-filter">
                         <div className={getClass('TV')} onClick={() => handleButtonChange('TV')}>TV</div>
                     </div>
-                    <div className='mini-filter'>
+                    <div className="enity-filter">
                         <div className={getClass('Kitchen')} onClick={() => handleButtonChange('Kitchen')}>Kitchen</div>
                     </div>
-                    <div className='mini-filter'>
+                    <div >
                         <div className={getClass('air conditioning')} onClick={() => handleButtonChange('air conditioning')}>AC</div>
                     </div>
                 </div>

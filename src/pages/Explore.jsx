@@ -20,7 +20,6 @@ export function Explore() {
         document.documentElement.style.setProperty('--headerFontColor', '#000');
         document.documentElement.style.setProperty('--headerbackgroundColor', '#F7F7F7');
         
-        
         return() =>{
             
             document.documentElement.style.setProperty('--headerbackgroundColor', 'unset');
@@ -43,7 +42,10 @@ export function Explore() {
 
     { if (!stays) return (<h1>loading</h1>) }
     return (
-        <div>
+        <div className="explore-main">
+
+            <div className="in-margin-container">
+
 
             <div className="explore-filterr">
                 <MainFilter />
@@ -52,14 +54,15 @@ export function Explore() {
 
                 <ExploreFilter onChangeExploreFilter={onChangeExploreFilter}/>
             </div>
-            <section className="explore-main">
+            <section >
 
                 <div className="card-container" >
                     {stays.map(stay =>
                         <StayPreview stay={stay} key={stay._id} />
-                    )}
+                        )}
                 </div>
             </section>
+                        </div>
         </div>
     )
 }
