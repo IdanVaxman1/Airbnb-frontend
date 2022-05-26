@@ -4,7 +4,7 @@
     border-radius: 12px;
     text-align-last: auto;
     z-index: -20;
-
+    
     h1 {
         font-size: 15px;
         font-weight: normal;
@@ -13,15 +13,16 @@
         color: #222;
         text-overflow: ellipsis;
     }
-
+    
     li {
         list-style: none;
         white-space: nowrap;
         overflow: hidden;
     }
-
+    
     img {
         border-radius: 12px;
+        aspect-ratio:1/1;
 
     }
 
