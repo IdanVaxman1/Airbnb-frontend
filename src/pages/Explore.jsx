@@ -25,6 +25,7 @@ export function Explore() {
     }
 
 
+    
 
     { if (!stays) return (<h1>loading</h1>) }
     return (
@@ -35,7 +36,7 @@ export function Explore() {
             </div>
             <section className="explore-main">
 
-                <div className="card-container">
+                <div className="card-container" >
                     {stays.map(stay =>
                         <StayPreview stay={stay} key={stay._id} />
                     )}
