@@ -1,10 +1,61 @@
-.stay-card{
-    border: 1px black solid;
-    height: 200px;
-    border-radius: 5px;
+.stay-card {
+    border: 0px black solid;
+    // height: 200px;
+    border-radius: 12px;
     text-align-last: auto;
-    font-size: 0.75rem;
     z-index: -20;
+    
+    h1 {
+        font-size: 15px;
+        font-weight: normal;
+        overflow: clip;
+        font-family: Airbnb-font-normal, sans-serif;
+        color: #222;
+        text-overflow: ellipsis;
+    }
+    
+    li {
+        list-style: none;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    
+    img {
+        border-radius: 12px;
+        aspect-ratio:1/1;
 
+    }
+
+    span{
+        font-size: 12px;
+    }
+
+    .stay-preiview-details {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .location-rate {}
+
+    .propery-price{
+        margin-top: 10px;
+        li{
+
+            display: flex;
+            span{
+                font-size: 15px;
+            }
+        }
+
+    }
+
+    .propery-description {
+        margin-top: 5px;
+        h1 {
+            font-family: Airbnb-font-lite, sans-serif;
+            color: $lite-font-color;
+        }
+
+    }
 
 }
