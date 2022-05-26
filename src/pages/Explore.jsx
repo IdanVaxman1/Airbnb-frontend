@@ -5,7 +5,8 @@ import { StayPreview } from "../cmps/stay-preview"
 // import { stayService } from "../services/stay.service"
 import { useSelector } from 'react-redux'
 import { MainFilter } from "../cmps/main-filter"
-import TextField from '@material-ui/core/TextField';
+import TextField from '@material-ui/core/TextField'
+import { ExploreFilter } from "../cmps/explore-filter"
 
 
 
@@ -32,6 +33,7 @@ export function Explore() {
 
             <div className="explore-filterr">
                 <MainFilter />
+                <ExploreFilter/>
             </div>
             <section className="explore-main">
 
