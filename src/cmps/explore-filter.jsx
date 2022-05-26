@@ -6,19 +6,19 @@ import { useDispatch } from 'react-redux'
 import { changeFilter } from "../store/actions/stay.action"
 import { NavLink } from "react-router-dom"
 
-export const ExploreFilter = () => {
+export const ExploreFilter = (props) => {
     const timeOutId = useRef()
 
     const dispatch = useDispatch()
     const [exploreFilterBy, setExploreFilterBy] = useState({
         minPrice: 0,
-        maxPrice: 2000,
-        roomType: "Entire home/apt",
-        amenities: []
+        maxPrice: 1200,
+        roomType:"",
+        amenities:[]
     })
 
     useEffect(() => {
-        console.log(exploreFilterBy)
+        props.onChangeExploreFilter(exploreFilterBy)
     }, [exploreFilterBy])
 
 
