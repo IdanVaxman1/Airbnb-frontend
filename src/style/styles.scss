@@ -2,10 +2,10 @@
 
 // SETUP
 @import 'setup/variables';
+@import './fonts/fonts';
+
 @import 'setup/mixins';
 @import 'setup/functions';
-@import '/src/style/pages/home';
-@import '/src/style/pages/Explore';
 @import '/src/style/pages/Details';
 @import '/src/style/components/stay-priview';
 
