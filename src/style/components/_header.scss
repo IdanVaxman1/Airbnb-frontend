@@ -1,22 +1,51 @@
-:root{
+:root {
     --headerFontColor: #fff;
-    
+    --headerbackgroundColor: #fff;
+
 }
 
-header{
+header {
     position: fixed;
     width: 100%;
-    // background-color: $bgc;
+    background-color: var(--headerbackgroundColor);
+    height: 80px;
+    z-index: 100;
+
+    li {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 
 .main-nav {
+    height: 80px;
     position: relative;
     display: flex;
     justify-content: space-between;
+
 }
 
+.logo {
+    font-family: Airbnb-font-normal;
+    color: $clrRED;
+    font-size: 50px;
+    display: flex;
+    height: 90%;
+    font-weight: bold;
 
+    a {
+        text-decoration: none;
+
+    }
+
+    img {
+        height: 100%;
+
+    }
+}
 
 
 nav {
@@ -32,10 +61,9 @@ nav {
         margin: 10px;
 
         a {
-            
+
             text-decoration: none;
             color: var(--headerFontColor)
-
         }
     }
 

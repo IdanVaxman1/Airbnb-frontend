@@ -18,6 +18,14 @@ export function Explore() {
     useEffect(() => {
         getStays()
         document.documentElement.style.setProperty('--headerFontColor', '#000');
+        document.documentElement.style.setProperty('--headerbackgroundColor', '#F7F7F7');
+        
+        return() =>{
+            
+            document.documentElement.style.setProperty('--headerbackgroundColor', 'unset');
+            document.documentElement.style.setProperty('--headerFontColor', '#fff');
+        }
+        
     }, [filterBy])
     
     

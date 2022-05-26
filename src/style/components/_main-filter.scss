@@ -25,6 +25,10 @@
      }
 }
 
+.mini-symbol{
+
+}
+
 
 .explore-filterr {
      display: flex;
@@ -33,11 +37,12 @@
      width: 100%;
      z-index: 10;
      position: sticky;
-     top: 40px;
+     top: 80px;
      
      .inpt-fillter{
           padding: 22px;
           height: 100%;
+          display: flex;
           
           input{
                border: 0px;
@@ -49,6 +54,8 @@
           }
      }
 }
+
+
 
 .search-symbol{
      border-radius: 50%;

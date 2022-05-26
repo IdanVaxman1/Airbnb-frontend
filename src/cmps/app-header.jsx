@@ -1,10 +1,18 @@
 import { NavLink } from "react-router-dom";
+// import { NavLink } from "../assets/imgs/";
 export const AppHeader = () => {
     return (
         <header>
             <nav className="main-nav">
                 <div className="logo">
-                    <li><NavLink to='/home'>logo</NavLink></li>
+                    <NavLink to='/home'>
+                        <div className="logo">
+                            <a>
+                                <img src={require("../assets/imgs/logo1.png")} alt="" />
+                            </a>
+                            <li>StayBnb</li>
+                        </div>
+                    </NavLink>
                 </div>
                 <div className="">
                     <li><NavLink to='/explore'>Explore</NavLink></li>
