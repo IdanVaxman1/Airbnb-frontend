@@ -37,12 +37,10 @@ function queryUser(entityType, delay = 50) {
 }
 
 function get(entityType, entityId) {
-    return query(entityType)
-        .then(entities => {
-             entities.find(entity => entity.host._id === entityId )
-        })
-}
 
+    return query(entityType)
+        .then(entities => entities.find(entity => entity._id === entityId))
+}
 function post(entityType, newEntity) {
     newEntity._id = _makeId()
     return query(entityType)
