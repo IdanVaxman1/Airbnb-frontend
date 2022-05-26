@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { stayService } from "../services/stay.service"
 import { useParams } from "react-router-dom";
-import { DetailsGallery } from "../cmps/details-gallery";
+import { DetailsGallery } from "../cmps/details-gallery"
+import { ReserveStay } from "../cmps/reserve-stay"
 
 
 
@@ -73,6 +74,7 @@ export const StayDetails = () => {
                 </section>
             </div>
         </section>
+        <ReserveStay stay={stay}/>
     </div>
 
 

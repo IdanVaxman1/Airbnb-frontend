@@ -1,0 +1,9 @@
+.reserve-container{
+    border: 1px solid $clrGRAY;
+    border-radius: 10px;
+    max-width: 320px;
+    display:flex;
+    flex-direction: column; 
+    justify-content: space-between;
+    align-items: center;
+}
