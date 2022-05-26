@@ -16,13 +16,9 @@ export function StayPreview({ stay }) {
             <img src={stay.imgUrls[0]}></img>
             <div className="stay-preiview-details location-rate">
                 <li><h1>{stay.address.city}, {stay.address.country}</h1></li>
-<<<<<<< HEAD
-                <li><h1>{stay.reviewScores.value / 2}<span className="material-icons">star</span></h1></li>
-=======
                 <li><h1>{stay.reviewScores.value / 2}
                 <span className="material-icons">star</span>
                 </h1></li>
->>>>>>> 6fb307ee6ef9022a0d0eb27474b351b6d0cef239
             </div>
             <div className="stay-preiview-details propery-description">
                 <li><h1>{stay.name} </h1></li>
