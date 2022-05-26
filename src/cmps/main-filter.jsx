@@ -7,24 +7,15 @@ export const MainFilter = () => {
     const dispatch = useDispatch()
     const [filterBy, setFilterBy] = useState({ location: '', from: '2022-04-18', to: '2022-04-22' })
 
-    // useEffect(() => {
-    //     loadFilterFromRedux()
-    // }, [])
-
     useEffect(() => {
         dispatch(changeFilter(filterBy))
     }, [filterBy])
-
-    // const loadFilterFromRedux = () => {
-    //     filterBy = useSelector((storeState) => storeState.stayModule.state.FilterBy)
-    // }
 
     const handleChange = (ev) => {
         const field = ev.target.name
         const value = ev.target.value
         setFilterBy({ ...filterBy, [field]: value })
     }
-
 
     return (
         <div className="total-filter">
