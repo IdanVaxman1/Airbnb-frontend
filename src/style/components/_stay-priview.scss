@@ -23,14 +23,14 @@
     img {
         border-radius: 12px;
         aspect-ratio:1/1;
-
     }
-
+    
     span{
         font-size: 12px;
     }
-
+    
     .stay-preiview-details {
+        margin-top: 10px;
         display: flex;
         justify-content: space-between;
     }
@@ -38,7 +38,7 @@
     .location-rate {}
 
     .propery-price{
-        margin-top: 10px;
+        margin-top: 30px;
         li{
 
             display: flex;
