@@ -1,6 +1,8 @@
 import { dataService } from "./stay.data"
 
+
 const STORAGE_KEY = 'stay'
+
 
 export const storageService = {
     query,
@@ -14,9 +16,11 @@ export const storageService = {
 
 
 function query(entityType, delay = 50) {
-    var entities = JSON.parse(localStorage.getItem(entityType)) || createStays()
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
+    let entities = JSON.parse(localStorage.getItem(entityType)) || createStays()
+    let json = JSON.stringify(entities)
+    localStorage.setItem(entityType, json)
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
             resolve(entities)
         }, delay)
     })
@@ -90,6 +94,7 @@ function postMany(entityType, newEntities) {
 }
 
 function createStays(){
+<<<<<<< HEAD
 
     postMany(STORAGE_KEY, 
 
@@ -2081,6 +2086,9 @@ function createStays(){
         
         ).then(x => console.log(x))
     
+=======
+    return dataService.getStays()
+>>>>>>> 5bbfd275b70f415f7850885fc2c4fbeccdfa6951
 }
 
 function createUsers() {
