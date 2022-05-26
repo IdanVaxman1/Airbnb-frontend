@@ -6,30 +6,32 @@ export const storageService = {
     post,
     put,
     remove,
-    postMany, 
+    postMany,
     queryUser
 }
 
 
 function query(entityType, delay = 50) {
     var entities = JSON.parse(localStorage.getItem(entityType)) || createStays()
-    return new Promise((resolve, reject)=>{
-        setTimeout(()=>{
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
             resolve(entities)
-        }, delay)   
+        }, delay)
     })
 }
 
 function queryUser(entityType, delay = 50) {
     var entities = JSON.parse(localStorage.getItem(entityType)) || createUsers()
-    return new Promise((resolve, reject)=>{
-        setTimeout(()=>{
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
             resolve(entities)
-        }, delay)   
+        }, delay)
     })
 }
 
 function get(entityType, entityId) {
+    console.log('entityId', entityId)
+
     return query(entityType)
         .then(entities => entities.find(entity => entity._id === entityId))
 }
@@ -78,37 +80,38 @@ function _makeId(length = 5) {
 function postMany(entityType, newEntities) {
     return query(entityType)
         .then(entities => {
-            newEntities = newEntities.map(entity => ({...entity, _id: _makeId()}))
+            newEntities = newEntities.map(entity => ({ ...entity, _id: _makeId() }))
             entities.push(...newEntities)
             _save(entityType, entities)
             return entities
         })
 }
 
-function createStays(){
+function createStays() {
+    console.log('createStay')
     return dataService.getStays()
 }
 
-function createUsers(){
+function createUsers() {
     return [{
-		"fullname": "Edgar",
-		"imgUrl": "https://a0.muscache.com/im/pictures/d17abb7c-beb0-4dbe-976e-fc633de18b4b.jpg?aki_policy=profile_small",
-		"username": "edgar",
-		"password": "edgar",
-		"_id": "622f3401e36c59e6164fab4d"
-	},
-	{
-		"fullname": "Leo",
-		"imgUrl": "https://robohash.org/59985?set=set1",
-		"username": "leo",
-		"password": "leo",
-		"_id": "622f3401e36c59e6164fab4e"
-	},
-	{
-		"fullname": "Margaux",
-		"imgUrl": "https://robohash.org/3805403?set=set1",
-		"username": "mar",
-		"password": "Margaux",
-		"_id": "622f3401e36c59e6164fab4f"
-	}]
+        "fullname": "Edgar",
+        "imgUrl": "https://a0.muscache.com/im/pictures/d17abb7c-beb0-4dbe-976e-fc633de18b4b.jpg?aki_policy=profile_small",
+        "username": "edgar",
+        "password": "edgar",
+        "_id": "622f3401e36c59e6164fab4d"
+    },
+    {
+        "fullname": "Leo",
+        "imgUrl": "https://robohash.org/59985?set=set1",
+        "username": "leo",
+        "password": "leo",
+        "_id": "622f3401e36c59e6164fab4e"
+    },
+    {
+        "fullname": "Margaux",
+        "imgUrl": "https://robohash.org/3805403?set=set1",
+        "username": "mar",
+        "password": "Margaux",
+        "_id": "622f3401e36c59e6164fab4f"
+    }]
 }
