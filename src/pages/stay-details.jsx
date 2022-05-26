@@ -19,14 +19,12 @@ export const StayDetails = () => {
         setStay(stay)
     }
 
-    
+
+        { if (!stay) return (<h1>loading</h1>) }
+
     return <div className="">
-        <h2>details</h2>
-        {/* <h2>{stays[0].name}</h2> 
-        <section className="details-location flex">
-            <h4>{stays[0].address.street}</h4>
-            <h4>({stays[0].reviews.length} reviews)</h4>
-        </section> */}
+        <h2>{stay.name}</h2>
+        
     </div>
 
 
