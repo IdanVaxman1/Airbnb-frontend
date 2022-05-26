@@ -38,8 +38,6 @@ export const ExploreFilter = () => {
     const handlePriceRange = (value) =>{
         if(timeOutId.current) clearTimeout(timeOutId.current)
         timeOutId.current = setTimeout(setExploreFilterBy,500,{...exploreFilterBy, minPrice:value[0],maxPrice:value[1]})
-
-        // setExploreFilterBy({...exploreFilterBy, minPrice:value[0],maxPrice:value[1]})
     }
 
     const getClass = (amenity)=>{
@@ -48,7 +46,7 @@ export const ExploreFilter = () => {
     }
 
     return (
-        <div className="center">
+        <div className="center" style={{width:'320px'}}>
             <Slider range allowCross={false} defaultValue={[0, 1200]} min={0} max={2000} onChange={handlePriceRange} />
             <p>min:{exploreFilterBy.minPrice}</p>
             <p>max:{exploreFilterBy.maxPrice}</p>
