@@ -14,8 +14,8 @@ function App() {
               <AppHeader/>
                 <main>
                     <Routes>
-                        <Route path='/home' element={<Home />} />
                         <Route path='/stay/:stayId' element={<StayDetails />} />
+                        <Route path='/home' element={<Home />} />
                         <Route path='/explore' element={<Explore />} />
                         <Route path='/login' element={<Login />} />
                     </Routes>
