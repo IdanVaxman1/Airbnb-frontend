@@ -49,7 +49,7 @@ export function Explore() {
             </div>
             <div>
 
-                <ExploreFilter/>
+                <ExploreFilter onChangeExploreFilter={onChangeExploreFilter}/>
             </div>
             <section className="explore-main">
 
