@@ -37,10 +37,6 @@ function queryUser(entityType, delay = 50) {
 }
 
 function get(entityType, entityId) {
-<<<<<<< HEAD
-=======
-
->>>>>>> de7ea38649290c62a1cb63854f50424ed5bc9938
     return query(entityType)
         .then(entities => {
              entities.find(entity => entity.host._id === entityId )
