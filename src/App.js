@@ -1,8 +1,8 @@
 import { HashRouter as Router, Route, Routes } from 'react-router-dom'
 import { AppHeader } from './cmps/app-header'
 import {AppFooter} from './cmps/app-footer'
-import {Home} from './pages/home.jsx'
-import {Explore} from './pages/explore'
+import {Home} from './pages/Home.jsx'
+import {Explore} from './pages/Explore'
 import { Login } from './pages/login'
 import {StayDetails} from './pages/stay-details'
 
@@ -15,7 +15,7 @@ function App() {
                 <main>
                     <Routes>
                         <Route path='/home' element={<Home />} />
-                        <Route path='/details' element={<StayDetails />} />
+                        <Route path='/stay/:stayId' element={<StayDetails />} />
                         <Route path='/explore' element={<Explore />} />
                         <Route path='/login' element={<Login />} />
                     </Routes>
