@@ -1,0 +1,25 @@
+@font-face {
+    font-family: Airbnb-font-normal;
+    font-weight: normal;
+    src: url("../../assets/fonts/brown-regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Airbnb-font-lite;
+    weight: 100;
+    font-weight: 100;
+    src: url("../../assets/fonts/brown-regular.otf") format("woff");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+      local('MaterialIcons-Regular'),
+      url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+      url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+      url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+  }
