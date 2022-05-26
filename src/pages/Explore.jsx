@@ -23,15 +23,14 @@ export function Explore() {
     
 
     const getStays = async () => {
-      
         const stays = await stayService.query(filterBy)
         setStays(stays)
+    } 
+
+    const onChangeExploreFilter = async (exploreFilterBy) =>{
+        const stays = await stayService.query(filterBy,exploreFilterBy)
+        setStays(stays)
     }
-
-    
-
-
-        
 
     { if (!stays) return (<h1>loading</h1>) }
     return (
@@ -40,7 +39,7 @@ export function Explore() {
             <div className="explore-filterr">
                 <MainFilter />
             </div>
-                <ExploreFilter/>
+                <ExploreFilter onChangeExploreFilter={onChangeExploreFilter}/>
             <section className="explore-main">
 
                 <div className="card-container" >
