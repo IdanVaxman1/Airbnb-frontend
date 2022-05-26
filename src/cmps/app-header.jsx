@@ -17,7 +17,7 @@ export const AppHeader = () => {
                 <div className="">
                     <li><NavLink to='/explore'>Explore</NavLink></li>
                     <li><NavLink to='/explore'>Become a host</NavLink></li>
-                    <li><NavLink to='/Notifications'>🔔</NavLink></li>
+                    <li><NavLink to='/Notifications'><span class="material-icons">notifications_active</span></NavLink></li>
                     <li><NavLink to='/Login'>Log-in</NavLink></li>
                 </div>
             </nav>

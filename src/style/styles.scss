@@ -6,19 +6,22 @@
 
 @import 'setup/mixins';
 @import 'setup/functions';
-@import '/src/style/pages/Details';
-@import '/src/style/components/stay-priview';
 
 // BASICS
 @import 'basics/helpers';
 @import 'basics/base';
 
 //CMPS
+@import '/src/style/components/stay-priview';
 @import '/src/style/components/reserve-stay';
-@import '/src/style/pages/home';
-@import '/src/style/pages/Explore';
 @import '/src/style/components/stay-priview';
 @import './components/header';
 @import './components/footer';
 @import './components/main-filter';
 @import './components/secondery_filter';
+
+//pages
+@import '/src/style/pages/home';
+@import '/src/style/pages/Explore';
+@import '/src/style/pages/stay-details';
+@import '/src/style/components/details-gallery';

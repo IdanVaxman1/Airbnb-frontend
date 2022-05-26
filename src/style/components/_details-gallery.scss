@@ -1,0 +1,33 @@
+.gallery-grid{
+    display: grid;
+    grid-template-areas: 
+    "a a b c"
+    "a a d e";
+    gap: 8px;
+
+    img{
+        width: 100%;
+        height: 100%;
+        aspect-ratio:1/1;
+        object-fit: cover;
+    }
+    
+}
+
+
+.img1{
+    grid-area: a;
+}
+.img2{
+    grid-area: b;
+}
+.img3{
+    grid-area: c;
+}
+.img4{
+    grid-area: d;
+}
+.img5{
+    grid-area: e;
+}
+
