@@ -94,11 +94,7 @@ function postMany(entityType, newEntities) {
 }
 
 function createStays(){
-<<<<<<< HEAD
-return dataService.getStays()
-=======
     return dataService.getStays()
->>>>>>> 6fb307ee6ef9022a0d0eb27474b351b6d0cef239
 }
 
 function createUsers() {
