@@ -46,7 +46,7 @@ export const MainFilter = () => {
             
             
             <div className="inpt-fillter search-symbol">
-            <span class="material-symbols-sharp white">search
+            <span className="material-symbols-sharp white">search
             <NavLink to='/explore'></NavLink></span>
             </div>
         </div>

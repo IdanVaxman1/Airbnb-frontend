@@ -28,6 +28,8 @@ export function Explore() {
         setStays(stays)
     }
 
+    
+
 
     
 
@@ -37,8 +39,8 @@ export function Explore() {
 
             <div className="explore-filterr">
                 <MainFilter />
-                <ExploreFilter/>
             </div>
+                <ExploreFilter/>
             <section className="explore-main">
 
                 <div className="card-container" >
