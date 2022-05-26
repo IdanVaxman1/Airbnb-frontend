@@ -28,8 +28,10 @@ export function Explore() {
         setStays(stays)
     }
 
-
     
+
+
+        
 
     { if (!stays) return (<h1>loading</h1>) }
     return (
@@ -37,8 +39,8 @@ export function Explore() {
 
             <div className="explore-filterr">
                 <MainFilter />
-                <ExploreFilter/>
             </div>
+                <ExploreFilter/>
             <section className="explore-main">
 
                 <div className="card-container" >

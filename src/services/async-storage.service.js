@@ -14,8 +14,8 @@ export const storageService = {
     queryUser
 }
 
-
 function query(entityType, delay = 50) {
+    // storageService.clear()
     let entities = JSON.parse(localStorage.getItem(entityType)) || createStays()
     let json = JSON.stringify(entities)
     localStorage.setItem(entityType, json)
@@ -94,7 +94,11 @@ function postMany(entityType, newEntities) {
 }
 
 function createStays(){
+<<<<<<< HEAD
+return dataService.getStays()
+=======
     return dataService.getStays()
+>>>>>>> 6fb307ee6ef9022a0d0eb27474b351b6d0cef239
 }
 
 function createUsers() {
