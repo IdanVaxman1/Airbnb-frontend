@@ -18,8 +18,11 @@ export function Explore() {
         getStays()
         document.documentElement.style.setProperty('--headerFontColor', '#000');
     }, [filterBy])
+    
+    
 
     const getStays = async () => {
+      
         const stays = await stayService.query(filterBy)
         setStays(stays)
     }
