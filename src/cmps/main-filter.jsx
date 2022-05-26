@@ -44,6 +44,7 @@ export const MainFilter = () => {
                     min="2022-01-01" max="2022-12-31"></input>
             </div>
             
+            
             <div className="inpt-fillter search-symbol">
             <span class="material-symbols-sharp white">search
             <NavLink to='/explore'></NavLink></span>
