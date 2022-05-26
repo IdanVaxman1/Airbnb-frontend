@@ -1,5 +1,5 @@
 import React from 'react';
-import Slider, { Range } from 'rc-slider'
+// import Slider, { Range } from 'rc-slider'
 import { useEffect, useRef, useState } from "react"
 import { useDispatch} from 'react-redux'
 import { changeFilter } from "../store/actions/stay.action"
