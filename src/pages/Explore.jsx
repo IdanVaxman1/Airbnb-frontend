@@ -47,7 +47,10 @@ export function Explore() {
             <div className="explore-filterr">
                 <MainFilter />
             </div>
-                <ExploreFilter onChangeExploreFilter={onChangeExploreFilter}/>
+            <div>
+
+                <ExploreFilter/>
+            </div>
             <section className="explore-main">
 
                 <div className="card-container" >
