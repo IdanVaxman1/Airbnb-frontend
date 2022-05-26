@@ -48,7 +48,10 @@ export function Explore() {
             <div className="explore-filterr">
                 <MainFilter />
             </div>
+            <div>
+
                 <ExploreFilter/>
+            </div>
             <section className="explore-main">
 
                 <div className="card-container" >
