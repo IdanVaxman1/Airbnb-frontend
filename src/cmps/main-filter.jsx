@@ -45,7 +45,7 @@ export const MainFilter = () => {
                     value={filterBy.to}
                     min="2022-01-01" max="2022-12-31"></input>
             </div>
-            <span class="material-symbols-outlined">
+            <span className="material-symbols-outlined">
 home
 </span>
             <NavLink to='/explore'>search</NavLink>

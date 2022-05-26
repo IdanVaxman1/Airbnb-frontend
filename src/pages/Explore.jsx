@@ -26,7 +26,7 @@ export function Explore() {
     }
 
 
-    
+        
 
     { if (!stays) return (<h1>loading</h1>) }
     return (
