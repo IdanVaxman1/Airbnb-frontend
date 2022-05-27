@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from 'react-redux'
-// import {Ranged} from './Dates'
+import {DateRangeSelector} from './date-picker'
 
 
 export function ReserveStay(props) {
@@ -21,7 +21,7 @@ export function ReserveStay(props) {
                 <p><span>${props.stay.price} / night</span></p>
                 <p>{props.stay.reviewScores.value / 2}<span className="material-icons red">star</span> · <span>{props.stay.reviews.length} reviews</span></p>
             </div>
-            {/* <Ranged/> */}
+            <DateRangeSelector/>
         </div>
     )
 }
