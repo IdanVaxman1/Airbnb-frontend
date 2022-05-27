@@ -1,3 +1,4 @@
+
 .secondery-filter {
     margin-top: 100px;
     display: flex;
@@ -5,13 +6,20 @@
     justify-content: flex-start;
 
 }
-
-.price-slider {
-    width: 10px;
+.slider{
+   width:180px
 }
 
+// .price-slider {
+//     width: 10px;
+// }
+
 .small-border {
-    border: 1px black solid !important;
+    outline: 1px $clrBLACK solid !important;
+}
+
+.room-type-filter{
+    
 }
 
 .mini-filter {
