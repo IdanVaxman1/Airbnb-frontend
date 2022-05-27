@@ -71,7 +71,7 @@ export const ExploreFilter = () => {
                     <div className="enity-filter">
                         <div className={getClass('Kitchen')} onClick={() => handleButtonChange('Kitchen')}>Kitchen</div>
                     </div>
-                    <div >
+                    <div className="enity-filter">
                         <div className={getClass('air conditioning')} onClick={() => handleButtonChange('air conditioning')}>AC</div>
                     </div>
                 </div>

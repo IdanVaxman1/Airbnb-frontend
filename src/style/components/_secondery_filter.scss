@@ -18,7 +18,7 @@
     width: 100%;
     box-sizing: border-box;
     border: 1px lightgray solid;
-    margin-left: 10px;
+    // margin-left: 10px;
     padding: 10px;
     border-radius: 20px;
     text-align: center;
@@ -31,7 +31,7 @@
 .amn-container {
     display: flex;
     
-    .enity-filter {
+    .enity-filter:not(:first-child) {
         margin-left: 10px;
     }
     }

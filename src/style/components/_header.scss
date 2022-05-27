@@ -1,8 +1,4 @@
-:root {
-    --headerFontColor: #fff;
-    --headerbackgroundColor: #fff;
 
-}
 
 header {
     position: fixed;
@@ -10,6 +6,7 @@ header {
     background-color: var(--headerbackgroundColor);
     height: 80px;
     z-index: 100;
+    border-bottom: 1px var(--verylightgray) solid;
 
     li {
         display: flex;

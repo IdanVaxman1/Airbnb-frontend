@@ -7,6 +7,12 @@ export const Home = () => {
     useEffect(() => {
         document.documentElement.style.setProperty('--headerbackgroundColor', 'unset');
         document.documentElement.style.setProperty('--headerFontColor', '#fff');
+        document.documentElement.style.setProperty('--verylightgray', 'unset');
+        
+        return() => {
+            document.documentElement.style.setProperty('--verylightgray', '#ECECEC');
+
+        }
         
     }, [])
 
