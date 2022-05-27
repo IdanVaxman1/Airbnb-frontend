@@ -19,10 +19,12 @@
 @import './components/footer';
 @import './components/main-filter';
 @import './components/secondery_filter';
+@import '/src/style/components/details-gallery';
+@import '/src/style/components/stay-details-bellow';
+@import '/src/style/components/date-range-selector';
+
 
 //pages
 @import '/src/style/pages/home';
 @import '/src/style/pages/Explore';
 @import '/src/style/pages/stay-details';
-@import '/src/style/components/details-gallery';
-@import '/src/style/components/stay-details-bellow';

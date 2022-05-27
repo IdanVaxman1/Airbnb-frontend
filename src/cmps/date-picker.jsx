@@ -11,24 +11,27 @@ export class DateRangeSelector extends Component {
     endDate: null,
     focusedInput: null
   }
-  
+
 
   handleDateChange = ({ startDate, endDate }) => {
     this.setState({ startDate, endDate })
   }
-    
+
   handleFocusChange = (focusedInput) => this.setState({ focusedInput })
 
   render = () => {
-    return <DateRangePicker
-      endDate={this.state.endDate}
-      endDateId="endDate"
-      focusedInput={this.state.focusedInput}
-      // isOutsideRange={() => null}
-      onDatesChange={this.handleDateChange}
-      onFocusChange={this.handleFocusChange}
-      startDate={this.state.startDate}
-      startDateId="startDate"
-    />
+    return <section className="date-range-selector">
+
+      <DateRangePicker
+        endDate={this.state.endDate}
+        endDateId="endDate"
+        focusedInput={this.state.focusedInput}
+        // isOutsideRange={() => null}
+        onDatesChange={this.handleDateChange}
+        onFocusChange={this.handleFocusChange}
+        startDate={this.state.startDate}
+        startDateId="startDate"
+      />
+    </section>
   }
 }

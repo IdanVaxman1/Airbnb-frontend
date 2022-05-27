@@ -1,0 +1,27 @@
+.date-range-selector{
+    display: flex;
+    padding: 1rem;
+
+    .DateRangePickerInput_1{
+        display: flex;
+        border-radius: 12px;
+        background-color: unset !important;
+        background: unset;
+    }
+
+    .DateInput_input{
+        background-color: unset !important;
+    }
+
+    .DateRangePickerInput_arrow{
+        align-self: center;
+        width: 40px;
+    }
+    .DateInput{
+        background: unset;
+    }
+
+    input{
+        
+    }
+}

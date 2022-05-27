@@ -1,16 +1,25 @@
-.reserve-container{
+.reserve-stay-container{
     border: 1px solid $clrGRAY;
     border-radius: 10px;
-    max-width: 320px;
     display:flex;
     flex-direction: column; 
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
     flex: 20%;
+    height: 100%;
+
+    .reserve-stay-header{
+      width: 100%;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+    }
 }
 
+
+
 .DateRangePickerInput_arrow {
-    width: 40px;
+    
   }
   
   .DateInput_input {
