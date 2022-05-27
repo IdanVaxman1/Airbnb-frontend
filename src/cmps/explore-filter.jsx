@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import 'rc-slider/assets/index.css'
 import Slider from 'rc-slider'
 import { useEffect, useRef, useState } from "react"
