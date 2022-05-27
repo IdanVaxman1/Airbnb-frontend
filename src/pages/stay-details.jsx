@@ -40,8 +40,12 @@ export const StayDetails = () => {
             <StaydetailsHeader stay={stay} />
             <DetailsGallery stay={stay} />
             <div className="stay-bellow-container">
+                <div className="features-container">
                 <StayDeatailsBellow stay={stay} />
+                </div>
+                <div className="reserve-container">
                 <ReserveStay stay={stay} />
+                </div>
             </div>
         </div>
     </div>

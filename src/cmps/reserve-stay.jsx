@@ -16,7 +16,7 @@ export function ReserveStay(props) {
     }
 
     return (
-        <div className="reserve-container">
+        <div className="">
             <div className="center-h-between" style={{ width: '310px' }}>
                 <p><span>${props.stay.price} / night</span></p>
                 <p>{props.stay.reviewScores.value / 2}<span className="material-icons red">star</span> · <span>{props.stay.reviews.length} reviews</span></p>
