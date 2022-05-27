@@ -3,6 +3,7 @@ import { DateRangePicker } from "react-dates"
 import moment from "moment";
 import 'react-dates/initialize'
 import 'react-dates/lib/css/_datepicker.css'
+import $ from 'jquery';
 
 
 export class DateRangeSelector extends Component {
@@ -11,6 +12,8 @@ export class DateRangeSelector extends Component {
     endDate: null,
     focusedInput: null
   }
+
+  
 
 
   handleDateChange = ({ startDate, endDate }) => {

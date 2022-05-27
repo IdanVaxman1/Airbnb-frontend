@@ -1,17 +1,30 @@
 .date-range-selector{
     display: flex;
-    padding: 1rem;
+    // padding: 1rem;
+
+    .DateRangePickerInput{
+border: unset;
+    }
 
     .DateRangePickerInput_1{
         display: flex;
         border-radius: 12px;
         background-color: unset !important;
         background: unset;
+        outline: none !important;
+        -webkit-appearance: none !important;
+        text-align: center;
+        justify-content: center;
     }
 
     .DateInput_input{
         background-color: unset !important;
+        padding: 0;
+        
+        
     }
+
+    
 
     .DateRangePickerInput_arrow{
         align-self: center;
@@ -19,9 +32,47 @@
     }
     .DateInput{
         background: unset;
+        justify-content: center;
+        text-align: center;
     }
 
     input{
         
     }
+}
+
+.guests-pick{
+    
+    display: flex;
+    justify-content: space-between;
+    
+    // height: 2rem;
+    font-size: 19px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-top: 1px gray solid;
+
+    
+}
+
+.range-date-selector{
+  padding: 0;
+}
+.picker-container{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    border: 1px grey solid;
+    box-sizing: border-box;
+}
+
+.DateRangePickerInput_1{
+    justify-content: center;
+}
+
+.DateInput_input{
+    text-align: center;
 }
