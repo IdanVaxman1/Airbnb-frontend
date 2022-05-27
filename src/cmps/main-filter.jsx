@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom"
 export const MainFilter = () => {
     
     const dispatch = useDispatch()
-    let [filterBy, setFilterBy] = useState({ location: '', from: '2022-04-18', to: '2022-04-22' })
+    let [filterBy, setFilterBy] = useState({ location: '', from: '2022-06-18', to: '2022-06-20' })
     
     // filterBy=useSelector((storeState) => storeState.stayModule.filterBy)
     // console.log(filterBy)

@@ -26,7 +26,7 @@ async function query(filterBy,exploreFilterBy) {
     if(exploreFilterBy){
         stays=stays.filter(stay=>stay.price<=exploreFilterBy.maxPrice && stay.price>=exploreFilterBy.minPrice)
         if(exploreFilterBy.roomType){
-            stays=stays.filter(stay=>stay.roomType==exploreFilterBy.roomType)
+            stays=stays.filter(stay=>stay.roomType===exploreFilterBy.roomType)
         }
         if(exploreFilterBy.amenities){
             exploreFilterBy.amenities.forEach(amn=>{stays=stays.filter(stay=>stay.amenities.includes(amn))})
