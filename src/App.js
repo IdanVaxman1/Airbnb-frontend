@@ -29,6 +29,8 @@ function App() {
                         <Route path='/home' element={<Home />} />
                         <Route path='/explore' element={<Explore />} />
                         <Route path='/login' element={<Login />} />
+                        <Route path='/' element={<Home />} />
+                        
                     </Routes>
                 </main>
               <AppFooter/>
