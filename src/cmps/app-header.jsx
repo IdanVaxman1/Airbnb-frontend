@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 export const AppHeader = () => {
     return (
         <header>
+            
             <nav className="main-nav">
                 <div className="logo">
                     <NavLink to='/home'>

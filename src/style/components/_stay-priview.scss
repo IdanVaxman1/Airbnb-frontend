@@ -1,10 +1,45 @@
 .stay-card {
+    position: relative;
     border: 0px black solid;
-    // height: 200px;
     border-radius: 12px;
     text-align-last: auto;
-    z-index: -20;
+    cursor: pointer;
     
+
+    &:hover .right-arr,&:hover .left-arr{
+        border-radius: 50%;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.601);
+        visibility: visible;
+        text-align: center;
+    }
+    .right-arr {
+        visibility: hidden;
+        position: absolute;
+        top: 40%;
+        right: 0;
+        cursor: pointer;
+        span{
+            font-size: 30px;
+        }
+    }
+
+    .left-arr {
+        visibility: hidden;
+        position: absolute;
+        top: 40%;
+        left: 7px;
+
+        span{
+            font-size: 30px;
+        }
+
+        &:hover{
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.601);
+        }
+    }
+
     h1 {
         font-size: 15px;
         font-weight: normal;
@@ -13,22 +48,22 @@
         color: #222;
         text-overflow: ellipsis;
     }
-    
+
     li {
         list-style: none;
         white-space: nowrap;
         overflow: hidden;
     }
-    
+
     img {
         border-radius: 12px;
-        aspect-ratio:1/1;
+        aspect-ratio: 1/1;
     }
-    
-    span{
+
+    span {
         font-size: 12px;
     }
-    
+
     .stay-preiview-details {
         margin-top: 10px;
         display: flex;
@@ -37,12 +72,14 @@
 
     .location-rate {}
 
-    .propery-price{
+    .propery-price {
         margin-top: 30px;
-        li{
+
+        li {
 
             display: flex;
-            span{
+
+            span {
                 font-size: 15px;
             }
         }
@@ -51,6 +88,7 @@
 
     .propery-description {
         margin-top: 5px;
+
         h1 {
             font-family: Airbnb-font-lite, sans-serif;
             color: $lite-font-color;
@@ -59,3 +97,4 @@
     }
 
 }
+
