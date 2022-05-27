@@ -14,7 +14,7 @@ export class DateRangeSelector extends Component {
 
   componentDidMount(){
     if(this.props.place==='reserve'){
-      this.setState({...this.state,endDate:this.props.startDate,startDate:this.props.endDate})
+      this.setState({...this.state,endDate:this.props.endDate,startDate:this.props.startDate})
     }
   }
 
