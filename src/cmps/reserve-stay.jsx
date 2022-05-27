@@ -8,12 +8,7 @@ export function ReserveStay(props) {
     const [startDate,setStartDate] = useState('2022-06-18')
     const [endDate,setEndtDate] = useState('2022-06-20')
 
-    let filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
-    console.log(filterBy)
-
-    const log =(val)=>{
-        console.log(val)
-    }
+    const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
 
     return (
         <div className="reserve-stay-container">
@@ -21,7 +16,7 @@ export function ReserveStay(props) {
                 <li>${props.stay.price} <span>night</span></li>
                 <li>{props.stay.reviewScores.value / 2}<span className="material-icons red">star</span> · <span>{props.stay.reviews.length} reviews</span></li>
             </div>
-            <DateRangeSelector/>
+            <DateRangeSelector place={'reserve'} startDate={filterBy.from} endDate={filterBy.to}/>
         </div>
     )
 }

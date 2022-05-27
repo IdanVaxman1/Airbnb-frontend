@@ -7,13 +7,10 @@ export const AppHeader = () => {
 
     
     const resetFilterBy = ()=>{
-        dispatch(changeFilter({location: '', from: '2022-06-18', to: '2022-06-20'}))
+        dispatch(changeFilter({location: '', from: null, to: null}))
     }
     return (
         <header>
-
-            
-            
             <nav className="main-nav">
                 <div className="logo" onClick={resetFilterBy}>
                     <NavLink to='/home'>

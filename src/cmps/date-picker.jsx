@@ -12,16 +12,21 @@ export class DateRangeSelector extends Component {
     focusedInput: null
   }
 
+  componentDidMount(){
+    if(this.props.place==='reserve'){
+      this.setState({...this.state,endDate:this.props.startDate,startDate:this.props.endDate})
+    }
+  }
 
   handleDateChange = ({ startDate, endDate }) => {
-    this.setState({ startDate, endDate })
+    if(this.props.place==='filter') this.setState({ startDate, endDate },()=>this.props.handleDate({startDate, endDate}))
+    else this.setState({ startDate, endDate })
   }
 
   handleFocusChange = (focusedInput) => this.setState({ focusedInput })
 
   render = () => {
     return <section className="date-range-selector">
-
       <DateRangePicker
         endDate={this.state.endDate}
         endDateId="endDate"
