@@ -1,1 +1,28 @@
+.footer{
+    height: 2.9375rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border-top: 2px var(--verylightgray) solid;
 
+    h1{
+        font-size: 1rem;
+    }
+
+    li{
+        list-style-type: none;
+        list-style: none;
+        span{
+            font-size: 1rem;
+        }
+        margin: 5px;
+
+    }
+}
+
+.left-side{
+    display: flex;
+}
+.right-side{
+    display: flex;
+}

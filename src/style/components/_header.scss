@@ -13,12 +13,14 @@ header {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        
     }
 }
 
 
 .main-nav {
-    height: 80px;
+    height: 70px;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -28,13 +30,17 @@ header {
 .logo {
     font-family: Airbnb-font-normal;
     color: $clrRED;
-    font-size: 50px;
+    font-size: 35px;
     display: flex;
     height: 90%;
-    font-weight: bold;
-
+    
+    
     a {
         text-decoration: none;
+        li{
+            font-weight: bold;
+
+        }
 
     }
 
