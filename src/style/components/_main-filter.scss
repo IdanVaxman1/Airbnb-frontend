@@ -45,6 +45,8 @@
           height: 100%;
           display: flex;
           align-self: center;
+          cursor: pointer;
+          text-decoration: none;
           
           input{
                outline: none;
@@ -61,15 +63,24 @@
 
 
 .search-symbol{
+     cursor: pointer;
      border-radius: 50%;
      background-color: $clrRED;
      color: white;
      height: 100%;
      display: flex;
+     text-decoration: inherit;
 }
 
 .white{
+     text-decoration: none;
+     text-decoration: inherit;
      color: white;
+}
+
+.navlink{
+     text-decoration: inherit;
+     text-decoration: none;
 }
 
 .total-filter{
