@@ -48,10 +48,9 @@ export const ExploreFilter = (props) => {
     return (
         <div className='secondery-filter'>
             <div className='slider'>
-                <p>min:{exploreFilterBy.minPrice}</p>
                 <Slider range allowCross={false} defaultValue={[0, 1200]} min={0} max={1200} onChange={handlePriceRange} />
-                <p>max:{exploreFilterBy.maxPrice}</p>
             </div>
+            <p>{exploreFilterBy.minPrice}$ - {exploreFilterBy.maxPrice}$</p>
             <div className='room-type-filter'>
                 <select name="roomType" onChange={handleChange}>
                     <option value="Entire home/apt">Entire place</option>

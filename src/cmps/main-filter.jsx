@@ -3,14 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { changeFilter } from "../store/actions/stay.action"
 import { NavLink } from "react-router-dom"
 export const MainFilter = () => {
-
+    
     const dispatch = useDispatch()
-    const [filterBy, setFilterBy] = useState({ location: '', from: '2022-04-18', to: '2022-04-22' })
-
-    // useEffect(() => {
-    //     dispatch(changeFilter(filterBy))
-    // }, [filterBy])
-
+    let [filterBy, setFilterBy] = useState({ location: '', from: '2022-04-18', to: '2022-04-22' })
+    
+    // filterBy=useSelector((storeState) => storeState.stayModule.filterBy)
+    // console.log(filterBy)
+    
     const dispatchFilter = () => {
         dispatch(changeFilter(filterBy))
     }
