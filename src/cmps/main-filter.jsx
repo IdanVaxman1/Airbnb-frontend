@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { changeFilter } from "../store/actions/stay.action"
 import { NavLink } from "react-router-dom"
 export const MainFilter = () => {
-    
+
     const dispatch = useDispatch()
     const [filterBy, setFilterBy] = useState({ location: '', from: '2022-06-18', to: '2022-06-20' })
-    
+
     const dispatchFilter = () => {
         dispatch(changeFilter(filterBy))
     }
@@ -34,13 +34,13 @@ export const MainFilter = () => {
                     value={filterBy.to}
                     min="2022-01-01" max="2022-12-31"></input>
             </div>
-
-            <div onClick={dispatchFilter} style={{cursor:'pointer'}}>
-                <div  className="inpt-fillter search-symbol">
-                    <span className="material-symbols-sharp white">search
-                        <NavLink to='/explore'></NavLink></span>
+            <NavLink className="navlink" to='/explore'>
+                <div onClick={dispatchFilter}>
+                    <div className="inpt-fillter search-symbol">
+                        <span className="material-symbols-sharp white">search</span>
+                    </div>
                 </div>
-            </div>
+            </NavLink>
         </div>
     )
 }
