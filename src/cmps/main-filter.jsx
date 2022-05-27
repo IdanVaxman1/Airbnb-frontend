@@ -7,9 +7,14 @@ export const MainFilter = () => {
     const dispatch = useDispatch()
     const [filterBy, setFilterBy] = useState({ location: '', from: '2022-04-18', to: '2022-04-22' })
 
-    useEffect(() => {
+    // useEffect(() => {
+    //     dispatch(changeFilter(filterBy))
+    // }, [filterBy])
+
+    const dispatchFilter = () => {
         dispatch(changeFilter(filterBy))
-    }, [filterBy])
+        console.log(filterBy)
+    }
 
     const handleChange = (ev) => {
         const field = ev.target.name
@@ -35,13 +40,11 @@ export const MainFilter = () => {
                     min="2022-01-01" max="2022-12-31"></input>
             </div>
 
-
-            <div className="inpt-fillter search-symbol">
-                
+            <div onClick={dispatchFilter} style={{cursor:'pointer'}}>
+                <div  className="inpt-fillter search-symbol">
                     <span className="material-symbols-sharp white">search
                         <NavLink to='/explore'></NavLink></span>
-
-               
+                </div>
             </div>
         </div>
     )
