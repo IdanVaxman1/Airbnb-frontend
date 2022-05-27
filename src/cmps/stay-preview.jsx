@@ -19,15 +19,15 @@ export function StayPreview({ stay }) {
     }, [])
 
     var dif = 0
-    const switchImg = (event ,direction) => {
+    const switchImg = (event, direction) => {
         event.preventDefault()
         event.stopPropagation();
 
-        {var len = stay.imgUrls.length}
-        (direction === 'up') ? dif=1 : dif= -1
-        const idx = imgIdx+dif
-        {if(idx === len) idx = len}
-        {if(idx < 0) idx = 0} 
+        { var len = stay.imgUrls.length }
+        (direction === 'up') ? dif = 1 : dif = -1
+        const idx = imgIdx + dif
+        { if (idx === len) idx = len }
+        { if (idx < 0) idx = 0 }
         setImgIdx(idx)
 
 
@@ -35,13 +35,16 @@ export function StayPreview({ stay }) {
 
     return (
         <Link to={`/stay/${stay._id}`}>
+
             <div className="stay-card">
-                <img src={stay.imgUrls[imgIdx]}></img>
-                <div onClick={(event) => switchImg(event,'up')}  className="right-arr">
-                    <span class="material-icons">arrow_forward_ios</span>
-                </div>
-                <div onClick={(event) => switchImg(event,'down')} className="left-arr">
-                    <span class="material-icons">arrow_back_ios</span>
+                <div>
+                    <img src={stay.imgUrls[imgIdx]}></img>
+                    <div onClick={(event) => switchImg(event, 'up')} className="right-arr">
+                        <span class="material-icons">arrow_forward_ios</span>
+                    </div>
+                    <div onClick={(event) => switchImg(event, 'down')} className="left-arr">
+                        <span class="material-icons">arrow_back_ios</span>
+                    </div>
                 </div>
                 {/* <img src='https://res.cloudinary.com/dhy6ndeij/image/upload/v1653480425/001_urftcv.jpg'></img> */}
                 <div className="stay-preiview-details location-rate">
@@ -57,7 +60,7 @@ export function StayPreview({ stay }) {
                     <li><span className="material-icons">attach_money</span><h1>{stay.price} night</h1></li>
                 </div>
             </div>
-         </Link>
+        </Link>
     )
 
 }
