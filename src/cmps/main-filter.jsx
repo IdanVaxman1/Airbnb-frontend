@@ -13,7 +13,6 @@ export const MainFilter = () => {
 
     const dispatchFilter = () => {
         dispatch(changeFilter(filterBy))
-        console.log(filterBy)
     }
 
     const handleChange = (ev) => {

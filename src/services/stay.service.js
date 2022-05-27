@@ -32,7 +32,6 @@ async function query(filterBy,exploreFilterBy) {
             exploreFilterBy.amenities.forEach(amn=>{stays=stays.filter(stay=>stay.amenities.includes(amn))})
         }
     }
-
     return stays
 }
 function getById(stayId) {

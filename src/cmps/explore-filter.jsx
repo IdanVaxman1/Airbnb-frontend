@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import { changeFilter } from "../store/actions/stay.action"
 import { NavLink } from "react-router-dom"
 
-export const ExploreFilter = () => {
+export const ExploreFilter = (props) => {
     const timeOutId = useRef()
 
     const dispatch = useDispatch()
@@ -18,7 +18,7 @@ export const ExploreFilter = () => {
     })
 
     useEffect(() => {
-        console.log(exploreFilterBy)
+        props.onChangeExploreFilter(exploreFilterBy)
     }, [exploreFilterBy])
 
 
@@ -47,19 +47,21 @@ export const ExploreFilter = () => {
 
     return (
         <div className='secondery-filter'>
-            {/* <div className='mini-filter'>
-                <Slider className='price-slider' range allowCross={false} defaultValue={[0, 1200]} min={0} max={2000} onChange={handlePriceRange} />
+            <div className='slider'>
                 <p>min:{exploreFilterBy.minPrice}</p>
+                <Slider range allowCross={false} defaultValue={[0, 1200]} min={0} max={1200} onChange={handlePriceRange} />
                 <p>max:{exploreFilterBy.maxPrice}</p>
-            </div> */}
-            {/* <div className='mini-filter'>
+            </div>
+            <div className='room-type-filter'>
                 <select name="roomType" onChange={handleChange}>
                     <option value="Entire home/apt">Entire place</option>
                     <option value="Private room">Private room</option>
                     <option value="Hotel room">Hotel Room</option>
                     <option value="Shared room">Shared room</option>
                 </select>
-            </div> */}
+            </div>
+
+
             <div >
                 <div className='amn-container'>
                     <div className="enity-filter">
@@ -72,7 +74,7 @@ export const ExploreFilter = () => {
                         <div className={getClass('Kitchen')} onClick={() => handleButtonChange('Kitchen')}>Kitchen</div>
                     </div>
                     <div className="enity-filter">
-                        <div className={getClass('air conditioning')} onClick={() => handleButtonChange('air conditioning')}>AC</div>
+                        <div className={getClass('Air conditioning')} onClick={() => handleButtonChange('Air conditioning')}>AC</div>
                     </div>
                 </div>
 
