@@ -20,9 +20,10 @@ window.cs = stayService;
 
 async function query(filterBy,exploreFilterBy) {
     let stays = await storageService.query(STORAGE_KEY)
+    if(filterBy){
     if(filterBy.location) stays=stays.filter(stay=>stay.address.country.includes(utilService.capitalizeFirst(filterBy.location))||
     stay.address.city.includes(utilService.capitalizeFirst(filterBy.location)))
-
+}
     if(exploreFilterBy){
         stays=stays.filter(stay=>stay.price<=exploreFilterBy.maxPrice && stay.price>=exploreFilterBy.minPrice)
         if(exploreFilterBy.roomType){

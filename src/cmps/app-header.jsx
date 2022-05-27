@@ -1,11 +1,21 @@
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux'
+import { changeFilter } from "../store/actions/stay.action";
 // import { NavLink } from "../assets/imgs/";
 export const AppHeader = () => {
+    const dispatch = useDispatch()
+
+    
+    const resetFilterBy = ()=>{
+        dispatch(changeFilter({location: '', from: '2022-06-18', to: '2022-06-20'}))
+    }
     return (
         <header>
+
+            
             
             <nav className="main-nav">
-                <div className="logo">
+                <div className="logo" onClick={resetFilterBy}>
                     <NavLink to='/home'>
                         <div className="logo">
                             <a>
@@ -16,7 +26,7 @@ export const AppHeader = () => {
                     </NavLink>
                 </div>
                 <div className="">
-                    <li><NavLink to='/explore'>Explore</NavLink></li>
+                    <li onClick={resetFilterBy}><NavLink to='/explore'>Explore</NavLink></li>
                     <li><NavLink to='/explore'>Become a host</NavLink></li>
                     <li><NavLink to='/Notifications'><span class="material-icons">notifications_active</span></NavLink></li>
                     <li><NavLink to='/Login'>Log-in</NavLink></li>

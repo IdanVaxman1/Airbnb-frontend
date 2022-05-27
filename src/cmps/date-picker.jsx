@@ -15,7 +15,6 @@ export class DateRangeSelector extends Component {
 
   handleDateChange = ({ startDate, endDate }) => {
     this.setState({ startDate, endDate })
-    console.log(this.state.startDate)
   }
     
   handleFocusChange = (focusedInput) => this.setState({ focusedInput })

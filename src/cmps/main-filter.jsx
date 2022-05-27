@@ -6,6 +6,11 @@ export const MainFilter = () => {
 
     const dispatch = useDispatch()
     const [filterBy, setFilterBy] = useState({ location: '', from: '2022-06-18', to: '2022-06-20' })
+    const  loadedFilter  = useSelector((storeState) => storeState.stayModule.filterBy)
+    
+    useEffect(() => {
+        if(filterBy.location !== loadedFilter.location) setFilterBy(loadedFilter)
+    }, [])
 
     const dispatchFilter = () => {
         dispatch(changeFilter(filterBy))
