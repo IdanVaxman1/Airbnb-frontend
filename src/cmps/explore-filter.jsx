@@ -10,8 +10,8 @@ export const ExploreFilter = (props) => {
     const dispatch = useDispatch()
     const [exploreFilterBy, setExploreFilterBy] = useState({
         minPrice: 0,
-        maxPrice: 2000,
-        roomType: "Entire home/apt",
+        maxPrice: 1200,
+        roomType: "",
         amenities: []
     })
 
@@ -51,6 +51,7 @@ export const ExploreFilter = (props) => {
             <p>{exploreFilterBy.minPrice}$ - {exploreFilterBy.maxPrice}$</p>
             <div className='room-type-filter'>
                 <select name="roomType" onChange={handleChange}>
+                    <option value="">show all</option>
                     <option value="Entire home/apt">Entire place</option>
                     <option value="Private room">Private room</option>
                     <option value="Hotel room">Hotel Room</option>
