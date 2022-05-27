@@ -19,7 +19,6 @@ function query(entityType, delay = 50) {
     let entities = JSON.parse(localStorage.getItem(entityType)) || createStays()
     let json = JSON.stringify(entities)
     localStorage.setItem(entityType, json)
-    if(entities) console.log(entities)
     return new Promise((resolve, reject)=>{
         setTimeout(()=>{
             resolve(entities)
