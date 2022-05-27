@@ -3,8 +3,6 @@ import 'rc-slider/assets/index.css'
 import Slider from 'rc-slider'
 import { useEffect, useRef, useState } from "react"
 import { useDispatch } from 'react-redux'
-import { changeFilter } from "../store/actions/stay.action"
-import { NavLink } from "react-router-dom"
 
 export const ExploreFilter = (props) => {
     const timeOutId = useRef()

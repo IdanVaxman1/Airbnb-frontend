@@ -5,6 +5,7 @@ const INITIAL_STATE = {
 export function stayReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
         case 'SET_FILTER':
+            console.log(action.filterBy)
             state.filterBy = action.filterBy
             return { filterBy:state.filterBy }
         default:
