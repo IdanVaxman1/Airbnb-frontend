@@ -59,6 +59,7 @@ export function ReserveStay(props) {
                 <div style={guestModalShown}>
                     <GuestPicker onUpdateGuestsQty={onUpdateGuestsQty} />
                 </div>
+                <hr/>
                 <p>Total : {totalPrice}$</p>
                 <button>reserve</button>
               
