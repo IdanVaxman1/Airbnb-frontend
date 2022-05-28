@@ -14,10 +14,8 @@ export function ReserveStay(props) {
     const [isTrue, setIstrue] = useState(false)
 
     let filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
-    console.log(filterBy)
 
     const log = (val) => {
-        console.log(val)
     }
 
     const onUpdateGuestsQty = (adults, childs) => {
@@ -48,7 +46,7 @@ export function ReserveStay(props) {
                         {(totalGuestsQty < 1) && <div><h4>Add guests</h4></div>}
                         {(totalGuestsQty > 0) && <div><h4>{totalGuestsQty} guest{(totalGuestsQty > 1) && 's'}</h4> </div>}
                     </div>
-                    <div><span onClick={() => onShowGusts(isTrue)} class="material-icons cursor">expand_more</span></div>
+                    <div><span onClick={() => onShowGusts(isTrue)} className="material-icons cursor">expand_more</span></div>
                 </div>
                 <div style={guestModalShown}>
                     <GuestPicker onUpdateGuestsQty={onUpdateGuestsQty} />

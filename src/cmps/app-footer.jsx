@@ -18,7 +18,7 @@ export function AppFooter() {
             </div>
             <div className="right-side">
                 <li>
-                <span class="material-icons">language</span>
+                <span className="material-icons">language</span>
                 </li>
                 <li>English(US)</li>
                   <li>·</li>

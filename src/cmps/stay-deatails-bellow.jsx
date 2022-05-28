@@ -26,7 +26,7 @@ export function StayDeatailsBellow({ stay }) {
                 <h5>{stay.capacity} guest · {stay.bedrooms} bedrooms · {stay.beds} beds · {stay.bathrooms} baths </h5>
             </section>
             <div className="feature-block">
-                <div className="feature-logo"><span class="material-icons">home</span></div>
+                <div className="feature-logo"><span className="material-icons">home</span></div>
                 <section className="paragraph">
                     <div>
                         <h4>Entire home</h4>
@@ -37,7 +37,7 @@ export function StayDeatailsBellow({ stay }) {
                 </section>
             </div>
             <div className="feature-block">
-                <div className="feature-logo"><span class="material-icons ">location_on</span></div>
+                <div className="feature-logo"><span className="material-icons ">location_on</span></div>
                 <section className="paragraph">
                     <div>
                         <h4>Great location</h4>
@@ -48,7 +48,7 @@ export function StayDeatailsBellow({ stay }) {
                 </section>
             </div>
             <div className="feature-block">
-                <div className="feature-logo"><span class="material-icons">auto_awesome</span></div>
+                <div className="feature-logo"><span className="material-icons">auto_awesome</span></div>
                 <section className="paragraph">
                     <div>
                         <h4>Enhanced Clean</h4>
@@ -60,7 +60,7 @@ export function StayDeatailsBellow({ stay }) {
             </div>
 
             <div className="feature-block">
-                <div className="feature-logo"><span class="material-icons">event</span></div>
+                <div className="feature-logo"><span className="material-icons">event</span></div>
                 <section className="paragraph">
                     <div>
                         <h4>Free cancellation up to 24 hours before check-in</h4>

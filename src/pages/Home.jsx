@@ -35,7 +35,6 @@ export const Home = () => {
         const Porto = stays.find(stay => stay.address.city === 'Porto')
         const Barcelona = stays.find(stay => stay.address.city === 'Barcelona')
         const popularStays = [NewYork, Montreal, Porto, Barcelona]
-        console.log('popularStays', popularStays)
         setPopularStays(popularStays)
     }
 

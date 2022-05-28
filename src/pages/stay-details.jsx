@@ -6,18 +6,20 @@ import { ReserveStay } from "../cmps/reserve-stay"
 import { MainFilter } from "../cmps/main-filter";
 import { StaydetailsHeader } from "../cmps/StaydetailsHeader";
 import { StayDeatailsBellow } from "../cmps/stay-deatails-bellow";
+import { ReviewLine } from "../cmps/review-line";
 
 
 
 export const StayDetails = () => {
 
     const [stay, setStay] = useState(null)
+    const [reviews, setReviews] = useState(null)
     const { stayId } = useParams();
 
 
     useEffect(() => {
         getStay()
-
+        
         document.documentElement.style.setProperty('--headerFontColor', '#000');
         document.documentElement.style.setProperty('--headerbackgroundColor', '#F7F7F7');
     }, [])
@@ -26,8 +28,15 @@ export const StayDetails = () => {
 
     const getStay = async () => {
         const stay = await stayService.getById(stayId)
+        const hostId = stay.host._id
+        console.log('hostId',hostId)
+        const reviews = stay.reviews.find(review => review.by.id === hostId )
+        console.log('reviews',reviews)
         setStay(stay)
+        setReviews(reviews)
     }
+
+    
 
 
     { if (!stay) return (<h1>loading</h1>) }
@@ -49,7 +58,7 @@ export const StayDetails = () => {
             </div>
             <section className="main-reviews">
                 <div className="review-line-card">
-                    
+                    <ReviewLine/>
                 </div>
 
             </section>

@@ -7,7 +7,6 @@ export const DetailsGallery = ({stay}) => {
     useEffect(() => {
         
        
-        console.log('stay',stay)
         
     
     }, [])

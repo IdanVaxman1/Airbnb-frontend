@@ -36,7 +36,6 @@ async function query(filterBy,exploreFilterBy) {
     return stays
 }
 function getById(stayId) {
-    console.log('stayId in get by id',stayId)
     return storageService.get(STORAGE_KEY, stayId)
     // return axios.get(`/api/stay/${stayId}`)
 }

@@ -12,7 +12,6 @@ export function StayPreview({ stay }) {
 
     useEffect(() => {
         const imgIdx = 0
-        console.log(imgIdx)
         setImgIdx(imgIdx)
 
 
@@ -40,10 +39,10 @@ export function StayPreview({ stay }) {
                 <div>
                     <img src={stay.imgUrls[imgIdx]}></img>
                     <div onClick={(event) => switchImg(event, 'up')} className="right-arr">
-                        <span class="material-icons">arrow_forward_ios</span>
+                        <span className="material-icons">arrow_forward_ios</span>
                     </div>
                     <div onClick={(event) => switchImg(event, 'down')} className="left-arr">
-                        <span class="material-icons">arrow_back_ios</span>
+                        <span className="material-icons">arrow_back_ios</span>
                     </div>
                 </div>
                 {/* <img src='https://res.cloudinary.com/dhy6ndeij/image/upload/v1653480425/001_urftcv.jpg'></img> */}

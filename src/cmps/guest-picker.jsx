@@ -36,13 +36,13 @@ export const GuestPicker = (props) => {
             <div className="adults-right">
 
                 <div>
-                    <span onClick={()=>onUpdateQty('adult',-1)} class="material-icons">remove</span>
+                    <span onClick={()=>onUpdateQty('adult',-1)} className="material-icons">remove</span>
                 </div>
                 <div>
                     {adultsQty}
                 </div>
                 <div>
-                    <span onClick={()=>onUpdateQty('adult',1)}class="material-icons">add</span>
+                    <span onClick={()=>onUpdateQty('adult',1)}className="material-icons">add</span>
                 </div>
             </div>
         </div>
@@ -51,13 +51,13 @@ export const GuestPicker = (props) => {
             <div className="adults-right">
 
                 <div>
-                    <span onClick={()=>onUpdateQty('child',-1)} class="material-icons">remove</span>
+                    <span onClick={()=>onUpdateQty('child',-1)} className="material-icons">remove</span>
                 </div>
                 <div>
                     {childsQty}
                 </div>
                 <div>
-                    <span onClick={()=>onUpdateQty('child',1)}class="material-icons">add</span>
+                    <span onClick={()=>onUpdateQty('child',1)}className="material-icons">add</span>
                 </div>
             </div>
         </div>
