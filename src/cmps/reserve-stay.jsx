@@ -62,8 +62,6 @@ export function ReserveStay(props) {
                 <hr/>
                 <p>Total : {totalPrice}$</p>
                 <button>reserve</button>
-              
-
             </div>
         </div>
     )
