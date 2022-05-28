@@ -6,17 +6,18 @@ import { GuestPicker } from "./guest-picker"
 
 
 export function ReserveStay(props) {
-    const [startDate, setStartDate] = useState('2022-06-18')
-    const [endDate, setEndtDate] = useState('2022-06-20')
     const [guestsQty, setGuestsQty] = useState(0)
     const [totalGuestsQty, setTotalGuestsQty] = useState(null)
     const [guestModalShown, setGuestModalShown] = useState({ display: 'none' })
     const [isTrue, setIstrue] = useState(false)
+    const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
+    const [from,setFrom] = useState(null)
+    const [to,setTo] = useState(null)
+    const [totalPrice, setTotalPrice] = useState(0)
 
-    let filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
-
-    const log = (val) => {
-    }
+    useEffect(() => {
+        setPrice(filterBy.from,filterBy.to)
+    }, [])
 
     const onUpdateGuestsQty = (adults, childs) => {
         const guestsQty = [{ adults }, { childs }]
@@ -30,6 +31,25 @@ export function ReserveStay(props) {
         setIstrue(!isTrue)
     }
 
+    const setPrice = (from, to) => {
+        if (from && to) {
+            const dayDiff = (to - from) / 1000 / 60 / 60 / 24
+            setTotalPrice(dayDiff * props.stay.price)
+            setFrom(from._d)
+            setTo(to._d)
+        }
+    }
+
+    const reserveStay = () =>{
+        const reservation = {
+            from,
+            to,
+            totalGuestsQty,
+            totalPrice
+        }
+        console.log(reservation)
+    }
+
     return (
         <div className="reserve-stay-container">
             <div className="reserve-stay-header">
@@ -38,7 +58,7 @@ export function ReserveStay(props) {
             </div>
             <div className="picker-container">
                 <div className="range-date-selector">
-                    <DateRangeSelector />
+                <DateRangeSelector place={'reserve'} startDate={filterBy.from} endDate={filterBy.to} setPrice={setPrice} />
                 </div>
                 <div className="guests-pick">
                     <div className="flex-col">
@@ -51,9 +71,9 @@ export function ReserveStay(props) {
                 <div style={guestModalShown}>
                     <GuestPicker onUpdateGuestsQty={onUpdateGuestsQty} />
                 </div>
-                <button>reserve</button>
-              
-
+                <hr/>
+                <p>Total : {totalPrice}$</p>
+                <button onClick={reserveStay}>reserve</button>
             </div>
         </div>
     )
