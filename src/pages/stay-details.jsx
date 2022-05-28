@@ -38,8 +38,8 @@ export const StayDetails = () => {
             </section>
         </section>
         <DetailsGallery />
-        <section>
             <h2>{stay.name}</h2>
+        <section className=" stay-capacity ">
             <h5>{stay.capacity} guest · {stay.bedrooms} bedrooms · {stay.beds} beds · {stay.bathrooms} baths </h5>
         </section>
         <section className="features">
@@ -72,6 +72,12 @@ export const StayDetails = () => {
                     <div><h5>feel free to be flexible.</h5></div>
                 </section>
             </div>
+        </section>
+        <section className="stay-description">
+            <h2>Stay description</h2>
+            <section className="stay-description-text">
+                <h4>{stay.summary}</h4>
+            </section>
         </section>
     </div>
 
