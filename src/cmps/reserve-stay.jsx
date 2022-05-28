@@ -48,11 +48,14 @@ export function ReserveStay(props) {
                         {(totalGuestsQty < 1) && <div><h4>Add guests</h4></div>}
                         {(totalGuestsQty > 0) && <div><h4>{totalGuestsQty} guest{(totalGuestsQty > 1) && 's'}</h4> </div>}
                     </div>
-                        <div><span onClick={() => onShowGusts(isTrue)} class="material-icons cursor">expand_more</span></div>
+                    <div><span onClick={() => onShowGusts(isTrue)} class="material-icons cursor">expand_more</span></div>
                 </div>
                 <div style={guestModalShown}>
                     <GuestPicker onUpdateGuestsQty={onUpdateGuestsQty} />
                 </div>
+                <button>reserve</button>
+              
+
             </div>
         </div>
     )
