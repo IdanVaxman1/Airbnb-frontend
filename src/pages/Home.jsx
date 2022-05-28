@@ -27,8 +27,9 @@ export const Home = () => {
         setStays(stays)
         getPopularStays()
     }
-
+    
     const getPopularStays = async () => {
+        const stays = await stayService.query()
         const NewYork =  stays.find(stay => stay.address.city === 'New York')
         const Montreal = stays.find(stay => stay.address.city === 'Montreal')
         const Porto = stays.find(stay => stay.address.city === 'Porto')
