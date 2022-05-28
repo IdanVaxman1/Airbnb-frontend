@@ -1,6 +1,9 @@
 .reserve-stay-container{
   box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
   border: 1px solid #ddd;
+  top: 100px;
+  position: sticky;
+  background-color: #F7F7F7;
 
     // border: 1px solid $clrGRAY;
     border-radius: 10px;
@@ -9,7 +12,7 @@
     // justify-content: space-between;
     align-items: center;
     flex: 20%;
-    height: 100%;
+    // height: 100%;
     padding: 24px;
 
     .reserve-stay-header{
@@ -24,3 +27,10 @@
   .DateInput_input {
     cursor: pointer;
   }
+
+  .reserve-container{
+    height: 1000px;
+    position: absolute;
+    right: 60px;
+
+}

@@ -13,6 +13,7 @@ import { ReviewLine } from "../cmps/review-line";
 export const StayDetails = () => {
 
     const [stay, setStay] = useState(null)
+    const [navbarStyling, setNavbarStyling] = useState({ display: 'block' })
     const { stayId } = useParams();
 
 
@@ -29,6 +30,23 @@ export const StayDetails = () => {
         setStay(stay)
     }
 
+    const changeCss = () => {
+        const scrollValue = document.documentElement.scrollTop
+        if(scrollValue<200){
+            setNavbarStyling({ display: 'block' })
+        }
+
+        else
+       {
+        setNavbarStyling({ display: 'none' })
+        }
+
+
+      }
+
+      window.addEventListener('scroll', changeCss);
+
+
 
 
 
@@ -36,8 +54,8 @@ export const StayDetails = () => {
 
     return <div className="stock-margin main-stay-details-container">
         <div className="stock-margin-center details-container">
-            <div className="explore-filterr">
-                <MainFilter />
+            <div className="explore-filterr" style={navbarStyling}>
+                {<MainFilter />}
             </div>
             <StaydetailsHeader stay={stay} />
             <DetailsGallery stay={stay} />
@@ -46,6 +64,7 @@ export const StayDetails = () => {
                     <StayDeatailsBellow stay={stay} />
                 </div>
                 <div className="reserve-container">
+                    
                     <ReserveStay stay={stay} />
                 </div>
             </div>

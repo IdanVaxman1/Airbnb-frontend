@@ -19,6 +19,7 @@ export function Explore() {
         getStays()
         document.documentElement.style.setProperty('--headerFontColor', '#000');
         document.documentElement.style.setProperty('--headerbackgroundColor', '#F7F7F7');
+        window.addEventListener('scroll', changeCss);
 
         return () => {
 
@@ -27,6 +28,12 @@ export function Explore() {
         }
 
     }, [filterBy])
+
+    const changeCss = () => {
+        var bodyElement = document.querySelector("body");
+        var navElement = document.querySelector(".explore-filterr");
+        this.scrollY > 5 ? navElement.style.visibility = 'hidden' : navElement.style.visibility = 'visible';
+      }
 
 
 
