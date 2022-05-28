@@ -47,6 +47,12 @@ export const StayDetails = () => {
                 <ReserveStay stay={stay} />
                 </div>
             </div>
+            <section className="main-reviews">
+                <div className="review-line-card">
+                    
+                </div>
+
+            </section>
         </div>
     </div>
 
