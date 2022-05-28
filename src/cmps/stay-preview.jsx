@@ -56,7 +56,7 @@ export function StayPreview({ stay }) {
                     <li><h1>{stay.name} </h1></li>
                 </div>
                 <div className="stay-preiview-details propery-price">
-                    <li><span className="material-icons">attach_money</span><h1>{stay.price} night</h1></li>
+                    <li><h1>${stay.price} night</h1></li>
                 </div>
             </div>
         </Link>
