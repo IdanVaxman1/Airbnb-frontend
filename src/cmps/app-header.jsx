@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { changeFilter } from "../store/actions/stay.action";
 // import { NavLink } from "../assets/imgs/";
 export const AppHeader = () => {
+    
     const dispatch = useDispatch()
 
-    
     const resetFilterBy = ()=>{
         dispatch(changeFilter({location: '', from: null, to: null}))
     }

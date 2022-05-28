@@ -19,7 +19,7 @@ export const Login = () => {
     }
 
     return (
-        <section className="center">
+        <section className="center" style={{marginTop:'30px'}}>
             <h1>Login</h1>
             <p>Welcome back</p>
             <form onSubmit={onLogin}>
