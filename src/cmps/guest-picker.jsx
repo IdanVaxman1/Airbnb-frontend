@@ -5,9 +5,6 @@ export const GuestPicker = (props) => {
     const [adultsQty, setAdultsQty] = useState(0)
     const [childsQty, setChildsQty] = useState(0)
     
-    
-
-
     const onUpdateQty = (type,dif) => {
         if(type === 'adult') {
             const adults = adultsQty+dif
@@ -22,9 +19,6 @@ export const GuestPicker = (props) => {
             props.onUpdateGuestsQty(adultsQty, childs)
 
         }
-
-        
-
     }
 
     

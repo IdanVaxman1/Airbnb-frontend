@@ -6,13 +6,13 @@ import { GuestPicker } from "./guest-picker"
 
 
 export function ReserveStay(props) {
-    const [startDate, setStartDate] = useState('2022-06-18')
-    const [endDate, setEndtDate] = useState('2022-06-20')
     const [guestsQty, setGuestsQty] = useState(0)
     const [totalGuestsQty, setTotalGuestsQty] = useState(null)
     const [guestModalShown, setGuestModalShown] = useState({ display: 'none' })
     const [isTrue, setIstrue] = useState(false)
     const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
+    const [from,setFrom] = useState(null)
+    const [to,setTo] = useState(null)
     const [totalPrice, setTotalPrice] = useState(0)
 
     useEffect(() => {
@@ -35,7 +35,19 @@ export function ReserveStay(props) {
         if (from && to) {
             const dayDiff = (to - from) / 1000 / 60 / 60 / 24
             setTotalPrice(dayDiff * props.stay.price)
+            setFrom(from._d)
+            setTo(to._d)
         }
+    }
+
+    const reserveStay = () =>{
+        const reservation = {
+            from,
+            to,
+            totalGuestsQty,
+            totalPrice
+        }
+        console.log(reservation)
     }
 
     return (
@@ -61,7 +73,7 @@ export function ReserveStay(props) {
                 </div>
                 <hr/>
                 <p>Total : {totalPrice}$</p>
-                <button>reserve</button>
+                <button onClick={reserveStay}>reserve</button>
             </div>
         </div>
     )
