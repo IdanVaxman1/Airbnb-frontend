@@ -58,8 +58,6 @@ export const ExploreFilter = (props) => {
                     <option value="Shared room">Shared room</option>
                 </select>
             </div>
-
-
             <div >
                 <div className='amn-container'>
                     <div className="enity-filter">
