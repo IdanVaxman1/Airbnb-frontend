@@ -13,7 +13,7 @@ import { ReviewLine } from "../cmps/review-line";
 export const StayDetails = () => {
 
     const [stay, setStay] = useState(null)
-    const [navbarStyling, setNavbarStyling] = useState({ display: 'block' })
+    const [navbarStyling, setNavbarStyling] = useState({ visibility: 'visible' })
     const { stayId } = useParams();
 
 
@@ -21,6 +21,7 @@ export const StayDetails = () => {
         getStay()
         document.documentElement.style.setProperty('--headerFontColor', '#000');
         document.documentElement.style.setProperty('--headerbackgroundColor', '#F7F7F7');
+        window.addEventListener('scroll', changeCss, { passive: true });
     }, [])
 
 
@@ -32,19 +33,15 @@ export const StayDetails = () => {
 
     const changeCss = () => {
         const scrollValue = document.documentElement.scrollTop
-        if(scrollValue<200){
-            setNavbarStyling({ display: 'block' })
-        }
-
-        else
-       {
-        setNavbarStyling({ display: 'none' })
-        }
-
-
+            if(scrollValue<120){
+                setNavbarStyling({ visibility: 'visible' })
+            }
+            else
+            {
+                setNavbarStyling({ visibility: 'hidden' })
+            }
       }
-
-      window.addEventListener('scroll', changeCss);
+      
 
 
 
