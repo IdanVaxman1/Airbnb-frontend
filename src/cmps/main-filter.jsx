@@ -36,7 +36,7 @@ export const MainFilter = () => {
                 <input name="location" value={filterBy.location} type="text" placeholder="Anywhere" onChange={handleChange} />
             </div>
             <div className="inpt-fillter">
-                    <DateRangeSelector place={'filter'} handleDate={handleDate}/>
+                    <DateRangeSelector place={'filter'} handleDate={handleDate} startDate={loadedFilter.from} endDate={loadedFilter.to}/>
             </div>
             <NavLink className="navlink" to='/explore'>
                 <div onClick={dispatchFilter}>

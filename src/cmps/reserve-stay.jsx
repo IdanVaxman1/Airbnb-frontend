@@ -12,11 +12,12 @@ export function ReserveStay(props) {
     const [totalGuestsQty, setTotalGuestsQty] = useState(null)
     const [guestModalShown, setGuestModalShown] = useState({ display: 'none' })
     const [isTrue, setIstrue] = useState(false)
+    const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
+    const [totalPrice, setTotalPrice] = useState(0)
 
-    let filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
-
-    const log = (val) => {
-    }
+    useEffect(() => {
+        setPrice(filterBy.from,filterBy.to)
+    }, [])
 
     const onUpdateGuestsQty = (adults, childs) => {
         const guestsQty = [{ adults }, { childs }]
@@ -30,6 +31,13 @@ export function ReserveStay(props) {
         setIstrue(!isTrue)
     }
 
+    const setPrice = (from, to) => {
+        if (from && to) {
+            const dayDiff = (to - from) / 1000 / 60 / 60 / 24
+            setTotalPrice(dayDiff * props.stay.price)
+        }
+    }
+
     return (
         <div className="reserve-stay-container">
             <div className="reserve-stay-header">
@@ -38,7 +46,7 @@ export function ReserveStay(props) {
             </div>
             <div className="picker-container">
                 <div className="range-date-selector">
-                    <DateRangeSelector />
+                <DateRangeSelector place={'reserve'} startDate={filterBy.from} endDate={filterBy.to} setPrice={setPrice} />
                 </div>
                 <div className="guests-pick">
                     <div className="flex-col">
@@ -51,6 +59,7 @@ export function ReserveStay(props) {
                 <div style={guestModalShown}>
                     <GuestPicker onUpdateGuestsQty={onUpdateGuestsQty} />
                 </div>
+                <p>total : {totalPrice}</p>
                 <button>reserve</button>
               
 

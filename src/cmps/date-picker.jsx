@@ -3,7 +3,6 @@ import { DateRangePicker } from "react-dates"
 import moment from "moment";
 import 'react-dates/initialize'
 import 'react-dates/lib/css/_datepicker.css'
-import $ from 'jquery';
 
 
 export class DateRangeSelector extends Component {
@@ -14,14 +13,12 @@ export class DateRangeSelector extends Component {
   }
 
   componentDidMount(){
-    if(this.props.place==='reserve'){
       this.setState({...this.state,endDate:this.props.endDate,startDate:this.props.startDate})
-    }
   }
 
   handleDateChange = ({ startDate, endDate }) => {
     if(this.props.place==='filter') this.setState({ startDate, endDate },()=>this.props.handleDate({startDate, endDate}))
-    else this.setState({ startDate, endDate })
+    else this.setState({ startDate, endDate },()=>this.props.setPrice(startDate,endDate))
   }
 
   handleFocusChange = (focusedInput) => this.setState({ focusedInput })
