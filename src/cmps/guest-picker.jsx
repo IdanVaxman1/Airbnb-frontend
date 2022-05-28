@@ -11,11 +11,13 @@ export const GuestPicker = (props) => {
     const onUpdateQty = (type,dif) => {
         if(type === 'adult') {
             const adults = adultsQty+dif
+            if(adults<0) adults = 0
             setAdultsQty(adults)
             props.onUpdateGuestsQty(adults, childsQty)
         }
         else{
             const childs = childsQty+dif
+            if(childs<0) childs = 0
             setChildsQty(childs)
             props.onUpdateGuestsQty(adultsQty, childs)
 

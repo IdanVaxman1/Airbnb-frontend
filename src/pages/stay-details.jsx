@@ -32,8 +32,8 @@ export const StayDetails = () => {
 
     { if (!stay) return (<h1>loading</h1>) }
 
-    return <div className="main-stay-details-container">
-        <div className="details-container">
+    return <div className="stock-margin main-stay-details-container">
+        <div className="stock-margin-center details-container">
             <div className="explore-filterr">
                 <MainFilter />
             </div>

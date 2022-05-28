@@ -1,22 +1,28 @@
 .footer{
+    bottom: 0;
     height: 2.9375rem;
     display: flex;
     justify-content: space-between;
     padding: 5px;
     border-top: 2px var(--verylightgray) solid;
+    width: 100%;
+    background-color: $headerbackgroundColor;
 
     h1{
         font-size: 1rem;
+        align-self: center;
     }
 
     li{
+        align-self: center;
         list-style-type: none;
         list-style: none;
         span{
+            align-self: center;
             font-size: 1rem;
         }
         margin: 5px;
-
+        
     }
 }
 

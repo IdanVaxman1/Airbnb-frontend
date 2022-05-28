@@ -2,14 +2,17 @@ import { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { changeFilter } from "../store/actions/stay.action"
 import { NavLink } from "react-router-dom"
+import { DateRangeSelector } from "./date-picker"
 export const MainFilter = () => {
 
     const dispatch = useDispatch()
-    const [filterBy, setFilterBy] = useState({ location: '', from: '2022-06-18', to: '2022-06-20' })
+    const [filterBy, setFilterBy] = useState({ location: '', from: null, to: null })
     const  loadedFilter  = useSelector((storeState) => storeState.stayModule.filterBy)
     
     useEffect(() => {
-        if(filterBy.location !== loadedFilter.location) setFilterBy(loadedFilter)
+        if(filterBy.location !== loadedFilter.location || 
+            filterBy.from !== loadedFilter.from ||
+            filterBy.to !== loadedFilter.to) setFilterBy(loadedFilter)
     }, [])
 
     const dispatchFilter = () => {
@@ -22,22 +25,18 @@ export const MainFilter = () => {
         setFilterBy({ ...filterBy, [field]: value })
     }
 
+    const handleDate = (dates)=>{
+        if (dates.startDate) setFilterBy({...filterBy,from:dates.startDate})
+        if(dates.endDate)   setFilterBy({...filterBy,to:dates.endDate})      
+    }
+
     return (
         <div className="total-filter">
-
             <div className="inpt-fillter">
                 <input name="location" value={filterBy.location} type="text" placeholder="Anywhere" onChange={handleChange} />
             </div>
             <div className="inpt-fillter">
-
-                <input type="date" id="start" name="from" onChange={handleChange}
-                    value={filterBy.from}
-                    min="2022-01-01" max="2022-12-31"></input>
-            </div>
-            <div className="inpt-fillter">
-                <input type="date" id="to" name="to" onChange={handleChange}
-                    value={filterBy.to}
-                    min="2022-01-01" max="2022-12-31"></input>
+                    <DateRangeSelector place={'filter'} handleDate={handleDate}/>
             </div>
             <NavLink className="navlink" to='/explore'>
                 <div onClick={dispatchFilter}>

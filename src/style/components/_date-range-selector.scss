@@ -45,12 +45,24 @@ border: unset;
     
     display: flex;
     justify-content: space-between;
+    div{
+        gap: 1rem;
+
+        h4 ,h3{
+            font-size: 1rem;
+        }
+    } 
+    .cursor{
+        font-size: 40px;
+    }
+        
     
     // height: 2rem;
     font-size: 19px;
     padding-left: 20px;
     padding-right: 20px;
-    border-top: 1px gray solid;
+    padding: 20px;
+    border-top: 1px solid #b0b0b0;
 
     
 }
@@ -65,7 +77,8 @@ border: unset;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    border: 1px grey solid;
+    // border: 1px grey solid;
+    border: 1px solid #b0b0b0;
     box-sizing: border-box;
 }
 
