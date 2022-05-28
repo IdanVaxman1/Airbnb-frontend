@@ -5,12 +5,23 @@ import {Home} from './pages/home.jsx'
 import {Explore} from './pages/explore'
 import { Login } from './pages/login'
 import {StayDetails} from './pages/stay-details'
+import {Helmet} from "react-helmet";
+
 
 
 function App() {
   return (
     <Router>
             <div className="app">
+
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>StayBnb</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+                <meta name="description" content="Vacation apartments rental" />
+
+            </Helmet>
+
               <AppHeader/>
                 <main>
                     <Routes>
@@ -18,6 +29,8 @@ function App() {
                         <Route path='/home' element={<Home />} />
                         <Route path='/explore' element={<Explore />} />
                         <Route path='/login' element={<Login />} />
+                        <Route path='/' element={<Home />} />
+                        
                     </Routes>
                 </main>
               <AppFooter/>

@@ -19,44 +19,50 @@ export function Explore() {
         getStays()
         document.documentElement.style.setProperty('--headerFontColor', '#000');
         document.documentElement.style.setProperty('--headerbackgroundColor', '#F7F7F7');
-        
-        return() =>{
-            
+
+        return () => {
+
             document.documentElement.style.setProperty('--headerbackgroundColor', 'unset');
             document.documentElement.style.setProperty('--headerFontColor', '#fff');
         }
-        
+
     }, [filterBy])
-    
-    
+
+
 
     const getStays = async () => {
-      
         const stays = await stayService.query(filterBy)
         setStays(stays)
     }
 
-    
-
-
-        
+    const onChangeExploreFilter = async (exploreFilterBy) => {
+        const stays = await stayService.query(filterBy, exploreFilterBy)
+        setStays(stays)
+    }
 
     { if (!stays) return (<h1>loading</h1>) }
     return (
-        <div>
+        <div className="explore-main">
 
-            <div className="explore-filterr">
-                <MainFilter />
-            </div>
-                <ExploreFilter/>
-            <section className="explore-main">
+            <div className="in-margin-container">
 
-                <div className="card-container" >
-                    {stays.map(stay =>
-                        <StayPreview stay={stay} key={stay._id} />
-                    )}
+
+                <div className="explore-filterr">
+                    <MainFilter />
                 </div>
-            </section>
+                <div>
+
+                    <ExploreFilter onChangeExploreFilter={onChangeExploreFilter} />
+                </div>
+                <section >
+
+                    <div className="card-container" >
+                        {stays.map(stay =>
+                            <StayPreview stay={stay} key={stay._id} />
+                        )}
+                    </div>
+                </section>
+            </div>
         </div>
     )
 }

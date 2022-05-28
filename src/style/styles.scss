@@ -6,17 +6,26 @@
 
 @import 'setup/mixins';
 @import 'setup/functions';
-@import '/src/style/pages/Details';
-@import '/src/style/components/stay-priview';
 
 // BASICS
 @import 'basics/helpers';
 @import 'basics/base';
 
 //CMPS
-@import '/src/style/pages/home';
-@import '/src/style/pages/Explore';
+@import '/src/style/components/stay-priview';
+@import '/src/style/components/reserve-stay';
 @import '/src/style/components/stay-priview';
 @import './components/header';
 @import './components/footer';
 @import './components/main-filter';
+@import './components/secondery_filter';
+@import '/src/style/components/details-gallery';
+@import '/src/style/components/stay-details-bellow';
+@import '/src/style/components/date-range-selector';
+@import '/src/style/components/guest-picker';
+
+
+//pages
+@import '/src/style/pages/home';
+@import '/src/style/pages/Explore';
+@import '/src/style/pages/stay-details';

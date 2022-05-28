@@ -1,0 +1,26 @@
+.reserve-stay-container{
+  box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
+  border: 1px solid #ddd;
+
+    // border: 1px solid $clrGRAY;
+    border-radius: 10px;
+    display:flex;
+    flex-direction: column; 
+    // justify-content: space-between;
+    align-items: center;
+    flex: 20%;
+    height: 100%;
+    padding: 24px;
+
+    .reserve-stay-header{
+      width: 100%;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+    }
+}
+
+  
+  .DateInput_input {
+    cursor: pointer;
+  }

@@ -1,9 +1,35 @@
-.main-page-head{
-    background-image: url('https://kumba-app1.herokuapp.com/img/wp2.bacf91a9.jpg');
-    background-size: cover;
-    background-position: 50%;
-    height: 80vh;
-    margin-top: 0;
-    width: 100%;
-    z-index: -10;
+.home-page-container{
+
+    .main-page-head{
+        background-image: url('https://kumba-app1.herokuapp.com/img/wp2.bacf91a9.jpg');
+        background-size: cover;
+        background-position: 50%;
+        height: 80vh;
+        margin-top: 0;
+        width: 100%;
+        z-index: -10;
+        margin-bottom: -50%;
+    
+    }
+    
+    .home-filterr{
+        top: 62px;
+    }
 }
+
+.home-page-card-container{
+    margin-top: 60%;
+    display: flex;
+    flex-direction: column;
+    .home-page-card-line{
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
+        img{
+            aspect-ratio: 1/1;
+            border-radius: 12px;
+        }
+    }
+    
+}
+
