@@ -52,7 +52,7 @@ export function Explore() {
             <div className="in-margin-container">
 
 
-                <div className="explore-filterr">
+                <div className="explore-filterr filterr">
                     <MainFilter />
                 </div>
                 <div>

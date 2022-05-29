@@ -19,8 +19,6 @@ export function StayDeatailsBellow({ stay }) {
                     <h1>{stay.roomType} hosted by {stay.host.fullname} </h1>
                 </div>
                 <img src={stay.host.thumbnailUrl} />
-
-
             </section>
             <section>
                 <h5>{stay.capacity} guest · {stay.bedrooms} bedrooms · {stay.beds} beds · {stay.bathrooms} baths </h5>
