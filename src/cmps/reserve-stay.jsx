@@ -81,7 +81,7 @@ export function ReserveStay(props) {
                     <GuestPicker onUpdateGuestsQty={onUpdateGuestsQty} />
                 </div>
             </div>
-            <button onClick={reserveStay}>reserve</button>
+            <button onClick={reserveStay} className='reserve-button'>reserve</button>
             <section className="price-section">
                 {totalGuestsQty && from && to && <div>
                 <h4>You won't be charged yet</h4>
