@@ -43,7 +43,7 @@ export const StayDetails = () => {
 
     { if (!stay) return (<h1>loading</h1>) }
 
-    return <div className="stock-margin main-stay-details-container">
+    return <div className="stock-margin-narrow main-stay-details-container">
         <div className="stock-margin-center details-container">
             {/* <div className="explore-filterr" style={navbarStyling}>
                 {<MainFilter />}
