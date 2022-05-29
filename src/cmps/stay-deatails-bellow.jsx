@@ -53,8 +53,6 @@ export function StayDeatailsBellow({ stay }) {
                     <div><h4>Free cancellation for 48 hours.</h4></div></section>
             </div>
 
-            <div className="_npr0qi"></div>
-
             <div className="stay-cover">
                 <h1><span className="stay-cover-logo">stay</span>cover</h1>
                 <div className="stay-cover-text">
@@ -67,6 +65,50 @@ export function StayDeatailsBellow({ stay }) {
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non unde totam nostrum error corporis quis velit dicta sapiente vitae ut, delectus repudiandae iste sit excepturi quidem nulla odit earum facere a aperiam voluptates blanditiis,<br /> pariatur in voluptatibus! Repellat placeat quam voluptate possimus qui, error earum! Aut asperiores fugiat illum rem omnis <br />qui nam aliquid, veniam saepe quaerat accusamus porro vero, tenetur quia repellat? Nihil blanditiis nulla architecto vero quaerat unde accusamus vitae. Voluptatibus laborum odio odit omnis repellendus? Dolore,<br /> commodi! Veritatis, provident. Quasi officia tempore, temporibus, magnam recusandae optio ullam accusantium provident placeat ea laboriosam aliquam inventore non minus culpa.
                 <p className="stay-cover-more">Show more</p>
             </div>
+
+
+            <div className="stay-amenities">
+                <h2>What this place offers</h2>
+                <ul>
+                    <li>
+                        <div className="amenity-container">
+                            <span class="material-icons"> live_tv </span>
+                            <h5>TV</h5>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="amenity-container">
+                            <span class="material-icons">  restaurant  </span>
+                            <h5>Kitchen</h5>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="amenity-container">
+                            <span class="material-icons">  pets  </span>
+                            <h5>Pets Allowed</h5>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="amenity-container">
+                            <span class="material-icons">  wifi  </span>
+                            <h5>Wifi</h5>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="amenity-container">
+                            <span class="material-icons">   ac_unit   </span>
+                            <h5>Air conditioning</h5>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="amenity-container">
+                            <span class="material-icons">    smoking_rooms    </span>
+                            <h5>Smoking Allowed</h5>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
         </section>
 
     )
