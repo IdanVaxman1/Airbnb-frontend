@@ -18,6 +18,7 @@ export const AppHeader = () => {
         window.addEventListener('scroll', changeCss, { passive: true });
     }, [])
 
+    
     const changeCss = () => {
         const scrollValue = document.documentElement.scrollTop
         if (scrollValue < 100 || scrollValue === 0) {
