@@ -69,9 +69,6 @@ export const AppHeader = () => {
                         </div>
                     </div>
                 </div>
-
-
-
                 <div className="">
                     <li onClick={resetFilterBy}><NavLink to='/explore'>Explore</NavLink></li>
                     <li><NavLink to='/explore'>Become a host</NavLink></li>

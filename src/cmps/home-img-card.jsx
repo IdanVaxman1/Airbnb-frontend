@@ -10,7 +10,6 @@ export const HomeImgCard = ({ popularStay }) => {
     const dispatchFilter = () => {
         dispatch(changeFilter({location: popularStay.address.city, from:null,to:null}))
     }
-
     return <div className="home-page-card">
         <NavLink to='/explore' onClick={dispatchFilter}>
         <img className="img-cover" src={popularStay.imgUrls[0]}></img>

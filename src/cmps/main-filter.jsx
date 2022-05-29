@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { changeFilter } from "../store/actions/stay.action"
 import { NavLink } from "react-router-dom"
 import { DateRangeSelector } from "./date-picker"
+
 export const MainFilter = () => {
 
     const dispatch = useDispatch()
@@ -13,7 +14,8 @@ export const MainFilter = () => {
         if(filterBy.location !== loadedFilter.location || 
             filterBy.from !== loadedFilter.from ||
             filterBy.to !== loadedFilter.to) setFilterBy(loadedFilter)
-    }, [])
+            console.log('enter')
+    }, [loadedFilter])
 
     const dispatchFilter = () => {
         dispatch(changeFilter(filterBy))
