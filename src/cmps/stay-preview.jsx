@@ -38,10 +38,10 @@ export function StayPreview({ stay }) {
                         <span className="material-icons" style={{}}>favorite</span>
                     </div>
                     <img src={stay.imgUrls[imgIdx]}></img>
-                    <div onClick={(event) => switchImg(event, 'up')} className="right-arr">
+                    <div onClick={(event) => switchImg(event, 'up')} className="arr right-arr">
                         <span className="material-icons">arrow_forward_ios</span>
                     </div>
-                    <div onClick={(event) => switchImg(event, 'down')} className="left-arr">
+                    <div onClick={(event) => switchImg(event, 'down')} className="arr left-arr">
                         <span className="material-icons">arrow_back_ios</span>
                     </div>
                 </div>

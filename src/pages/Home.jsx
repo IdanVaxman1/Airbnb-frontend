@@ -46,7 +46,7 @@ export const Home = () => {
             <section className="main-page-head">
 
             </section>
-            <div className="home-filterr">
+            <div className="home-filterr filterr">
                 <MainFilter />
             </div>
             <section className="stock-margin">
