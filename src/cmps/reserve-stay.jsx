@@ -15,6 +15,7 @@ export function ReserveStay(props) {
     const [to, setTo] = useState(null)
     const [totalPrice, setTotalPrice] = useState(0)
     const [showGuestsStyle, setShowGuestsStyle] = useState('expand_more')
+    const [position,setPosition] = useState({x:0,y:0})
 
 
 
@@ -59,6 +60,10 @@ export function ReserveStay(props) {
         console.log(reservation)
     }
 
+    const onMouseMove=(e)=> {
+        setPosition({ x: e.screenX, y: e.screenY });
+      }
+
     return (
         <div className="reserve-stay-container">
             <div className="reserve-stay-header">
@@ -81,7 +86,9 @@ export function ReserveStay(props) {
                     <GuestPicker onUpdateGuestsQty={onUpdateGuestsQty} />
                 </div>
             </div>
-            <button onClick={reserveStay} className='reserve-button'>reserve</button>
+            <button onClick={reserveStay} className='reserve-button'
+             style={{"--mouse-x": position.x, "--mouse-y":position.y}} 
+             onMouseMove={onMouseMove.bind(this)}>reserve</button>
             <section className="price-section">
                 {totalGuestsQty && from && to && <div>
                 <h4>You won't be charged yet</h4>
