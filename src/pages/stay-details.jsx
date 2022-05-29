@@ -33,19 +33,13 @@ export const StayDetails = () => {
 
     const changeCss = () => {
         const scrollValue = document.documentElement.scrollTop
-            if(scrollValue<120){
-                setNavbarStyling({ visibility: 'visible' })
-            }
-            else
-            {
-                setNavbarStyling({ visibility: 'hidden' })
-            }
-      }
-      
-
-
-
-
+        if (scrollValue < 120) {
+            setNavbarStyling({ visibility: 'visible' })
+        }
+        else {
+            setNavbarStyling({ visibility: 'hidden' })
+        }
+    }
 
     { if (!stay) return (<h1>loading</h1>) }
 
@@ -61,14 +55,14 @@ export const StayDetails = () => {
                     <StayDeatailsBellow stay={stay} />
                 </div>
                 <div className="reserve-container">
-                    
+
                     <ReserveStay stay={stay} />
                 </div>
             </div>
             <section className="main-reviews">
-                    {stay.reviews.map(review =>
-                        <ReviewLine review={review} key={review.txt} />
-                    )}
+                {stay.reviews.map(review =>
+                    <ReviewLine review={review} key={review.txt} />
+                )}
             </section>
         </div>
     </div>
