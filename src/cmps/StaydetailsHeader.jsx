@@ -1,47 +1,61 @@
 import { useEffect, useRef, useState } from "react"
-import {React} from "react";
+import { React } from "react";
 
 
 
 
 
-export function StaydetailsHeader({stay}) {
+export function StaydetailsHeader({ stay }) {
     // useEffect(() => {
     //     console.log(props.stay)
     // }, [])
-    
-    
-    
+
+
+
     return (<section className="details-header">
-    <div className="decription-stay-priview">
-        <h2>{stay.name}</h2>
-    </div>
-    <section className="secondery-header-stay-details">
-        <div className="left-size">
-
-            <li>
-                <h4><span className="material-icons">star</span>{stay.reviewScores.value / 2}</h4>
-            </li>
-            <h1>·</h1>
-            <li>
-                <h4>({stay.reviews.length} reviews)</h4>
-            </li>
-            <h1>·</h1>
-            <li>
-                <h4>{stay.address.street}</h4>
-            </li>
+        <div className="decription-stay-priview">
+            <h2>{stay.name}</h2>
         </div>
-        <div className="right-size">
+        <section className="secondery-header-stay-details">
+            <div className="left-size">
+                <li>
+                    <h4><span className="material-icons">star</span></h4>
+                </li>
+                <li>
+                    <h4>{stay.reviewScores.value / 2}</h4>
+                </li>
+                <li>
+                    <h4>·</h4>
+                </li>
+                <li>
+                    <h4>{stay.reviews.length} reviews</h4>
+                </li>
+                <li>
+                    <h1>·</h1>
+                </li>
+                <li>
+                    <h4>{stay.address.street}</h4>
+                </li>
+            </div>
+            <div className="right-size">
+                <li>
+                    <h4><span className="material-icons">ios_share</span></h4>
+                </li>
+                <li>
+                    <h4>Share</h4>
+                </li>
+                <li>
+                    <h4><span className="material-icons">favorite</span></h4>
+                </li>
+                <li>
+                    <h4>Save</h4>
+                </li>
 
-            <section className="flex">
-                <h4><span className="material-icons">ios_share</span>Share</h4>
-                <h4><span className="material-icons">favorite</span>Save</h4>
-            </section>
-        </div>
+            </div>
 
 
+        </section>
     </section>
-</section>
-        
+
     )
 }
