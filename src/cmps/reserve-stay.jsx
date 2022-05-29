@@ -67,6 +67,8 @@ export function ReserveStay(props) {
         console.log(reservation)
     }
 
+    
+
     return (
         <div className="reserve-stay-container">
             <div className="reserve-stay-header">
