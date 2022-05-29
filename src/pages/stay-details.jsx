@@ -21,7 +21,7 @@ export const StayDetails = () => {
         getStay()
         document.documentElement.style.setProperty('--headerFontColor', '#000');
         document.documentElement.style.setProperty('--headerbackgroundColor', '#F7F7F7');
-        window.addEventListener('scroll', changeCss, { passive: true });
+        // window.addEventListener('scroll', changeCss, { passive: true });
     }, [])
 
 
@@ -31,23 +31,23 @@ export const StayDetails = () => {
         setStay(stay)
     }
 
-    const changeCss = () => {
-        const scrollValue = document.documentElement.scrollTop
-        if (scrollValue < 120) {
-            setNavbarStyling({ visibility: 'visible' })
-        }
-        else {
-            setNavbarStyling({ visibility: 'hidden' })
-        }
-    }
+    // const changeCss = () => {
+    //     const scrollValue = document.documentElement.scrollTop
+    //     if (scrollValue < 120) {
+    //         setNavbarStyling({ visibility: 'visible' })
+    //     }
+    //     else {
+    //         setNavbarStyling({ visibility: 'hidden' })
+    //     }
+    // }
 
     { if (!stay) return (<h1>loading</h1>) }
 
     return <div className="stock-margin main-stay-details-container">
         <div className="stock-margin-center details-container">
-            <div className="explore-filterr" style={navbarStyling}>
+            {/* <div className="explore-filterr" style={navbarStyling}>
                 {<MainFilter />}
-            </div>
+            </div> */}
             <StaydetailsHeader stay={stay} />
             <DetailsGallery stay={stay} />
             <div className="stay-bellow-container">

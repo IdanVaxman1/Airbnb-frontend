@@ -14,6 +14,24 @@ export const AppHeader = () => {
     const [smallFilterStyle, setsmallFilterStyle] = useState({ display: 'block' })
     const [menuModalShow, setMenuModalShow] = useState({ display: 'none' })
 
+    useEffect(() => {
+        window.addEventListener('scroll', changeCss, { passive: true });
+    }, [])
+
+    
+    const changeCss = () => {
+        const scrollValue = document.documentElement.scrollTop
+        if (scrollValue < 100 || scrollValue === 0) {
+            setBigFilterStyle({ visibility: 'visible' })
+            setsmallFilterStyle({ visibility: 'hidden' })
+        }
+        else {
+            setBigFilterStyle({ visibility: 'hidden' })
+            setsmallFilterStyle({ visibility: 'visible' })
+        }
+    }
+
+
     const onPresentFilter = () => {
 
         setsmallFilterStyle({ display: 'none' })
@@ -26,13 +44,13 @@ export const AppHeader = () => {
         dispatch(changeFilter({ location: '', from: null, to: null }))
     }
 
-    const toggleModal=()=>{
-        setMenuModalShow((menuModalShow==='none')? 'block' : 'none')
+    const toggleModal = () => {
+        setMenuModalShow((menuModalShow === 'none') ? 'block' : 'none')
     }
 
 
     return (
-        <header className="stock-margin">
+        <header className="stock-margin main-header">
             <nav className="stock-margin-center main-nav">
                 <div className="logo" onClick={resetFilterBy}>
                     <NavLink to='/home'>
@@ -44,11 +62,6 @@ export const AppHeader = () => {
                         </div>
                     </NavLink>
                 </div>
-                <div className="explore-filterr filterr big">
-                    <div style={bigFilterStyle}>
-                        <MainFilter />
-                    </div>
-                </div>
                 <div onClick={() => onPresentFilter()} >
                     <div className="explore-filterr filterr small">
                         <div style={smallFilterStyle} >
@@ -56,6 +69,9 @@ export const AppHeader = () => {
                         </div>
                     </div>
                 </div>
+
+
+
                 <div className="">
                     <li onClick={resetFilterBy}><NavLink to='/explore'>Explore</NavLink></li>
                     <li><NavLink to='/explore'>Become a host</NavLink></li>
@@ -65,11 +81,22 @@ export const AppHeader = () => {
                             <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />
                         </div>
                     </li>
+
                 </div>
             </nav>
-            {/* <div style={{display:menuModalShow}}>
-                    <UserMenuModal/>
-                </div> */}
+            <div className="explore-filterr filterr big">
+                <div style={bigFilterStyle}>
+                    <MainFilter />
+                </div>
+            </div>
+
+
+
+
+
+            {/* <div style={{ display: menuModalShow }}>
+                <UserMenuModal />
+            </div> */}
         </header >
     )
 }
