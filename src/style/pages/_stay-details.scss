@@ -1,56 +1,44 @@
 .main-stay-details-container{
+<<<<<<< HEAD
     // display: grid;
     // grid-template-columns: 80px 1fr 80px;
     // display: inline-block;
+    width:100%;
+=======
     width:100%
+>>>>>>> f74c11d2dd5eb9b66f5f5ea222838c7603a34867
 }
 
 .details-container{  
-    // grid-column: 2;
+    // 
 
+    .secondery-header-stay-details, .reserve-stay-header{
+        span{
+                font-size: 0.875rem;
+            }
+
+    }
     font-family: Airbnb-font-normal, sans-serif;  
-
-
     li{
         list-style-type: none;
-        // margin-right: 15px;
-
-        h4 span{
+        h4{
             font-size: 0.875rem;
         }
     }
-    // span{
-    //     font-size: 0.875rem;
-
-    // }
-    h4{
-        // margin-left: 10px;
-    }
-    // h1{
-    //     margin-left: 15px;
-    //     margin-right: 15px;
-    // }
-
-    
 }
 
 .details-header{
     justify-content: space-between;
     margin-top: 150px;
     gap: 10px;
-
 }
 
 .features-container {
-    // border-top: 1px solid rgb(220, 217, 217);
-    // margin-top: 25px;
-    // margin-left: 50px;
     flex: 80%;
 }
 
 .feature-logo {
     line-height: 3;
-
 }
 
 .feature-block {
@@ -87,11 +75,11 @@
     grid-template-columns: 3fr 1fr;
     gap: 15px;
     margin-top: 1rem;
-    // display: flex;
     justify-content: space-between;
 }
 
 .main-reviews{
+    margin-top: 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 1rem;
@@ -124,6 +112,12 @@
 
 .stay-amenities {
     margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.amenities-list {
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .amenity-container {
