@@ -1,14 +1,33 @@
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
 import { changeFilter } from "../store/actions/stay.action";
+import { MainFilter } from "./main-filter";
+import { SmallFilter } from "./small-filter";
+import { useEffect, useRef, useState } from "react"
+
 // import { NavLink } from "../assets/imgs/";
 export const AppHeader = () => {
-    
+
+    const [isSmallFilterShown, setIsSmallFilterShown] = useState(true)
+    const [bigFilterStyle, setBigFilterStyle] = useState({ display: 'none' })
+    const [smallFilterStyle, setsmallFilterStyle] = useState({ display: 'block' })
+
+    const onPresentFilter = () => {
+
+        setsmallFilterStyle({ display: 'none' })
+        setBigFilterStyle({ display: 'block' })
+    }
+
+
+
+
     const dispatch = useDispatch()
 
-    const resetFilterBy = ()=>{
-        dispatch(changeFilter({location: '', from: null, to: null}))
+    const resetFilterBy = () => {
+        dispatch(changeFilter({ location: '', from: null, to: null }))
     }
+
+
     return (
         <header className="stock-margin">
             <nav className="stock-margin-center main-nav">
@@ -22,17 +41,25 @@ export const AppHeader = () => {
                         </div>
                     </NavLink>
                 </div>
-                <div className="">
-                    <li onClick={resetFilterBy}><NavLink to='/explore'>Explore</NavLink></li>
-                    <li><NavLink to='/explore'>Become a host</NavLink></li>
-                    {/* <li><NavLink to='/Login'>Log-in</NavLink></li> */}
-                    <div className="user-menu center-h">
-                    <p style={{fontWeight:'800', fontSize:'2em'}}>≡</p>
-                    <img src='./src/assets/imgs/user-icon.png'/>
-
+                <div className="explore-filterr filterr big">
+                    <div style={bigFilterStyle}>
+                        <MainFilter />
                     </div>
                 </div>
-            </nav>
-        </header>
+                <div onClick={() => onPresentFilter()} >
+                    <div className="explore-filterr filterr small">
+                        <div style={smallFilterStyle} >
+                            <SmallFilter />
+                        </div>
+                    </div>
+                </div>
+            <div className="">
+                <li onClick={resetFilterBy}><NavLink to='/explore'>Explore</NavLink></li>
+                <li><NavLink to='/explore'>Become a host</NavLink></li>
+                <li><NavLink to='/Notifications'><span className="material-icons">notifications_active</span></NavLink></li>
+                <li><NavLink to='/Login'>Log-in</NavLink></li>
+            </div>
+        </nav>
+        </header >
     )
 }
