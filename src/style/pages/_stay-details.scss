@@ -19,10 +19,10 @@
             font-size: 0.875rem;
         }
     }
-    span{
-        font-size: 0.875rem;
+    // span{
+    //     font-size: 0.875rem;
 
-    }
+    // }
     h4{
         // margin-left: 10px;
     }
@@ -99,7 +99,7 @@
 
 .stay-cover {
     margin-top: 25px ;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .stay-cover-text {
@@ -107,10 +107,19 @@
 }
 
 .stay-cover-logo {
-    font-size: 250%;
+    font-size: 30px;
     color:red ;
 }
 
 .stay-description {
     margin-top: 50px;
+}
+
+.stay-cover-more {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+._npr0qi {
+    border-top-color: rgb(221, 221, 221);
 }
