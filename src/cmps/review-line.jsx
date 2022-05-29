@@ -2,23 +2,8 @@ import { useEffect, useState } from "react"
 
 
 export const ReviewLine = ({ review }) => {
-
-
-
-
-
     useEffect(() => {
-
-
-
-
-
-
     }, [])
-
-
-
-
 
     return <section>
         <div className="review-line-card">

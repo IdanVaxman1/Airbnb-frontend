@@ -32,10 +32,8 @@ export function Explore() {
     const changeCss = () => {
         var bodyElement = document.querySelector("body");
         var navElement = document.querySelector(".explore-filterr");
-        this.scrollY > 5 ? navElement.style.visibility = 'hidden' : navElement.style.visibility = 'visible';
+        // this.scrollY > 5 ? navElement.style.visibility = 'hidden' : navElement.style.visibility = 'visible';
       }
-
-
 
     const getStays = async () => {
         const stays = await stayService.query(filterBy)

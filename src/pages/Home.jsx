@@ -38,8 +38,7 @@ export const Home = () => {
         setPopularStays(popularStays)
     }
 
-    { if (!stays || !popularStays) return (<h1>loading</h1>) }
-
+    { if (!stays || !popularStays) return (<h1></h1>) }
 
     return (
         <article className="home-page-container" >
@@ -70,9 +69,6 @@ export const Home = () => {
                 </div>
             </section>
         </article>
-
-
-
     )
 }
 
