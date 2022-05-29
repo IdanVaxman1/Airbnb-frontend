@@ -35,7 +35,7 @@ export function StayPreview({ stay }) {
             <div className="stay-card">
                 <div>
                     <div className={`heart ${heartClass}`} onClick={changeHeartColor}>
-                        <span className="material-icons" style={{}}>favorite</span>
+                        <span className="material-icons">favorite</span>
                     </div>
                     <img src={stay.imgUrls[imgIdx]}></img>
                     <div onClick={(event) => switchImg(event, 'up')} className="arr right-arr">
