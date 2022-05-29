@@ -1,6 +1,8 @@
 import React from 'react'
 import { Formik, Field, Form } from 'formik'
 import { Button, TextField } from '@material-ui/core'
+import { createTheme } from "@material-ui/core/styles"
+import { MuiThemeProvider } from "@material-ui/core/styles"
 
 
 export class Signup extends React.Component {
@@ -11,6 +13,27 @@ export class Signup extends React.Component {
     fullName: '',
     email: '',
   }
+
+  theme = createTheme({
+    overrides: {
+      MuiOutlinedInput: {
+        root: {
+          // Hover state
+          "&:hover $notchedOutline": {
+            borderColor: '222222'
+          },
+          // Focused state
+          "&$focused $notchedOutline": {
+            borderColor: '#FE385C'
+          }
+        },
+        // Default State
+        notchedOutline: {
+          borderColor: 'B0B0B0'
+        }
+      }
+    }
+  });
 
   onSubmitUser = (user) => {
     console.log(user)
@@ -43,7 +66,8 @@ export class Signup extends React.Component {
                 {<span className="error">{errors.password}</span>}
                 <Field name="fullName" type="text" as={TextField} variant="outlined" label="Full name" fullWidth />
                 {<span className="error">{errors.fullName}</span>}
-                <Field name="email" type="email" as={TextField} variant="outlined" label="Email" fullWidth />
+                <MuiThemeProvider theme={this.theme}>
+                <Field name="email" type="email" as={TextField} variant="outlined" label="Email" fullWidth /></MuiThemeProvider>
                 {<span className="error">{errors.email}</span>}
                 <Button type="submit" variant="contained" color="primary" size="large">
                   Sign Up
