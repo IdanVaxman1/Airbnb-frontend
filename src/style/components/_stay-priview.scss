@@ -4,46 +4,40 @@
     border-radius: 12px;
     text-align-last: auto;
     cursor: pointer;
-    
 
-    &:hover .right-arr,&:hover .left-arr{
-        
-        
+
+    &:hover .right-arr,
+    &:hover .left-arr {
+
+
         text-align: center;
-        span{
+
+        span {
 
             border-radius: 50%;
             padding: 10px;
-            background-color: rgba(255, 255, 255, 0.601);
+            background-color: rgb(255, 255, 255);
             visibility: visible;
             text-align: center;
         }
     }
 
-    .right-arr {
+    .arr {
         visibility: hidden;
         position: absolute;
         top: 40%;
-        right: 2px;
-        cursor: pointer;
-        span{
-            font-size: 30px;
+
+        span {
+            font-size: 10px;
         }
     }
 
-    .left-arr {
-        visibility: hidden;
-        position: absolute;
-        top: 40%;
-        left: 2px;
-        span{
-            font-size: 30px;
-        }
+    .right-arr {
+        right: 2px;
+    }
 
-        &:hover{
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.601);
-        }
+    .left-arr {
+        left: 2px;
     }
 
     h1 {
@@ -55,41 +49,38 @@
         text-overflow: ellipsis;
     }
 
-    
+
     img {
         border-radius: 12px;
         aspect-ratio: 1/1;
     }
-    
+
     span {
         font-size: 12px;
     }
-    
+
     .stay-preiview-details {
         margin-top: 10px;
         display: flex;
         justify-content: space-between;
     }
+
     li {
         list-style: none;
         white-space: nowrap;
         overflow: hidden;
     }
 
-    .location-rate {}
-
     .propery-price {
         margin-top: 30px;
 
         li {
-
             display: flex;
 
             span {
                 font-size: 15px;
             }
         }
-
     }
 
     .propery-description {
@@ -99,8 +90,5 @@
             font-family: Airbnb-font-lite, sans-serif;
             color: $lite-font-color;
         }
-
     }
-
 }
-
