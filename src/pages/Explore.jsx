@@ -48,19 +48,14 @@ export function Explore() {
     { if (!stays) return (<h1>loading</h1>) }
     return (
         <div className="stock-margin">
-
             <div className="stock-margin-center">
-
-
                 <div className="explore-filterr filterr">
                     <MainFilter />
                 </div>
                 <div>
-
                     <ExploreFilter onChangeExploreFilter={onChangeExploreFilter} />
                 </div>
                 <section >
-
                     <div className="card-container" >
                         {stays.map(stay =>
                             <StayPreview stay={stay} key={stay._id} />

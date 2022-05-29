@@ -24,6 +24,18 @@ header {
     position: relative;
     display: flex;
     justify-content: space-between;
+    
+    .explore-filterr{
+        justify-content: space-around;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .big{
+        position: absolute;
+        margin-top: 30px;
+    }
+    .small{}
 
 }
 
