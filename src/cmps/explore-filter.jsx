@@ -14,6 +14,23 @@ export const ExploreFilter = (props) => {
         roomType: "",
         amenities: []
     })
+    const [priceIsShown, setPriceIsShown] = useState(false)
+    const [typeIsShown, setTypeIsShown] = useState(false)
+
+    const onShown = (type) => {
+        setPriceIsShown(false)
+        setTypeIsShown(false)
+        if (type === 'Price') {
+            setPriceIsShown(!priceIsShown)
+            // setTypeIsShown(!typeIsShown)
+        }
+        else{
+            // setPriceIsShown(!priceIsShown)
+            setTypeIsShown(!typeIsShown)
+
+        }
+
+    }
 
     useEffect(() => {
         props.onChangeExploreFilter(exploreFilterBy)
@@ -38,6 +55,7 @@ export const ExploreFilter = (props) => {
         timeOutId.current = setTimeout(setExploreFilterBy, 500, { ...exploreFilterBy, minPrice: value[0], maxPrice: value[1] })
     }
 
+
     const getClass = (amenity) => {
         if (exploreFilterBy.amenities.includes(amenity)) return 'mini-filter small-border'
         return 'mini-filter'
@@ -45,11 +63,11 @@ export const ExploreFilter = (props) => {
 
     return (
         <div className='secondery-filter'>
-            <div className='slider'>
+            {priceIsShown && <div className='slider'>
                 <Slider range allowCross={false} defaultValue={[0, 1200]} min={0} max={1200} onChange={handlePriceRange} />
-            </div>
-            <p>{exploreFilterBy.minPrice}$ - {exploreFilterBy.maxPrice}$</p>
-            <div className='room-type-filter'>
+                <p>{exploreFilterBy.minPrice}$ - {exploreFilterBy.maxPrice}$</p>
+            </div>}
+            {typeIsShown && <div className='room-type-filter'>
                 <select name="roomType" onChange={handleChange}>
                     <option value="">show all</option>
                     <option value="Entire home/apt">Entire place</option>
@@ -57,11 +75,18 @@ export const ExploreFilter = (props) => {
                     <option value="Hotel room">Hotel Room</option>
                     <option value="Shared room">Shared room</option>
                 </select>
-            </div>
+            </div>}
 
 
             <div >
                 <div className='amn-container'>
+                    <div className="enity-filter">
+                        <div className={getClass('Price')} onClick={() => onShown('Price')}>Price</div>
+                    </div>
+                    <div className="enity-filter">
+                        <div className={getClass('Type of place')} onClick={() => onShown('Type of place')}>Type of place</div>
+                    </div>
+                    <span className="enity-filter separator">|</span>
                     <div className="enity-filter">
                         <div className={getClass('Wifi')} onClick={() => handleButtonChange('Wifi')}>Wifi</div>
                     </div>
