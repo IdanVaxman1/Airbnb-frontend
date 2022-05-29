@@ -103,13 +103,22 @@
 
 .stay-amenities {
     margin-top: 50px;
+    margin-bottom: 50px;
+    // width: 70%;
+}
+
+.amenities-list {
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 25px;
+    width: 100%;
 }
 
 .amenity-container {
-    flex-wrap: wrap;
     display: flex;
-    margin-top: 20px;
+    margin-top: 10px;
     line-height: 1.5;
     gap: 10px;
     font-size: 20px;
+    width: 300px;
 }

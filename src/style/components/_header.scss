@@ -22,11 +22,8 @@ header {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
-        
     }
 }
-
 
 .main-nav {
 
@@ -35,8 +32,8 @@ header {
     position: relative;
     display: flex;
     justify-content: space-between;
-    
-    .explore-filterr{
+
+    .explore-filterr {
         justify-content: space-around;
         align-items: center;
         justify-content: center;
@@ -47,11 +44,9 @@ header {
         position: absolute;
         // margin-top: 30px;
     }
-    .small{}
-
 }
 
-:last-child{
+:last-child {
     margin-right: 0;
 }
 
@@ -61,24 +56,19 @@ header {
     font-size: 35px;
     display: flex;
     height: 90%;
-    
-    
+
     a {
         text-decoration: none;
-        li{
+        li {
             font-weight: bold;
             margin: 0;
-
         }
-
     }
 
     img {
         height: 75%;
-
     }
 }
-
 
 nav {
     position: relative;
@@ -93,10 +83,41 @@ nav {
         margin: 10px;
 
         a {
-
             text-decoration: none;
-            color: var(--headerFontColor)
+            color: var(--headerFontColor);
         }
     }
-
 }
+
+.user-menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 30px;
+    outline: 1px solid rgba($color: $clrGRAY, $alpha: 0.6);
+    padding:0;
+    span {
+        font-size: 2em;
+        font-weight: 800;
+        margin-right: 6px;
+        margin-left:12px;
+        margin-bottom: 5px;
+        
+    }
+    img {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        margin-right: 10px;
+        margin-top: 3px;
+    } 
+}
+.user-menu:hover{
+    transition: 0.12s;
+    box-shadow: 0px 3px 5px -3px rgba($color: $clrBLACK, $alpha: 0.6);
+}
+
+
+

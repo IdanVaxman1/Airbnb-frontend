@@ -79,7 +79,7 @@ export const ExploreFilter = (props) => {
 
 
             <div >
-                <div className='amn-container'>
+                <div className='amn-container noselect'>
                     <div className="enity-filter">
                         <div className={getClass('Price')} onClick={() => onShown('Price')}>Price</div>
                     </div>
@@ -100,8 +100,6 @@ export const ExploreFilter = (props) => {
                         <div className={getClass('Air conditioning')} onClick={() => handleButtonChange('Air conditioning')}>AC</div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     )
