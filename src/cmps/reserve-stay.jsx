@@ -15,14 +15,21 @@ export function ReserveStay(props) {
     const [to, setTo] = useState(null)
     const [totalPrice, setTotalPrice] = useState(0)
     const [showGuestsStyle, setShowGuestsStyle] = useState('expand_more')
-    const [position,setPosition] = useState({x:0,y:0})
-
-
+    const [reservedBtnBc, setReservedBtnBc] = useState({ backgroundColor: `green` })
 
     useEffect(() => {
         setPrice(filterBy.from, filterBy.to)
     }, [])
 
+    const onMousMove = (e) => {  
+        console.log(e.offsetX) 
+        const x = e.clientX;
+        const y = e.clientY;
+        document.documentElement.style.setProperty('--mouse-x', x);
+        document.documentElement.style.setProperty('--mouse-y', y);
+        setReservedBtnBc({ '--mouse-y': y ,  '--mouse-x': x })
+    }
+    
     const onUpdateGuestsQty = (adults, childs) => {
         const guestsQty = [{ adults }, { childs }]
         setGuestsQty(guestsQty)
@@ -60,9 +67,7 @@ export function ReserveStay(props) {
         console.log(reservation)
     }
 
-    const onMouseMove=(e)=> {
-        setPosition({ x: e.screenX, y: e.screenY });
-      }
+    
 
     return (
         <div className="reserve-stay-container">
@@ -86,12 +91,10 @@ export function ReserveStay(props) {
                     <GuestPicker onUpdateGuestsQty={onUpdateGuestsQty} />
                 </div>
             </div>
-            <button onClick={reserveStay} className='reserve-button'
-             style={{"--mouse-x": position.x, "--mouse-y":position.y}} 
-             onMouseMove={onMouseMove.bind(this)}>reserve</button>
+            <button id="btn" onClick={reserveStay} onMouseMove={(e) => onMousMove(e)}  style={reservedBtnBc} className='reserve-button'>reserve</button>
             <section className="price-section">
                 {totalGuestsQty && from && to && <div>
-                <h4>You won't be charged yet</h4>
+                    <h4>You won't be charged yet</h4>
                     <div className="flex-row-space-btw price">
                         <h1>Price</h1>
                         <h1>{totalPrice}$</h1>

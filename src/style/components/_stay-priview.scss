@@ -42,9 +42,9 @@
 
     h1 {
         font-size: 15px;
-        font-weight: normal;
         overflow: clip;
-        font-family: Airbnb-font-normal, sans-serif;
+        font-family: Airbnb-Cereal-Medium, sans-serif;
+        font-weight: 400;
         color: #222;
         text-overflow: ellipsis;
     }
@@ -87,7 +87,7 @@
         margin-top: 5px;
 
         h1 {
-            font-family: Airbnb-font-lite, sans-serif;
+            font-family: Airbnb-Cereal-Light, sans-serif;
             color: $lite-font-color;
         }
     }

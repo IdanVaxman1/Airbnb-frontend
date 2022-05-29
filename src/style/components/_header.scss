@@ -10,11 +10,13 @@
         }
     }
 header {
+    font-size: 0.875rem;
     position: fixed;
     width: 100%;
     background-color: var(--headerbackgroundColor);
     height: 80px;
     z-index: 100;
+    font-family: Airbnb-Cereal-Book;
 
 
     li {
@@ -51,9 +53,10 @@ header {
 }
 
 .logo {
-    font-family: Airbnb-font-normal;
+    font-family: Airbnb-font-lite;
+    font-weight: 500;
     color: $clrRED;
-    font-size: 35px;
+    font-size: 25px;
     display: flex;
     height: 90%;
 

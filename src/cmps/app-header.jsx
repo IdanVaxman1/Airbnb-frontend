@@ -57,7 +57,7 @@ export const AppHeader = () => {
                             <li>
                                 <img src={require("../assets/imgs/logo1.png")} alt="" />
                             </li>
-                            <li>StayBnb</li>
+                            <li>Staybnb</li>
                         </div>
                     </NavLink>
                 </div>
