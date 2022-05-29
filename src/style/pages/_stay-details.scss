@@ -99,6 +99,15 @@
     cursor: pointer;
 }
 
-._npr0qi {
-    border-top-color: rgb(221, 221, 221);
+.stay-amenities {
+    margin-top: 50px;
+}
+
+.amenity-container {
+    flex-wrap: wrap;
+    display: flex;
+    margin-top: 20px;
+    line-height: 1.5;
+    gap: 10px;
+    font-size: 20px;
 }
