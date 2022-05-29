@@ -3,8 +3,13 @@
 }
 
 .details-container{  
-    span{
-        font-size: 0.875rem;
+    // 
+
+    .secondery-header-stay-details, .reserve-stay-header{
+        span{
+                font-size: 0.875rem;
+            }
+
     }
     margin-left: 50px;
     font-family: Airbnb-font-normal, sans-serif;  
