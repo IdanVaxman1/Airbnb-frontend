@@ -101,6 +101,17 @@
         }
 
     }
-
 }
+
+.heart{
+    position: absolute;
+    top: 4%;
+    right: 4%;
+    z-index: 10;
+    opacity: 0.7;
+    span{
+        font-size: 30px;  
+    }
+}
+
 

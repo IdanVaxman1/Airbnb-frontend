@@ -3,18 +3,13 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from "react"
 
-
-
-
-
 export function StayPreview({ stay }) {
     const [imgIdx, setImgIdx] = useState(null)
+    const [heartClass,setHeartClass] = useState('')
 
     useEffect(() => {
         const imgIdx = 0
         setImgIdx(imgIdx)
-
-
     }, [])
 
     var dif = 0
@@ -28,15 +23,20 @@ export function StayPreview({ stay }) {
         { if (idx === len) idx = len }
         { if (idx < 0) idx = 0 }
         setImgIdx(idx)
+    }
 
-
+    const changeHeartColor = (event) =>{
+        event.preventDefault()
+        setHeartClass((heartClass==='')? 'red' : '')
     }
 
     return (
         <Link to={`/stay/${stay._id}`}>
-
             <div className="stay-card">
                 <div>
+                    <div className={`heart ${heartClass}`} onClick={changeHeartColor}>
+                        <span className="material-icons" style={{}}>favorite</span>
+                    </div>
                     <img src={stay.imgUrls[imgIdx]}></img>
                     <div onClick={(event) => switchImg(event, 'up')} className="right-arr">
                         <span className="material-icons">arrow_forward_ios</span>
