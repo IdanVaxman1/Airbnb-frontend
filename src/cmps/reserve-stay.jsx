@@ -11,12 +11,15 @@ export function ReserveStay(props) {
     const [guestModalShown, setGuestModalShown] = useState({ display: 'none' })
     const [isTrue, setIstrue] = useState(false)
     const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
-    const [from,setFrom] = useState(null)
-    const [to,setTo] = useState(null)
+    const [from, setFrom] = useState(null)
+    const [to, setTo] = useState(null)
     const [totalPrice, setTotalPrice] = useState(0)
+    const [showGuestsStyle, setShowGuestsStyle] = useState('expand_more')
+
+
 
     useEffect(() => {
-        setPrice(filterBy.from,filterBy.to)
+        setPrice(filterBy.from, filterBy.to)
     }, [])
 
     const onUpdateGuestsQty = (adults, childs) => {
@@ -26,8 +29,14 @@ export function ReserveStay(props) {
     }
 
     const onShowGusts = (isTrue) => {
-        if (isTrue === false) setGuestModalShown({ display: 'block' })
-        else setGuestModalShown({ display: 'none' })
+        if (isTrue === false) {
+            setGuestModalShown({ display: 'block' })
+            setShowGuestsStyle('expand_less')
+        }
+        else {
+            setShowGuestsStyle('expand_more')
+            setGuestModalShown({ display: 'none' })
+        }
         setIstrue(!isTrue)
     }
 
@@ -40,7 +49,7 @@ export function ReserveStay(props) {
         }
     }
 
-    const reserveStay = () =>{
+    const reserveStay = () => {
         const reservation = {
             from,
             to,
@@ -58,7 +67,7 @@ export function ReserveStay(props) {
             </div>
             <div className="picker-container">
                 <div className="range-date-selector">
-                <DateRangeSelector place={'reserve'} startDate={filterBy.from} endDate={filterBy.to} setPrice={setPrice} />
+                    <DateRangeSelector place={'reserve'} startDate={filterBy.from} endDate={filterBy.to} setPrice={setPrice} />
                 </div>
                 <div className="guests-pick">
                     <div className="flex-col">
@@ -66,15 +75,30 @@ export function ReserveStay(props) {
                         {(totalGuestsQty < 1) && <div><h4>Add guests</h4></div>}
                         {(totalGuestsQty > 0) && <div><h4>{totalGuestsQty} guest{(totalGuestsQty > 1) && 's'}</h4> </div>}
                     </div>
-                    <div><span onClick={() => onShowGusts(isTrue)} className="material-icons cursor">expand_more</span></div>
+                    <div><span onClick={() => onShowGusts(isTrue)} className="material-icons cursor">{showGuestsStyle}</span></div>
                 </div>
                 <div style={guestModalShown}>
                     <GuestPicker onUpdateGuestsQty={onUpdateGuestsQty} />
                 </div>
-                <hr/>
-                <p>Total : {totalPrice}$</p>
-                <button onClick={reserveStay}>reserve</button>
             </div>
+            <button onClick={reserveStay}>reserve</button>
+            <section className="price-section">
+                {totalGuestsQty && from && to && <div>
+                <h4>You won't be charged yet</h4>
+                    <div className="flex-row-space-btw price">
+                        <h1>Price</h1>
+                        <h1>{totalPrice}$</h1>
+                    </div>
+                    <div className="flex-row-space-btw service-fee">
+                        <h1>Service fee</h1>
+                        <h1>25$</h1>
+                    </div>
+                    <div className="flex-row-space-btw total">
+                        <h1>Total</h1>
+                        <h1>{totalPrice + 25}$</h1>
+                    </div>
+                </div>}
+            </section>
         </div>
     )
 }

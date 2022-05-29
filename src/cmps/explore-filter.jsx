@@ -63,20 +63,11 @@ export const ExploreFilter = (props) => {
 
     return (
         <div className='secondery-filter'>
-<<<<<<< HEAD
             {priceIsShown && <div className='slider'>
                 <Slider range allowCross={false} defaultValue={[0, 1200]} min={0} max={1200} onChange={handlePriceRange} />
                 <p>{exploreFilterBy.minPrice}$ - {exploreFilterBy.maxPrice}$</p>
             </div>}
             {typeIsShown && <div className='room-type-filter'>
-=======
-            <div className='slider' style={{marginLeft:'20px',marginRight:'20px'}}>
-                <Slider range allowCross={false} defaultValue={[0, 1200]} min={0} max={1200} onChange={handlePriceRange} />
-                <p>{exploreFilterBy.minPrice}$ - {exploreFilterBy.maxPrice}$</p>
-            </div>
-            
-            <div className='room-type-filter'>
->>>>>>> aa5e6a48a3c9bf61da76eaeefa81355ae19340d9
                 <select name="roomType" onChange={handleChange}>
                     <option value="">show all</option>
                     <option value="Entire home/apt">Entire place</option>
@@ -84,13 +75,9 @@ export const ExploreFilter = (props) => {
                     <option value="Hotel room">Hotel Room</option>
                     <option value="Shared room">Shared room</option>
                 </select>
-<<<<<<< HEAD
             </div>}
 
 
-=======
-            </div>
->>>>>>> aa5e6a48a3c9bf61da76eaeefa81355ae19340d9
             <div >
                 <div className='amn-container'>
                     <div className="enity-filter">

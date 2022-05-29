@@ -21,6 +21,7 @@ export const Home = () => {
             document.documentElement.style.setProperty('--verylightgray', '#ECECEC');
         }
     }, [])
+    
 
     const getStays = async () => {
         const stays = await stayService.query()
