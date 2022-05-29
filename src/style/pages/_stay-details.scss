@@ -2,7 +2,7 @@
     // display: grid;
     // grid-template-columns: 80px 1fr 80px;
     // display: inline-block;
-    width:100%
+    width:100%;
 }
 
 .details-container{  
@@ -124,6 +124,12 @@
 
 .stay-amenities {
     margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.amenities-list {
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .amenity-container {

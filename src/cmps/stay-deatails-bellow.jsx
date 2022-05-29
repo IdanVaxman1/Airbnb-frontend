@@ -69,7 +69,7 @@ export function StayDeatailsBellow({ stay }) {
 
             <div className="stay-amenities">
                 <h2>What this place offers</h2>
-                <ul>
+                <ul className="amenities-list flex">
                     <li>
                         <div className="amenity-container">
                             <span class="material-icons"> live_tv </span>
