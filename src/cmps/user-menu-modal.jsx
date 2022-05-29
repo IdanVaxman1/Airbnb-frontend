@@ -10,7 +10,7 @@ export const UserMenuModal = () => {
 
     return (<section className="user-menu-modal center">
         <NavLink to='/login'>login</NavLink>
-        <NavLink to='/login'>sign up</NavLink>
+        <NavLink to='/signup'>sign up</NavLink>
         <NavLink to='/login'>host your home</NavLink>
     </section>
     )

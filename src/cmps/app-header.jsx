@@ -6,7 +6,6 @@ import { SmallFilter } from "./small-filter";
 import { useEffect, useRef, useState } from "react"
 import { UserMenuModal } from "./user-menu-modal";
 
-// import { NavLink } from "../assets/imgs/";
 export const AppHeader = () => {
 
     const [isSmallFilterShown, setIsSmallFilterShown] = useState(true)
@@ -73,7 +72,7 @@ export const AppHeader = () => {
                     <li onClick={resetFilterBy}><NavLink to='/explore'>Explore</NavLink></li>
                     <li><NavLink to='/explore'>Become a host</NavLink></li>
                     <li>
-                        <div className='user-menu noselect'>
+                        <div className='user-menu noselect' onClick={toggleModal}>
                             <span>≡</span>
                             <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />
                         </div>
@@ -86,14 +85,9 @@ export const AppHeader = () => {
                     <MainFilter />
                 </div>
             </div>
-
-
-
-
-
-            {/* <div style={{ display: menuModalShow }}>
+            <div style={{ display: menuModalShow }}>
                 <UserMenuModal />
-            </div> */}
+            </div>
         </header >
     )
 }

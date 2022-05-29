@@ -1,0 +1,19 @@
+.form-container {
+    form {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        margin: auto;
+        padding: 1.5rem 2rem;
+        border: 1px solid green;
+        border-radius: 10px;
+        background-color: rgba(green, 0.2);
+
+        .error {
+            color: green;
+            height: 25px;
+            font-size: 0.8rem;
+        }
+    }
+
+}

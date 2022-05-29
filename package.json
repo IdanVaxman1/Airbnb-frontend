@@ -17,6 +17,7 @@
     "@testing-library/user-event": "^13.5.0",
     "dates": "^1.1.0",
     "font-awesome": "^4.7.0",
+    "formik": "^2.2.9",
     "jquery": "^3.6.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.3",
