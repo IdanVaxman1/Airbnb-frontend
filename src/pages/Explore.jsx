@@ -47,9 +47,9 @@ export function Explore() {
 
     { if (!stays) return (<h1>loading</h1>) }
     return (
-        <div className="explore-main">
+        <div className="stock-margin">
 
-            <div className="in-margin-container">
+            <div className="stock-margin-center">
 
 
                 <div className="explore-filterr filterr">
