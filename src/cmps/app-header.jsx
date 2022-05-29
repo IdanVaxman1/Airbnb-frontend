@@ -4,6 +4,7 @@ import { changeFilter } from "../store/actions/stay.action";
 import { MainFilter } from "./main-filter";
 import { SmallFilter } from "./small-filter";
 import { useEffect, useRef, useState } from "react"
+import { UserMenuModal } from "./user-menu-modal";
 
 // import { NavLink } from "../assets/imgs/";
 export const AppHeader = () => {
@@ -11,6 +12,7 @@ export const AppHeader = () => {
     const [isSmallFilterShown, setIsSmallFilterShown] = useState(true)
     const [bigFilterStyle, setBigFilterStyle] = useState({ display: 'none' })
     const [smallFilterStyle, setsmallFilterStyle] = useState({ display: 'block' })
+    const [menuModalShow, setMenuModalShow] = useState({ display: 'none' })
 
     const onPresentFilter = () => {
 
@@ -18,13 +20,14 @@ export const AppHeader = () => {
         setBigFilterStyle({ display: 'block' })
     }
 
-
-
-
     const dispatch = useDispatch()
 
     const resetFilterBy = () => {
         dispatch(changeFilter({ location: '', from: null, to: null }))
+    }
+
+    const toggleModal=()=>{
+        setMenuModalShow((menuModalShow==='none')? 'block' : 'none')
     }
 
 
@@ -53,13 +56,20 @@ export const AppHeader = () => {
                         </div>
                     </div>
                 </div>
-            <div className="">
-                <li onClick={resetFilterBy}><NavLink to='/explore'>Explore</NavLink></li>
-                <li><NavLink to='/explore'>Become a host</NavLink></li>
-                <li><NavLink to='/Notifications'><span className="material-icons">notifications_active</span></NavLink></li>
-                <li><NavLink to='/Login'>Log-in</NavLink></li>
-            </div>
-        </nav>
+                <div className="">
+                    <li onClick={resetFilterBy}><NavLink to='/explore'>Explore</NavLink></li>
+                    <li><NavLink to='/explore'>Become a host</NavLink></li>
+                    <li>
+                        <div className='user-menu noselect'>
+                            <span>≡</span>
+                            <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />
+                        </div>
+                    </li>
+                </div>
+            </nav>
+            <div style={{display:menuModalShow}}>
+                    <UserMenuModal/>
+                </div>
         </header >
     )
 }
