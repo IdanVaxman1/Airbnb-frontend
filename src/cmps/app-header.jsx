@@ -67,9 +67,9 @@ export const AppHeader = () => {
                     </li>
                 </div>
             </nav>
-            <div style={{display:menuModalShow}}>
+            {/* <div style={{display:menuModalShow}}>
                     <UserMenuModal/>
-                </div>
+                </div> */}
         </header >
     )
 }
