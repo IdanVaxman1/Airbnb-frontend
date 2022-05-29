@@ -25,8 +25,12 @@ export const AppHeader = () => {
                 <div className="">
                     <li onClick={resetFilterBy}><NavLink to='/explore'>Explore</NavLink></li>
                     <li><NavLink to='/explore'>Become a host</NavLink></li>
-                    <li><NavLink to='/Notifications'><span className="material-icons">notifications_active</span></NavLink></li>
-                    <li><NavLink to='/Login'>Log-in</NavLink></li>
+                    {/* <li><NavLink to='/Login'>Log-in</NavLink></li> */}
+                    <div className="user-menu center-h">
+                    <p style={{fontWeight:'800', fontSize:'2em'}}>≡</p>
+                    <img src='./src/assets/imgs/user-icon.png'/>
+
+                    </div>
                 </div>
             </nav>
         </header>
