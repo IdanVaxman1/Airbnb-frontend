@@ -1,6 +1,5 @@
-import { useState, useRef } from "react"
 import { NavLink } from "react-router-dom"
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { openModal } from "../store/actions/userActions"
 
 
