@@ -17,8 +17,6 @@ export const Home = () => {
         document.documentElement.style.setProperty('--headerFontColor', '#fff');
         document.documentElement.style.setProperty('--verylightgray', 'unset');
         document.documentElement.style.setProperty('--bgc', 'unset');
-        document.documentElement.style.setProperty('--bgc', 'unset');
-        document.documentElement.style.setProperty('--bgc', 'unset');
         return () => {
             document.documentElement.style.setProperty('--bgc', '#F7F7F7');
             document.documentElement.style.setProperty('--verylightgray', '#ECECEC');
@@ -37,16 +35,12 @@ export const Home = () => {
             <section className="main-page-head">
 
             </section>
-            {/* <div className="home-filterr filterr">
-                <MainFilter />
-            </div> */}
             <section className="stock-margin">
                 <div className="stock-margin-center home-page-card-container ">
-                    <h1>Popular Destinations</h1>
-                    <div className="home-page-card-line" >
-                        
-                        {popularStays.map(popularStay =>
-                            <HomeImgCard popularStay={popularStay} key={popularStay[0].url} />
+                    <h1>Popular destinations</h1>
+                    <div className="home-page-card-line">
+                        {cities.map(city =>
+                            <HomeImgCard city={city} key={city.name} />
                         )}
                     </div>
                     <h1>Top rated</h1>
