@@ -5,7 +5,8 @@ import {Home} from './pages/home.jsx'
 import {Explore} from './pages/explore'
 import { Login } from './pages/login'
 import {StayDetails} from './pages/stay-details'
-import {Helmet} from "react-helmet";
+import {Helmet} from "react-helmet"
+import {Signup} from './pages/signup'
 
 
 
@@ -28,6 +29,7 @@ function App() {
                         <Route path='/stay/:stayId' element={<StayDetails />} />
                         <Route path='/home' element={<Home />} />
                         <Route path='/explore' element={<Explore />} />
+                        <Route path='/signup' element={<Signup />} />
                         <Route path='/login' element={<Login />} />
                         <Route path='/' element={<Home />} />
                         

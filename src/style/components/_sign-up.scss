@@ -1,0 +1,19 @@
+.form-container {
+    form {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        margin: auto;
+        padding: 1.5rem 2rem;
+        border: 1px solid $clrBLACK;
+        border-radius: 10px;
+        background-color: white;
+
+        .error {
+            color: $clrRED;
+            height: 25px;
+            font-size: 0.8rem;
+        }
+    }
+
+}
