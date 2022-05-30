@@ -24,10 +24,6 @@ export const AppHeader = () => {
             setBigFilterStyle({ display: 'none' })
             setsmallFilterStyle({ display: 'block' })
         }
-        // else {
-        //     setBigFilterStyle({ visibility: 'hidden' })
-        //     setsmallFilterStyle({ visibility: 'visible' })
-        // }
     }
 
 
@@ -77,17 +73,18 @@ export const AppHeader = () => {
                                 <span>≡</span>
                                 <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />
                             </div>
+                            <div style={{ display: menuModalShow }}>
+                                <UserMenuModal />
+                            </div>
                         </li>
                     </div>
                 </nav>
+
                 <div className="explore-filterr filterr big">
                     <div style={bigFilterStyle}>
                         <MainFilter />
                     </div>
                 </div>
-            </div>
-            <div style={{ display: menuModalShow }}>
-                <UserMenuModal />
             </div>
         </header >
     )
