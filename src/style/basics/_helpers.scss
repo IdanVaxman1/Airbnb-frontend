@@ -73,6 +73,11 @@ ul li{
     display: flex;
     flex-direction: column;
   }
+  .flex-col-space-around{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
 
   .cursor{
     cursor: pointer;

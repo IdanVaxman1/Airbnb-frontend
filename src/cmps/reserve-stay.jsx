@@ -79,16 +79,16 @@ export function ReserveStay(props) {
                 <div className="range-date-selector">
                     <DateRangeSelector place={'reserve'} startDate={filterBy.from} endDate={filterBy.to} setPrice={setPrice} />
                 </div>
-                <div className="guests-pick">
+                <div onClick={() => onShowGusts(isTrue)} className="guests-pick">
                     <div className="flex-col">
                         <div >guests</div>
                         {(totalGuestsQty < 1) && <div><h4>Add guests</h4></div>}
                         {(totalGuestsQty > 0) && <div><h4>{totalGuestsQty} guest{(totalGuestsQty > 1) && 's'}</h4> </div>}
                     </div>
-                    <div><span onClick={() => onShowGusts(isTrue)} className="material-icons cursor">{showGuestsStyle}</span></div>
+                    <div><span  className="material-icons cursor">{showGuestsStyle}</span></div>
                 </div>
                 <div style={guestModalShown}>
-                    <GuestPicker onUpdateGuestsQty={onUpdateGuestsQty} />
+                    <GuestPicker className="guest-picker" onUpdateGuestsQty={onUpdateGuestsQty} />
                 </div>
             </div>
             <button id="btn" onClick={reserveStay} onMouseMove={(e) => onMousMove(e)}  style={reservedBtnBc} className='reserve-button'>reserve</button>
