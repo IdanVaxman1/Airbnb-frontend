@@ -18,17 +18,17 @@ export const AppHeader = () => {
         window.addEventListener('scroll', changeCss, { passive: true });
     }, [])
 
-    
+
     const changeCss = () => {
         const scrollValue = document.documentElement.scrollTop
-        if (scrollValue < 100 || scrollValue === 0) {
-            setBigFilterStyle({ visibility: 'visible' })
-            setsmallFilterStyle({ visibility: 'hidden' })
+        if (scrollValue) {
+            setBigFilterStyle({ display: 'none' })
+            setsmallFilterStyle({ display: 'block' })
         }
-        else {
-            setBigFilterStyle({ visibility: 'hidden' })
-            setsmallFilterStyle({ visibility: 'visible' })
-        }
+        // else {
+        //     setBigFilterStyle({ visibility: 'hidden' })
+        //     setsmallFilterStyle({ visibility: 'visible' })
+        // }
     }
 
 
@@ -51,40 +51,49 @@ export const AppHeader = () => {
 
     return (
         <header className="stock-margin main-header">
-            <nav className="stock-margin-center main-nav">
-                <div className="logo" onClick={resetFilterBy}>
-                    <NavLink to='/home'>
-                        <div className="logo">
-                            <li>
-                                <img src={require("../assets/imgs/logo1.png")} alt="" />
-                            </li>
-                            <li>Staybnb</li>
-                        </div>
-                    </NavLink>
-                </div>
-                <div onClick={() => onPresentFilter()} >
-                    <div className="explore-filterr filterr small">
-                        <div style={smallFilterStyle} >
-                            <SmallFilter />
+
+
+            <div className="stock-margin-center ">
+
+
+
+            
+                <nav className="grid-3-col main-nav">
+                    <div className="logo" onClick={resetFilterBy}>
+                        <NavLink to='/home'>
+                            <div className="logo">
+                                <li>
+                                    <img src={require("../assets/imgs/logo1.png")} alt="" />
+                                </li>
+                                <li>Staybnb</li>
+                            </div>
+                        </NavLink>
+                    </div>
+                    <div onClick={() => onPresentFilter()} className="small-filte-parent" >
+                        <div className="explore-filterr filterr small">
+                            <div style={smallFilterStyle} >
+                                <SmallFilter />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="">
-                    <li onClick={resetFilterBy}><NavLink to='/explore'>Explore</NavLink></li>
-                    <li><NavLink to='/explore'>Become a host</NavLink></li>
-                    <li>
-                        <div className='user-menu noselect'>
-                            <span>≡</span>
-                            <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />
-                        </div>
-                    </li>
+                    <div className="nav-link-parent">
+                        <li onClick={resetFilterBy}><NavLink to='/explore'>Explore</NavLink></li>
+                        <li><NavLink to='/explore'>Become a host</NavLink></li>
+                        <li>
+                            <div className='user-menu noselect'>
+                                <span>≡</span>
+                                <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />
+                            </div>
+                        </li>
 
+                    </div>
+                </nav>
+                <div className="explore-filterr filterr big">
+                    <div style={bigFilterStyle}>
+                        <MainFilter />
+                    </div>
                 </div>
-            </nav>
-            <div className="explore-filterr filterr big">
-                <div style={bigFilterStyle}>
-                    <MainFilter />
-                </div>
+           
             </div>
 
 

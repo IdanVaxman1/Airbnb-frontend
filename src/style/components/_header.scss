@@ -1,12 +1,10 @@
 
 
     .main-header{
-        grid-template-rows: 60px 60px;
+       
 
         .big{
-            grid-row: 2;
-            grid-column: 2;
-            // border-bottom: 1px var(--verylightgray) solid;
+            
         }
     }
 header {
@@ -27,6 +25,12 @@ header {
     }
 }
 
+.explore-filterr {
+    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bgc);
+}
 .main-nav {
 
     grid-row: 1;
@@ -35,11 +39,6 @@ header {
     display: flex;
     justify-content: space-between;
 
-    .explore-filterr {
-        justify-content: space-around;
-        align-items: center;
-        justify-content: center;
-    }
 
     .big{
         grid-row: 2;
@@ -52,7 +51,16 @@ header {
     margin-right: 0;
 }
 
+.small-filte-parent{
+    grid-column: 2;
+}
+
+.nav-link-parent{
+    grid-column: 3;
+}
+
 .logo {
+    grid-column: 1;
     font-family: Airbnb-font-lite;
     font-weight: 500;
     color: $clrRED;

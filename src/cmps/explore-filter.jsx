@@ -3,6 +3,7 @@ import 'rc-slider/assets/index.css'
 import Slider from 'rc-slider'
 import { useEffect, useRef, useState } from "react"
 import { useDispatch } from 'react-redux'
+import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from 'recharts'
 
 export const ExploreFilter = (props) => {
     const timeOutId = useRef()
@@ -16,20 +17,33 @@ export const ExploreFilter = (props) => {
     })
     const [priceIsShown, setPriceIsShown] = useState(false)
     const [typeIsShown, setTypeIsShown] = useState(false)
+    const [pricesData, setPricesData] = useState(null)
+
+
+    useEffect(() => {
+        getPricesData()
+
+    }, [props.stays])
 
     const onShown = (type) => {
         setPriceIsShown(false)
         setTypeIsShown(false)
         if (type === 'Price') {
             setPriceIsShown(!priceIsShown)
-            // setTypeIsShown(!typeIsShown)
         }
-        else{
-            // setPriceIsShown(!priceIsShown)
+        else {
             setTypeIsShown(!typeIsShown)
-
         }
+    }
 
+    const getPricesData = () => {
+        const data = props.stays.map(stay => {
+            return { 'price': stay.price }
+        })
+        data.sort(function (a, b) {
+            return a.price - b.price;
+          });
+        setPricesData(data)
     }
 
     useEffect(() => {
@@ -61,9 +75,21 @@ export const ExploreFilter = (props) => {
         return 'mini-filter'
     }
 
+    
+
+    if (!pricesData) return <h1>loading</h1>
     return (
         <div className='secondery-filter'>
             {priceIsShown && <div className='slider'>
+                <BarChart width={200} height={250} data={pricesData}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                   
+                    <Bar dataKey="price" fill="#82ca9d" />
+                </BarChart>
                 <Slider range allowCross={false} defaultValue={[0, 1200]} min={0} max={1200} onChange={handlePriceRange} />
                 <p>{exploreFilterBy.minPrice}$ - {exploreFilterBy.maxPrice}$</p>
             </div>}

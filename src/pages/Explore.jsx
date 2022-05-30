@@ -53,7 +53,7 @@ export function Explore() {
                     <MainFilter />
                 </div> */}
                 <div>
-                    <ExploreFilter onChangeExploreFilter={onChangeExploreFilter} />
+                    <ExploreFilter stays={stays} onChangeExploreFilter={onChangeExploreFilter} />
                 </div>
                 <section >
                     <div className="card-container" >

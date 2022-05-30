@@ -87,6 +87,13 @@ ul li{
     grid-template-columns: 15% 1fr 15%;
   }
 
+  .grid-3-col{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  
+
   .stock-margin-center{
     grid-column: 2;
   }

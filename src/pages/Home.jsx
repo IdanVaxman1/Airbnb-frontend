@@ -17,7 +17,9 @@ export const Home = () => {
         document.documentElement.style.setProperty('--headerbackgroundColor', 'unset');
         document.documentElement.style.setProperty('--headerFontColor', '#fff');
         document.documentElement.style.setProperty('--verylightgray', 'unset');
+        document.documentElement.style.setProperty('--bgc', 'unset');
         return () => {
+            document.documentElement.style.setProperty('--bgc', '#F7F7F7');
             document.documentElement.style.setProperty('--verylightgray', '#ECECEC');
         }
     }, [])
