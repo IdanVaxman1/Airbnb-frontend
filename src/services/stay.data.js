@@ -678,7 +678,7 @@ function getStays() {
                     "lan": 40.68683
                 },
                 "countryCode": "US",
-                "city": "New York"
+                "city": "New york"
             },
             "id": "1155885",
             "bathrooms": 1,
@@ -951,7 +951,7 @@ function getStays() {
                     "lan": 40.71112
                 },
                 "countryCode": "US",
-                "city": "New York"
+                "city": "New york"
             },
             "id": "11567179",
             "bathrooms": 1,
@@ -3571,7 +3571,7 @@ function getTopRated(){
                     "lan": 40.71112
                 },
                 "countryCode": "US",
-                "city": "New York"
+                "city": "New york"
             },
             "id": "11567179",
             "bathrooms": 1,
