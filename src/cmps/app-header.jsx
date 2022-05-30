@@ -74,7 +74,7 @@ export const AppHeader = () => {
                                 <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />
                             </div>
                             <div style={{ display: menuModalShow }}>
-                                <UserMenuModal />
+                                <UserMenuModal toggleModal={toggleModal}/>
                             </div>
                         </li>
                     </div>

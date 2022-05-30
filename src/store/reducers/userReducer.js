@@ -1,6 +1,8 @@
 const INITIAL_STATE = {
     users: [],
-    loggedinUser:''
+    loggedinUser: '',
+    isModalOpen: false,
+    isLogin:true
 }
 
 export function userReducer(state = INITIAL_STATE, action) {
@@ -17,10 +19,17 @@ export function userReducer(state = INITIAL_STATE, action) {
             return state.users
         case 'ADD_USER':
             state.users = [...state.users]
-            return { users:state.users }
-        case 'LOGIN' :
+            return { users: state.users }
+        case 'LOGIN':
             state.loggedinUser = action.user
             return action.user
+        case 'OPEN_MODAL':
+            state.isModalOpen = true
+            state.isLogin = action.isLogin
+            return { ...state }
+        case 'CLOSE_MODAL':
+            state.isModalOpen = false
+            return { ...state }
         default:
             return state;
     }

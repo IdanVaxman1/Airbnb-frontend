@@ -9,7 +9,6 @@
         border: 1px solid $clrBLACK;
         border-radius: 10px;
         background-color: white;
-
         .error {
             color: $clrRED;
             height: 25px;
@@ -19,8 +18,20 @@
 }
 
 .modal-center{
+    z-index: 3;
     position:fixed;
     top:50%;
     left: 50%;
     transform: translate(-50%,-50%);
+}
+
+.modal-blur{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 99vw;
+    opacity: 0.5;
+    background-color: $clrBLACK;
+    z-index: 2;
 }

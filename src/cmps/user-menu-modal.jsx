@@ -1,24 +1,26 @@
-import { useState ,useRef} from "react"
+import { useState, useRef } from "react"
 import { NavLink } from "react-router-dom"
-import { LoginSignup } from "./login-signup"
+import { useDispatch, useSelector } from 'react-redux'
+import { openModal } from "../store/actions/userActions"
 
-export const UserMenuModal = () => {
 
-    const [isModalShow, setIsModalShow] = useState('none')
-    const [isLogin,setIsLogin] = useState(true)
+export const UserMenuModal = (props) => {
 
-    const toggleModal = (isLogin)=>{
-        setIsModalShow((isModalShow === 'none') ? 'block' : 'none')
-        setIsLogin(isLogin)
+    const dispatch = useDispatch()
+
+    const toggleModal = (isLogin) => {
+        dispatch(openModal(isLogin))
+        closeSelf()
     }
- 
+
+    const closeSelf = ()=>{
+        props.toggleModal()
+    }
+
     return (<section className="user-menu-container">
-        <p onClick={()=>toggleModal(false)} className="clickable noselect">Sign up</p>
-        <p className="clickable noselect" onClick={(()=>toggleModal(true))}>Log in</p>
-        <NavLink to='/login' >host your home</NavLink>
-        <div style={{display:isModalShow}} className='modal-center'>
-            <LoginSignup toggleModal={toggleModal} isLogin={isLogin}/>
-        </div>
+        <p onClick={() => toggleModal(false)} className="clickable noselect">Sign up</p>
+        <p onClick={(() => toggleModal(true))} className="clickable noselect" >Log in</p>
+        <NavLink onClick={closeSelf}  to='/login' >host your home</NavLink>
     </section>
     )
 }

@@ -27,3 +27,15 @@ export function addUser(user) {
         dispatch({ type: 'ADD_USER', user:added })
     }
 }
+
+export function openModal(isLogin){
+    return (dispatch) => {
+        dispatch({ type: 'OPEN_MODAL', isLogin })
+    }
+}
+
+export function closeModal(){
+    return (dispatch) => {
+        dispatch({ type: 'CLOSE_MODAL'})
+    }
+}
