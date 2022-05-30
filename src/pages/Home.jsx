@@ -1,8 +1,14 @@
 import { useEffect, useRef, useState } from "react"
 import { HomeImgCard } from "../cmps/home-img-card"
 import { stayService } from "../services/stay.service"
+import { useDispatch, useSelector } from 'react-redux'
+import { showLargeFilter, showSmallFilter } from "../store/actions/headerAction";
+
+
 
 export const Home = () => {
+
+
 
     const [topRated, setTopRated] = useState(null)
     const cities = [{ name: 'New york', imgURL: 'https://a.cdn-hotels.com/gdcs/production101/d154/ee893f00-c31d-11e8-9739-0242ac110006.jpg' },
@@ -13,15 +19,28 @@ export const Home = () => {
 
     useEffect(() => {
         getTopRated()
+        dispatchFiltertoShow()
         document.documentElement.style.setProperty('--headerbackgroundColor', 'unset');
         document.documentElement.style.setProperty('--headerFontColor', '#fff');
         document.documentElement.style.setProperty('--verylightgray', 'unset');
         document.documentElement.style.setProperty('--bgc', 'unset');
+        document.documentElement.style.setProperty('--logo-font-color', 'unset');
+        document.documentElement.style.setProperty('--logo-red-shown', '');
         return () => {
             document.documentElement.style.setProperty('--bgc', '#F7F7F7');
             document.documentElement.style.setProperty('--verylightgray', '#ECECEC');
+            dispatchFiltertoHide()
         }
     }, [])
+
+    const dispatch = useDispatch()
+    
+    const dispatchFiltertoShow = () => {
+        dispatch(showLargeFilter())
+    }
+    const dispatchFiltertoHide = () => {
+        dispatch(showSmallFilter())
+    }
 
     const getTopRated = async () => {
         const topStays = await stayService.getTopRated()

@@ -5,36 +5,42 @@ import { MainFilter } from "./main-filter";
 import { SmallFilter } from "./small-filter";
 import { useEffect, useRef, useState } from "react"
 import { UserMenuModal } from "./user-menu-modal";
-import { useParams } from "react-router-dom";
+import { showLargeFilter, showSmallFilter } from "../store/actions/headerAction";
+
 
 
 export const AppHeader = () => {
-    const { stayId } = useParams();
+
+    const  LargeFilterShow  = useSelector((storeState) => storeState.headerModule.isLargeFilterShown)
+    const  smallFilterShow  = useSelector((storeState) => storeState.headerModule.isSmallFilterShown)
+
 
     const [isSmallFilterShown, setIsSmallFilterShown] = useState(true)
     const [bigFilterStyle, setBigFilterStyle] = useState({ display: 'none' })
     const [smallFilterStyle, setsmallFilterStyle] = useState({ display: 'block' })
     const [menuModalShow, setMenuModalShow] = useState({ display: 'none' })
     
-    const param = useParams();
     useEffect(() => {
         window.addEventListener('scroll', changeCss, { passive: true });
     }, [])
-
 
     const changeCss = () => {
         const scrollValue = document.documentElement.scrollTop
         if (scrollValue) {
             setBigFilterStyle({ display: 'none' })
             setsmallFilterStyle({ display: 'block' })
+            
+            
+            dispatch(showSmallFilter())
+            
         }
     }
-
-
+    
     const onPresentFilter = () => {
-
+        
         setsmallFilterStyle({ display: 'none' })
         setBigFilterStyle({ display: 'block' })
+        dispatch(showLargeFilter())
     }
 
     const dispatch = useDispatch()
@@ -46,7 +52,6 @@ export const AppHeader = () => {
     const toggleModal = () => {
         setMenuModalShow((menuModalShow === 'none') ? 'flex' : 'none')
     }
-
 
     return (
         <header className="stock-margin main-header">
@@ -65,7 +70,7 @@ export const AppHeader = () => {
                     <div onClick={() => onPresentFilter()} className="small-filte-parent" >
                         <div className="explore-filterr filterr small">
                             <div style={smallFilterStyle} >
-                                <SmallFilter />
+                                {smallFilterShow&& <SmallFilter />}
                             </div>
                         </div>
                     </div>
@@ -83,10 +88,10 @@ export const AppHeader = () => {
                         </li>
                     </div>
                 </nav>
-
                 <div className="explore-filterr filterr big">
-                    <div style={bigFilterStyle}>
-                        <MainFilter />
+                    <div >
+                        {LargeFilterShow && <MainFilter />}
+                        {/* style={bigFilterStyle} */}
                     </div>
                 </div>
             </div>
