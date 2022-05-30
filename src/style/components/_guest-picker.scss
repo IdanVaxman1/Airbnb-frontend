@@ -1,13 +1,10 @@
-.guests-pick{
-    cursor: pointer;
-}
 
 .main-guest-qty-container{
     padding: 20px;
     // margin-top: 1rem;
     // padding-left: 20px;
     // padding-right: 20px;
-
+    
     .between-btns{
         width: 1rem;
     }
@@ -16,11 +13,14 @@
         display: flex;
         justify-content: space-between;
     }
-
+    
     .adults-right{
         display: flex;
         gap: 5px;
-
+        
+        .guests-pick{
+            cursor: pointer;
+        }
         div{
             // width: 20px;
         }
