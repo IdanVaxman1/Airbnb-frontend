@@ -55,16 +55,16 @@ export const Home = () => {
             <section className="stock-margin">
                 <div className="stock-margin-center home-page-card-container ">
                     <h1>Popular destinations</h1>
-                    <div className="home-page-card-line" >
+                    <div className="home-page-card-line">
                         {cities.map(city =>
                             <HomeImgCard city={city} key={city.name} />
                         )}
                     </div>
-                    <div className="home-page-card-line" >
+                    {/* <div className="home-page-card-line" >
                         {popularStays.map(popularStay =>
                             <HomeImgCard popularStay={popularStay} key={popularStay._id} />
                         )}
-                    </div>
+                    </div> */}
                 </div>
             </section>
         </article>
