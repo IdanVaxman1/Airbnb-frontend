@@ -5,6 +5,7 @@ import {Home} from './pages/home.jsx'
 import {Explore} from './pages/explore'
 import {StayDetails} from './pages/stay-details'
 import {Helmet} from "react-helmet"
+import {LoginSignup} from './cmps/login-signup'
 
 
 
@@ -29,6 +30,7 @@ function App() {
                         <Route path='/explore' element={<Explore />} />
                         <Route path='/' element={<Home />} />
                     </Routes>
+                    <LoginSignup/>
                 </main>
               <AppFooter/>
             </div>
