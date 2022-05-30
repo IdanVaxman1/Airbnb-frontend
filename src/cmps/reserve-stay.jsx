@@ -22,7 +22,6 @@ export function ReserveStay(props) {
     }, [])
 
     const onMousMove = (e) => {  
-        console.log(e.offsetX) 
         const x = e.clientX;
         const y = e.clientY;
         document.documentElement.style.setProperty('--mouse-x', x);
@@ -66,8 +65,6 @@ export function ReserveStay(props) {
         }
         console.log(reservation)
     }
-
-    
 
     return (
         <div className="reserve-stay-container">
