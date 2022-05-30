@@ -65,8 +65,6 @@ export function ReserveStay(props) {
         }
     }
 
-    
-
     return (
         <div className="reserve-stay-container">
             <div className="reserve-stay-header">
