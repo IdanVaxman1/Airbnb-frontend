@@ -83,6 +83,7 @@ export class _LoginSignup extends React.Component {
             <>
             <div className='modal-blur' onClick={this.onCloseModal}></div>
             <div className="form-container modal-center">
+            <button onClick={this.onCloseModal} className='close-button clickable center'>x</button>
                 {!isLogin &&
                     <Formik validateOnChange validate={this.onValidate} initialValues={this.signupInitialValues} onSubmit={this.onSignup}>
                         {({ errors }) => (
@@ -107,7 +108,6 @@ export class _LoginSignup extends React.Component {
                         )}
                     </Formik>
                 }
-
                 {isLogin && <Formik validateOnChange initialValues={this.loginInitialValues} onSubmit={this.onLogin}>
                         <Form>
                             <MuiThemeProvider theme={this.theme}>
@@ -119,7 +119,7 @@ export class _LoginSignup extends React.Component {
                             </MuiThemeProvider>
                         </Form>
                 </Formik>}
-                <button onClick={this.onCloseModal}>close</button>
+                
             </div>
             </>
         )

@@ -1,5 +1,6 @@
 .form-container {
     form {
+        position: relative;
         width: max-content;
         display: flex;
         flex-direction: column;
@@ -18,6 +19,7 @@
 }
 
 .modal-center{
+    position: relative;
     z-index: 3;
     position:fixed;
     top:50%;
@@ -34,4 +36,15 @@
     opacity: 0.5;
     background-color: $clrBLACK;
     z-index: 2;
+}
+
+.close-button{
+    position: absolute;
+    top:4px;
+    right:4px;
+    background-color: white;
+    font-size: 120%;
+    font-weight: 800;
+    z-index: 3;
+    border:0;
 }

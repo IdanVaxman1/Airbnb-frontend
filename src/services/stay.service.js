@@ -1,4 +1,5 @@
 import { storageService } from './async-storage.service.js'
+import { dataService } from './stay.data.js';
 import { utilService } from './util.service.js'
 // import { userService } from './user.service.js'
 // import { getActionRemoveStay, getActionAddStay, getActionUpdateStay } from '../store/stay.actions.js'
@@ -10,6 +11,7 @@ const STORAGE_KEY = 'stay'
 export const stayService = {
     query,
     getById,
+    getTopRated
     // save,
     // remove,
     // subscribe,
@@ -38,6 +40,9 @@ async function query(filterBy,exploreFilterBy) {
 function getById(stayId) {
     return storageService.get(STORAGE_KEY, stayId)
     // return axios.get(`/api/stay/${stayId}`)
+}
+function getTopRated(){
+    return dataService.getTopRated()
 }
 // async function remove(stayId) {
 //     // return new Promise((resolve, reject) => {

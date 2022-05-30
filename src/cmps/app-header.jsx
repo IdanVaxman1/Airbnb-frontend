@@ -10,7 +10,6 @@ import { useParams } from "react-router-dom";
 
 export const AppHeader = () => {
     const { stayId } = useParams();
-        console.log('stayId',stayId)
 
     const [isSmallFilterShown, setIsSmallFilterShown] = useState(true)
     const [bigFilterStyle, setBigFilterStyle] = useState({ display: 'none' })
@@ -18,9 +17,6 @@ export const AppHeader = () => {
     const [menuModalShow, setMenuModalShow] = useState({ display: 'none' })
     
     const param = useParams();
-    console.log('param',JSON.stringify(param))
-
-
     useEffect(() => {
         window.addEventListener('scroll', changeCss, { passive: true });
     }, [])
