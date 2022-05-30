@@ -44,19 +44,13 @@ export const AppHeader = () => {
     }
 
     const toggleModal = () => {
-        setMenuModalShow((menuModalShow === 'none') ? 'block' : 'none')
+        setMenuModalShow((menuModalShow === 'none') ? 'flex' : 'none')
     }
 
 
     return (
         <header className="stock-margin main-header">
-
-
             <div className="stock-margin-center ">
-
-
-
-            
                 <nav className="grid-3-col main-nav">
                     <div className="logo" onClick={resetFilterBy}>
                         <NavLink to='/home'>
@@ -84,7 +78,6 @@ export const AppHeader = () => {
                                 <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />
                             </div>
                         </li>
-
                     </div>
                 </nav>
                 <div className="explore-filterr filterr big">
@@ -92,7 +85,6 @@ export const AppHeader = () => {
                         <MainFilter />
                     </div>
                 </div>
-           
             </div>
             <div style={{ display: menuModalShow }}>
                 <UserMenuModal />

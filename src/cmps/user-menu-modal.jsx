@@ -1,17 +1,26 @@
 import { useState ,useRef} from "react"
-import Slider from 'rc-slider'
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom"
+import { Signup } from "./login-signup"
 
 export const UserMenuModal = () => {
 
-    // const [minPrice, setMinPrice] = useState(0)
+    const [isModalShow, setIsModalShow] = useState('none')
+    const [isLogin,setIsLogin] = useState(true)
     // const [maxPrice, setMaxPrice] = useState(1200)
     // const timeOutId = useRef()
 
-    return (<section className="user-menu-modal center">
-        <NavLink to='/login'>login</NavLink>
-        <NavLink to='/signup'>sign up</NavLink>
-        <NavLink to='/login'>host your home</NavLink>
+    const toggleModal = (isLogin)=>{
+        setIsModalShow((isModalShow === 'none') ? 'block' : 'none')
+        setIsLogin(isLogin)
+    }
+ 
+    return (<section className="user-menu-container">
+        <p onClick={()=>toggleModal(false)} className="clickable">Sign up</p>
+        <p className="clickable" onClick={(()=>toggleModal(true))}>Log in</p>
+        <NavLink to='/login' >host your home</NavLink>
+        <div style={{display:isModalShow}} className='modal-center'>
+            <Signup toggleModal={toggleModal} isLogin={isLogin}/>
+        </div>
     </section>
     )
 }
