@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { HomeImgCard } from "../cmps/home-img-card"
 import { stayService } from "../services/stay.service"
 import { useDispatch, useSelector } from 'react-redux'
-import { showLargeFilter, showSmallFilter } from "../store/actions/headerAction";
+import { showLargeFilter, showSmallFilter, LogoChangeToWhite } from "../store/actions/headerAction";
 
 
 
@@ -20,16 +20,17 @@ export const Home = () => {
     useEffect(() => {
         getTopRated()
         dispatchFiltertoShow()
+        dispatchLogoIsWhite()
         document.documentElement.style.setProperty('--headerbackgroundColor', 'unset');
         document.documentElement.style.setProperty('--headerFontColor', '#fff');
         document.documentElement.style.setProperty('--verylightgray', 'unset');
         document.documentElement.style.setProperty('--bgc', 'unset');
-        document.documentElement.style.setProperty('--logo-font-color', 'unset');
-        document.documentElement.style.setProperty('--logo-red-shown', '');
+        
         return () => {
             document.documentElement.style.setProperty('--bgc', '#F7F7F7');
             document.documentElement.style.setProperty('--verylightgray', '#ECECEC');
             dispatchFiltertoHide()
+            dispatch(LogoChangeToWhite(false))
         }
     }, [])
 
@@ -40,6 +41,9 @@ export const Home = () => {
     }
     const dispatchFiltertoHide = () => {
         dispatch(showSmallFilter())
+    }
+    const dispatchLogoIsWhite = () => {
+        dispatch(LogoChangeToWhite(true))
     }
 
     const getTopRated = async () => {

@@ -6,50 +6,90 @@ import { SmallFilter } from "./small-filter";
 import { useEffect, useRef, useState } from "react"
 import { UserMenuModal } from "./user-menu-modal";
 import { showLargeFilter, showSmallFilter } from "../store/actions/headerAction";
-
+import whiteLogo from "../assets/imgs/logo-white.png";
+import redLogo from "../assets/imgs/logo1.png";
 
 
 export const AppHeader = () => {
 
-    const  LargeFilterShow  = useSelector((storeState) => storeState.headerModule.isLargeFilterShown)
-    const  smallFilterShow  = useSelector((storeState) => storeState.headerModule.isSmallFilterShown)
-
+    const LargeFilterShow = useSelector((storeState) => storeState.headerModule.isLargeFilterShown)
+    const smallFilterShow = useSelector((storeState) => storeState.headerModule.isSmallFilterShown)
+    const isLogoWhite = useSelector((storeState) => storeState.headerModule.isLogoWhite)
 
     const [isSmallFilterShown, setIsSmallFilterShown] = useState(true)
     const [bigFilterStyle, setBigFilterStyle] = useState({ display: 'none' })
     const [smallFilterStyle, setsmallFilterStyle] = useState({ display: 'block' })
-    const [menuModalShow, setMenuModalShow] = useState( 'none' )
-    
+    const [menuModalShow, setMenuModalShow] = useState('none')
+    const [logoColor, setLogoColor] = useState({ color: 'red' })
+    const [logoImgSrc, setogoImgSrc] = useState("../assets/imgs/logo1.png")
+
     useEffect(() => {
         window.addEventListener('scroll', changeCss, { passive: true });
+        updateLogoColor()
     }, [])
-    
-    useEffect(() => {
-        if(smallFilterShow) setsmallFilterStyle({ display: 'block' })
 
+    useEffect(() => {
+        if (smallFilterShow) setsmallFilterStyle({ display: 'block' })
     }, [smallFilterShow])
+
+    useEffect(() => {
+        updateLogoColor()
+    }, [isLogoWhite])
+
+
+
+    const updateLogoColor = () => {
+        console.log('isLogoWhite', isLogoWhite)
+        if (isLogoWhite) {
+            setLogoColor({ color: 'white' })
+            setogoImgSrc(whiteLogo)
+        }
+        else {
+            setLogoColor({ color: 'red' })
+            setogoImgSrc(redLogo)
+
+        }
+
+
+    }
 
     const changeCss = () => {
         const scrollValue = document.documentElement.scrollTop
         if (scrollValue) {
             setBigFilterStyle({ display: 'none' })
             setsmallFilterStyle({ display: 'block' })
-            
-            
             dispatch(showSmallFilter())
+        }
+
+        if (scrollValue > 700) {
+            document.documentElement.style.setProperty('--headerbackgroundColor', '#F7F7F7');
+            document.documentElement.style.setProperty('--bgc', '#F7F7F7');
+            document.documentElement.style.setProperty('--headerFontColor', '#000');
+            document.documentElement.style.setProperty('--headerbackgroundColor', '#F7F7F7');
+            setLogoColor({ color: 'red' })
+            setogoImgSrc(redLogo)
+            
             
         }
-    }
-    
-    const onPresentFilter = () => {
         
+        else if (scrollValue <= 700){
+
+            document.documentElement.style.setProperty('--headerbackgroundColor', 'unset');
+            document.documentElement.style.setProperty('--bgc', '#unset');
+            document.documentElement.style.setProperty('--headerFontColor', '#fff');
+            document.documentElement.style.setProperty('--headerbackgroundColor', '#unset');
+            setLogoColor({ color: 'white' })
+            setogoImgSrc(whiteLogo)
+        }
+    }
+
+    const onPresentFilter = () => {
         setsmallFilterStyle({ display: 'none' })
         setBigFilterStyle({ display: 'block' })
         dispatch(showLargeFilter())
     }
 
     const dispatch = useDispatch()
-
     const resetFilterBy = () => {
         dispatch(changeFilter({ location: '', from: null, to: null }))
     }
@@ -58,8 +98,8 @@ export const AppHeader = () => {
         setMenuModalShow((menuModalShow === 'none') ? 'flex' : 'none')
     }
 
-    {if (!menuModalShow) return <h1>loading</h1>}
-    {console.log('menuModalShow',menuModalShow)}
+    { if (!menuModalShow) return <h1>loading</h1> }
+    { console.log('menuModalShow', menuModalShow) }
 
     return (
         <header className="stock-margin main-header">
@@ -69,16 +109,16 @@ export const AppHeader = () => {
                         <NavLink to='/home'>
                             <div className="logo">
                                 <li>
-                                    <img src={require("../assets/imgs/logo1.png")} alt="" />
+                                    <img src={logoImgSrc} alt="" />
                                 </li>
-                                <li>Staybnb</li>
+                                <li style={logoColor}>Staybnb</li>
                             </div>
                         </NavLink>
                     </div>
                     <div onClick={() => onPresentFilter()} className="small-filte-parent" >
                         <div className="explore-filterr filterr small">
                             <div style={smallFilterStyle} >
-                                {smallFilterShow&& <SmallFilter />}
+                                {smallFilterShow && <SmallFilter />}
                             </div>
                         </div>
                     </div>
@@ -91,7 +131,7 @@ export const AppHeader = () => {
                                 <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />
                             </div>
                             <div style={{ display: menuModalShow }}>
-                                <UserMenuModal toggleModal={toggleModal}/>
+                                <UserMenuModal toggleModal={toggleModal} />
                             </div>
                         </li>
                     </div>
