@@ -3,7 +3,9 @@ export const utilService = {
     makeLorem,
     getRandomIntInclusive,
     delay,
-    capitalizeFirst
+    capitalizeFirst,
+    getUsPrice
+
 }
 
 function capitalizeFirst(string) {
@@ -41,5 +43,9 @@ function delay(ms = 1500) {
     return new Promise(resolve => {
         setTimeout(resolve, ms)
     })
+}
+
+function getUsPrice(price){
+    return Math.floor((price)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 }
 

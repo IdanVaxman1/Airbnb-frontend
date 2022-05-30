@@ -5,6 +5,8 @@ import { MainFilter } from "./main-filter";
 import { SmallFilter } from "./small-filter";
 import { useEffect, useRef, useState } from "react"
 import { UserMenuModal } from "./user-menu-modal";
+import { useParams } from "react-router-dom";
+
 
 export const AppHeader = () => {
 
@@ -12,8 +14,11 @@ export const AppHeader = () => {
     const [bigFilterStyle, setBigFilterStyle] = useState({ display: 'none' })
     const [smallFilterStyle, setsmallFilterStyle] = useState({ display: 'block' })
     const [menuModalShow, setMenuModalShow] = useState({ display: 'none' })
+    var page = useParams();
+
 
     useEffect(() => {
+        console.log(page)
         window.addEventListener('scroll', changeCss, { passive: true });
     }, [])
 

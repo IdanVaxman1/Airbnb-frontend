@@ -1,4 +1,4 @@
-// import { StayPreview } from "../assets/img/
+import { utilService } from "../services/util.service"
 // import 'font-awesome/css/font-awesome.min.css';
 import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from "react"
@@ -58,8 +58,9 @@ export function StayPreview({ stay }) {
                 <div className="stay-preiview-details propery-description">
                     <li><h1>{stay.name} </h1></li>
                 </div>
+                {console.log(stay.price)}
                 <div className="stay-preiview-details propery-price">
-                    <li><h1>${stay.price} night</h1></li>
+                    <li><h1>${utilService.getUsPrice(stay.price)} <span>night</span></h1></li>
                 </div>
             </div>
         </Link>

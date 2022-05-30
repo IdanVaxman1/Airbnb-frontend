@@ -6,9 +6,7 @@ import { React } from "react";
 
 
 export function StaydetailsHeader({ stay }) {
-    // useEffect(() => {
-    //     console.log(props.stay)
-    // }, [])
+   
 
 
 

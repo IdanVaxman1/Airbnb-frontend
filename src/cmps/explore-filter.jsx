@@ -3,6 +3,7 @@ import 'rc-slider/assets/index.css'
 import Slider from 'rc-slider'
 import { useEffect, useRef, useState } from "react"
 import { useDispatch } from 'react-redux'
+import { utilService } from '../services/util.service'
 import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from 'recharts'
 
 export const ExploreFilter = (props) => {
@@ -42,7 +43,7 @@ export const ExploreFilter = (props) => {
         })
         data.sort(function (a, b) {
             return a.price - b.price;
-          });
+        });
         setPricesData(data)
     }
 
@@ -75,7 +76,7 @@ export const ExploreFilter = (props) => {
         return 'mini-filter'
     }
 
-    
+
 
     if (!pricesData) return <h1>loading</h1>
     return (
@@ -87,11 +88,21 @@ export const ExploreFilter = (props) => {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                   
+
                     <Bar dataKey="price" fill="#82ca9d" />
                 </BarChart>
                 <Slider range allowCross={false} defaultValue={[0, 1200]} min={0} max={1200} onChange={handlePriceRange} />
-                <p>{exploreFilterBy.minPrice}$ - {exploreFilterBy.maxPrice}$</p>
+                <div className='flex-row-space-btw'>
+                    <li>
+                        ${utilService.getUsPrice(exploreFilterBy.minPrice)}
+                    </li>
+                    <li>
+                        -
+                    </li>
+                    <li>
+                        ${utilService.getUsPrice(exploreFilterBy.maxPrice)}
+                    </li>
+                </div>
             </div>}
             {typeIsShown && <div className='room-type-filter'>
                 <select name="roomType" onChange={handleChange}>
