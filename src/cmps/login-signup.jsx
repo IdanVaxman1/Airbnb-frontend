@@ -19,7 +19,6 @@ export class Signup extends React.Component {
     }
 
     componentDidMount(){
-        console.log(this.props.isLogin)
     }
 
     theme = createTheme({
@@ -44,7 +43,6 @@ export class Signup extends React.Component {
     });
 
     onSubmitUser = (user) => {
-        console.log(user)
     }
 
     onValidate = ({ username, password, repassword, email }) => {

@@ -6,9 +6,7 @@ import {React} from "react";
 
 
 export function ReserveStayDatesGuests() {
-    // useEffect(() => {
-    //     console.log(props.stay)
-    // }, [])
+   
     
     
     

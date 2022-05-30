@@ -22,7 +22,6 @@ export function ReserveStay(props) {
     }, [])
 
     const onMousMove = (e) => {  
-        console.log(e.offsetX) 
         const x = e.clientX;
         const y = e.clientY;
         document.documentElement.style.setProperty('--mouse-x', x);
@@ -64,7 +63,6 @@ export function ReserveStay(props) {
             totalGuestsQty,
             totalPrice
         }
-        console.log(reservation)
     }
 
     
@@ -91,7 +89,7 @@ export function ReserveStay(props) {
                     <GuestPicker className="guest-picker" onUpdateGuestsQty={onUpdateGuestsQty} />
                 </div>
             </div>
-            <button id="btn" onClick={reserveStay} onMouseMove={(e) => onMousMove(e)}  style={reservedBtnBc} className='reserve-button'>reserve</button>
+            <button onClick={reserveStay} onMouseMove={(e) => onMousMove(e)}  style={reservedBtnBc} className='reserve-button'>reserve</button>
             <section className="price-section">
                 {totalGuestsQty && from && to && <div>
                     <h4>You won't be charged yet</h4>

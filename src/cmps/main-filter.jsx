@@ -14,7 +14,6 @@ export const MainFilter = () => {
         if(filterBy.location !== loadedFilter.location || 
             filterBy.from !== loadedFilter.from ||
             filterBy.to !== loadedFilter.to) setFilterBy(loadedFilter)
-            console.log('enter')
     }, [loadedFilter])
 
     const dispatchFilter = () => {
