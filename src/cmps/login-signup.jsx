@@ -47,11 +47,11 @@ export class _LoginSignup extends React.Component {
     });
 
     onSignup = (user) => {
-        console.log(user)
+        // console.log(user)
     }
 
     onLogin = (credentials) => {
-        console.log(credentials)
+        // console.log(credentials)
     }
 
     onMousMove = (e) => {

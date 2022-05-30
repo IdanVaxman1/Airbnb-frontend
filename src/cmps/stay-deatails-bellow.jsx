@@ -9,7 +9,6 @@ export function StayDeatailsBellow({ stay }) {
    
 
 
-    { console.log(stay.host.thumbnailUrl) }
     return (
         <section className="">
             <section className="stay-details-header-below">
