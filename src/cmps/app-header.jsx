@@ -23,6 +23,11 @@ export const AppHeader = () => {
     useEffect(() => {
         window.addEventListener('scroll', changeCss, { passive: true });
     }, [])
+    
+    useEffect(() => {
+        if(smallFilterShow) setsmallFilterStyle({ display: 'block' })
+
+    }, [smallFilterShow])
 
     const changeCss = () => {
         const scrollValue = document.documentElement.scrollTop
@@ -55,7 +60,7 @@ export const AppHeader = () => {
 
     return (
         <header className="stock-margin main-header">
-            <div className="stock-margin-center ">
+            <div className="stock-margin-center flex-col">
                 <nav className="grid-3-col main-nav">
                     <div className="logo" onClick={resetFilterBy}>
                         <NavLink to='/home'>
@@ -89,7 +94,7 @@ export const AppHeader = () => {
                     </div>
                 </nav>
                 <div className="explore-filterr filterr big">
-                    <div >
+                    <div>
                         {LargeFilterShow && <MainFilter />}
                         {/* style={bigFilterStyle} */}
                     </div>

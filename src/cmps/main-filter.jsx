@@ -42,7 +42,7 @@ export const MainFilter = () => {
             <NavLink className="navlink" to='/explore'>
                 <div onClick={dispatchFilter}>
                     <div className="inpt-fillter search-symbol">
-                        <span className="material-symbols-sharp white">search</span>
+                          <span className="material-symbols-sharp white">search</span>
                     </div>
                 </div>
             </NavLink>

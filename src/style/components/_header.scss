@@ -3,9 +3,7 @@
     .main-header{
        
 
-        .big{
-            
-        }
+        
     }
 header {
     font-size: 0.875rem;
@@ -40,10 +38,24 @@ header {
     justify-content: space-between;
 
 
-    .big{
-        grid-row: 2;
-        position: absolute;
-        // margin-top: 30px;
+}
+.big{
+    grid-row: 2;
+    // position: absolute;
+    // margin-top: 30px;
+    >div{
+        width: 80%;
+    }
+
+    .total-filter{
+        height: 62px;
+        align-self: center;
+        margin: 0 auto;
+        justify-content: space-between;
+
+        &:nth-child(2){
+            flex-direction: column;
+        }
     }
 }
 
