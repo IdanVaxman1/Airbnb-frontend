@@ -18,7 +18,7 @@ export const AppHeader = () => {
     const [isSmallFilterShown, setIsSmallFilterShown] = useState(true)
     const [bigFilterStyle, setBigFilterStyle] = useState({ display: 'none' })
     const [smallFilterStyle, setsmallFilterStyle] = useState({ display: 'block' })
-    const [menuModalShow, setMenuModalShow] = useState({ display: 'none' })
+    const [menuModalShow, setMenuModalShow] = useState( 'none' )
     
     useEffect(() => {
         window.addEventListener('scroll', changeCss, { passive: true });
@@ -57,6 +57,9 @@ export const AppHeader = () => {
     const toggleModal = () => {
         setMenuModalShow((menuModalShow === 'none') ? 'flex' : 'none')
     }
+
+    {if (!menuModalShow) return <h1>loading</h1>}
+    {console.log('menuModalShow',menuModalShow)}
 
     return (
         <header className="stock-margin main-header">
