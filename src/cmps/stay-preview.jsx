@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react"
 
 export function StayPreview({ stay }) {
     const [imgIdx, setImgIdx] = useState(null)
-    const [heartClass,setHeartClass] = useState('')
+    const [heartClass, setHeartClass] = useState('')
 
     useEffect(() => {
         const imgIdx = 0
@@ -25,24 +25,27 @@ export function StayPreview({ stay }) {
         setImgIdx(idx)
     }
 
-    const changeHeartColor = (event) =>{
+    const changeHeartColor = (event) => {
         event.preventDefault()
-        setHeartClass((heartClass==='')? 'red' : '')
+        setHeartClass((heartClass === '') ? 'red' : '')
     }
 
     return (
         <Link to={`/stay/${stay._id}`}>
             <div className="stay-card">
                 <div>
-                    <div className={`heart ${heartClass}`} onClick={changeHeartColor}>
-                        <span className="material-icons">favorite</span>
-                    </div>
-                    <img src={stay.imgUrls[imgIdx]}></img>
-                    <div onClick={(event) => switchImg(event, 'up')} className="arr right-arr">
-                        <span className="material-icons">arrow_forward_ios</span>
-                    </div>
-                    <div onClick={(event) => switchImg(event, 'down')} className="arr left-arr">
-                        <span className="material-icons">arrow_back_ios</span>
+                    <div className="img-container">
+
+                        <div className={`heart ${heartClass}`} onClick={changeHeartColor}>
+                            <span className="material-icons">favorite</span>
+                        </div>
+                        <img src={stay.imgUrls[imgIdx]}></img>
+                        <div onClick={(event) => switchImg(event, 'up')} className="arr right-arr">
+                            <span className="material-icons">arrow_forward_ios</span>
+                        </div>
+                        <div onClick={(event) => switchImg(event, 'down')} className="arr left-arr">
+                            <span className="material-icons">arrow_back_ios</span>
+                        </div>
                     </div>
                 </div>
                 {/* <img src='https://res.cloudinary.com/dhy6ndeij/image/upload/v1653480425/001_urftcv.jpg'></img> */}
