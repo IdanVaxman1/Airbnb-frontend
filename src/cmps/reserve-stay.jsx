@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { DateRangeSelector } from './date-picker'
 import { GuestPicker } from "./guest-picker"
+import { utilService } from "../services/util.service"
 
 
 
@@ -68,7 +69,8 @@ export function ReserveStay(props) {
     return (
         <div className="reserve-stay-container">
             <div className="reserve-stay-header">
-                <li>${props.stay.price} <span>night</span></li>
+            {/* utilService.getUsPrice */}
+                <li>${utilService.getUsPrice((props.stay.price))} <span>night</span></li>
                 <li>{props.stay.reviewScores.value / 2}<span className="material-icons red">star</span> · <span>{props.stay.reviews.length} reviews</span></li>
             </div>
             <div className="picker-container">
@@ -93,15 +95,15 @@ export function ReserveStay(props) {
                     <h4>You won't be charged yet</h4>
                     <div className="flex-row-space-btw price">
                         <h1>Price</h1>
-                        <h1>{totalPrice}$</h1>
+                        <h1>${utilService.getUsPrice(totalPrice)}</h1>
                     </div>
                     <div className="flex-row-space-btw service-fee">
                         <h1>Service fee</h1>
-                        <h1>25$</h1>
+                        <h1>$25</h1>
                     </div>
                     <div className="flex-row-space-btw total">
                         <h1>Total</h1>
-                        <h1>{totalPrice + 25}$</h1>
+                        <h1>${utilService.getUsPrice((totalPrice + 25))}</h1>
                     </div>
                 </div>}
             </section>
