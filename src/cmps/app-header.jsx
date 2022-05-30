@@ -9,16 +9,19 @@ import { useParams } from "react-router-dom";
 
 
 export const AppHeader = () => {
+    const { stayId } = useParams();
+        console.log('stayId',stayId)
 
     const [isSmallFilterShown, setIsSmallFilterShown] = useState(true)
     const [bigFilterStyle, setBigFilterStyle] = useState({ display: 'none' })
     const [smallFilterStyle, setsmallFilterStyle] = useState({ display: 'block' })
     const [menuModalShow, setMenuModalShow] = useState({ display: 'none' })
-    var page = useParams();
+    
+    const param = useParams();
+    console.log('param',JSON.stringify(param))
 
 
     useEffect(() => {
-        console.log(page)
         window.addEventListener('scroll', changeCss, { passive: true });
     }, [])
 

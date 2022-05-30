@@ -15,6 +15,7 @@ export const StayDetails = () => {
     const [stay, setStay] = useState(null)
     const [navbarStyling, setNavbarStyling] = useState({ visibility: 'visible' })
     const { stayId } = useParams();
+    console.log('stayId',stayId)
 
     useEffect(() => {
 

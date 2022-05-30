@@ -58,7 +58,7 @@ export function StayPreview({ stay }) {
                 <div className="stay-preiview-details propery-description">
                     <li><h1>{stay.name} </h1></li>
                 </div>
-                {console.log(stay.price)}
+              
                 <div className="stay-preiview-details propery-price">
                     <li><h1>${utilService.getUsPrice(stay.price)} <span>night</span></h1></li>
                 </div>
