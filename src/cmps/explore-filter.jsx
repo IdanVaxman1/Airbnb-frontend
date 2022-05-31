@@ -5,7 +5,9 @@ import { useEffect, useRef, useState } from "react"
 import { useDispatch } from 'react-redux'
 import { utilService } from '../services/util.service'
 import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from 'recharts'
-import Checkbox from '@mui/material/Checkbox'
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 
 export const ExploreFilter = (props) => {
     const timeOutId = useRef()
@@ -17,6 +19,7 @@ export const ExploreFilter = (props) => {
         roomType: "",
         amenities: []
     })
+    const [checked, setChecked] = useState(true);
     const [priceIsShown, setPriceIsShown] = useState(false)
     const [typeIsShown, setTypeIsShown] = useState(false)
     const [pricesData, setPricesData] = useState(null)
@@ -53,13 +56,6 @@ export const ExploreFilter = (props) => {
         props.onChangeExploreFilter(exploreFilterBy)
     }, [exploreFilterBy])
 
-
-    const handleChange = (ev) => {
-        const field = ev.target.name
-        const value = ev.target.value
-        setExploreFilterBy({ ...exploreFilterBy, [field]: value })
-    }
-
     const handleButtonChange = (amenity) => {
         if (exploreFilterBy.amenities.includes(amenity)) {
             setExploreFilterBy({ ...exploreFilterBy, amenities: exploreFilterBy.amenities.filter(amn => amn !== amenity) })
@@ -72,6 +68,10 @@ export const ExploreFilter = (props) => {
         timeOutId.current = setTimeout(setExploreFilterBy, 500, { ...exploreFilterBy, minPrice: value[0], maxPrice: value[1] })
     }
 
+    const handleRoomType = (event,roomType) => {
+        setChecked(event.target.checked)
+        console.log(roomType)
+    }
 
     const getClass = (amenity) => {
         let className = 'mini-filter'
@@ -89,7 +89,6 @@ export const ExploreFilter = (props) => {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-
                     <Bar dataKey="price" fill="#82ca9d" />
                 </BarChart>
                 <Slider range allowCross={false} defaultValue={[0, 1200]} min={0} max={1200} onChange={handlePriceRange} />
@@ -106,13 +105,15 @@ export const ExploreFilter = (props) => {
                 </div>
             </div>}
 
-            {typeIsShown && <div className='room-type-filter center'>
-                <Checkbox defaultChecked/> <p>lalala</p>
-                <Checkbox defaultChecked color="secondary" />
-                <Checkbox defaultChecked color="success" />
-                <Checkbox defaultChecked color="default" />
+            {typeIsShown && <div className='room-type-filter center noselect'>
+                <FormGroup>
+                    <FormControlLabel control={<Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }} />} label="entire home" onChange={() => console.log(12222)} inputProps={{ 'aria-label': 'controlled' }} checked={checked}/>
+                    <FormControlLabel control={<Checkbox defaultChecked sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }} />} label="Hotel room" />
+                    <FormControlLabel control={<Checkbox defaultChecked sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }} />} label="Private room" />
+                    <FormControlLabel control={<Checkbox defaultChecked sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }} />} label="Shared room" />
+                </FormGroup>
             </div>}
-            
+
             <div >
                 <div className='amn-container noselect'>
                     <div className="enity-filter">
@@ -130,4 +131,8 @@ export const ExploreFilter = (props) => {
         </div>
     )
 }
+
+
+
+
 
