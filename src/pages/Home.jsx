@@ -22,7 +22,7 @@ export const Home = () => {
         document.documentElement.style.setProperty('--headerFontColor', '#fff');
         document.documentElement.style.setProperty('--verylightgray', 'unset');
         document.documentElement.style.setProperty('--bgc', 'unset');
-        
+
         return () => {
             window.removeEventListener('scroll', changeCss, { passive: true });
             document.documentElement.style.setProperty('--bgc', '#F7F7F7');
@@ -34,17 +34,17 @@ export const Home = () => {
 
     const changeCss = () => {
         const scrollValue = document.documentElement.scrollTop
-        
+
         if (scrollValue > 700) {
             dispatch(LogoChangeToWhite(false))
         }
-        else if (scrollValue <= 700){
+        else if (scrollValue <= 700) {
             dispatch(LogoChangeToWhite(true))
         }
     }
 
     const dispatch = useDispatch()
-    
+
     const dispatchFiltertoShow = () => {
         dispatch(showLargeFilter())
     }
@@ -65,6 +65,20 @@ export const Home = () => {
     return (
         <article className="home-page-container" >
             <section className="main-page-head">
+                <div className="hero">
+                    <h1>
+                        Not sure where to go? Perfect.
+                    </h1>
+                    <div>
+
+                        <button>
+                            <h3>
+                                I'm flexible
+
+                            </h3>
+                        </button>
+                    </div>
+                </div>
 
             </section>
             <section className="stock-margin">
