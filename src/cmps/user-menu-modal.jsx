@@ -17,9 +17,15 @@ export const UserMenuModal = (props) => {
     }
 
     return (<section className="user-menu-container">
-        <p onClick={() => toggleModal(false)} className="clickable noselect">Sign up</p>
-        <p onClick={() => toggleModal(true)} className="clickable noselect" >Log in</p>
-        <NavLink className='undecorate' onClick={closeSelf}  to='/login' >Host your home</NavLink>
+        <li onClick={() => toggleModal(false)} className="clickable noselect">
+            <p >Sign up</p>
+        </li>
+        <li onClick={() => toggleModal(true)} className="clickable noselect">
+            <p  >Log in</p>
+        </li>
+        <li>
+            <NavLink className='undecorate' onClick={closeSelf} to='/login' >Host your home</NavLink>
+        </li>
     </section>
     )
 }
