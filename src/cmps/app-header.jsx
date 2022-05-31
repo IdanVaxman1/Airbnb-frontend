@@ -23,7 +23,7 @@ export const AppHeader = () => {
     const [menuModalShow, setMenuModalShow] = useState('none')
     const [logoColor, setLogoColor] = useState({ color: 'red' })
     const [logoImgSrc, setogoImgSrc] = useState("../assets/imgs/logo1.png")
-    
+
     const dispatch = useDispatch()
     useEffect(() => {
         window.addEventListener('scroll', changeCss, { passive: true });
@@ -37,8 +37,6 @@ export const AppHeader = () => {
     useEffect(() => {
         updateLogoColor()
     }, [isLogoWhite])
-
-
 
     const updateLogoColor = () => {
         console.log('isLogoWhite', isLogoWhite)
@@ -57,10 +55,7 @@ export const AppHeader = () => {
             document.documentElement.style.setProperty('--bgc', '#F7F7F7');
             document.documentElement.style.setProperty('--headerFontColor', '#000');
             document.documentElement.style.setProperty('--headerbackgroundColor', '#F7F7F7');
-            
         }
-        
-
     }
 
     const changeCss = () => {
@@ -70,8 +65,6 @@ export const AppHeader = () => {
             setsmallFilterStyle({ display: 'block' })
             dispatch(showSmallFilter())
         }
-
-        
     }
 
     const onPresentFilter = () => {
@@ -88,11 +81,9 @@ export const AppHeader = () => {
         setMenuModalShow((menuModalShow === 'none') ? 'flex' : 'none')
     }
 
-    { if (!menuModalShow) return <h1>loading</h1> }
-    { console.log('menuModalShow', menuModalShow) }
-
     return (
         <header className="stock-margin main-header">
+            <div className="left"></div>
             <div className="stock-margin-center flex-col">
                 <nav className="grid-3-col main-nav">
                     <div className="logo" onClick={resetFilterBy}>
@@ -132,7 +123,9 @@ export const AppHeader = () => {
                         {/* style={bigFilterStyle} */}
                     </div>
                 </div>
+
             </div>
+            <div className="right"></div>
         </header >
     )
 }

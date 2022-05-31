@@ -1,6 +1,16 @@
 
 
     .main-header{
+
+        .left{
+            grid-column: 1;
+            background-color: var(--headerbackgroundColor);
+        }
+        .right{
+            background-color: var(--headerbackgroundColor);
+            grid-column: 3;
+        }
+
        
 
         
