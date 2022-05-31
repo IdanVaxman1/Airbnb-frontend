@@ -5,14 +5,12 @@ import { utilService } from './util.service.js'
 // import { getActionRemoveStay, getActionAddStay, getActionUpdateStay } from '../store/stay.actions.js'
 
 const STORAGE_KEY = 'stay'
-// const stayChannel = new BroadcastChannel('stayChannel')
-// const listeners = []
 
 export const stayService = {
     query,
     getById,
     getTopRated,
-    getRndomStayId,
+    getRandomStayId,
     // save,
     // remove,
     // subscribe,
@@ -46,7 +44,7 @@ function getTopRated(){
     return dataService.getTopRated()
 }
 
-async function getRndomStayId(){
+async function getRandomStayId(){
     const stays = await storageService.query()
     const idx = utilService.getRandomIntInclusive(0,stays.length-1)
     return stays[idx]._id
