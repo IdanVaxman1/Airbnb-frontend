@@ -110,7 +110,7 @@ export class _LoginSignup extends React.Component {
                                         <Field name="imgUrl" type="text" as={TextField} variant="outlined" label="your image URL" fullWidth InputLabelProps={{ style: { color: '#222222' } }} />
                                     </MuiThemeProvider>
                                     <button className='reserve-button' style={{ '--mouse-x': this.state.mouseX, '--mouse-y': this.state.mouseY, margin: 'auto', marginTop: '12px' }} onMouseMove={this.onMousMove}>
-                                        Sign Up
+                                        Continue
                                     </button>
                                     <h5 className='clickable' onClick={()=>this.toggleModal(true)}>i already have an account</h5>
                                 </Form>
@@ -124,13 +124,12 @@ export class _LoginSignup extends React.Component {
                                 <Field name="username" type="text" as={TextField} variant="outlined" label="Username" fullWidth InputLabelProps={{ style: { color: '#222222' } }} />
                                 <Field name="password" type="password" as={TextField} variant="outlined" label="Password" fullWidth style={{ marginTop: '12px' }} InputLabelProps={{ style: { color: '#222222' } }} />
                                 <button className='reserve-button' style={{ '--mouse-x': this.state.mouseX, '--mouse-y': this.state.mouseY, margin: 'auto', marginTop: '12px' }} onMouseMove={this.onMousMove}>
-                                    Log in
+                                Continue
                                 </button>
                                 <h5 className='clickable' onClick={()=>this.toggleModal(false)}>New user</h5>
                             </MuiThemeProvider>
                         </Form>
                     </Formik>}
-
                 </div>
             </>
         )
