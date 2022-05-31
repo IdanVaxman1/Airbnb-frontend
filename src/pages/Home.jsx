@@ -80,7 +80,7 @@ export const Home = () => {
                     <div>
 
                         <button>
-                            <NavLink to={`/stay/${randomStayId}`}>
+                            <NavLink className='undecorate' to={`/stay/${randomStayId}`}>
                                 <h3>
                                     I'm flexible
                                 </h3>

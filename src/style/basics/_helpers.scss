@@ -97,6 +97,11 @@ ul li{
     grid-template-columns: 1fr 1fr 1fr;
   }
 
+  .undecorate{
+    text-decoration: none;
+    color: $clrBLACK
+  }
+
   
 
   .stock-margin-center{
