@@ -1,13 +1,26 @@
 
 
     .main-header{
+
+        .left{
+            grid-column: 1;
+            background-color: var(--headerbackgroundColor);
+        }
+        .right{
+            background-color: var(--headerbackgroundColor);
+            grid-column: 3;
+        }
+
        
 
-        .big{
-            
-        }
+        
     }
 header {
+
+    &>*{
+        box-shadow: 0 1px rgba(0,0,0,.08)!important;
+    }
+
     font-size: 0.875rem;
     position: fixed;
     width: 100%;
@@ -40,12 +53,65 @@ header {
     justify-content: space-between;
 
 
-    .big{
-        grid-row: 2;
-        position: absolute;
-        // margin-top: 30px;
+}
+.big{
+    grid-row: 2;
+    padding: 0 15% 23px;
+    // position: absolute;
+    // margin-top: 30px;
+   
+    .inpt-fillter:nth-child(2){
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+
+
+        .date-range-selector{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .DateRangePicker_1{
+                width: 100%;
+
+                .DateInput_1{
+                    width: 50%;
+                }
+            }
+        }
+    }
+
+    >div{
+        width: 80%;
+    }
+
+    .total-filter{
+        height: 62px;
+        align-self: center;
+        margin: 0 auto;
+        justify-content: space-between;
+
+        &:first-child{
+               input{
+
+                width: 100px;
+            
+        }
+        
+    }
+
+        &:nth-child(2){
+            flex-direction: column;
+        }
+
+        
+    }
+    .DateInput_input_1{
+        width: unset !important;
     }
 }
+
 
 :last-child {
     margin-right: 0;
@@ -67,6 +133,10 @@ header {
     font-size: 25px;
     display: flex;
     height: 90%;
+
+    :first-child{
+        margin-right: 2px;
+    }
 
     a {
         text-decoration: none;
@@ -101,7 +171,18 @@ nav {
     }
 }
 
+.noselect{
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+}
+
 .user-menu {
+    gap: 7px;
     background-color: white;
     position: relative;
     display: flex;
@@ -112,7 +193,8 @@ nav {
     outline: 1px solid rgba($color: $clrGRAY, $alpha: 0.6);
     padding:0;
     span {
-        font-size: 2em;
+        color: #595959;
+        font-size: 1.125rem;
         font-weight: 800;
         margin-right: 6px;
         margin-left:12px;

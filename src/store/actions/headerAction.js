@@ -9,4 +9,10 @@ export function showSmallFilter(isShown) {
         dispatch({ type: 'showSmallFilter', isShown })
     } 
   }
+export function LogoChangeToWhite(isWhite) {
+    return (dispatch) => {
+        dispatch({ type: 'changeLogoColor', isWhite })
+    } 
+  }
+
 
