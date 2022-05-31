@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react"
 import { useDispatch } from 'react-redux'
 import { utilService } from '../services/util.service'
 import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from 'recharts'
-// import Checkbox from '@mui/material/Checkbox'
 
 export const ExploreFilter = (props) => {
     const timeOutId = useRef()
@@ -20,6 +19,7 @@ export const ExploreFilter = (props) => {
     const [priceIsShown, setPriceIsShown] = useState(false)
     const [typeIsShown, setTypeIsShown] = useState(false)
     const [pricesData, setPricesData] = useState(null)
+    const amenities = ['Wifi','TV','Kitchen','Air conditioning']
 
 
     useEffect(() => {
@@ -40,7 +40,7 @@ export const ExploreFilter = (props) => {
 
     const getPricesData = () => {
         const data = props.stays.map(stay => {
-            return { 'price': stay.price }
+            return { price: stay.price }
         })
         data.sort(function (a, b) {
             return a.price - b.price;
@@ -73,11 +73,10 @@ export const ExploreFilter = (props) => {
 
 
     const getClass = (amenity) => {
-        if (exploreFilterBy.amenities.includes(amenity)) return 'mini-filter small-border'
-        return 'mini-filter'
+        let className= 'mini-filter'
+        if (exploreFilterBy.amenities.includes(amenity)) className+= ' small-border'
+        return className
     }
-
-
 
     if (!pricesData) return <h1>loading</h1>
     return (
@@ -106,16 +105,14 @@ export const ExploreFilter = (props) => {
                 </div>
             </div>}
             {typeIsShown && <div className='room-type-filter center'>
-                {/* <select name="roomType" onChange={handleChange}>
+                <select name="roomType" onChange={handleChange}>
                     <option value="">show all</option>
                     <option value="Entire home/apt">Entire place</option>
                     <option value="Private room">Private room</option>
                     <option value="Hotel room">Hotel Room</option>
                     <option value="Shared room">Shared room</option>
-                </select> */}
+                </select>
             </div>}
-
-
             <div >
                 <div className='amn-container noselect'>
                     <div className="enity-filter">
@@ -125,20 +122,12 @@ export const ExploreFilter = (props) => {
                         <div className={getClass('Type of place')} onClick={() => onShown('Type of place')}>Type of place</div>
                     </div>
                     <span className="enity-filter separator">|</span>
-                    <div className="enity-filter">
-                        <div className={getClass('Wifi')} onClick={() => handleButtonChange('Wifi')}>Wifi</div>
-                    </div>
-                    <div className="enity-filter">
-                        <div className={getClass('TV')} onClick={() => handleButtonChange('TV')}>TV</div>
-                    </div>
-                    <div className="enity-filter">
-                        <div className={getClass('Kitchen')} onClick={() => handleButtonChange('Kitchen')}>Kitchen</div>
-                    </div>
-                    <div className="enity-filter">
-                        <div className={getClass('Air conditioning')} onClick={() => handleButtonChange('Air conditioning')}>AC</div>
-                    </div>
+                    {amenities.map(amenity=><div className="enity-filter" key={amenity}>
+                        <div className={getClass(amenity)} onClick={() => handleButtonChange(amenity)}>{amenity}</div>
+                    </div>)}
                 </div>
             </div>
         </div>
     )
 }
+

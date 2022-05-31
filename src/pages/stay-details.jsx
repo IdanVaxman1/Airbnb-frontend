@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react"
 import { stayService } from "../services/stay.service"
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom"
 import { DetailsGallery } from "../cmps/details-gallery"
 import { ReserveStay } from "../cmps/reserve-stay"
 import { MainFilter } from "../cmps/main-filter";
-import { StaydetailsHeader } from "../cmps/StaydetailsHeader";
-import { StayDeatailsBellow } from "../cmps/stay-deatails-bellow";
-import { ReviewLine } from "../cmps/review-line";
-
-
+import { StaydetailsHeader } from "../cmps/StaydetailsHeader"
+import { StayDeatailsBellow } from "../cmps/stay-deatails-bellow"
+import { ReviewLine } from "../cmps/review-line"
 
 export const StayDetails = () => {
 

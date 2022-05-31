@@ -1,19 +1,10 @@
 import { useEffect, useState } from "react"
-import {React} from "react";
-
-
+import {React} from "react"
 
 export const StayProperyDetail = ({ stay }) => {
-
-
+    
     useEffect(() => {
-
-
-
-
     }, [])
-
-
 
     return <section className="features">
         <section>

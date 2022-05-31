@@ -1,13 +1,7 @@
 import { useEffect, useRef, useState } from "react"
-import { React } from "react";
-
-
-
-
+import { React } from "react"
 
 export function StayDeatailsBellow({ stay }) {
-
-
 
     return (
         <section className="">

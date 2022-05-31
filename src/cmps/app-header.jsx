@@ -1,13 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
-import { changeFilter } from "../store/actions/stay.action";
-import { MainFilter } from "./main-filter";
-import { SmallFilter } from "./small-filter";
+import { changeFilter } from "../store/actions/stay.action"
+import { MainFilter } from "./main-filter"
+import { SmallFilter } from "./small-filter"
 import { useEffect, useRef, useState } from "react"
-import { UserMenuModal } from "./user-menu-modal";
-import { showLargeFilter, showSmallFilter, LogoChangeToWhite } from "../store/actions/headerAction";
-import whiteLogo from "../assets/imgs/logo-white.png";
-import redLogo from "../assets/imgs/logo1.png";
+import { UserMenuModal } from "./user-menu-modal"
+import { showLargeFilter, showSmallFilter, LogoChangeToWhite } from "../store/actions/headerAction"
+import whiteLogo from "../assets/imgs/logo-white.png"
+import redLogo from "../assets/imgs/logo1.png"
 
 
 

@@ -1,15 +1,7 @@
 import { useEffect, useRef, useState } from "react"
-import {React} from "react";
-
-
-
-
+import {React} from "react"
 
 export function ReserveStayDatesGuests() {
-   
-    
-    
-    
     return (
         <div className="dates-grid">
             <div className="cell top-left">

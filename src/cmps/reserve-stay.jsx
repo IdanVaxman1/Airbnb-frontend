@@ -4,20 +4,18 @@ import { DateRangeSelector } from './date-picker'
 import { GuestPicker } from "./guest-picker"
 import { utilService } from "../services/util.service"
 
-
-
 export function ReserveStay(props) {
-    const [guestsQty, setGuestsQty] = useState(0)
     const [totalGuestsQty, setTotalGuestsQty] = useState(null)
-    const [guestModalShown, setGuestModalShown] = useState({ display: 'none' })
-    const [isTrue, setIstrue] = useState(false)
-    const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
     const [from, setFrom] = useState(null)
     const [to, setTo] = useState(null)
     const [totalPrice, setTotalPrice] = useState(0)
+
     const [showGuestsStyle, setShowGuestsStyle] = useState('expand_more')
     const [reservedBtnBc, setReservedBtnBc] = useState({ backgroundColor: `green` })
+    const [guestModalShown, setGuestModalShown] = useState({ display: 'none' })
+    const [isTrue, setIstrue] = useState(false)
 
+    const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
     useEffect(() => {
         setPrice(filterBy.from, filterBy.to)
     }, [])
@@ -32,7 +30,7 @@ export function ReserveStay(props) {
     
     const onUpdateGuestsQty = (adults, childs) => {
         const guestsQty = [{ adults }, { childs }]
-        setGuestsQty(guestsQty)
+        setTotalGuestsQty(guestsQty)
         setTotalGuestsQty(adults + childs)
     }
 
@@ -64,12 +62,12 @@ export function ReserveStay(props) {
             totalGuestsQty,
             totalPrice
         }
+        console.log(reservation)
     }
 
     return (
         <div className="reserve-stay-container">
             <div className="reserve-stay-header">
-            {/* utilService.getUsPrice */}
                 <li>${utilService.getUsPrice((props.stay.price))} <span>night</span></li>
                 <li>{props.stay.reviewScores.value / 2}<span className="material-icons red">star</span> · <span>{props.stay.reviews.length} reviews</span></li>
             </div>
