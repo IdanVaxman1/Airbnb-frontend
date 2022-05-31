@@ -68,9 +68,9 @@ export const ExploreFilter = (props) => {
         timeOutId.current = setTimeout(setExploreFilterBy, 500, { ...exploreFilterBy, minPrice: value[0], maxPrice: value[1] })
     }
 
-    const handleRoomType = (event,roomType) => {
+    const handleRoomType = (event) => {
         setChecked(event.target.checked)
-        console.log(roomType)
+        console.log(event.target)
     }
 
     const getClass = (amenity) => {
@@ -107,7 +107,7 @@ export const ExploreFilter = (props) => {
 
             {typeIsShown && <div className='room-type-filter center noselect'>
                 <FormGroup>
-                    <FormControlLabel control={<Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }} />} label="entire home" onChange={() => console.log(12222)} inputProps={{ 'aria-label': 'controlled' }} checked={checked}/>
+                    <FormControlLabel name='yairrr' control={<Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }} />} label="entire home" onChange={handleRoomType} inputProps={{ 'aria-label': 'controlled' }} checked={checked}/>
                     <FormControlLabel control={<Checkbox defaultChecked sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }} />} label="Hotel room" />
                     <FormControlLabel control={<Checkbox defaultChecked sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }} />} label="Private room" />
                     <FormControlLabel control={<Checkbox defaultChecked sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }} />} label="Shared room" />
