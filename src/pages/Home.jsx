@@ -17,7 +17,7 @@ export const Home = () => {
     useEffect(() => {
         window.addEventListener('scroll', changeCss, { passive: true });
         getTopRated()
-        // GetRandomStayId()
+        GetRandomStayId()
         dispatchFiltertoShow()
         dispatchLogoIsWhite()
         document.documentElement.style.setProperty('--headerbackgroundColor', 'unset');
@@ -62,10 +62,10 @@ export const Home = () => {
         setTopRated([topStays])
     }
 
-    // const GetRandomStayId = async () =>{
-    //     setRndomStayId(stayService.getRndomStayId())
-    //     console.log(stayService.getRndomStayId())
-    // }
+    const GetRandomStayId = async () =>{
+        const stayId = await stayService.getRndomStayId()
+        setRndomStayId(stayId)
+    }
 
     { if (!topRated) return (<h1></h1>) }
 
@@ -79,6 +79,7 @@ export const Home = () => {
                     <div>
 
                         <button>
+                            
                             <h3>
                                 I'm flexible
                             </h3>
