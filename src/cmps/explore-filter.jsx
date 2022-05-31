@@ -107,7 +107,7 @@ export const ExploreFilter = (props) => {
             </div>}
 
             {typeIsShown && <div className='room-type-filter center'>
-                <Checkbox defaultChecked />
+                <Checkbox defaultChecked/> <p>lalala</p>
                 <Checkbox defaultChecked color="secondary" />
                 <Checkbox defaultChecked color="success" />
                 <Checkbox defaultChecked color="default" />

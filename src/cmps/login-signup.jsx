@@ -93,7 +93,7 @@ export class _LoginSignup extends React.Component {
                     </button>
                     
                     {!isLogin &&
-                        <Formik validateOnSubmit validate={this.onValidate} initialValues={this.signupInitialValues} onSubmit={this.onValidate}>
+                        <Formik validateOnChange={false} validateOnBlur={false} validate={this.onValidate} initialValues={this.signupInitialValues} onSubmit={this.onSignup}>
                             {({ errors }) => (
                                 <Form>
                                     <h3>Sign up</h3>
