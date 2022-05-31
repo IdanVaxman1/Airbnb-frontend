@@ -4,12 +4,8 @@ import { stayService } from "../services/stay.service"
 import { StayPreview } from "../cmps/stay-preview"
 // import { stayService } from "../services/stay.service"
 import { ExploreFilter } from "../cmps/explore-filter"
-import { showLargeFilter, showSmallFilter, LogoChangeToWhite } from "../store/actions/headerAction";
+import { showLargeFilter, showSmallFilter, LogoChangeToWhite } from "../store/actions/headerAction"
 import { useDispatch, useSelector } from 'react-redux'
-
-
-
-
 
 export function Explore() {
     const [headerFontColor, setHeaderFontColor] = useState('white')

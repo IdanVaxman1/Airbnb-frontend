@@ -1,15 +1,8 @@
 import { useEffect, useRef, useState } from "react"
-import { React } from "react";
-
-
-
-
+import { React } from "react"
 
 export function StaydetailsHeader({ stay }) {
    
-
-
-
     return (<section className="details-header">
         <div className="decription-stay-priview">
             <h2>{stay.name}</h2>

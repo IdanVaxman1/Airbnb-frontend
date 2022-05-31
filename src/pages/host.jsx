@@ -1,5 +1,3 @@
-
-
 export const Host = () => {
     return (
         <section >

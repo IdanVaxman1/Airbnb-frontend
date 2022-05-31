@@ -5,8 +5,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { showLargeFilter, showSmallFilter, LogoChangeToWhite } from "../store/actions/headerAction"
 import { NavLink } from "react-router-dom"
 
-
-
 export const Home = () => {
     const [topRated, setTopRated] = useState(null)
     const [randomStayId, setRndomStayId] = useState('622f337a75c7d36e498aaafb')
