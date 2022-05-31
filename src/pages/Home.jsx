@@ -1,27 +1,59 @@
 import { useEffect, useRef, useState } from "react"
 import { HomeImgCard } from "../cmps/home-img-card"
 import { stayService } from "../services/stay.service"
+import { useDispatch, useSelector } from 'react-redux'
+import { showLargeFilter, showSmallFilter, LogoChangeToWhite } from "../store/actions/headerAction";
+
+
 
 export const Home = () => {
-
     const [topRated, setTopRated] = useState(null)
     const cities = [{ name: 'New york', imgURL: 'https://a.cdn-hotels.com/gdcs/production101/d154/ee893f00-c31d-11e8-9739-0242ac110006.jpg' },
     { name: 'Porto', imgURL: 'https://touristjourney.com/wp-content/uploads/2020/10/shutterstock_1706807566-scaled.jpg' },
     { name: 'Montreal', imgURL: 'https://www.airtransat.com/getmedia/cafc7e6e-d0ff-497e-9998-e708f41aa191/Montreal-estival.aspx' },
     { name: 'Barcelona', imgURL: 'https://students.edmonds.edu/studyabroad/images/barca.jpg' }]
 
-
     useEffect(() => {
+        window.addEventListener('scroll', changeCss, { passive: true });
         getTopRated()
+        dispatchFiltertoShow()
+        dispatchLogoIsWhite()
         document.documentElement.style.setProperty('--headerbackgroundColor', 'unset');
         document.documentElement.style.setProperty('--headerFontColor', '#fff');
         document.documentElement.style.setProperty('--verylightgray', 'unset');
         document.documentElement.style.setProperty('--bgc', 'unset');
+        
         return () => {
+            window.removeEventListener('scroll', changeCss, { passive: true });
             document.documentElement.style.setProperty('--bgc', '#F7F7F7');
             document.documentElement.style.setProperty('--verylightgray', '#ECECEC');
+            dispatchFiltertoHide()
+            dispatch(LogoChangeToWhite(false))
         }
     }, [])
+
+    const changeCss = () => {
+        const scrollValue = document.documentElement.scrollTop
+        
+        if (scrollValue > 700) {
+            dispatch(LogoChangeToWhite(false))
+        }
+        else if (scrollValue <= 700){
+            dispatch(LogoChangeToWhite(true))
+        }
+    }
+
+    const dispatch = useDispatch()
+    
+    const dispatchFiltertoShow = () => {
+        dispatch(showLargeFilter())
+    }
+    const dispatchFiltertoHide = () => {
+        dispatch(showSmallFilter())
+    }
+    const dispatchLogoIsWhite = () => {
+        dispatch(LogoChangeToWhite(true))
+    }
 
     const getTopRated = async () => {
         const topStays = await stayService.getTopRated()

@@ -3,8 +3,11 @@ import { useEffect, useRef, useState } from "react"
 import { stayService } from "../services/stay.service"
 import { StayPreview } from "../cmps/stay-preview"
 // import { stayService } from "../services/stay.service"
-import { useSelector } from 'react-redux'
 import { ExploreFilter } from "../cmps/explore-filter"
+import { showLargeFilter, showSmallFilter, LogoChangeToWhite } from "../store/actions/headerAction";
+import { useDispatch, useSelector } from 'react-redux'
+
+
 
 
 
@@ -12,9 +15,12 @@ export function Explore() {
     const [headerFontColor, setHeaderFontColor] = useState('white')
     const [stays, setStays] = useState(null)
     const { filterBy } = useSelector((storeState) => storeState.stayModule)
+    const dispatch = useDispatch()
 
     useEffect(() => {
         getStays()
+        dispatch(LogoChangeToWhite(false))
+
         document.documentElement.style.setProperty('--headerFontColor', '#000');
         document.documentElement.style.setProperty('--headerbackgroundColor', '#F7F7F7');
         window.addEventListener('scroll', changeCss);

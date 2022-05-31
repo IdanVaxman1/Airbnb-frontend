@@ -1,13 +1,26 @@
 
 
     .main-header{
+
+        .left{
+            grid-column: 1;
+            background-color: var(--headerbackgroundColor);
+        }
+        .right{
+            background-color: var(--headerbackgroundColor);
+            grid-column: 3;
+        }
+
        
 
-        .big{
-            
-        }
+        
     }
 header {
+
+    &>*{
+        box-shadow: 0 1px rgba(0,0,0,.08)!important;
+    }
+
     font-size: 0.875rem;
     position: fixed;
     width: 100%;
@@ -40,10 +53,24 @@ header {
     justify-content: space-between;
 
 
-    .big{
-        grid-row: 2;
-        position: absolute;
-        // margin-top: 30px;
+}
+.big{
+    grid-row: 2;
+    // position: absolute;
+    // margin-top: 30px;
+    >div{
+        width: 80%;
+    }
+
+    .total-filter{
+        height: 62px;
+        align-self: center;
+        margin: 0 auto;
+        justify-content: space-between;
+
+        &:nth-child(2){
+            flex-direction: column;
+        }
     }
 }
 
@@ -67,6 +94,10 @@ header {
     font-size: 25px;
     display: flex;
     height: 90%;
+
+    :first-child{
+        margin-right: 2px;
+    }
 
     a {
         text-decoration: none;
