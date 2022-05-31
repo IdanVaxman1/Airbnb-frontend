@@ -49,7 +49,7 @@ function getTopRated(){
 async function getRndomStayId(){
     const stays = await storageService.query()
     const idx = utilService.getRandomIntInclusive(0,stays.length-1)
-    return stays[idx].id
+    return stays[idx]._id
 }
 // async function remove(stayId) {
 //     // return new Promise((resolve, reject) => {

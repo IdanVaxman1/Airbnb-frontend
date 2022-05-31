@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react"
 import { useDispatch } from 'react-redux'
 import { utilService } from '../services/util.service'
 import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from 'recharts'
-// import Checkbox from '@mui/material/Checkbox'
 
 export const ExploreFilter = (props) => {
     const timeOutId = useRef()

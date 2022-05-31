@@ -2,13 +2,14 @@ import { useEffect, useRef, useState } from "react"
 import { HomeImgCard } from "../cmps/home-img-card"
 import { stayService } from "../services/stay.service"
 import { useDispatch, useSelector } from 'react-redux'
-import { showLargeFilter, showSmallFilter, LogoChangeToWhite } from "../store/actions/headerAction";
+import { showLargeFilter, showSmallFilter, LogoChangeToWhite } from "../store/actions/headerAction"
+import { NavLink } from "react-router-dom"
 
 
 
 export const Home = () => {
     const [topRated, setTopRated] = useState(null)
-    const [randomStayId,setRndomStayId] = useState('622f337a75c7d36e498aaafb')
+    const [randomStayId, setRndomStayId] = useState('622f337a75c7d36e498aaafb')
     const cities = [{ name: 'New york', imgURL: 'https://a.cdn-hotels.com/gdcs/production101/d154/ee893f00-c31d-11e8-9739-0242ac110006.jpg' },
     { name: 'Porto', imgURL: 'https://touristjourney.com/wp-content/uploads/2020/10/shutterstock_1706807566-scaled.jpg' },
     { name: 'Montreal', imgURL: 'https://www.airtransat.com/getmedia/cafc7e6e-d0ff-497e-9998-e708f41aa191/Montreal-estival.aspx' },
@@ -62,7 +63,7 @@ export const Home = () => {
         setTopRated([topStays])
     }
 
-    const GetRandomStayId = async () =>{
+    const GetRandomStayId = async () => {
         const stayId = await stayService.getRndomStayId()
         setRndomStayId(stayId)
     }
@@ -79,10 +80,12 @@ export const Home = () => {
                     <div>
 
                         <button>
-                            
-                            <h3>
-                                I'm flexible
-                            </h3>
+                            <NavLink to={`/stay/${randomStayId}`}>
+                                <h3>
+                                    I'm flexible
+                                </h3>
+                            </NavLink>
+
                         </button>
                     </div>
                 </div>
