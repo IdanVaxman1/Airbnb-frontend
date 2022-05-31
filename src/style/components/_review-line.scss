@@ -23,4 +23,30 @@
         // justify-content: space-around;
     }
 
+
+    .name {
+        font-size: 15px;
+        margin-top: 0;
+    }
+
+    .at {
+        font-family: Airbnb-Cereal-Book;
+        color: rgb(113,113,113);
+        font-size: 12px;
+    }
+
+    .content {
+        font-family: Airbnb-Cereal-Book;
+        font-size: 15px;
+        line-height: 1.5;
+        width: 450px;
+        color: rgb(34,34,34);
+    }
+
+    .review-more {
+        margin-top: 5px;
+        font-size: 15px;
+        text-decoration: underline;
+        cursor: pointer;
+    }
 }

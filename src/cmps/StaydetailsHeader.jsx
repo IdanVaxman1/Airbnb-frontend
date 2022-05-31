@@ -25,13 +25,13 @@ export function StaydetailsHeader({ stay }) {
                 <li>
                     <h4>·</h4>
                 </li>
-                <li>
+                <li className="header-stay-details-reviews">
                     <h4>{stay.reviews.length} reviews</h4>
                 </li>
                 <li>
                     <h1>·</h1>
                 </li>
-                <li>
+                <li className="header-stay-details-address">
                     <h4>{stay.address.street}</h4>
                 </li>
             </div>
@@ -39,7 +39,7 @@ export function StaydetailsHeader({ stay }) {
                 <li>
                     <h4><span className="material-icons">ios_share</span></h4>
                 </li>
-                <li>
+                <li className="right-size-share">
                     <h4>Share</h4>
                 </li>
                 <li>
