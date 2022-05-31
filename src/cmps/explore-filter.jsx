@@ -76,8 +76,6 @@ export const ExploreFilter = (props) => {
         return 'mini-filter'
     }
 
-
-
     if (!pricesData) return <h1>loading</h1>
     return (
         <div className='secondery-filter'>
