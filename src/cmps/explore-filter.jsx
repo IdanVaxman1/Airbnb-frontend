@@ -72,8 +72,9 @@ export const ExploreFilter = (props) => {
 
 
     const getClass = (amenity) => {
-        if (exploreFilterBy.amenities.includes(amenity)) return 'mini-filter small-border'
-        return 'mini-filter'
+        let className= 'mini-filter'
+        if (exploreFilterBy.amenities.includes(amenity)) className+= ' small-border'
+        return className
     }
 
     if (!pricesData) return <h1>loading</h1>
