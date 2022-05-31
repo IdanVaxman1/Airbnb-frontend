@@ -55,8 +55,14 @@ header {
 
 }
 .big{
+
+    *{
+        width: unset !important;
+        position: relative !important;
+        display: inline-block;
+    }
     grid-row: 2;
-    padding: 0 15% 23px;
+    padding: 0 20% 23px;
     // position: absolute;
     // margin-top: 30px;
    
@@ -76,14 +82,16 @@ header {
                 width: 100%;
 
                 .DateInput_1{
-                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    // width: 50%;
                 }
             }
         }
     }
 
     >div{
-        width: 80%;
+        width: 100%;
     }
 
     .total-filter{

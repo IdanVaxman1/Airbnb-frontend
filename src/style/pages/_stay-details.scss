@@ -32,6 +32,7 @@
 }
 
 .features-container {
+    padding-right: 15%;
     flex: 80%;
     border-bottom: 1px solid rgb(221,221,221);
 
@@ -39,6 +40,10 @@
 
 .feature-logo {
     line-height: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .feature-block {
@@ -104,7 +109,7 @@
 .stay-bellow-container{
     display: grid;
     grid-template-columns: 3fr 1fr;
-    gap: 10%;
+    
     margin-top: 1rem;
     justify-content: space-between;
 }
@@ -123,6 +128,9 @@
     font-size: 20px;
     border-bottom: 1px solid rgb(221,221,221);
     padding-bottom: 30px;
+    h1{
+        margin-bottom: 0.5rem;
+    }
 }
 
 .stay-cover-text {

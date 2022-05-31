@@ -23,7 +23,7 @@ export const Home = () => {
         document.documentElement.style.setProperty('--headerFontColor', '#fff');
         document.documentElement.style.setProperty('--verylightgray', 'unset');
         document.documentElement.style.setProperty('--bgc', 'unset');
-
+        
         return () => {
             window.removeEventListener('scroll', changeCss, { passive: true });
             document.documentElement.style.setProperty('--bgc', '#F7F7F7');

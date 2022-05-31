@@ -28,6 +28,10 @@ export const AppHeader = () => {
     useEffect(() => {
         window.addEventListener('scroll', changeCss, { passive: true });
         updateLogoColor()
+        return () => {
+            
+            window.removeEventListener('scroll', changeCss, { passive: true });
+        }
     }, [])
 
     useEffect(() => {
