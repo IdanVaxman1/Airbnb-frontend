@@ -5,9 +5,10 @@ import { MainFilter } from "./main-filter";
 import { SmallFilter } from "./small-filter";
 import { useEffect, useRef, useState } from "react"
 import { UserMenuModal } from "./user-menu-modal";
-import { showLargeFilter, showSmallFilter } from "../store/actions/headerAction";
+import { showLargeFilter, showSmallFilter, LogoChangeToWhite } from "../store/actions/headerAction";
 import whiteLogo from "../assets/imgs/logo-white.png";
 import redLogo from "../assets/imgs/logo1.png";
+
 
 
 export const AppHeader = () => {
@@ -22,7 +23,8 @@ export const AppHeader = () => {
     const [menuModalShow, setMenuModalShow] = useState('none')
     const [logoColor, setLogoColor] = useState({ color: 'red' })
     const [logoImgSrc, setogoImgSrc] = useState("../assets/imgs/logo1.png")
-
+    
+    const dispatch = useDispatch()
     useEffect(() => {
         window.addEventListener('scroll', changeCss, { passive: true });
         updateLogoColor()
@@ -43,13 +45,21 @@ export const AppHeader = () => {
         if (isLogoWhite) {
             setLogoColor({ color: 'white' })
             setogoImgSrc(whiteLogo)
+            document.documentElement.style.setProperty('--headerbackgroundColor', 'unset');
+            document.documentElement.style.setProperty('--bgc', '#unset');
+            document.documentElement.style.setProperty('--headerFontColor', '#fff');
+            document.documentElement.style.setProperty('--headerbackgroundColor', '#unset');
         }
         else {
             setLogoColor({ color: 'red' })
             setogoImgSrc(redLogo)
-
+            document.documentElement.style.setProperty('--headerbackgroundColor', '#F7F7F7');
+            document.documentElement.style.setProperty('--bgc', '#F7F7F7');
+            document.documentElement.style.setProperty('--headerFontColor', '#000');
+            document.documentElement.style.setProperty('--headerbackgroundColor', '#F7F7F7');
+            
         }
-
+        
 
     }
 
@@ -61,26 +71,7 @@ export const AppHeader = () => {
             dispatch(showSmallFilter())
         }
 
-        if (scrollValue > 700) {
-            document.documentElement.style.setProperty('--headerbackgroundColor', '#F7F7F7');
-            document.documentElement.style.setProperty('--bgc', '#F7F7F7');
-            document.documentElement.style.setProperty('--headerFontColor', '#000');
-            document.documentElement.style.setProperty('--headerbackgroundColor', '#F7F7F7');
-            setLogoColor({ color: 'red' })
-            setogoImgSrc(redLogo)
-            
-            
-        }
         
-        else if (scrollValue <= 700){
-
-            document.documentElement.style.setProperty('--headerbackgroundColor', 'unset');
-            document.documentElement.style.setProperty('--bgc', '#unset');
-            document.documentElement.style.setProperty('--headerFontColor', '#fff');
-            document.documentElement.style.setProperty('--headerbackgroundColor', '#unset');
-            setLogoColor({ color: 'white' })
-            setogoImgSrc(whiteLogo)
-        }
     }
 
     const onPresentFilter = () => {
@@ -89,7 +80,6 @@ export const AppHeader = () => {
         dispatch(showLargeFilter())
     }
 
-    const dispatch = useDispatch()
     const resetFilterBy = () => {
         dispatch(changeFilter({ location: '', from: null, to: null }))
     }

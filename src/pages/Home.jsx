@@ -18,6 +18,7 @@ export const Home = () => {
 
 
     useEffect(() => {
+        window.addEventListener('scroll', changeCss, { passive: true });
         getTopRated()
         dispatchFiltertoShow()
         dispatchLogoIsWhite()
@@ -27,12 +28,24 @@ export const Home = () => {
         document.documentElement.style.setProperty('--bgc', 'unset');
         
         return () => {
+            window.removeEventListener('scroll', changeCss, { passive: true });
             document.documentElement.style.setProperty('--bgc', '#F7F7F7');
             document.documentElement.style.setProperty('--verylightgray', '#ECECEC');
             dispatchFiltertoHide()
             dispatch(LogoChangeToWhite(false))
         }
     }, [])
+
+    const changeCss = () => {
+        const scrollValue = document.documentElement.scrollTop
+        
+        if (scrollValue > 700) {
+            dispatch(LogoChangeToWhite(false))
+        }
+        else if (scrollValue <= 700){
+            dispatch(LogoChangeToWhite(true))
+        }
+    }
 
     const dispatch = useDispatch()
     
