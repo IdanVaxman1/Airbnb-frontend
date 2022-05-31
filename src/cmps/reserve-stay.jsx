@@ -4,8 +4,6 @@ import { DateRangeSelector } from './date-picker'
 import { GuestPicker } from "./guest-picker"
 import { utilService } from "../services/util.service"
 
-
-
 export function ReserveStay(props) {
     const [guestsQty, setGuestsQty] = useState(0)
     const [totalGuestsQty, setTotalGuestsQty] = useState(null)
