@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react"
 import { useDispatch } from 'react-redux'
 import { utilService } from '../services/util.service'
 import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from 'recharts'
+import Checkbox from '@mui/material/Checkbox'
 
 export const ExploreFilter = (props) => {
     const timeOutId = useRef()
@@ -19,7 +20,7 @@ export const ExploreFilter = (props) => {
     const [priceIsShown, setPriceIsShown] = useState(false)
     const [typeIsShown, setTypeIsShown] = useState(false)
     const [pricesData, setPricesData] = useState(null)
-    const amenities = ['Wifi','TV','Kitchen','Air conditioning']
+    const amenities = ['Wifi', 'TV', 'Kitchen', 'Air conditioning']
 
 
     useEffect(() => {
@@ -73,8 +74,8 @@ export const ExploreFilter = (props) => {
 
 
     const getClass = (amenity) => {
-        let className= 'mini-filter'
-        if (exploreFilterBy.amenities.includes(amenity)) className+= ' small-border'
+        let className = 'mini-filter'
+        if (exploreFilterBy.amenities.includes(amenity)) className += ' small-border'
         return className
     }
 
@@ -104,15 +105,14 @@ export const ExploreFilter = (props) => {
                     </li>
                 </div>
             </div>}
+
             {typeIsShown && <div className='room-type-filter center'>
-                <select name="roomType" onChange={handleChange}>
-                    <option value="">show all</option>
-                    <option value="Entire home/apt">Entire place</option>
-                    <option value="Private room">Private room</option>
-                    <option value="Hotel room">Hotel Room</option>
-                    <option value="Shared room">Shared room</option>
-                </select>
+                <Checkbox defaultChecked/> <p>lalala</p>
+                <Checkbox defaultChecked color="secondary" />
+                <Checkbox defaultChecked color="success" />
+                <Checkbox defaultChecked color="default" />
             </div>}
+            
             <div >
                 <div className='amn-container noselect'>
                     <div className="enity-filter">
@@ -122,7 +122,7 @@ export const ExploreFilter = (props) => {
                         <div className={getClass('Type of place')} onClick={() => onShown('Type of place')}>Type of place</div>
                     </div>
                     <span className="enity-filter separator">|</span>
-                    {amenities.map(amenity=><div className="enity-filter" key={amenity}>
+                    {amenities.map(amenity => <div className="enity-filter" key={amenity}>
                         <div className={getClass(amenity)} onClick={() => handleButtonChange(amenity)}>{amenity}</div>
                     </div>)}
                 </div>

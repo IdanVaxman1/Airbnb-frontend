@@ -12,7 +12,7 @@ export const UserMenuModal = (props) => {
         closeSelf()
     }
 
-    const closeSelf = () => {
+    const closeSelf = ()=>{
         props.toggleModal()
     }
 

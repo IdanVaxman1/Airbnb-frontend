@@ -1,13 +1,10 @@
 .form-container {
     form {
-        position: relative;
-        width: max-content;
+        min-width: max-content;
         display: flex;
         flex-direction: column;
-        max-width: 320px;
-        margin: auto;
         padding: 1.5rem 2rem;
-        border: 1px solid $clrBLACK;
+        border: 1px solid $clrGRAY;
         border-radius: 10px;
         background-color: white;
         .error {
@@ -15,10 +12,10 @@
             height: 25px;
             font-size: 0.8rem;
         }
-        h3{
+        h3 {
             margin: -12px auto 12px;
         }
-        h5{
+        h5 {
             font-size: 1em;
             margin: 12px auto -12px;
         }
@@ -26,7 +23,6 @@
 }
 
 .modal-center{
-    position: relative;
     z-index: 3;
     position:fixed;
     top:50%;
