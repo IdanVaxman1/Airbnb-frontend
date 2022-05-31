@@ -104,14 +104,14 @@ export const ExploreFilter = (props) => {
                     </li>
                 </div>
             </div>}
-            {typeIsShown && <div className='room-type-filter'>
-                <select name="roomType" onChange={handleChange}>
+            {typeIsShown && <div className='room-type-filter center'>
+                {/* <select name="roomType" onChange={handleChange}>
                     <option value="">show all</option>
                     <option value="Entire home/apt">Entire place</option>
                     <option value="Private room">Private room</option>
                     <option value="Hotel room">Hotel Room</option>
                     <option value="Shared room">Shared room</option>
-                </select>
+                </select> */}
             </div>}
 
 
