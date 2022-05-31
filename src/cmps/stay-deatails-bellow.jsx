@@ -6,7 +6,7 @@ import { React } from "react";
 
 
 export function StayDeatailsBellow({ stay }) {
-   
+
 
 
     return (
@@ -21,35 +21,35 @@ export function StayDeatailsBellow({ stay }) {
                 <h5>{stay.capacity} guest · {stay.bedrooms} bedrooms · {stay.beds} beds · {stay.bathrooms} baths </h5>
             </section>
 
-           
-            <div className="feature-block">
-                <div className="feature-logo"><span className="material-icons">home</span></div>
-                <section className="paragraph">
-                    <div>
-                        <h4>Designed by</h4>
-                    </div>
-                    <div>
-                        <h5>Meredith Higgins & Bryant GingerichRenee Byler, Burrow Creative</h5>
-                    </div>
-                </section>
-            </div>
-            <div className="feature-block">
-                <div className="feature-logo"><span className="material-icons ">location_on</span></div>
-                <section className="paragraph">
-                    <div>
-                        <h4>Self check-in</h4>
-                    </div>
-                    <div>
-                        <h5>Check yourself in with the lockbox.</h5>
-                    </div>
-                </section>
-            </div>
-            <div className="feature-block">
-                <div className="feature-logo"><span className="material-icons">auto_awesome</span></div>
-                <section className="paragraph">
-                    <div><h4>Free cancellation for 48 hours.</h4></div></section>
-            </div>
-
+            <section className="details-features">
+                <div className="feature-block">
+                    <div className="feature-logo"><span className="material-icons">home</span></div>
+                    <section className="paragraph">
+                        <div>
+                            <h4>Designed by</h4>
+                        </div>
+                        <div className="feature-text">
+                            <h5>Meredith Higgins & Bryant GingerichRenee Byler, Burrow Creative</h5>
+                        </div>
+                    </section>
+                </div>
+                <div className="feature-block">
+                    <div className="feature-logo"><span className="material-icons ">location_on</span></div>
+                    <section className="paragraph">
+                        <div>
+                            <h4>Self check-in</h4>
+                        </div>
+                        <div className="feature-text">
+                            <h5>Check yourself in with the lockbox.</h5>
+                        </div>
+                    </section>
+                </div>
+                <div className="feature-block">
+                    <div className="feature-logo"><span className="material-icons">auto_awesome</span></div>
+                    <section className="paragraph">
+                        <div><h4>Free cancellation for 48 hours.</h4></div></section>
+                </div>
+            </section>
             <div className="stay-cover">
                 <h1><span className="stay-cover-logo">stay</span>cover</h1>
                 <div className="stay-cover-text">
@@ -66,7 +66,7 @@ export function StayDeatailsBellow({ stay }) {
 
             <div className="stay-amenities">
                 <h2>What this place offers</h2>
-                <ul className="amenities-list flex">
+                <ul className="amenities-list">
                     <li>
                         <div className="amenity-container">
                             <span className="material-icons"> live_tv </span>
