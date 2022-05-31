@@ -39,7 +39,7 @@ export const ExploreFilter = (props) => {
 
     const getPricesData = () => {
         const data = props.stays.map(stay => {
-            return { 'price': stay.price }
+            return { price: stay.price }
         })
         data.sort(function (a, b) {
             return a.price - b.price;
@@ -72,8 +72,9 @@ export const ExploreFilter = (props) => {
 
 
     const getClass = (amenity) => {
-        if (exploreFilterBy.amenities.includes(amenity)) return 'mini-filter small-border'
-        return 'mini-filter'
+        var className = 'mini-filter'
+        if (exploreFilterBy.amenities.includes(amenity)) className += 'small-border'
+        return className
     }
 
 
