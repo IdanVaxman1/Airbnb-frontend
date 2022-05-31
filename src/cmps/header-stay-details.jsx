@@ -17,8 +17,8 @@ export const HeaderStayDeatails = ({ stay }) => {
     <div className="decription-stay-priview">
         <h2>{stay.name}</h2>
     </div>
-    <section className="secondery-header-stay-details">
-        <div className="left-size">
+    <section className="secondary-header-stay-details">
+        <div className="left-side">
             <li>
                 <h4><span className="material-icons">star</span>{stay.reviewScores.value / 2}</h4>
             </li>
@@ -32,7 +32,7 @@ export const HeaderStayDeatails = ({ stay }) => {
             </li>
         </div>
 
-        <div className="right-size">
+        <div className="right-side">
 
             <section className="flex">
                 <h4><span className="material-icons">ios_share</span>Share</h4>

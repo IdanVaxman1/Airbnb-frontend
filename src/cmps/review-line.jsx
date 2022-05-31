@@ -26,7 +26,7 @@ export const ReviewLine = ({ review }) => {
                 <img src={review.by.imgUrl} ></img>
                 <div className="aside">
                     <div className="name">
-                        <h1>{review.by.fullname}</h1>
+                        <h1 className="font-medium">{review.by.fullname}</h1>
                     </div>
                     <div className="at">
                         <h1>{monthNumberToLabelMap[review.at.slice(6,7)]}{review.at.slice(0,4) }</h1>
