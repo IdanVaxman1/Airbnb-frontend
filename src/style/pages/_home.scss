@@ -1,6 +1,6 @@
-.home-page-container{
+.home-page-container {
 
-    .main-page-head{
+    .main-page-head {
         background-image: url('https://kumba-app1.herokuapp.com/img/wp2.bacf91a9.jpg');
         background-size: cover;
         background-position: 50%;
@@ -9,42 +9,95 @@
         width: 100%;
         z-index: -10;
         margin-bottom: -50%;
-    
+
     }
-    
-    .home-filterr{
+
+    .home-filterr {
         top: 62px;
     }
 }
 
-.home-page-card{
-    a{
+.hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+    div {
+        width: 100%;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2rem;
+        color: white;
+        font-family: Airbnb-Cereal-Book;
+    }
+
+    button {
+        cursor: pointer;
+        margin: 0 auto;
+        // margin-bottom: 150px;
+        -webkit-tap-highlight-color: transparent !important;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        width: fit-content;
+        background: #fff;
+        border-radius: 1000px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, .12) !important;
+        border: none;
+
+        h3 {
+            margin: 0;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-family: inherit;
+            background: -webkit-linear-gradient(90deg, #6f019c, #c6017e 135.12%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+    }
+}
+
+.home-page-card {
+    a {
         color: $clrBLACK;
         text-decoration: none;
     }
 }
 
-.home-page-card-container{
-    h1{
+.home-page-card-container {
+    h1 {
         font-size: 2rem;
         margin-bottom: 1rem;
+        font-family: Airbnb-Cereal-Book;
     }
+
     cursor: pointer;
     margin-top: 60%;
     display: flex;
     flex-direction: column;
-    .home-page-card-line{
-        h1{
+
+    .home-page-card-line {
+        h1 {
             font-size: 1rem;
         }
-        display: flex;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         justify-content: space-between;
-        gap: 0.5rem;
-        img{
+        gap: 1.5625rem;
+
+        img {
             aspect-ratio: 1/1;
             border-radius: 12px;
         }
-    }
-    
-}
 
+        .img-cover {
+            height: unset;
+        }
+    }
+
+}
