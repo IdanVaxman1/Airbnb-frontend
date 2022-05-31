@@ -11,7 +11,6 @@ export function showSmallFilter(isShown) {
   }
 export function LogoChangeToWhite(isWhite) {
     return (dispatch) => {
-      console.log('isWhite?',isWhite)
         dispatch({ type: 'changeLogoColor', isWhite })
     } 
   }

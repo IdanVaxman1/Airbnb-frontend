@@ -39,7 +39,6 @@ export const AppHeader = () => {
     }, [isLogoWhite])
 
     const updateLogoColor = () => {
-        console.log('isLogoWhite', isLogoWhite)
         if (isLogoWhite) {
             setLogoColor({ color: 'white' })
             setogoImgSrc(whiteLogo)
