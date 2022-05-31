@@ -8,6 +8,7 @@ import { showLargeFilter, showSmallFilter, LogoChangeToWhite } from "../store/ac
 
 export const Home = () => {
     const [topRated, setTopRated] = useState(null)
+    const [randomStayId,setRndomStayId] = useState('622f337a75c7d36e498aaafb')
     const cities = [{ name: 'New york', imgURL: 'https://a.cdn-hotels.com/gdcs/production101/d154/ee893f00-c31d-11e8-9739-0242ac110006.jpg' },
     { name: 'Porto', imgURL: 'https://touristjourney.com/wp-content/uploads/2020/10/shutterstock_1706807566-scaled.jpg' },
     { name: 'Montreal', imgURL: 'https://www.airtransat.com/getmedia/cafc7e6e-d0ff-497e-9998-e708f41aa191/Montreal-estival.aspx' },
@@ -16,6 +17,7 @@ export const Home = () => {
     useEffect(() => {
         window.addEventListener('scroll', changeCss, { passive: true });
         getTopRated()
+        // GetRandomStayId()
         dispatchFiltertoShow()
         dispatchLogoIsWhite()
         document.documentElement.style.setProperty('--headerbackgroundColor', 'unset');
@@ -60,6 +62,11 @@ export const Home = () => {
         setTopRated([topStays])
     }
 
+    // const GetRandomStayId = async () =>{
+    //     setRndomStayId(stayService.getRndomStayId())
+    //     console.log(stayService.getRndomStayId())
+    // }
+
     { if (!topRated) return (<h1></h1>) }
 
     return (
@@ -74,7 +81,6 @@ export const Home = () => {
                         <button>
                             <h3>
                                 I'm flexible
-
                             </h3>
                         </button>
                     </div>
