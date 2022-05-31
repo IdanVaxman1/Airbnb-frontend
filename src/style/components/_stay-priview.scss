@@ -49,10 +49,10 @@
     h1 {
         font-size: 15px;
         overflow: clip;
-        font-family: Airbnb-Cereal-light, sans-serif;
-        font-weight: 400;
+        font-weight: 100;
         color: #222;
         text-overflow: ellipsis;
+        
     }
 
 
@@ -69,6 +69,10 @@
         margin-top: 10px;
         display: flex;
         justify-content: space-between;
+
+    }
+    .location-rate{
+        font-family: Airbnb-Cereal-Book,  sans-serif;
     }
 
     li {

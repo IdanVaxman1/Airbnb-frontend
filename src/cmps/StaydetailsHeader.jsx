@@ -7,8 +7,8 @@ export function StaydetailsHeader({ stay }) {
         <div className="decription-stay-priview">
             <h2>{stay.name}</h2>
         </div>
-        <section className="secondery-header-stay-details">
-            <div className="left-size">
+        <section className="secondary-header-stay-details">
+            <div className="left-side">
                 <li>
                     <h4><span className="material-icons">star</span></h4>
                 </li>
@@ -28,11 +28,11 @@ export function StaydetailsHeader({ stay }) {
                     <h4>{stay.address.street}</h4>
                 </li>
             </div>
-            <div className="right-size">
+            <div className="right-side">
                 <li>
                     <h4><span className="material-icons">ios_share</span></h4>
                 </li>
-                <li className="right-size-share">
+                <li className="right-side-share">
                     <h4>Share</h4>
                 </li>
                 <li>

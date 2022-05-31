@@ -94,8 +94,8 @@ export const AppHeader = () => {
                             <div className="logo">
                                 <li>
                                     <img src={logoImgSrc} alt="" />
-                                </li>
-                                <li style={logoColor}>Staybnb</li>
+                                </li >
+                                <li className="font-bold" style={logoColor}>Staybnb</li>
                             </div>
                         </NavLink>
                     </div>

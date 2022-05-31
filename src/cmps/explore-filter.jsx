@@ -80,7 +80,7 @@ export const ExploreFilter = (props) => {
 
     if (!pricesData) return <h1>loading</h1>
     return (
-        <div className='secondery-filter'>
+        <div className='secondary-filter'>
             {priceIsShown && <div className='slider'>
                 <BarChart width={240} height={120} data={pricesData}>
                     <CartesianGrid strokeDasharray="3 3" />

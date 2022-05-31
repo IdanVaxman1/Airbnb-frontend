@@ -50,8 +50,8 @@ export function StayPreview({ stay }) {
                 </div>
                 {/* <img src='https://res.cloudinary.com/dhy6ndeij/image/upload/v1653480425/001_urftcv.jpg'></img> */}
                 <div className="stay-preiview-details location-rate">
-                    <li><h1>{stay.address.city}, {stay.address.country}</h1></li>
-                    <li><h1>{stay.reviewScores.value / 2}
+                    <li><h1 className="font-medium" >{stay.address.city}, {stay.address.country}</h1></li>
+                    <li><h1 className="font-light">{stay.reviewScores.value / 2}
                         <span className="material-icons">star</span>
                     </h1></li>
                 </div>
@@ -60,7 +60,7 @@ export function StayPreview({ stay }) {
                 </div>
               
                 <div className="stay-preiview-details propery-price">
-                    <li><h1>${utilService.getUsPrice(stay.price)} <span>night</span></h1></li>
+                    <li><h1 className="font-bold">${utilService.getUsPrice(stay.price)} <span className="font-medium">night</span></h1></li>
                 </div>
             </div>
         </Link>

@@ -1,5 +1,4 @@
 
-
     .main-header{
 
         .left{
@@ -45,26 +44,15 @@ header {
     background-color: var(--bgc);
 }
 .main-nav {
-
     grid-row: 1;
     height: 70px;
     position: relative;
     display: flex;
     justify-content: space-between;
-
-
 }
 .big{
-
-    // *{
-    //     width: unset !important;
-    //     position: relative !important;
-    //     display: inline-block;
-    // }
     grid-row: 2;
     padding: 0 20% 23px;
-    // position: absolute;
-    // margin-top: 30px;
    
     .inpt-fillter:nth-child(2){
         width: 100%;
@@ -135,7 +123,6 @@ header {
 
 .logo {
     grid-column: 1;
-    font-family: Airbnb-font-lite;
     font-weight: 500;
     color: $clrRED;
     font-size: 25px;
