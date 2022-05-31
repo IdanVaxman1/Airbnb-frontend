@@ -1,8 +1,6 @@
 import { storageService } from './async-storage.service.js'
-import { dataService } from './stay.data.js';
+import { dataService } from './stay.data.js'
 import { utilService } from './util.service.js'
-// import { userService } from './user.service.js'
-// import { getActionRemoveStay, getActionAddStay, getActionUpdateStay } from '../store/stay.actions.js'
 
 const STORAGE_KEY = 'stay'
 
@@ -11,10 +9,6 @@ export const stayService = {
     getById,
     getTopRated,
     getRandomStayId,
-    // save,
-    // remove,
-    // subscribe,
-    // unsubscribe
 }
 window.cs = stayService;
 
@@ -22,8 +16,8 @@ window.cs = stayService;
 async function query(filterBy,exploreFilterBy) {
     let stays = await storageService.query(STORAGE_KEY)
     if(filterBy){
-    if(filterBy.location) stays=stays.filter(stay=>stay.address.country.includes(utilService.capitalizeFirst(filterBy.location))||
-    stay.address.city.includes(utilService.capitalizeFirst(filterBy.location)))
+    if(filterBy.location) stays=stays.filter((stay => new RegExp(filterBy.location, 'i').test(stay.address.country)
+    || new RegExp(filterBy.location, 'i').test(stay.address.city)))
 }
     if(exploreFilterBy){
         stays=stays.filter(stay=>stay.price<=exploreFilterBy.maxPrice && stay.price>=exploreFilterBy.minPrice)
@@ -34,6 +28,8 @@ async function query(filterBy,exploreFilterBy) {
             exploreFilterBy.amenities.forEach(amn=>{stays=stays.filter(stay=>stay.amenities.includes(amn))})
         }
     }
+
+
     return stays
 }
 function getById(stayId) {
