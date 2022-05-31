@@ -19,6 +19,7 @@ export const ExploreFilter = (props) => {
     const [priceIsShown, setPriceIsShown] = useState(false)
     const [typeIsShown, setTypeIsShown] = useState(false)
     const [pricesData, setPricesData] = useState(null)
+    const amenities = ['Wifi','TV','Kitchen','Air conditioning']
 
 
     useEffect(() => {
@@ -112,8 +113,6 @@ export const ExploreFilter = (props) => {
                     <option value="Shared room">Shared room</option>
                 </select>
             </div>}
-
-
             <div >
                 <div className='amn-container noselect'>
                     <div className="enity-filter">
@@ -123,20 +122,12 @@ export const ExploreFilter = (props) => {
                         <div className={getClass('Type of place')} onClick={() => onShown('Type of place')}>Type of place</div>
                     </div>
                     <span className="enity-filter separator">|</span>
-                    <div className="enity-filter">
-                        <div className={getClass('Wifi')} onClick={() => handleButtonChange('Wifi')}>Wifi</div>
-                    </div>
-                    <div className="enity-filter">
-                        <div className={getClass('TV')} onClick={() => handleButtonChange('TV')}>TV</div>
-                    </div>
-                    <div className="enity-filter">
-                        <div className={getClass('Kitchen')} onClick={() => handleButtonChange('Kitchen')}>Kitchen</div>
-                    </div>
-                    <div className="enity-filter">
-                        <div className={getClass('Air conditioning')} onClick={() => handleButtonChange('Air conditioning')}>AC</div>
-                    </div>
+                    {amenities.map(amenity=><div className="enity-filter" key={amenity}>
+                        <div className={getClass(amenity)} onClick={() => handleButtonChange(amenity)}>{amenity}</div>
+                    </div>)}
                 </div>
             </div>
         </div>
     )
 }
+
