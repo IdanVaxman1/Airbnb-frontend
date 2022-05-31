@@ -107,8 +107,12 @@ export const AppHeader = () => {
                         <li><NavLink to='/explore'>Become a host</NavLink></li>
                         <li>
                             <div className='user-menu noselect' onClick={toggleModal}>
-                                <span>≡</span>
+                                <div>
+                                    <span className="material-icons">menu</span>
+                                </div>
+                                <div>
                                 <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />
+                                </div>
                             </div>
                             <div style={{ display: menuModalShow }}>
                                 <UserMenuModal toggleModal={toggleModal} />

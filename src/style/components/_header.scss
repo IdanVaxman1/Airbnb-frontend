@@ -132,7 +132,18 @@ nav {
     }
 }
 
+.noselect{
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+}
+
 .user-menu {
+    gap: 7px;
     background-color: white;
     position: relative;
     display: flex;
@@ -143,7 +154,8 @@ nav {
     outline: 1px solid rgba($color: $clrGRAY, $alpha: 0.6);
     padding:0;
     span {
-        font-size: 2em;
+        color: #595959;
+        font-size: 1.125rem;
         font-weight: 800;
         margin-right: 6px;
         margin-left:12px;
