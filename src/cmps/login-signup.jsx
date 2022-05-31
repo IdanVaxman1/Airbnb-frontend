@@ -87,7 +87,7 @@ export class _LoginSignup extends React.Component {
                 <div className='modal-blur' onClick={this.onCloseModal}></div>
                 <div className="form-container modal-center">
                     <button onClick={this.onCloseModal} className='close-button clickable'>
-                        <span class="material-icons">
+                        <span className="material-icons">
                             close
                         </span>
                     </button>

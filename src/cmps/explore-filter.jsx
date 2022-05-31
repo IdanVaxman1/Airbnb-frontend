@@ -83,7 +83,7 @@ export const ExploreFilter = (props) => {
     return (
         <div className='secondery-filter'>
             {priceIsShown && <div className='slider'>
-                <BarChart width={200} height={250} data={pricesData}>
+                <BarChart width={240} height={120} data={pricesData}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
                     <YAxis />
