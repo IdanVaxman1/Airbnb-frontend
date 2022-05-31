@@ -11,7 +11,6 @@ export const storageService = {
     put,
     remove,
     postMany,
-    queryUser
 }
 
 function query(entityType, delay = 50) {
@@ -21,15 +20,6 @@ function query(entityType, delay = 50) {
     localStorage.setItem(entityType, json)
     return new Promise((resolve, reject)=>{
         setTimeout(()=>{
-            resolve(entities)
-        }, delay)
-    })
-}
-
-function queryUser(entityType, delay = 50) {
-    var entities = JSON.parse(localStorage.getItem(entityType)) || createUsers()
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
             resolve(entities)
         }, delay)
     })
