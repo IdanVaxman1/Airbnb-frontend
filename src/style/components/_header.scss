@@ -16,6 +16,11 @@
         
     }
 header {
+
+    &>*{
+        box-shadow: 0 1px rgba(0,0,0,.08)!important;
+    }
+
     font-size: 0.875rem;
     position: fixed;
     width: 100%;
