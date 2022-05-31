@@ -12,13 +12,13 @@ export class DateRangeSelector extends Component {
     focusedInput: null
   }
 
-  componentDidMount(){
-      this.setState({...this.state,endDate:this.props.endDate,startDate:this.props.startDate})
+  componentDidMount() {
+    this.setState({ ...this.state, endDate: this.props.endDate, startDate: this.props.startDate })
   }
 
   handleDateChange = ({ startDate, endDate }) => {
-    if(this.props.place==='filter') this.setState({ startDate, endDate },()=>this.props.handleDate({startDate, endDate}))
-    else this.setState({ startDate, endDate },()=>this.props.setPrice(startDate,endDate))
+    if (this.props.place === 'filter') this.setState({ startDate, endDate }, () => this.props.handleDate({ startDate, endDate }))
+    else this.setState({ startDate, endDate }, () => this.props.setDatesAndPrice(startDate, endDate))
   }
 
   handleFocusChange = (focusedInput) => this.setState({ focusedInput })
@@ -27,8 +27,8 @@ export class DateRangeSelector extends Component {
     return <section className="date-range-selector">
       <DateRangePicker
         startDatePlaceholderText={'check in'}
-        endDatePlaceholderText = {'check out'}
-        noBorder= {true}
+        endDatePlaceholderText={'check out'}
+        noBorder={true}
         endDate={this.state.endDate}
         endDateId="endDate"
         focusedInput={this.state.focusedInput}
