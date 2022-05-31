@@ -11,7 +11,7 @@ export const Home = () => {
     const cities = [{ name: 'New york', imgURL: 'https://a.cdn-hotels.com/gdcs/production101/d154/ee893f00-c31d-11e8-9739-0242ac110006.jpg' },
     { name: 'Porto', imgURL: 'https://touristjourney.com/wp-content/uploads/2020/10/shutterstock_1706807566-scaled.jpg' },
     { name: 'Montreal', imgURL: 'https://www.airtransat.com/getmedia/cafc7e6e-d0ff-497e-9998-e708f41aa191/Montreal-estival.aspx' },
-    { name: 'Barcelona', imgURL: 'https://students.edmonds.edu/studyabroad/images/barca.jpg' }]
+    { name: 'Barcelona', imgURL: 'https://res.cloudinary.com/sagacity/image/upload/c_crop,h_770,w_1000,x_0,y_0/c_limit,f_auto,fl_lossy,q_80,w_1080/shutterstock_174454670_gicbgy.jpg' }]
 
     useEffect(() => {
         window.addEventListener('scroll', changeCss, { passive: true });
