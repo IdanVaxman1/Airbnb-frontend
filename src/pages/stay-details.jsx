@@ -20,7 +20,6 @@ export const StayDetails = () => {
         getStay()
         document.documentElement.style.setProperty('--headerFontColor', '#000');
         document.documentElement.style.setProperty('--headerbackgroundColor', '#F7F7F7');
-        // window.addEventListener('scroll', changeCss, { passive: true });
     }, [])
 
     const getStay = async () => {
