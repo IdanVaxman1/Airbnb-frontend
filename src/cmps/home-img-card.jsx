@@ -6,7 +6,6 @@ import { changeFilter } from "../store/actions/stay.action"
 
 export const HomeImgCard = (props) => {
     const dispatch = useDispatch()
-    console.log(props)
 
     const dispatchFilter = () => {
         dispatch(changeFilter({ location: props.city.name, from: null, to: null }))
