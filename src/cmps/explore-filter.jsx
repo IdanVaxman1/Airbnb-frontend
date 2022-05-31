@@ -12,19 +12,17 @@ import Checkbox from '@mui/material/Checkbox';
 export const ExploreFilter = (props) => {
     const timeOutId = useRef()
 
-    const dispatch = useDispatch()
     const [exploreFilterBy, setExploreFilterBy] = useState({
         minPrice: 0,
         maxPrice: 1200,
-        roomType: "",
+        roomTypes: ['Entire home/apt', 'Hotel room', 'Private room', 'Shared room'],
         amenities: []
     })
-    const [checked, setChecked] = useState(true);
+    const [checked, setChecked] = useState({ entire: true, hotel: true, private: true, shared: true });
     const [priceIsShown, setPriceIsShown] = useState(false)
     const [typeIsShown, setTypeIsShown] = useState(false)
     const [pricesData, setPricesData] = useState(null)
     const amenities = ['Wifi', 'TV', 'Kitchen', 'Air conditioning']
-
 
     useEffect(() => {
         getPricesData()
@@ -68,9 +66,12 @@ export const ExploreFilter = (props) => {
         timeOutId.current = setTimeout(setExploreFilterBy, 500, { ...exploreFilterBy, minPrice: value[0], maxPrice: value[1] })
     }
 
-    const handleRoomType = (event) => {
-        setChecked(event.target.checked)
-        console.log(event.target)
+    const handleRoomType = (roomType, type) => {
+        let newRoomTypes
+        setChecked({ ...checked, [type]: !checked[type] })
+        if (exploreFilterBy.roomTypes.includes(roomType)) newRoomTypes = exploreFilterBy.roomTypes.filter(typeOfRoom => typeOfRoom !== roomType)
+        else newRoomTypes = [...exploreFilterBy.roomTypes, roomType]
+        setExploreFilterBy({...exploreFilterBy,roomTypes:newRoomTypes})
     }
 
     const getClass = (amenity) => {
@@ -106,12 +107,18 @@ export const ExploreFilter = (props) => {
             </div>}
 
             {typeIsShown && <div className='room-type-filter center noselect'>
+
                 <FormGroup>
-                    <FormControlLabel name='yairrr' control={<Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }} />} label="entire home" onChange={handleRoomType} inputProps={{ 'aria-label': 'controlled' }} checked={checked}/>
-                    <FormControlLabel control={<Checkbox defaultChecked sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }} />} label="Hotel room" />
-                    <FormControlLabel control={<Checkbox defaultChecked sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }} />} label="Private room" />
-                    <FormControlLabel control={<Checkbox defaultChecked sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }} />} label="Shared room" />
+                    <FormControlLabel control={<Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }}
+                        onChange={() => handleRoomType('Entire home/apt', 'entire')} checked={checked.entire} inputProps={{ 'aria-label': 'controlled' }} />} label="Entire home" />
+                    <FormControlLabel control={<Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }}
+                        onChange={() => handleRoomType('Hotel room', 'hotel')} checked={checked.hotel} inputProps={{ 'aria-label': 'controlled' }} />} label="Hotel room" />
+                    <FormControlLabel control={<Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }}
+                        onChange={() => handleRoomType('Private room', 'private')} checked={checked.private} inputProps={{ 'aria-label': 'controlled' }} />} label="Private room" />
+                    <FormControlLabel control={<Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }}
+                        onChange={() => handleRoomType('Shared room', 'shared')} checked={checked.shared} inputProps={{ 'aria-label': 'controlled' }} />} label="Shared room" />
                 </FormGroup>
+
             </div>}
 
             <div >
