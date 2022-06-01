@@ -79,7 +79,7 @@ export const Home = () => {
 
                         <button>
                             <NavLink className='undecorate' to={`/stay/${randomStayId}`}>
-                                <h3>
+                                <h3 className="font-bold">
                                     I'm flexible
                                 </h3>
                             </NavLink>
