@@ -15,7 +15,7 @@ window.cs = stayService;
 
 async function query(filterBy, exploreFilterBy) {
     let stays = await storageService.query(STORAGE_KEY)
-    // let stays = await httpService.get('stay')
+    // let stays = await httpService.get('stay',filterBy)
     if (filterBy) {
         if (filterBy.location) stays = stays.filter((stay => new RegExp(filterBy.location, 'i').test(stay.address.country)
             || new RegExp(filterBy.location, 'i').test(stay.address.city)))
@@ -36,7 +36,7 @@ async function query(filterBy, exploreFilterBy) {
 }
 async function getById(stayId) {
     return storageService.get(STORAGE_KEY, stayId)
-    // const stay =await httpService.get('stay',stayId)
+    // return await httpService.get(`stay/${stayId}`)
 }
 
 async function addStay(stay) {
