@@ -4,16 +4,22 @@ import { DateRangeSelector } from './date-picker'
 import { GuestPicker } from "./guest-picker"
 import { utilService } from "../services/util.service"
 import { userService } from "../services/user.service"
+import { ConfirmedResModal } from "./confirmed-res-modal"
 
 export function ReserveStay(props) {
     const [reservation, setReservation] = useState({
         checkIn: null,
         checkOut: null,
-        adults: 1,
+        adults: 0,
         childrens: 0,
-        totalPrice: 1000,
+        totalPrice: 0,
         user: null,
-        stay: { name: props.stay.name, _id: props.stay._id, img: props.stay.imgUrls[0]},
+        stay: {
+            name: props.stay.name,
+            _id: props.stay._id,
+            img: props.stay.imgUrls[0],
+            address: props.stay.address
+        },
         host: { name: props.stay.host.fullname, _id: props.stay.host._id }
     })
 
@@ -21,6 +27,7 @@ export function ReserveStay(props) {
     const [reservedBtnBc, setReservedBtnBc] = useState({ backgroundColor: `green` })
     const [guestModalShown, setGuestModalShown] = useState({ display: 'none' })
     const [isTrue, setIstrue] = useState(false)
+    const [resModalIsOpen, setResModalIsOpen] = useState(false)
 
     const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
     useEffect(() => {
@@ -54,7 +61,10 @@ export function ReserveStay(props) {
         reservation.user = userService.getLoggedinUser()
         if (!reservation.checkIn || !reservation.checkOut || (reservation.adults + reservation.childrens) === 0) console.log('fill all details')
         else if (!reservation.user) console.log('u have to be logged in')
-        else console.log(reservation)
+        else {
+            console.log(reservation)
+            setResModalIsOpen(true)
+        }
     }
 
     const onMousMove = (e) => {
@@ -67,6 +77,7 @@ export function ReserveStay(props) {
 
     return (
         <div className="reserve-stay-container">
+            {resModalIsOpen && <ConfirmedResModal reservation={reservation} />}
             <div className="reserve-stay-header">
                 <li className="reserve-stay-price">${utilService.getUsPrice((props.stay.price))} <span>night</span></li>
                 <li>{props.stay.reviewScores.value / 2}<span className="material-icons red">star</span> · <span>{props.stay.reviews.length} reviews</span></li>
@@ -83,12 +94,14 @@ export function ReserveStay(props) {
                     </div>
                     <div><span className="material-icons cursor">{showGuestsStyle}</span></div>
                 </div>
+                {!resModalIsOpen && 
                 <div style={guestModalShown}>
                     <GuestPicker className="guest-picker" onUpdateGuestsQty={onUpdateGuestsQty} />
                 </div>
+                }
             </div>
             <button onClick={reserveStay} onMouseMove={(e) => onMousMove(e)} style={reservedBtnBc} className='reserve-button'>Reserve</button>
-            <section className="price-section">
+           {!resModalIsOpen &&  <section className="price-section">
                 {(reservation.adults || reservation.childrens) && reservation.checkIn && reservation.checkOut && <div>
                     <h4>You won't be charged yet</h4>
                     <div className="flex-row-space-btw price">
@@ -104,7 +117,9 @@ export function ReserveStay(props) {
                         <h1>${utilService.getUsPrice((reservation.totalPrice + 25))}</h1>
                     </div>
                 </div>}
-            </section>
+
+
+            </section>}
         </div>
     )
 }
