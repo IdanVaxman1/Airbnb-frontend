@@ -26,8 +26,6 @@ async function query(filterBy, exploreFilterBy) {
             fullRoomTypes.forEach(type=>{
                 if(!exploreFilterBy.roomTypes.includes(type)) stays=stays.filter(stay=>stay.roomType !== type)
             })
-            
-            
         }
         if (exploreFilterBy.amenities) {
             exploreFilterBy.amenities.forEach(amn => { stays = stays.filter(stay => stay.amenities.includes(amn)) })
