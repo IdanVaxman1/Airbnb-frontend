@@ -13,7 +13,7 @@ export function ReserveStay(props) {
         childrens: 0,
         totalPrice: 1000,
         user: null,
-        stay: { name: props.stay.name, _id: props.stay._id },
+        stay: { name: props.stay.name, _id: props.stay._id, img: props.stay.imgUrls[0]},
         host: { name: props.stay.host.fullname, _id: props.stay.host._id }
     })
 
