@@ -12,7 +12,7 @@ export class MapCmp extends Component {
             lat: this.props.stay.address.location.lan,
             lng: this.props.stay.address.location.lat
         },
-        zoom: 12
+        zoom: 15
     };
 
 
@@ -21,7 +21,7 @@ export class MapCmp extends Component {
     render() {
         return (
             <div className='map-container'>
-                <div className='map' style={{ height: '50vh', width: '80%' }}>
+                <div className='map' style={{ height: '40vh', width: '100%' }}>
                     <GoogleMapReact
                         bootstrapURLKeys={{ key: 'AIzaSyCefItHyzOVLUAS0G1QzyoRhd0uEHy-TIA' }}
                         defaultCenter={this.state.center}
