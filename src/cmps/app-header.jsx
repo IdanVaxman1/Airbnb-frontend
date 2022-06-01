@@ -6,6 +6,7 @@ import { SmallFilter } from "./small-filter"
 import { useEffect, useRef, useState } from "react"
 import { UserMenuModal } from "./user-menu-modal"
 import { showLargeFilter, showSmallFilter, LogoChangeToWhite } from "../store/actions/headerAction"
+import { userService } from "../services/user.service"
 import whiteLogo from "../assets/imgs/logo-white.png"
 import redLogo from "../assets/imgs/logo1.png"
 
@@ -23,6 +24,7 @@ export const AppHeader = () => {
     const [menuModalShow, setMenuModalShow] = useState('none')
     const [logoColor, setLogoColor] = useState({ color: 'red' })
     const [logoImgSrc, setogoImgSrc] = useState("../assets/imgs/logo1.png")
+    const loggedinUser = userService.getLoggedinUser()
 
     const dispatch = useDispatch()
     useEffect(() => {
@@ -115,6 +117,8 @@ export const AppHeader = () => {
                                     <span className="material-icons">menu</span>
                                 </div>
                                 <div>
+                                    {/* {!loggedinUser && <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />}
+                                    {loggedinUser && <img src={`${loggedinUser.img}`} className='user-icon'/>} */}
                                 <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />
                                 </div>
                             </div>
