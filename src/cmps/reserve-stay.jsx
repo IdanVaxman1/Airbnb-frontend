@@ -3,17 +3,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import { DateRangeSelector } from './date-picker'
 import { GuestPicker } from "./guest-picker"
 import { utilService } from "../services/util.service"
+import { userService } from "../services/user.service"
 
 export function ReserveStay(props) {
     const [reservation, setReservation] = useState({
         checkIn: null,
         checkOut: null,
-        totalPrice: 1000,
-        stayId: props.stay._id,
-        hostId: props.stay.host._id,
-        user: '123',
         adults: 0,
-        childrens: 0
+        childrens: 0,
+        totalPrice: 1000,
+        user: userService.getLoggedinUser(),
+        stay:{name:props.stay.name,_id:props.stay._id},
+        host:{name:props.stay.host.fullname,_id:props.stay.host._id}
     })
 
     const [showGuestsStyle, setShowGuestsStyle] = useState('expand_more')
@@ -51,7 +52,8 @@ export function ReserveStay(props) {
 
     const reserveStay = () => {
         if (!reservation.checkIn || !reservation.checkOut || (reservation.adults + reservation.childrens) ===0) console.log('fill all details')
-        console.log(reservation)
+        else if(!reservation.user) console.log('u have to be logged in')
+        else console.log(reservation)
     }
 
     const onMousMove = (e) => {

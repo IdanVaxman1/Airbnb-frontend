@@ -27,7 +27,7 @@ function query(entityType, delay = 50) {
 }
 
 function queryUser(entityType, delay = 50) {
-    let entities = JSON.parse(localStorage.getItem(entityType)) || createUsers()
+    let entities = createUsers()
     let json = JSON.stringify(entities)
     localStorage.setItem(entityType, json)
     return new Promise((resolve, reject)=>{

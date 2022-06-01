@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import GoogleMapReact from 'google-map-react';
 import { div } from '@material-ui/core';
-console.log(GoogleMapReact)
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -32,12 +31,9 @@ export class MapCmp extends Component {
                         <AnyReactComponent
                             lat={this.props.stay.address.location.lan}
                             lng={this.props.stay.address.location.lat}
-                            text={<span style={{color: '#DD2162'}} class="material-icons">home</span>}
+                            text={<span style={{color: '#DD2162'}} className="material-icons">home</span>}
                             
                         />
-                        
-                        
-                        
                     </GoogleMapReact>
                 </div>
                 
