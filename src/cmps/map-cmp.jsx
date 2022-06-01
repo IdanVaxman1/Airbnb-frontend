@@ -13,10 +13,7 @@ export class MapCmp extends Component {
         },
         zoom: 15
     };
-
-
-
-    
+ 
     render() {
         return (
             <div className='map-container'>

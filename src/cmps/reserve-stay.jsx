@@ -12,9 +12,9 @@ export function ReserveStay(props) {
         adults: 0,
         childrens: 0,
         totalPrice: 1000,
-        user: userService.getLoggedinUser(),
-        stay:{name:props.stay.name,_id:props.stay._id},
-        host:{name:props.stay.host.fullname,_id:props.stay.host._id}
+        user: null,
+        stay: { name: props.stay.name, _id: props.stay._id },
+        host: { name: props.stay.host.fullname, _id: props.stay.host._id }
     })
 
     const [showGuestsStyle, setShowGuestsStyle] = useState('expand_more')
@@ -51,8 +51,9 @@ export function ReserveStay(props) {
     }
 
     const reserveStay = () => {
-        if (!reservation.checkIn || !reservation.checkOut || (reservation.adults + reservation.childrens) ===0) console.log('fill all details')
-        else if(!reservation.user) console.log('u have to be logged in')
+        reservation.user = userService.getLoggedinUser()
+        if (!reservation.checkIn || !reservation.checkOut || (reservation.adults + reservation.childrens) === 0) console.log('fill all details')
+        else if (!reservation.user) console.log('u have to be logged in')
         else console.log(reservation)
     }
 
