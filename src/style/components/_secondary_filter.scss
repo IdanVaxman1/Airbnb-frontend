@@ -23,6 +23,7 @@
 
     .room-type-filter {
         position: absolute;
+        width: 400px;
         margin-top: 60px;
         padding: 10px;
         background-color: $bgc;
@@ -39,6 +40,16 @@
         margin-bottom: 4px !important;
         font-size: 20px;
         color: $clrBLACK;
+    }
+    label{
+        display: flex;
+        width: 18rem;
+        span{
+            text-align: left;
+        }
+        p{
+            color:$clrGRAY
+        }
     }
 }
 
