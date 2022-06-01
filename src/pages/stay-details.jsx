@@ -7,6 +7,7 @@ import { MainFilter } from "../cmps/main-filter";
 import { StaydetailsHeader } from "../cmps/StaydetailsHeader"
 import { StayDeatailsBellow } from "../cmps/stay-deatails-bellow"
 import { ReviewLine } from "../cmps/review-line"
+import { MapCmp } from "../cmps/map-cmp"
 
 export const StayDetails = () => {
 
@@ -20,7 +21,6 @@ export const StayDetails = () => {
         getStay()
         document.documentElement.style.setProperty('--headerFontColor', '#000');
         document.documentElement.style.setProperty('--headerbackgroundColor', '#F7F7F7');
-        // window.addEventListener('scroll', changeCss, { passive: true });
     }, [])
 
     const getStay = async () => {
@@ -49,6 +49,10 @@ export const StayDetails = () => {
                 {stay.reviews.map(review =>
                     <ReviewLine review={review} key={review.txt} />
                 )}
+            </section>
+            <section className="map">
+            <MapCmp stay={stay}/>
+
             </section>
         </div>
     </div>

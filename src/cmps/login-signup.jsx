@@ -5,6 +5,7 @@ import { createTheme } from "@material-ui/core/styles"
 import { MuiThemeProvider } from "@material-ui/core/styles"
 import { connect } from 'react-redux'
 import { closeModal, openModal } from '../store/actions/userActions'
+import {userService} from '../services/user.service'
 export class _LoginSignup extends React.Component {
 
     state = {
@@ -47,11 +48,11 @@ export class _LoginSignup extends React.Component {
     });
 
     onSignup = (user) => {
-        // console.log(user)
+         console.log(user)
     }
 
     onLogin = (credentials) => {
-        // console.log(credentials)
+        userService.login(credentials)
     }
 
     onMousMove = (e) => {
@@ -91,8 +92,9 @@ export class _LoginSignup extends React.Component {
                             close
                         </span>
                     </button>
+                    
                     {!isLogin &&
-                        <Formik validateOnChange validate={this.onValidate} initialValues={this.signupInitialValues} onSubmit={this.onSignup}>
+                        <Formik validateOnChange={false} validateOnBlur={false} validate={this.onValidate} initialValues={this.signupInitialValues} onSubmit={this.onSignup}>
                             {({ errors }) => (
                                 <Form>
                                     <h3>Sign up</h3>
@@ -109,7 +111,8 @@ export class _LoginSignup extends React.Component {
                                         {<span className="error">{errors.email}</span>}
                                         <Field name="imgUrl" type="text" as={TextField} variant="outlined" label="your image URL" fullWidth InputLabelProps={{ style: { color: '#222222' } }} />
                                     </MuiThemeProvider>
-                                    <button className='reserve-button' style={{ '--mouse-x': this.state.mouseX, '--mouse-y': this.state.mouseY, margin: 'auto', marginTop: '12px' }} onMouseMove={this.onMousMove}>
+                                    <button className='reserve-button' style={{ '--mouse-x': this.state.mouseX, '--mouse-y': this.state.mouseY, margin: 'auto', marginTop: '12px' }}
+                                     onMouseMove={this.onMousMove} onClick={this.onV}>
                                         Continue
                                     </button>
                                     <h5 className='clickable' onClick={()=>this.toggleModal(true)}>i already have an account</h5>

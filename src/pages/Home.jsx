@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom"
 
 export const Home = () => {
     const [topRated, setTopRated] = useState(null)
-    const [randomStayId, setRndomStayId] = useState('622f337a75c7d36e498aaafb')
+    const [randomStayId, setRandomStayId] = useState('622f337a75c7d36e498aaafb')
     const cities = [{ name: 'New york', imgURL: 'https://a.cdn-hotels.com/gdcs/production101/d154/ee893f00-c31d-11e8-9739-0242ac110006.jpg' },
     { name: 'Porto', imgURL: 'https://touristjourney.com/wp-content/uploads/2020/10/shutterstock_1706807566-scaled.jpg' },
     { name: 'Montreal', imgURL: 'https://www.airtransat.com/getmedia/cafc7e6e-d0ff-497e-9998-e708f41aa191/Montreal-estival.aspx' },
@@ -23,7 +23,7 @@ export const Home = () => {
         document.documentElement.style.setProperty('--headerFontColor', '#fff');
         document.documentElement.style.setProperty('--verylightgray', 'unset');
         document.documentElement.style.setProperty('--bgc', 'unset');
-
+        
         return () => {
             window.removeEventListener('scroll', changeCss, { passive: true });
             document.documentElement.style.setProperty('--bgc', '#F7F7F7');
@@ -62,8 +62,8 @@ export const Home = () => {
     }
 
     const GetRandomStayId = async () => {
-        const stayId = await stayService.getRndomStayId()
-        setRndomStayId(stayId)
+        const stayId = await stayService.getRandomStayId()
+        setRandomStayId(stayId)
     }
 
     { if (!topRated) return (<h1></h1>) }

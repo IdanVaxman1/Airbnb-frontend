@@ -28,6 +28,10 @@ export const AppHeader = () => {
     useEffect(() => {
         window.addEventListener('scroll', changeCss, { passive: true });
         updateLogoColor()
+        return () => {
+            
+            window.removeEventListener('scroll', changeCss, { passive: true });
+        }
     }, [])
 
     useEffect(() => {
@@ -90,8 +94,8 @@ export const AppHeader = () => {
                             <div className="logo">
                                 <li>
                                     <img src={logoImgSrc} alt="" />
-                                </li>
-                                <li style={logoColor}>Staybnb</li>
+                                </li >
+                                <li className="font-bold" style={logoColor}>Staybnb</li>
                             </div>
                         </NavLink>
                     </div>
@@ -103,8 +107,8 @@ export const AppHeader = () => {
                         </div>
                     </div>
                     <div className="nav-link-parent">
-                        <li onClick={resetFilterBy}><NavLink to='/explore'>Explore</NavLink></li>
-                        <li><NavLink to='/explore'>Become a host</NavLink></li>
+                        <li onClick={resetFilterBy}><NavLink className="font-medium" to='/explore'>Explore</NavLink></li>
+                        <li><NavLink className="font-medium" to='/explore'>Become a host</NavLink></li>
                         <li>
                             <div className='user-menu noselect' onClick={toggleModal}>
                                 <div>

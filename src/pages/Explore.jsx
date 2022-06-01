@@ -20,9 +20,10 @@ export function Explore() {
         document.documentElement.style.setProperty('--headerFontColor', '#000');
         document.documentElement.style.setProperty('--headerbackgroundColor', '#F7F7F7');
         window.addEventListener('scroll', changeCss);
-
+        
         return () => {
-
+            
+            window.removeEventListener('scroll', changeCss);
             document.documentElement.style.setProperty('--headerbackgroundColor', 'unset');
             document.documentElement.style.setProperty('--headerFontColor', '#fff');
         }
@@ -45,7 +46,7 @@ export function Explore() {
         setStays(stays)
     }
 
-    { if (!stays) return (<h1>loading</h1>) }
+    { if (!stays) return (<h1>Loading</h1>) }
     return (
         <div className="stock-margin">
             <div className="stock-margin-center">

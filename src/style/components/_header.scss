@@ -1,5 +1,4 @@
 
-
     .main-header{
 
         .left{
@@ -45,20 +44,32 @@ header {
     background-color: var(--bgc);
 }
 .main-nav {
-
     grid-row: 1;
     height: 70px;
     position: relative;
     display: flex;
     justify-content: space-between;
+}
+.small-filte-parent{
 
+   *:not(.material-symbols-sharp){
+        
 
+            font-size: 0.75rem !important;
+            font-family: Airbnb-Cereal-Medium !important;
+            color: #222222 !important;
+        
+
+    }
 }
 .big{
     grid-row: 2;
-    padding: 0 15% 23px;
-    // position: absolute;
-    // margin-top: 30px;
+    padding: 0 20% 1.4375rem;
+
+    *:not(.material-symbols-sharp){
+        font-size: 1.1875rem;
+        font-family: Airbnb-Cereal-Medium !important;
+    }
    
     .inpt-fillter:nth-child(2){
         width: 100%;
@@ -76,14 +87,16 @@ header {
                 width: 100%;
 
                 .DateInput_1{
-                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    // width: 50%;
                 }
             }
         }
     }
 
     >div{
-        width: 80%;
+        width: 100%;
     }
 
     .total-filter{
@@ -127,7 +140,6 @@ header {
 
 .logo {
     grid-column: 1;
-    font-family: Airbnb-font-lite;
     font-weight: 500;
     color: $clrRED;
     font-size: 25px;

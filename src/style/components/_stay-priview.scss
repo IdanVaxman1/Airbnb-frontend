@@ -49,10 +49,10 @@
     h1 {
         font-size: 15px;
         overflow: clip;
-        font-family: Airbnb-Cereal-Medium, sans-serif;
-        font-weight: 400;
+        font-weight: 100;
         color: #222;
         text-overflow: ellipsis;
+        
     }
 
 
@@ -69,6 +69,10 @@
         margin-top: 10px;
         display: flex;
         justify-content: space-between;
+
+    }
+    .location-rate{
+        font-family: Airbnb-Cereal-Book,  sans-serif;
     }
 
     li {
@@ -80,8 +84,12 @@
     .propery-price {
         margin-top: 30px;
 
+       
+
         li {
             display: flex;
+            
+
 
             span {
                 font-size: 15px;
@@ -100,13 +108,13 @@
     }
 }
 
-.heart{
+.heart {
     position: absolute;
     top: 4%;
     right: 4%;
     z-index: 2;
     opacity: 0.85;
-    span{
+    span {
         font-size: 30px; 
     }
 }
