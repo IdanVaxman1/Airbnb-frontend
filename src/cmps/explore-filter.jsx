@@ -5,23 +5,24 @@ import { useEffect, useRef, useState } from "react"
 import { useDispatch } from 'react-redux'
 import { utilService } from '../services/util.service'
 import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from 'recharts'
-import Checkbox from '@mui/material/Checkbox'
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 
 export const ExploreFilter = (props) => {
     const timeOutId = useRef()
 
-    const dispatch = useDispatch()
     const [exploreFilterBy, setExploreFilterBy] = useState({
         minPrice: 0,
         maxPrice: 1200,
-        roomType: "",
+        roomTypes: ['Entire home/apt', 'Hotel room', 'Private room', 'Shared room'],
         amenities: []
     })
+    const [checked, setChecked] = useState({ entire: true, hotel: true, private: true, shared: true });
     const [priceIsShown, setPriceIsShown] = useState(false)
     const [typeIsShown, setTypeIsShown] = useState(false)
     const [pricesData, setPricesData] = useState(null)
     const amenities = ['Wifi', 'TV', 'Kitchen', 'Air conditioning']
-
 
     useEffect(() => {
         getPricesData()
@@ -53,13 +54,6 @@ export const ExploreFilter = (props) => {
         props.onChangeExploreFilter(exploreFilterBy)
     }, [exploreFilterBy])
 
-
-    const handleChange = (ev) => {
-        const field = ev.target.name
-        const value = ev.target.value
-        setExploreFilterBy({ ...exploreFilterBy, [field]: value })
-    }
-
     const handleButtonChange = (amenity) => {
         if (exploreFilterBy.amenities.includes(amenity)) {
             setExploreFilterBy({ ...exploreFilterBy, amenities: exploreFilterBy.amenities.filter(amn => amn !== amenity) })
@@ -72,6 +66,13 @@ export const ExploreFilter = (props) => {
         timeOutId.current = setTimeout(setExploreFilterBy, 500, { ...exploreFilterBy, minPrice: value[0], maxPrice: value[1] })
     }
 
+    const handleRoomType = (roomType, type) => {
+        let newRoomTypes
+        setChecked({ ...checked, [type]: !checked[type] })
+        if (exploreFilterBy.roomTypes.includes(roomType)) newRoomTypes = exploreFilterBy.roomTypes.filter(typeOfRoom => typeOfRoom !== roomType)
+        else newRoomTypes = [...exploreFilterBy.roomTypes, roomType]
+        setExploreFilterBy({...exploreFilterBy,roomTypes:newRoomTypes})
+    }
 
     const getClass = (amenity) => {
         let className = 'mini-filter'
@@ -89,7 +90,6 @@ export const ExploreFilter = (props) => {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-
                     <Bar dataKey="price" fill="#82ca9d" />
                 </BarChart>
                 <Slider range allowCross={false} defaultValue={[0, 1200]} min={0} max={1200} onChange={handlePriceRange} />
@@ -106,13 +106,21 @@ export const ExploreFilter = (props) => {
                 </div>
             </div>}
 
-            {typeIsShown && <div className='room-type-filter center'>
-                <Checkbox defaultChecked/> <p>lalala</p>
-                <Checkbox defaultChecked color="secondary" />
-                <Checkbox defaultChecked color="success" />
-                <Checkbox defaultChecked color="default" />
+            {typeIsShown && <div className='room-type-filter center noselect'>
+
+                <FormGroup>
+                    <FormControlLabel control={<Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }}
+                        onChange={() => handleRoomType('Entire home/apt', 'entire')} checked={checked.entire} inputProps={{ 'aria-label': 'controlled' }} />} label="Entire home" />
+                    <FormControlLabel control={<Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }}
+                        onChange={() => handleRoomType('Hotel room', 'hotel')} checked={checked.hotel} inputProps={{ 'aria-label': 'controlled' }} />} label="Hotel room" />
+                    <FormControlLabel control={<Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }}
+                        onChange={() => handleRoomType('Private room', 'private')} checked={checked.private} inputProps={{ 'aria-label': 'controlled' }} />} label="Private room" />
+                    <FormControlLabel control={<Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }}
+                        onChange={() => handleRoomType('Shared room', 'shared')} checked={checked.shared} inputProps={{ 'aria-label': 'controlled' }} />} label="Shared room" />
+                </FormGroup>
+
             </div>}
-            
+
             <div >
                 <div className='amn-container noselect'>
                     <div className="enity-filter">
@@ -130,4 +138,8 @@ export const ExploreFilter = (props) => {
         </div>
     )
 }
+
+
+
+
 

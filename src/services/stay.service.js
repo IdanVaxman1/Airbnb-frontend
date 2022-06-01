@@ -21,8 +21,13 @@ async function query(filterBy, exploreFilterBy) {
     }
     if (exploreFilterBy) {
         stays = stays.filter(stay => stay.price <= exploreFilterBy.maxPrice && stay.price >= exploreFilterBy.minPrice)
-        if (exploreFilterBy.roomType) {
-            stays = stays.filter(stay => stay.roomType === exploreFilterBy.roomType)
+        if (exploreFilterBy.roomTypes) {
+            const fullRoomTypes = ['Entire home/apt', 'Hotel room', 'Private room', 'Shared room']
+            fullRoomTypes.forEach(type=>{
+                if(!exploreFilterBy.roomTypes.includes(type)) stays=stays.filter(stay=>stay.roomType !== type)
+            })
+            
+            
         }
         if (exploreFilterBy.amenities) {
             exploreFilterBy.amenities.forEach(amn => { stays = stays.filter(stay => stay.amenities.includes(amn)) })
