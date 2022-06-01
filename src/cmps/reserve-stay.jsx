@@ -6,7 +6,15 @@ import { utilService } from "../services/util.service"
 
 export function ReserveStay(props) {
     const [totalGuestsQty, setTotalGuestsQty] = useState(null)
-    const [reservation,setReservation] = useState({checkIn:null,checkOut:null,totalPrice:1000,totalGuestsQty:0})
+    const [reservation, setReservation] = useState({
+        checkIn: null,
+        checkOut: null,
+        totalPrice: 1000,
+        totalGuestsQty: 0,
+        stayId: props.stay._id,
+        hostId: props.stay.host._id,
+        user: '123'
+    })
 
     const [showGuestsStyle, setShowGuestsStyle] = useState('expand_more')
     const [reservedBtnBc, setReservedBtnBc] = useState({ backgroundColor: `green` })
@@ -17,7 +25,7 @@ export function ReserveStay(props) {
     useEffect(() => {
         setDatesAndPrice(filterBy.from, filterBy.to)
     }, [])
-    
+
     const onUpdateGuestsQty = (adults, childs) => {
         const guestsQty = [{ adults }, { childs }]
         setTotalGuestsQty(guestsQty)
@@ -39,20 +47,20 @@ export function ReserveStay(props) {
     const setDatesAndPrice = (from, to) => {
         if (from && to) {
             const dayDiff = (to - from) / 1000 / 60 / 60 / 24
-            setReservation({...reservation, checkIn:from._d,checkOut:to._d,totalPrice:dayDiff * props.stay.price})
+            setReservation({ ...reservation, checkIn: from._d, checkOut: to._d, totalPrice: dayDiff * props.stay.price })
         }
     }
 
     const reserveStay = () => {
-        console.log(reservation)
+        if (!reservation.checkIn || !reservation.checkOut || reservation.totalGuestsQty===0) console.log('fill all details')
     }
 
-    const onMousMove = (e) => {  
+    const onMousMove = (e) => {
         const x = e.clientX;
         const y = e.clientY;
         document.documentElement.style.setProperty('--mouse-x', x);
         document.documentElement.style.setProperty('--mouse-y', y);
-        setReservedBtnBc({ '--mouse-y': y ,  '--mouse-x': x })
+        setReservedBtnBc({ '--mouse-y': y, '--mouse-x': x })
     }
 
     return (
@@ -71,13 +79,13 @@ export function ReserveStay(props) {
                         {(totalGuestsQty < 1) && <div><h4>Add guests</h4></div>}
                         {(totalGuestsQty > 0) && <div><h4>{totalGuestsQty} guest{(totalGuestsQty > 1) && 's'}</h4> </div>}
                     </div>
-                    <div><span  className="material-icons cursor">{showGuestsStyle}</span></div>
+                    <div><span className="material-icons cursor">{showGuestsStyle}</span></div>
                 </div>
                 <div style={guestModalShown}>
                     <GuestPicker className="guest-picker" onUpdateGuestsQty={onUpdateGuestsQty} />
                 </div>
             </div>
-            <button onClick={reserveStay} onMouseMove={(e) => onMousMove(e)}  style={reservedBtnBc} className='reserve-button'>Reserve</button>
+            <button onClick={reserveStay} onMouseMove={(e) => onMousMove(e)} style={reservedBtnBc} className='reserve-button'>Reserve</button>
             <section className="price-section">
                 {totalGuestsQty && reservation.checkIn && reservation.checkOut && <div>
                     <h4>You won't be charged yet</h4>
