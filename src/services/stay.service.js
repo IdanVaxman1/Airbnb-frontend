@@ -16,10 +16,10 @@ window.cs = stayService;
 async function query(filterBy, exploreFilterBy) {
     // let staysfromlocalstorage = await storageService.query(STORAGE_KEY)
     let stays = await httpService.get('stay',filterBy)
-    if (filterBy) {
-        if (filterBy.location) stays = stays.filter((stay => new RegExp(filterBy.location, 'i').test(stay.address.country)
-            || new RegExp(filterBy.location, 'i').test(stay.address.city)))
-    }
+    // if (filterBy) {
+    //     if (filterBy.location) stays = stays.filter((stay => new RegExp(filterBy.location, 'i').test(stay.address.country)
+    //         || new RegExp(filterBy.location, 'i').test(stay.address.city)))
+    // }
     if (exploreFilterBy) {
         stays = stays.filter(stay => stay.price <= exploreFilterBy.maxPrice && stay.price >= exploreFilterBy.minPrice)
         if (exploreFilterBy.roomTypes) {
