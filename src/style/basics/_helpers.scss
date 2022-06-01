@@ -90,7 +90,7 @@ ul li {
   }
   .stock-margin-narrow {
     display: grid;
-    grid-template-columns: 1fr 1000px 1fr;
+    grid-template-columns: minmax(1rem,1fr) minmax(auto,900px) minmax(1rem,1fr);
   }
 
   .grid-3-col {
