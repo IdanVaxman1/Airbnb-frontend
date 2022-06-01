@@ -121,7 +121,7 @@ export const AppHeader = () => {
                                 <div>
                                     {/* {!loggedinUser && <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />}
                                     {loggedinUser && <img src={`${loggedinUser.img}`} className='user-icon'/>} */}
-                                <img src={loggedinUser.imgUrl} className='user-icon' />
+                                {/* <img src={loggedinUser.imgUrl} className='user-icon' /> */}
                                 </div>
                             </div>
                             <div style={{ display: menuModalShow }}>
