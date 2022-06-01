@@ -32,7 +32,7 @@ function App() {
                     </Routes>
                     <LoginSignup/>
                 </main>
-              <AppFooter/>
+              <AppFooter />
             </div>
         </Router>
   );
