@@ -47,8 +47,8 @@ export class _LoginSignup extends React.Component {
         }
     });
 
-    onSignup = (user) => {
-         console.log(user)
+    onSignup = async (user) => {
+        const newUser = await userService.signup(user)
     }
 
     onLogin = async (credentials) => {

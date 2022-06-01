@@ -50,8 +50,8 @@ async function login(userCred) {
     }
     else console.log('user not found')
 }
-async function signup(userCred) {
-    const user = await storageService.post('user', userCred)
+async function signup(user) {
+    const newUser= await storageService.post('user', user)
     // const user = await httpService.post('auth/signup', userCred)
     // socketService.login(user._id)
     return saveLocalUser(user)
