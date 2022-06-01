@@ -9,7 +9,7 @@ export function ReserveStay(props) {
     const [reservation, setReservation] = useState({
         checkIn: null,
         checkOut: null,
-        adults: 0,
+        adults: 1,
         childrens: 0,
         totalPrice: 1000,
         user: null,
@@ -68,7 +68,7 @@ export function ReserveStay(props) {
     return (
         <div className="reserve-stay-container">
             <div className="reserve-stay-header">
-                <li>${utilService.getUsPrice((props.stay.price))} <span>night</span></li>
+                <li className="reserve-stay-price">${utilService.getUsPrice((props.stay.price))} <span>night</span></li>
                 <li>{props.stay.reviewScores.value / 2}<span className="material-icons red">star</span> · <span>{props.stay.reviews.length} reviews</span></li>
             </div>
             <div className="picker-container">
