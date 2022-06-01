@@ -110,16 +110,16 @@ export const ExploreFilter = (props) => {
                 <FormGroup>
                     <label><Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }}
                         onChange={() => handleRoomType('Entire home/apt', 'entire')} checked={checked.entire} inputProps={{ 'aria-label': 'controlled' }} />
-                        <span>Entire home</span><p>A place all for yourself</p></label>
+                        <div><span>Entire home</span><p>A place all for yourself</p></div></label>
                     <label><Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }}
                         onChange={() => handleRoomType('Hotel room', 'hotel')} checked={checked.hotel} inputProps={{ 'aria-label': 'controlled' }} />
-                        <span>Hotel Room</span><p>A private or shared room in a boutique hotel</p></label>
+                        <div><span>Hotel Room</span><p>A private or shared room in a boutique hotel</p></div></label>
                     <label><Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }}
                         onChange={() => handleRoomType('Private room', 'private')} checked={checked.private} inputProps={{ 'aria-label': 'controlled' }} />
-                        <span>Private room</span><p>Your own room in a home or a hotel, plus some shared common spaces</p></label>
+                        <div><span>Private room</span><p>Your own room in a home or a hotel, plus some shared common spaces</p></div></label>
                     <label><Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }}
                         onChange={() => handleRoomType('Shared room', 'shared')} checked={checked.shared} inputProps={{ 'aria-label': 'controlled' }} />
-                        <span>Shared room</span><p>A sleeping space and common areas that may be shared with others</p></label>
+                        <div><span>Shared room</span><p>A sleeping space and common areas that may be shared with others</p></div></label>
                 </FormGroup>
             </div>}
 
