@@ -5,6 +5,7 @@ import { GuestPicker } from "./guest-picker"
 import { utilService } from "../services/util.service"
 import { userService } from "../services/user.service"
 import { ConfirmedResModal } from "./confirmed-res-modal"
+import { reservationService } from "../services/reservation.service"
 
 export function ReserveStay(props) {
     const [reservation, setReservation] = useState({
@@ -57,13 +58,16 @@ export function ReserveStay(props) {
         }
     }
 
-    const reserveStay = () => {
+    const reserveStay = async () => {
         reservation.user = userService.getLoggedinUser()
         if (!reservation.checkIn || !reservation.checkOut || (reservation.adults + reservation.childrens) === 0) console.log('fill all details')
         else if (!reservation.user) console.log('u have to be logged in')
         else {
             console.log(reservation)
             setResModalIsOpen(true)
+            const newRes = await reservationService.addReservation(reservation)
+            if(newRes) console.log('new reservation has been added')
+            else console.log('couldnt add a reservation')
         }
     }
 
