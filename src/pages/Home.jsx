@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { showLargeFilter, showSmallFilter, LogoChangeToWhite } from "../store/actions/headerAction"
 import { NavLink } from "react-router-dom"
 
+
 export const Home = () => {
     const [topRated, setTopRated] = useState(null)
     const [randomStayId, setRandomStayId] = useState('622f337a75c7d36e498aaafb')
@@ -23,7 +24,7 @@ export const Home = () => {
         document.documentElement.style.setProperty('--headerFontColor', '#fff');
         document.documentElement.style.setProperty('--verylightgray', 'unset');
         document.documentElement.style.setProperty('--bgc', 'unset');
-        
+
         return () => {
             window.removeEventListener('scroll', changeCss, { passive: true });
             document.documentElement.style.setProperty('--bgc', '#F7F7F7');
@@ -105,6 +106,12 @@ export const Home = () => {
                     </div>
                 </div>
             </section>
+            <div className="become-a-host">
+                <div>
+                    <h1>Become a host!</h1>
+                    <button className="clickable">learn more</button>
+                </div>
+            </div>
         </article>
     )
 }

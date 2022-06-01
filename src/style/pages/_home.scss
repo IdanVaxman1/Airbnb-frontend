@@ -102,3 +102,39 @@
     }
 
 }
+
+.become-a-host{
+
+    margin-top: 8rem;
+    background-image: url("https://res.cloudinary.com/dhy6ndeij/image/upload/v1654118736/Become-a-host_fyktkk.png") ;
+    background-position: 50%;
+    background-size: cover;
+    height: 90vh;
+    width: 100%;
+
+    padding-left: 2.3rem;
+    padding-top: 5rem;
+    
+    h1{
+        color: #fff;
+    font-size: 48px;
+    
+    }
+
+    button{
+        margin-top: 50px;
+    justify-self: flex-end;
+    font-family: inherit;
+    border: none;
+    color: #222;
+    background-color: #fff;
+    padding: 14px 24px;
+    border-radius: 8px;
+    max-width: 170px;
+    }
+   
+  
+
+    
+    
+}
