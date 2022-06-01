@@ -6,6 +6,7 @@ const STORAGE_KEY = 'stay'
 
 export const storageService = {
     query,
+    queryUser,
     get,
     post,
     put,
@@ -24,6 +25,19 @@ function query(entityType, delay = 50) {
         }, delay)
     })
 }
+
+function queryUser(entityType, delay = 50) {
+    let entities = JSON.parse(localStorage.getItem(entityType)) || createUsers()
+    let json = JSON.stringify(entities)
+    localStorage.setItem(entityType, json)
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            resolve(entities)
+        }, delay)
+    })
+}
+
+
 
 function get(entityType, entityId) {
 

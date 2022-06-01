@@ -5,6 +5,7 @@ import { createTheme } from "@material-ui/core/styles"
 import { MuiThemeProvider } from "@material-ui/core/styles"
 import { connect } from 'react-redux'
 import { closeModal, openModal } from '../store/actions/userActions'
+import {userService} from '../services/user.service'
 export class _LoginSignup extends React.Component {
 
     state = {
@@ -51,7 +52,7 @@ export class _LoginSignup extends React.Component {
     }
 
     onLogin = (credentials) => {
-        // console.log(credentials)
+        userService.login(credentials)
     }
 
     onMousMove = (e) => {
