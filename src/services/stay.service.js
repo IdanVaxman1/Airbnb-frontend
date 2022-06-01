@@ -1,7 +1,7 @@
 import { storageService } from './async-storage.service.js'
 import { dataService } from './stay.data.js'
 import { utilService } from './util.service.js'
-// import { httpService } from './http.service.js'
+import { httpService } from './http.service.js'
 
 const STORAGE_KEY = 'stay'
 
