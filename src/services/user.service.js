@@ -1,6 +1,5 @@
 import { storageService } from './async-storage.service'
-// import { httpService } from './http.service'
-// import { store } from '../store/store'
+import { httpService } from './http.service'
 // import { socketService, SOCKET_EVENT_USER_UPDATED, SOCKET_EMIT_USER_WATCH } from './socket.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
@@ -41,9 +40,7 @@ async function getById(userId) {
 }
 
 async function login(userCred) {
-    const users = await storageService.queryUser('user')
-    const user = users.find(user => user.username === userCred.username && user.password === userCred.password)
-    // const user = await httpService.post('auth/login', userCred)
+    const user = await httpService.post('auth/login', userCred)
     if (user) {
         // socketService.login(user._id)
         return saveLocalUser(user)
@@ -51,15 +48,19 @@ async function login(userCred) {
     else console.log('user not found')
 }
 async function signup(user) {
-    const newUser= await storageService.post('user', user)
-    // const user = await httpService.post('auth/signup', userCred)
+    const newUser = await httpService.post('auth/signup', user)
     // socketService.login(user._id)
-    return saveLocalUser(user)
+    return saveLocalUser(newUser)
 }
 async function logout() {
-    localStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
-    // socketService.logout()
-    // return await httpService.post('auth/logout')
+    const isOut = await httpService.post('auth/logout')
+    if (isOut) {
+        localStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
+        // socketService.logout()
+    }
+    else console.log('how can one fail to logout??')
+
+
 }
 
 function saveLocalUser(user) {

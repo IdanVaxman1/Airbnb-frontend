@@ -49,6 +49,7 @@ export class _LoginSignup extends React.Component {
 
     onSignup = async (user) => {
         const newUser = await userService.signup(user)
+        if(newUser)  this.onCloseModal()   
     }
 
     onLogin = async (credentials) => {
