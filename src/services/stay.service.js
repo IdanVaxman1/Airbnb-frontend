@@ -1,7 +1,7 @@
 import { storageService } from './async-storage.service.js'
 import { dataService } from './stay.data.js'
 import { utilService } from './util.service.js'
-// import { httpService } from './http.service.js'
+import { httpService } from './http.service.js'
 
 const STORAGE_KEY = 'stay'
 
@@ -14,8 +14,8 @@ export const stayService = {
 window.cs = stayService;
 
 async function query(filterBy, exploreFilterBy) {
-    let stays = await storageService.query(STORAGE_KEY)
-    // let stays = await httpService.get('stay',filterBy)
+    // let staysfromlocalstorage = await storageService.query(STORAGE_KEY)
+    let stays = await httpService.get('stay',filterBy)
     if (filterBy) {
         if (filterBy.location) stays = stays.filter((stay => new RegExp(filterBy.location, 'i').test(stay.address.country)
             || new RegExp(filterBy.location, 'i').test(stay.address.city)))
@@ -32,6 +32,7 @@ async function query(filterBy, exploreFilterBy) {
             exploreFilterBy.amenities.forEach(amn => { stays = stays.filter(stay => stay.amenities.includes(amn)) })
         }
     }
+    console.log('im here')
     return stays
 }
 async function getById(stayId) {
