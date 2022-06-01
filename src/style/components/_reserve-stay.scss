@@ -18,6 +18,32 @@
     padding: 1rem;
 
     .reserve-stay-header{
+
+      :nth-child(2){
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+      }
+      
+      :first-child:not(span){
+
+        font-size: 1.5rem;
+        font-weight: 800 !important;
+      }
+
+      :last-child{
+        :last-child{
+
+          
+          color: $lite-font-color;
+          text-decoration: underline;
+        }
+          
+     
+    }
+
+
       width: 100%;
       //padding: 1rem;
       display: flex;
@@ -89,7 +115,8 @@
     }
 
     .reserve-stay-price {
-      font-size: 505px;
+      font-size: 50px;
+      
     }
 
 }

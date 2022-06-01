@@ -83,8 +83,8 @@ export function ReserveStay(props) {
         <div className="reserve-stay-container">
             {resModalIsOpen && <ConfirmedResModal reservation={reservation} />}
             <div className="reserve-stay-header">
-                <li className="reserve-stay-price">${utilService.getUsPrice((props.stay.price))} <span>night</span></li>
-                <li>{props.stay.reviewScores.value / 2}<span className="material-icons red">star</span> · <span>{props.stay.reviews.length} reviews</span></li>
+                <li className="reserve-stay-price font-book">${utilService.getUsPrice((props.stay.price))} <span>night</span></li>
+                <li>{props.stay.reviewScores.value / 2}<span className="material-icons">star</span> · <span>{props.stay.reviews.length} reviews</span></li>
             </div>
             <div className="picker-container">
                 <div className="range-date-selector">
@@ -106,7 +106,7 @@ export function ReserveStay(props) {
             </div>
             <button onClick={reserveStay} onMouseMove={(e) => onMousMove(e)} style={reservedBtnBc} className='reserve-button'>Reserve</button>
            {!resModalIsOpen &&  <section className="price-section">
-                {(reservation.adults || reservation.childrens) && reservation.checkIn && reservation.checkOut && <div>
+                {(reservation.adults!=0 || reservation.childrens!=0) && reservation.checkIn && reservation.checkOut && <div>
                     <h4>You won't be charged yet</h4>
                     <div className="flex-row-space-btw price">
                         <h1>Price</h1>
