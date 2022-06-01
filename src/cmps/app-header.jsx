@@ -24,7 +24,6 @@ export const AppHeader = () => {
     const [menuModalShow, setMenuModalShow] = useState('none')
     const [logoColor, setLogoColor] = useState({ color: 'red' })
     const [logoImgSrc, setogoImgSrc] = useState("../assets/imgs/logo1.png")
-    const loggedinUser = userService.getLoggedinUser()
 
     const dispatch = useDispatch()
     useEffect(() => {
@@ -35,6 +34,9 @@ export const AppHeader = () => {
             window.removeEventListener('scroll', changeCss, { passive: true });
         }
     }, [])
+
+    const loggedinUser = userService.getLoggedinUser()
+
 
     useEffect(() => {
         if (smallFilterShow) setsmallFilterStyle({ display: 'block' })
@@ -119,7 +121,7 @@ export const AppHeader = () => {
                                 <div>
                                     {/* {!loggedinUser && <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />}
                                     {loggedinUser && <img src={`${loggedinUser.img}`} className='user-icon'/>} */}
-                                <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />
+                                <img src={loggedinUser.imgUrl} className='user-icon' />
                                 </div>
                             </div>
                             <div style={{ display: menuModalShow }}>
