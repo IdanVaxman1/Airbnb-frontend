@@ -119,9 +119,9 @@ export const AppHeader = () => {
                                     <span className="material-icons">menu</span>
                                 </div>
                                 <div>
-                                    {/* {!loggedinUser && <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />}
-                                    {loggedinUser && <img src={`${loggedinUser.img}`} className='user-icon'/>} */}
-                                {/* <img src={loggedinUser.imgUrl} className='user-icon' /> */}
+                                    {!loggedinUser && <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />}
+                                    {/* {loggedinUser && <img src={`${loggedinUser.img}`} className='user-icon'/>} */}
+                                {loggedinUser && <img src={loggedinUser.imgUrl} className='user-icon' />}
                                 </div>
                             </div>
                             <div style={{ display: menuModalShow }}>
