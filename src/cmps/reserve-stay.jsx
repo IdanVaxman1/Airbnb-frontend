@@ -77,7 +77,7 @@ export function ReserveStay(props) {
                     <GuestPicker className="guest-picker" onUpdateGuestsQty={onUpdateGuestsQty} />
                 </div>
             </div>
-            <button onClick={reserveStay} onMouseMove={(e) => onMousMove(e)}  style={reservedBtnBc} className='reserve-button'>reserve</button>
+            <button onClick={reserveStay} onMouseMove={(e) => onMousMove(e)}  style={reservedBtnBc} className='reserve-button'>Reserve</button>
             <section className="price-section">
                 {totalGuestsQty && reservation.checkIn && reservation.checkOut && <div>
                     <h4>You won't be charged yet</h4>

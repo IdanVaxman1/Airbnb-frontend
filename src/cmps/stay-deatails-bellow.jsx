@@ -45,7 +45,7 @@ export function StayDeatailsBellow({ stay }) {
                 </div>
             </section>
             <div className="stay-cover">
-                <h1><span className="stay-cover-logo">stay</span>cover</h1>
+                <h1 className="font-bolder"><span className="stay-cover-logo font-medium">stay</span>COVER</h1>
                 <div className="stay-cover-text">
                     <p>Every booking includes free protection from Host cancellations, listing inaccuracies,
                         and  other issues like trouble checking in.<br /> <span className="stay-cover-more">Learn more</span></p>

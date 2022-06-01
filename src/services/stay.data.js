@@ -90,8 +90,10 @@ function getStays() {
                 "street": "Lahaina, HI, United States",
                 "country": "United States",
                 "location": {
-                    "lat": -156.6917,
-                    "lan": 20.93792
+                    "lat": -156.68083166296285,
+                    "lan": 20.88321046395682
+
+                    , 
                 },
                 "countryCode": "US",
                 "city": "Maui"
