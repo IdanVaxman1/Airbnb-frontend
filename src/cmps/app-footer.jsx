@@ -26,7 +26,6 @@ export function AppFooter() {
                     <li>$ USD</li>
                     <li>·</li>
                     <li>Support & resources</li>
-                    <button onClick={reservationService.query}>log reservations</button>
                 </div>
            
         </div>
