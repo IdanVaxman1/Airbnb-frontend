@@ -2,7 +2,7 @@ import { dataService } from './stay.data.js'
 import { utilService } from './util.service.js'
 import { httpService } from './http.service.js'
 
-const STORAGE_KEY = 'stay'
+const STAY_KEY = 'stay'
 
 export const stayService = {
     query,
@@ -13,7 +13,7 @@ export const stayService = {
 window.cs = stayService
 
 async function query(filterBy, exploreFilterBy) {
-    let stays = await httpService.get('stay',filterBy)
+    let stays = await httpService.get(STAY_KEY,filterBy)
     if (exploreFilterBy) {
         stays = stays.filter(stay => stay.price <= exploreFilterBy.maxPrice && stay.price >= exploreFilterBy.minPrice)
         if (exploreFilterBy.roomTypes) {
@@ -29,7 +29,7 @@ async function query(filterBy, exploreFilterBy) {
     return stays
 }
 async function getById(stayId) {
-    const stay= await httpService.get(`stay/${stayId}`)
+    const stay= await httpService.get(STAY_KEY+`/${stayId}`)
     console.log(stay)
     return stay
 }
@@ -45,7 +45,7 @@ function getTopRated() {
 }
 
 async function getRandomStayId() {
-    const stays = await httpService.get('stay')
+    const stays = await httpService.get(STAY_KEY)
     const idx = utilService.getRandomIntInclusive(0, stays.length - 1)
     return stays[idx]._id
 }
