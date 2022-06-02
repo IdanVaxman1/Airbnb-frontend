@@ -29,8 +29,12 @@
 @import '/src/style/components/sign-up';
 @import '/src/style/components/user-menu';
 @import '/src/style/components/map';
+<<<<<<< HEAD
 @import '/src/style/components/trips-header.scss';
 @import '/src/style/components/trip-card';
+=======
+@import '/src/style/components/confirmed-res-modal';
+>>>>>>> f03a89f0db8d697208abb084fac705ac25e5d8f2
 
 
 //pages
@@ -39,3 +43,4 @@
 @import '/src/style/pages/Trips';
 @import '/src/style/pages/stay-details';
 @import '/src/style/basics/for-all';
+@import '/src/style/pages//host';

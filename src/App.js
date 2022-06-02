@@ -6,7 +6,11 @@ import {Explore} from './pages/explore'
 import {StayDetails} from './pages/stay-details'
 import {Helmet} from "react-helmet"
 import {LoginSignup} from './cmps/login-signup'
+<<<<<<< HEAD
 import {Trips} from './pages/trips'
+=======
+import { Host } from './pages/host'
+>>>>>>> f03a89f0db8d697208abb084fac705ac25e5d8f2
 
 
 
@@ -30,11 +34,12 @@ function App() {
                         <Route path='/home' element={<Home />} />
                         <Route path='/explore' element={<Explore />} />
                         <Route path='/trips' element={<Trips />} />
+                        <Route path='/host' element={<Host />} />
                         <Route path='/' element={<Home />} />
                     </Routes>
                     <LoginSignup/>
                 </main>
-              <AppFooter/>
+              <AppFooter />
             </div>
         </Router>
   );

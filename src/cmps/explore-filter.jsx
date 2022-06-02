@@ -71,12 +71,14 @@ export const ExploreFilter = (props) => {
         setChecked({ ...checked, [type]: !checked[type] })
         if (exploreFilterBy.roomTypes.includes(roomType)) newRoomTypes = exploreFilterBy.roomTypes.filter(typeOfRoom => typeOfRoom !== roomType)
         else newRoomTypes = [...exploreFilterBy.roomTypes, roomType]
-        setExploreFilterBy({...exploreFilterBy,roomTypes:newRoomTypes})
+        setExploreFilterBy({ ...exploreFilterBy, roomTypes: newRoomTypes })
     }
 
-    const getClass = (amenity) => {
+    const getClass = (type) => {
         let className = 'mini-filter'
-        if (exploreFilterBy.amenities.includes(amenity)) className += ' small-border'
+        if (type === 'price' && (exploreFilterBy.minPrice > 0 || exploreFilterBy.maxPrice < 1200)) className += ' small-border'
+        else if (type === 'roomType' && exploreFilterBy.roomTypes.length < 4) className += ' small-border'
+        else if (exploreFilterBy.amenities.includes(type)) className += ' small-border'
         return className
     }
 
@@ -126,10 +128,10 @@ export const ExploreFilter = (props) => {
             <div >
                 <div className='amn-container noselect'>
                     <div className="enity-filter">
-                        <div className={getClass('Price')} onClick={() => onShown('Price')}>Price</div>
+                        <div className={getClass('price')} onClick={() => onShown('Price')}>Price</div>
                     </div>
                     <div className="enity-filter">
-                        <div className={getClass('Type of place')} onClick={() => onShown('Type of place')}>Type of place</div>
+                        <div className={getClass('roomType')} onClick={() => onShown('Type of place')}>Type of place</div>
                     </div>
                     <span className="enity-filter separator">|</span>
                     {amenities.map(amenity => <div className="enity-filter" key={amenity}>

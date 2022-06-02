@@ -47,12 +47,14 @@ export class _LoginSignup extends React.Component {
         }
     });
 
-    onSignup = (user) => {
-         console.log(user)
+    onSignup = async (user) => {
+        const newUser = await userService.signup(user)
+        if(newUser) this.onCloseModal()   
     }
 
-    onLogin = (credentials) => {
-        userService.login(credentials)
+    onLogin = async (credentials) => {
+        const user = await userService.login(credentials)
+        if(user.username) this.onCloseModal() //todo: show msg connected successfully
     }
 
     onMousMove = (e) => {

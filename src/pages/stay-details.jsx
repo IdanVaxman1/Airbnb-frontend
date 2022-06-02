@@ -8,6 +8,7 @@ import { StaydetailsHeader } from "../cmps/StaydetailsHeader"
 import { StayDeatailsBellow } from "../cmps/stay-deatails-bellow"
 import { ReviewLine } from "../cmps/review-line"
 import { MapCmp } from "../cmps/map-cmp"
+import { ConfirmedResModal } from "../cmps/confirmed-res-modal"
 
 export const StayDetails = () => {
 

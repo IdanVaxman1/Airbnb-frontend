@@ -6,8 +6,10 @@ import { SmallFilter } from "./small-filter"
 import { useEffect, useRef, useState } from "react"
 import { UserMenuModal } from "./user-menu-modal"
 import { showLargeFilter, showSmallFilter, LogoChangeToWhite } from "../store/actions/headerAction"
+import { userService } from "../services/user.service"
 import whiteLogo from "../assets/imgs/logo-white.png"
 import redLogo from "../assets/imgs/logo1.png"
+import { ConfirmedResModal } from "./confirmed-res-modal"
 
 
 
@@ -16,6 +18,8 @@ export const AppHeader = () => {
     const LargeFilterShow = useSelector((storeState) => storeState.headerModule.isLargeFilterShown)
     const smallFilterShow = useSelector((storeState) => storeState.headerModule.isSmallFilterShown)
     const isLogoWhite = useSelector((storeState) => storeState.headerModule.isLogoWhite)
+    const ReservationConfirmed = useSelector((storeState) => storeState.reservationModule.ReservationConfirmed)
+
 
     const [isSmallFilterShown, setIsSmallFilterShown] = useState(true)
     const [bigFilterStyle, setBigFilterStyle] = useState({ display: 'none' })
@@ -23,6 +27,7 @@ export const AppHeader = () => {
     const [menuModalShow, setMenuModalShow] = useState('none')
     const [logoColor, setLogoColor] = useState({ color: 'red' })
     const [logoImgSrc, setogoImgSrc] = useState("../assets/imgs/logo1.png")
+    const [showModalConfirmed, setShowModalConfirmed] = useState(false)
 
     const dispatch = useDispatch()
     useEffect(() => {
@@ -34,6 +39,16 @@ export const AppHeader = () => {
         }
     }, [])
 
+    const loggedinUser = userService.getLoggedinUser()
+
+
+    useEffect(() => {
+        console.log('ReservationConfirmed in home page - header',ReservationConfirmed )
+        if (ReservationConfirmed)  setShowModalConfirmed(true)
+        else setShowModalConfirmed(false)
+        
+    }, [ReservationConfirmed])
+   
     useEffect(() => {
         if (smallFilterShow) setsmallFilterStyle({ display: 'block' })
     }, [smallFilterShow])
@@ -86,6 +101,7 @@ export const AppHeader = () => {
 
     return (
         <header className="stock-margin main-header">
+            {showModalConfirmed && <ConfirmedResModal reservation={ReservationConfirmed} />}
             <div className="left"></div>
             <div className="stock-margin-center flex-col">
                 <nav className="grid-3-col main-nav">
@@ -108,14 +124,16 @@ export const AppHeader = () => {
                     </div>
                     <div className="nav-link-parent">
                         <li onClick={resetFilterBy}><NavLink className="font-medium" to='/explore'>Explore</NavLink></li>
-                        <li><NavLink className="font-medium" to='/explore'>Become a host</NavLink></li>
+                        <li><NavLink className="font-medium" to='/host'>Become a host</NavLink></li>
                         <li>
                             <div className='user-menu noselect' onClick={toggleModal}>
                                 <div>
                                     <span className="material-icons">menu</span>
                                 </div>
                                 <div>
-                                <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />
+                                    {!loggedinUser && <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />}
+                                    {/* {loggedinUser && <img src={`${loggedinUser.img}`} className='user-icon'/>} */}
+                                {loggedinUser && <img src={loggedinUser.imgUrl} className='user-icon' />}
                                 </div>
                             </div>
                             <div style={{ display: menuModalShow }}>

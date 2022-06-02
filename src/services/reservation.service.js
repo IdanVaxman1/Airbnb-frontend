@@ -5,13 +5,14 @@ import { httpService } from './http.service.js'
 
 const STORAGE_KEY = 'stay'
 
-export const stayService = {
+export const reservationService = {
     query,
     getById,
     getTopRated,
     getRandomStayId,
+    addReservation
 }
-window.cs = stayService;
+window.cs = reservationService;
 
 async function query(filterBy, exploreFilterBy) {
     // let staysfromlocalstorage = await storageService.query(STORAGE_KEY)
@@ -32,7 +33,6 @@ async function query(filterBy, exploreFilterBy) {
             exploreFilterBy.amenities.forEach(amn => { stays = stays.filter(stay => stay.amenities.includes(amn)) })
         }
     }
-    console.log('im here')
     return stays
 }
 async function getById(stayId) {
@@ -40,9 +40,9 @@ async function getById(stayId) {
     // return await httpService.get(`stay/${stayId}`)
 }
 
-async function addStay(stay) {
-    // const addedStay = await httpService.post('stay', stay)
-    // return addedStay
+async function addReservation(reservation) {
+    const addReservation = await httpService.post('reservation', reservation)
+    return addReservation
 }
 
 
