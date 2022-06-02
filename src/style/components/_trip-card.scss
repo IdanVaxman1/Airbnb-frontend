@@ -1,0 +1,33 @@
+
+.trip-card-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+
+}
+
+
+.trip-card {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.trip-card-text {
+    padding-left: 10px;
+    line-height: 1.5;
+    text-decoration: none;
+
+}
+
+.trip-card img {
+    display: flex;
+    border-radius: 12px;
+    width: 70px;
+    height: 70px;
+}
+
+.trip-card-name {
+    font-family: Airbnb-Cereal-Bold;
+}

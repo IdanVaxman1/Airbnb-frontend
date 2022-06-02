@@ -4,6 +4,7 @@ import { DateRangeSelector } from './date-picker'
 import { GuestPicker } from "./guest-picker"
 import { utilService } from "../services/util.service"
 import { userService } from "../services/user.service"
+import { tripsService } from "../services/trips.service"
 import { ConfirmedResModal } from "./confirmed-res-modal"
 import { reservationService } from "../services/reservation.service"
 import { ReservationConfirmed } from "../store/actions/reservation.action"
@@ -78,7 +79,7 @@ export function ReserveStay(props) {
             if(newRes) console.log('new reservation has been added')
             else console.log('couldnt add a reservation')
             dispatchReservation(reservation)
-
+            tripsService.addTrip(reservation)
         }
     }
 
