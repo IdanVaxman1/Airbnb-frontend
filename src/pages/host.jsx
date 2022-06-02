@@ -20,7 +20,8 @@ export const Host = () => {
     const getReservations = async () => {
         const reservatios = await reservationService.query({userId:loggedinUser._id})
         console.log('reservatios from host',loggedinUser._id)
-        setreservations(reservatios)
+        const sortedReservatios = reservatios.sort((a,b) => Date.parse(a.checkIn) - Date.parse(b.checkIn))
+        setreservations(sortedReservatios)
         // {hostId:loggedinUser._id}
 
     }
@@ -44,14 +45,33 @@ export const Host = () => {
                     </h1>
                 </li>
             </div>
+            <div className="header">
+          
+                    
+            </div>
             <div>
-                <div className="reservations-container" >
+                    <div className="reservations-container">
+                <table className="reservations-table" >
+
+                    <tr>
+                    <th>Guest Name</th>
+                    <th>Property</th>
+                    <th>Guests qty</th>
+                    <th>Check-in</th>
+                    <th>Check-out</th>
+                    <th>Total price</th>
+                    <th>Add a review</th>
+                    <th>Cancel</th>
+                    </tr>
+
                     {reservations.map(reservation =>
+                    <tr>
+
                         <ReservationPreview2  reservation={reservation} key={reservation._id} />
+                    </tr>
                     )}
-                </div>
-
-
+                </table>
+                    </div>
             </div>
         </div>
     </div>

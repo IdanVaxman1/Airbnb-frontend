@@ -10,30 +10,40 @@ export function ReservationPreview2({ reservation }) {
 
 
 
-    return (
-        <div className="reservation-card box-shadow">
-            <div>
-                {/* {JSON.stringify(reservation)} */}
-                <div>
-                    <h2>Property:</h2>
-                    <h3>{reservation.stay.name}</h3>
-                    <h2>checkIn:</h2>
-                    <h3>
+    return (<>
+        
+                    
+                    <td>{reservation.user.username}</td>
+                   
+                    <td style={{ textAlign: 'left'}}>
+                        {reservation.stay.name}
+                    </td>
+                   
+                    <td>
+                        {reservation.adults + reservation.childrens}
+                    </td>
+                  
+                    <td>
                         {reservation.checkIn.substring(0, 10)}
-                    </h3>
-                    {/* .toISOString().split('T')[0] */}
-                </div>
-                <div>
-                    <h2>checkOut:</h2>
-                    <h3>
+                    </td>
+                  
+                    <td>
                         {reservation.checkOut.substring(0, 10)}
-                    </h3>
-                </div>
+                    </td>
+                 
+                    <td>
+                        ${reservation.totalPrice}
+                    </td>
+                    <td>
+                        <button>Add a review</button>
+                    </td>
+                    <td>
+                        <button>Cancel</button>
+                    </td>
+                   
+               
 
-
-            </div>
-        </div>
-
+    </>
     )
 
 }
