@@ -10,10 +10,9 @@ export const reservationService = {
 }
 window.cs = reservationService;
 
-async function query(ev,hostId={hostId:'622f3402e36c59e6164fac46'}) {
-    let reservations = await httpService.get('reservation',hostId)
-    console.log(reservations)
-
+async function query(ev,requesterId) {
+    let reservations = await httpService.get('reservation',requesterId)
+    return reservations || []
 }
 
 // async function query(filterBy, exploreFilterBy) {
