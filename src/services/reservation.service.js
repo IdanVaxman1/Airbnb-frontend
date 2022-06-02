@@ -10,17 +10,18 @@ export const reservationService = {
 }
 window.cs = reservationService;
 
-async function query(ev,id) {
-    let reservations = await httpService.get('reservation',id)
-    return reservations || []
-}
+// async function query(ev,hostId={hostId:'622f3402e36c59e6164fac46'}) {
+//     let reservations = await httpService.get('reservation',hostId)
+//     console.log(reservations)
 
-// async function query(filterBy, exploreFilterBy) {
-//     // let staysfromlocalstorage = await storageService.query(STORAGE_KEY)
-//     let reservations = await httpService.get('reservation')
+// }
+
+async function query(filterBy, exploreFilterBy) {
+    // let staysfromlocalstorage = await storageService.query(STORAGE_KEY)
+    let reservations = await httpService.get('reservation')
     
-//     return reservations
-// 
+    return reservations
+}
 
 async function getById(stayId) {
 
