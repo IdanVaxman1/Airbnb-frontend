@@ -10,7 +10,7 @@ export const stayService = {
     getTopRated,
     getRandomStayId,
 }
-window.cs = stayService;
+window.cs = stayService
 
 async function query(filterBy, exploreFilterBy) {
     let stays = await httpService.get('stay',filterBy)
