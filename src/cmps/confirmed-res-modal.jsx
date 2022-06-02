@@ -53,7 +53,7 @@ export const ConfirmedResModal = (props) => {
         <span onClick={closeModal} className="material-icons clickable close-modal">close</span>
         <div className="bottom-container">
 
-            <h1>Your reservation at {props.reservation.host.name}'s' place is confirmed!</h1>
+            <h1>Your reservation at {props.reservation.hostName}'s' place is confirmed!</h1>
 
 
             <div className="dates-container">
