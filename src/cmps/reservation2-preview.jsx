@@ -5,18 +5,17 @@ import { useEffect, useRef, useState } from "react"
 
 export function ReservationPreview2({ reservation }) {
 
-    { console.log('reservation', reservation) }
-    var date = reservation.checkIn
+    { console.log('reservation name', reservation.stay) }
+    // var date = reservation.checkIn
 
 
 
     return (
         <div className="reservation-card box-shadow">
             <div>
-
                 <div>
                     <h2>Property:</h2>
-                    <h3>{reservation.stay.name}</h3>
+                    <h3>{reservation.name}</h3>
                     <h2>checkIn:</h2>
                     <h3>
                         {reservation.checkIn}
