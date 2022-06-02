@@ -16,3 +16,7 @@
 .DayPickerKeyboardShortcuts_show__bottomRight::before {
     border-right: 33px solid $clrRED !important;
 }
+
+.DateRangePickerInput_arrow_svg {
+    display: none !important;
+}
