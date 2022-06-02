@@ -118,7 +118,7 @@ export const ConfirmedResModal = (props) => {
                 </h3>
 
             </div>
-            <NavLink className='' to='/explore' >
+            <NavLink className='' to='/trips' >
             <button onClick={()=>closeModal()} className="reserve-button" >Your trips</button>
             </NavLink>
 

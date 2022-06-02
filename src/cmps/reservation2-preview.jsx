@@ -19,14 +19,14 @@ export function ReservationPreview2({ reservation }) {
                     <h3>{reservation.stay.name}</h3>
                     <h2>checkIn:</h2>
                     <h3>
-                        {reservation.checkIn}
+                        {reservation.checkIn.substring(0, 10)}
                     </h3>
                     {/* .toISOString().split('T')[0] */}
                 </div>
                 <div>
                     <h2>checkOut:</h2>
                     <h3>
-                        {reservation.checkOut}
+                        {reservation.checkOut.substring(0, 10)}
                     </h3>
                 </div>
 

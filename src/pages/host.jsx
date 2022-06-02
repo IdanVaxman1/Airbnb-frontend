@@ -18,7 +18,7 @@ export const Host = () => {
 
     let loggedinUser = userService.getLoggedinUser()
     const getReservations = async () => {
-        const reservatios = await reservationService.query()
+        const reservatios = await reservationService.query({userId:loggedinUser._id})
         console.log('reservatios from host',loggedinUser._id)
         setreservations(reservatios)
         // {hostId:loggedinUser._id}
