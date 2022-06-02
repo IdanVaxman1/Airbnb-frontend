@@ -5,19 +5,18 @@ import { MainFilter } from "./main-filter"
 import { SmallFilter } from "./small-filter"
 import { useEffect, useRef, useState } from "react"
 import { UserMenuModal } from "./user-menu-modal"
-import { showLargeFilter, showSmallFilter, LogoChangeToWhite } from "../store/actions/headerAction"
+import { showLargeFilter, showSmallFilter } from "../store/actions/headerAction"
 import { userService } from "../services/user.service"
 import whiteLogo from "../assets/imgs/logo-white.png"
 import redLogo from "../assets/imgs/logo1.png"
 import { ConfirmedResModal } from "./confirmed-res-modal"
-
-
 
 export const AppHeader = () => {
 
     const LargeFilterShow = useSelector((storeState) => storeState.headerModule.isLargeFilterShown)
     const smallFilterShow = useSelector((storeState) => storeState.headerModule.isSmallFilterShown)
     const isLogoWhite = useSelector((storeState) => storeState.headerModule.isLogoWhite)
+    const { isModalOpen } = useSelector((storeState) => storeState.userModule)
     const ReservationConfirmed = useSelector((storeState) => storeState.reservationModule.ReservationConfirmed)
 
 
@@ -34,21 +33,22 @@ export const AppHeader = () => {
         window.addEventListener('scroll', changeCss, { passive: true });
         updateLogoColor()
         return () => {
-            
+
             window.removeEventListener('scroll', changeCss, { passive: true });
         }
     }, [])
-
-    const loggedinUser = userService.getLoggedinUser()
-
+    let loggedinUser = userService.getLoggedinUser()
+    useEffect(() => {
+        loggedinUser = userService.getLoggedinUser()
+    }, [isModalOpen])
 
     useEffect(() => {
-        console.log('ReservationConfirmed in home page - header',ReservationConfirmed )
-        if (ReservationConfirmed)  setShowModalConfirmed(true)
+        console.log('ReservationConfirmed in home page - header', ReservationConfirmed)
+        if (ReservationConfirmed) setShowModalConfirmed(true)
         else setShowModalConfirmed(false)
-        
+
     }, [ReservationConfirmed])
-   
+
     useEffect(() => {
         if (smallFilterShow) setsmallFilterStyle({ display: 'block' })
     }, [smallFilterShow])
@@ -98,6 +98,13 @@ export const AppHeader = () => {
     const toggleModal = () => {
         setMenuModalShow((menuModalShow === 'none') ? 'flex' : 'none')
     }
+    const getImg = () =>{
+        if(loggedinUser){
+            if(loggedinUser.imgUrl) return <img src={loggedinUser.imgUrl} className='user-icon' />
+            else return <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />
+        }
+        else return <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />    
+    }
 
     return (
         <header className="stock-margin main-header">
@@ -131,9 +138,7 @@ export const AppHeader = () => {
                                     <span className="material-icons">menu</span>
                                 </div>
                                 <div>
-                                    {!loggedinUser && <img src={require("../assets/imgs/user-icon.png")} className='user-icon' />}
-                                    {/* {loggedinUser && <img src={`${loggedinUser.img}`} className='user-icon'/>} */}
-                                {loggedinUser && <img src={loggedinUser.imgUrl} className='user-icon' />}
+                                    {getImg()}
                                 </div>
                             </div>
                             <div style={{ display: menuModalShow }}>
