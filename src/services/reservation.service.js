@@ -3,8 +3,6 @@ import { dataService } from './stay.data.js'
 import { utilService } from './util.service.js'
 import { httpService } from './http.service.js'
 
-const STORAGE_KEY = 'stay'
-
 export const reservationService = {
     query,
     getById,
@@ -14,15 +12,18 @@ export const reservationService = {
 }
 window.cs = reservationService;
 
-async function query(filterBy, exploreFilterBy) {
-    // let staysfromlocalstorage = await storageService.query(STORAGE_KEY)
-    let reservations = await httpService.get('reservation')
+async function query(ev,hostId={hostId:'622f3402e36c59e6164fac46'}) {
+    let reservations = await httpService.get('reservation',hostId)
+    console.log(reservations)
+// async function query(filterBy, exploreFilterBy) {
+//     // let staysfromlocalstorage = await storageService.query(STORAGE_KEY)
+//     let reservations = await httpService.get('reservation')
     
-    return reservations
-}
+//     return reservations
+// }
+
 async function getById(stayId) {
-    return storageService.get(STORAGE_KEY, stayId)
-    // return await httpService.get(`stay/${stayId}`)
+
 }
 
 async function addReservation(reservation) {

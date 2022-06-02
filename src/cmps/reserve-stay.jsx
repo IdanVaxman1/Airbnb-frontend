@@ -18,6 +18,7 @@ export function ReserveStay(props) {
         adults: 0,
         childrens: 0,
         totalPrice: 0,
+        userId: null,
         user: null,
         stay: {
             name: props.stay.name,
@@ -25,7 +26,8 @@ export function ReserveStay(props) {
             img: props.stay.imgUrls[0],
             address: props.stay.address
         },
-        host: { name: props.stay.host.fullname, _id: props.stay.host._id }
+        hostId: props.stay.host._id,
+        hostName: props.stay.host.fullname
     })
 
     const [showGuestsStyle, setShowGuestsStyle] = useState('expand_more')
@@ -70,6 +72,7 @@ export function ReserveStay(props) {
 
     const reserveStay = async () => {
         reservation.user = userService.getLoggedinUser()
+        reservation.userId = userService.getLoggedinUser()._id
         if (!reservation.checkIn || !reservation.checkOut || (reservation.adults + reservation.childrens) === 0) console.log('fill all details')
         else if (!reservation.user) console.log('u have to be logged in')
         else {
