@@ -45,9 +45,12 @@ export const ConfirmedResModal = (props) => {
 
     {if (!props.reservation) return <h1>loading...</h1>}
 
-    return (<section style={modalStyling}  className="res-confirmed-modal">
+    return (<>
+    <div className='modal-blur' onClick={closeModal}></div>
+    <section style={modalStyling}  className="res-confirmed-modal">
+        
         <img src={props.reservation.stay.img} alt="" />
-        <span onClick={()=> closeModal()} className="material-icons clickable close-modal">close</span>
+        <span onClick={closeModal} className="material-icons clickable close-modal">close</span>
         <div className="bottom-container">
 
             <h1>Your reservation at {props.reservation.host.name}'s' place is confirmed!</h1>
@@ -123,6 +126,7 @@ export const ConfirmedResModal = (props) => {
         
 
     </section>
+    </>
 
 
     )
