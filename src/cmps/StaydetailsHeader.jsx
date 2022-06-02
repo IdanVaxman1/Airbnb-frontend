@@ -16,8 +16,8 @@ export function StaydetailsHeader({stay}) {
     <div className="decription-stay-priview">
         <h2>{stay.name}</h2>
     </div>
-    <section className="secondery-header-stay-details">
-        <div className="left-size">
+    <section className="secondary-header-stay-details">
+        <div className="left-side">
 
             <li>
                 <h4><span class="material-icons">star</span>{stay.reviewScores.value / 2}</h4>
