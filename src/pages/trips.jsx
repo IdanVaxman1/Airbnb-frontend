@@ -27,14 +27,17 @@ export const Trips = () => {
     }
     if(!trips) return <h1>Loding...</h1>
     return (
-        <section className="trips">
+        <section className="trips stock-margin">
+            <div className="stock-margin-center">
             <div>
                 <TripsHeader />
             </div>
-            <section>
-                <div className="trip-card-header"><h3>Where you've been</h3></div>
+                <div className="trip-card-header "><h3>Where you've been</h3></div>
+            <section className="trip-cards-container ">
                 {trips.map(trip => <TripCard trip={trip} key={trip} />)}
             </section>
+            </div>
+                
         </section>
     );
 

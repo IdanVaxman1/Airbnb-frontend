@@ -11,14 +11,17 @@ export const TripCard = ({ trip }) => {
                 <img src={trip.stay.img}></img>
             </div>
             <div className="trip-card-text">
-                <div className="trip-card-name">
-                    {trip.stay.address.country}
-                </div>
                 <div>
-                    hosted by {trip.hostName}
-                </div>
-                <div>
-                    {trip.checkIn.substring(0, 10)} - {trip.checkOut.substring(0, 10)}
+
+                    <div className="trip-card-name">
+                        {trip.stay.address.country}
+                    </div>
+                    <div>
+                        hosted by {trip.hostName}
+                    </div>
+                    <div>
+                        {trip.checkIn.substring(0, 10)} - {trip.checkOut.substring(0, 10)}
+                    </div>
                 </div>
             </div>
         </section>
