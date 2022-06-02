@@ -124,7 +124,7 @@ export const AppHeader = () => {
                     </div>
                     <div className="nav-link-parent">
                         <li onClick={resetFilterBy}><NavLink className="font-medium" to='/explore'>Explore</NavLink></li>
-                        <li><NavLink className="font-medium" to='/explore'>Become a host</NavLink></li>
+                        <li><NavLink className="font-medium" to='/host'>Become a host</NavLink></li>
                         <li>
                             <div className='user-menu noselect' onClick={toggleModal}>
                                 <div>
