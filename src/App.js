@@ -6,11 +6,8 @@ import {Explore} from './pages/explore'
 import {StayDetails} from './pages/stay-details'
 import {Helmet} from "react-helmet"
 import {LoginSignup} from './cmps/login-signup'
-<<<<<<< HEAD
 import {Trips} from './pages/trips'
-=======
 import { Host } from './pages/host'
->>>>>>> f03a89f0db8d697208abb084fac705ac25e5d8f2
 
 
 

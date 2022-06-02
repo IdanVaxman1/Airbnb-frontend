@@ -4,15 +4,12 @@ import { DateRangeSelector } from './date-picker'
 import { GuestPicker } from "./guest-picker"
 import { utilService } from "../services/util.service"
 import { userService } from "../services/user.service"
-<<<<<<< HEAD
 import { tripsService } from "../services/trips.service"
-=======
 import { ConfirmedResModal } from "./confirmed-res-modal"
 import { reservationService } from "../services/reservation.service"
 import { ReservationConfirmed } from "../store/actions/reservation.action"
 import { NavLink } from "react-router-dom"
 
->>>>>>> f03a89f0db8d697208abb084fac705ac25e5d8f2
 
 export function ReserveStay(props) {
     const [reservation, setReservation] = useState({
@@ -22,16 +19,12 @@ export function ReserveStay(props) {
         childrens: 0,
         totalPrice: 0,
         user: null,
-<<<<<<< HEAD
-        stay: { name: props.stay.name, _id: props.stay._id, img: props.stay.imgUrls[0] , country:props.stay.address.country},
-=======
         stay: {
             name: props.stay.name,
             _id: props.stay._id,
             img: props.stay.imgUrls[0],
             address: props.stay.address
         },
->>>>>>> f03a89f0db8d697208abb084fac705ac25e5d8f2
         host: { name: props.stay.host.fullname, _id: props.stay.host._id }
     })
 
@@ -79,10 +72,6 @@ export function ReserveStay(props) {
         reservation.user = userService.getLoggedinUser()
         if (!reservation.checkIn || !reservation.checkOut || (reservation.adults + reservation.childrens) === 0) console.log('fill all details')
         else if (!reservation.user) console.log('u have to be logged in')
-<<<<<<< HEAD
-        else tripsService.addTrip(reservation)
-
-=======
         else {
             console.log(reservation)
             setResModalIsOpen(true)
@@ -90,9 +79,8 @@ export function ReserveStay(props) {
             if(newRes) console.log('new reservation has been added')
             else console.log('couldnt add a reservation')
             dispatchReservation(reservation)
-
+            tripsService.addTrip(reservation)
         }
->>>>>>> f03a89f0db8d697208abb084fac705ac25e5d8f2
     }
 
     const onMousMove = (e) => {

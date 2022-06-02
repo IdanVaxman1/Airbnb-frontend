@@ -12,7 +12,7 @@ export const TripCard = ({ trip }) => {
             </div>
             <div className="trip-card-text">
                 <div className="trip-card-name">
-                    {trip.stay.country}
+                    {trip.stay.address.country}
                 </div>
                 <div>
                     hosted by {trip.host.name}
