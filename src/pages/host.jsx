@@ -7,7 +7,7 @@ import { userService } from "../services/user.service"
 
 export const Host = () => {
 
-    const [reservations, setreservations] = useState (null)
+    const [reservations, setreservations] = useState(null)
 
 
 
@@ -19,23 +19,21 @@ export const Host = () => {
     const getReservations = async () => {
         const reservatios = await reservationService.query()
         setreservations(reservatios)
-        
+
     }
 
 
     const loggedinUser = userService.getLoggedinUser()
 
-   
 
-    
+
+
     console.log(loggedinUser)
-    {if(!reservations) return <h1>loading</h1>}
+    { if (!reservations) return <h1>loading</h1> }
 
     return (<div className="stock-margin main-host-page">
         <div className="stock-margin-center">
-
-
-            <section className="flex">
+            <div className="flex">
                 <li>
                     <img src={loggedinUser.imgUrl} alt="" />
                 </li>
@@ -44,14 +42,16 @@ export const Host = () => {
                         Hello {loggedinUser.fullName}!
                     </h1>
                 </li>
+            </div>
+            <div>
                 <div className="reservations-container" >
-                        {reservations.map(reservation =>
-                            <ReservationPreview2 reservation={reservation} key={reservation._id} />
-                        )}
-                    </div>
+                    {reservations.map(reservation =>
+                        <ReservationPreview2  reservation={reservation} key={reservation._id} />
+                    )}
+                </div>
 
 
-            </section>
+            </div>
         </div>
     </div>
     )
