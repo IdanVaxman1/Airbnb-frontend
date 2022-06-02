@@ -1,6 +1,30 @@
 .main-host-page{
 
+
+    
+
+    .stock-margin-center{
+
+       
+
+            li:nth-child(2){
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-left: 1rem;
+            }
+      
+    }
+
+    
+
+
     .stock-margin-center{
         margin-top: 170px;
+    }
+
+    img{
+        border-radius: 50%;
     }
 }

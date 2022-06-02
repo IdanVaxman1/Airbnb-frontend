@@ -16,24 +16,9 @@ window.cs = reservationService;
 
 async function query(filterBy, exploreFilterBy) {
     // let staysfromlocalstorage = await storageService.query(STORAGE_KEY)
-    let stays = await httpService.get('stay',filterBy)
-    // if (filterBy) {
-    //     if (filterBy.location) stays = stays.filter((stay => new RegExp(filterBy.location, 'i').test(stay.address.country)
-    //         || new RegExp(filterBy.location, 'i').test(stay.address.city)))
-    // }
-    if (exploreFilterBy) {
-        stays = stays.filter(stay => stay.price <= exploreFilterBy.maxPrice && stay.price >= exploreFilterBy.minPrice)
-        if (exploreFilterBy.roomTypes) {
-            const fullRoomTypes = ['Entire home/apt', 'Hotel room', 'Private room', 'Shared room']
-            fullRoomTypes.forEach(type => {
-                if (!exploreFilterBy.roomTypes.includes(type)) stays = stays.filter(stay => stay.roomType !== type)
-            })
-        }
-        if (exploreFilterBy.amenities) {
-            exploreFilterBy.amenities.forEach(amn => { stays = stays.filter(stay => stay.amenities.includes(amn)) })
-        }
-    }
-    return stays
+    let reservations = await httpService.get('reservation')
+    
+    return reservations
 }
 async function getById(stayId) {
     return storageService.get(STORAGE_KEY, stayId)
