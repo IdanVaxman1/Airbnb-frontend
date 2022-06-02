@@ -16,19 +16,20 @@ export const Host = () => {
         getReservations()
     }, [])
 
+    let loggedinUser = userService.getLoggedinUser()
     const getReservations = async () => {
         const reservatios = await reservationService.query()
+        console.log('reservatios from host',loggedinUser._id)
         setreservations(reservatios)
+        // {hostId:loggedinUser._id}
 
     }
 
 
-    const loggedinUser = userService.getLoggedinUser()
 
 
 
 
-    console.log(loggedinUser)
     { if (!reservations) return <h1>loading</h1> }
 
     return (<div className="stock-margin main-host-page">

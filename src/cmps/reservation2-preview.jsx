@@ -13,6 +13,7 @@ export function ReservationPreview2({ reservation }) {
     return (
         <div className="reservation-card box-shadow">
             <div>
+                {/* {JSON.stringify(reservation)} */}
                 <div>
                     <h2>Property:</h2>
                     <h3>{reservation.stay.name}</h3>

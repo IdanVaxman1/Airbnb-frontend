@@ -4,9 +4,9 @@
         justify-content: flex-start;
         gap: 10px;
         margin-bottom: 10px;
-        
+        z-index: -1;
+
         img {
-            z-index: -1;
             border-radius: 50%;
             border: 1px lightgray solid  ;
             height: 60px;
