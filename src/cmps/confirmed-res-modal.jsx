@@ -1,12 +1,26 @@
 import { NavLink } from "react-router-dom"
-import { useDispatch } from 'react-redux'
+import { useDispatch, dispatch } from 'react-redux'
 import { openModal } from "../store/actions/userActions"
 import { userService } from "../services/user.service"
+import { ReservationConfirmed } from "../store/actions/reservation.action"
+import { utilService } from "../services/util.service"
+import { useState } from "react"
 
 
 export const ConfirmedResModal = (props) => {
 
     const dispatch = useDispatch()
+
+    const [modalStyling, setShowmodalStyling] = useState ({display: 'block'})
+
+
+    
+
+    const dispatchReservation = () => {
+        dispatch(ReservationConfirmed(null))
+    }
+
+
     const loggedinUser = userService.getLoggedinUser()
 
     const toggleModal = (isLogin) => {
@@ -18,13 +32,22 @@ export const ConfirmedResModal = (props) => {
         props.toggleModal()
     }
 
+    const closeModal = () => {
+        console.log('close modal')
+        setShowmodalStyling({display: 'none'})
+        dispatchReservation()
+    }
+
     const onLogout = () => {
         userService.logout()
         closeSelf()
     }
 
-    return (<section className="res-confirmed-modal">
+    {if (!props.reservation) return <h1>loading...</h1>}
+
+    return (<section style={modalStyling}  className="res-confirmed-modal">
         <img src={props.reservation.stay.img} alt="" />
+        <span onClick={()=> closeModal()} className="material-icons clickable close-modal">close</span>
         <div className="bottom-container">
 
             <h1>Your reservation at {props.reservation.host.name}'s' place is confirmed!</h1>
@@ -82,13 +105,18 @@ export const ConfirmedResModal = (props) => {
                     Address
                 </h2>
                 <h3>
-                    {props.reservation.stay.address.street}, {props.reservation.stay.address.city}, {props.reservation.stay.address.country}
-                    {console.log(props.reservation.stay.address.city)}
+                    {props.reservation.stay.address.street}
+                </h3>
+                <h2>
+                    Total Price
+                </h2>
+                <h3>
+                    ${utilService.getUsPrice(props.reservation.totalPrice)}
                 </h3>
 
             </div>
-            <NavLink className='' to='/home' >
-            <button className="reserve-button" >Your trips</button>
+            <NavLink className='' to='/explore' >
+            <button onClick={()=>closeModal()} className="reserve-button" >Your trips</button>
             </NavLink>
 
         </div>

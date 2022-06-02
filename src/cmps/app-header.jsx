@@ -9,6 +9,7 @@ import { showLargeFilter, showSmallFilter, LogoChangeToWhite } from "../store/ac
 import { userService } from "../services/user.service"
 import whiteLogo from "../assets/imgs/logo-white.png"
 import redLogo from "../assets/imgs/logo1.png"
+import { ConfirmedResModal } from "./confirmed-res-modal"
 
 
 
@@ -17,6 +18,8 @@ export const AppHeader = () => {
     const LargeFilterShow = useSelector((storeState) => storeState.headerModule.isLargeFilterShown)
     const smallFilterShow = useSelector((storeState) => storeState.headerModule.isSmallFilterShown)
     const isLogoWhite = useSelector((storeState) => storeState.headerModule.isLogoWhite)
+    const ReservationConfirmed = useSelector((storeState) => storeState.reservationModule.ReservationConfirmed)
+
 
     const [isSmallFilterShown, setIsSmallFilterShown] = useState(true)
     const [bigFilterStyle, setBigFilterStyle] = useState({ display: 'none' })
@@ -24,6 +27,7 @@ export const AppHeader = () => {
     const [menuModalShow, setMenuModalShow] = useState('none')
     const [logoColor, setLogoColor] = useState({ color: 'red' })
     const [logoImgSrc, setogoImgSrc] = useState("../assets/imgs/logo1.png")
+    const [showModalConfirmed, setShowModalConfirmed] = useState(false)
 
     const dispatch = useDispatch()
     useEffect(() => {
@@ -38,6 +42,13 @@ export const AppHeader = () => {
     const loggedinUser = userService.getLoggedinUser()
 
 
+    useEffect(() => {
+        console.log('ReservationConfirmed in home page - header',ReservationConfirmed )
+        if (ReservationConfirmed)  setShowModalConfirmed(true)
+        else setShowModalConfirmed(false)
+        
+    }, [ReservationConfirmed])
+   
     useEffect(() => {
         if (smallFilterShow) setsmallFilterStyle({ display: 'block' })
     }, [smallFilterShow])
@@ -90,6 +101,7 @@ export const AppHeader = () => {
 
     return (
         <header className="stock-margin main-header">
+            {showModalConfirmed && <ConfirmedResModal reservation={ReservationConfirmed} />}
             <div className="left"></div>
             <div className="stock-margin-center flex-col">
                 <nav className="grid-3-col main-nav">
