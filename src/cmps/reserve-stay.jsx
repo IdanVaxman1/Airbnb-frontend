@@ -6,6 +6,9 @@ import { utilService } from "../services/util.service"
 import { userService } from "../services/user.service"
 import { ConfirmedResModal } from "./confirmed-res-modal"
 import { reservationService } from "../services/reservation.service"
+import { ReservationConfirmed } from "../store/actions/reservation.action"
+import { NavLink } from "react-router-dom"
+
 
 export function ReserveStay(props) {
     const [reservation, setReservation] = useState({
@@ -29,6 +32,12 @@ export function ReserveStay(props) {
     const [guestModalShown, setGuestModalShown] = useState({ display: 'none' })
     const [isTrue, setIstrue] = useState(false)
     const [resModalIsOpen, setResModalIsOpen] = useState(false)
+
+    const dispatch = useDispatch()
+
+    const dispatchReservation = () => {
+        dispatch(ReservationConfirmed(reservation))
+    }
 
     const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
     useEffect(() => {
@@ -54,7 +63,7 @@ export function ReserveStay(props) {
     const setDatesAndPrice = (from, to) => {
         if (from && to) {
             const dayDiff = (to - from) / 1000 / 60 / 60 / 24
-            setReservation({ ...reservation, checkIn: from._d, checkOut: to._d, totalPrice: dayDiff * props.stay.price })
+            setReservation({ ...reservation, checkIn: from._d, checkOut: to._d, totalPrice: dayDiff * props.stay.price + 25 })
         }
     }
 
@@ -68,6 +77,8 @@ export function ReserveStay(props) {
             const newRes = await reservationService.addReservation(reservation)
             if(newRes) console.log('new reservation has been added')
             else console.log('couldnt add a reservation')
+            dispatchReservation(reservation)
+
         }
     }
 
@@ -81,7 +92,7 @@ export function ReserveStay(props) {
 
     return (
         <div className="reserve-stay-container">
-            {resModalIsOpen && <ConfirmedResModal reservation={reservation} />}
+            {/* {resModalIsOpen && <ConfirmedResModal reservation={reservation} />} */}
             <div className="reserve-stay-header">
                 <li className="reserve-stay-price font-book">${utilService.getUsPrice((props.stay.price))} <span>night</span></li>
                 <li>{props.stay.reviewScores.value / 2}<span className="material-icons">star</span> · <span>{props.stay.reviews.length} reviews</span></li>
@@ -104,7 +115,12 @@ export function ReserveStay(props) {
                 </div>
                 }
             </div>
+            <NavLink className='' to='/home' >
+            <div>
+
             <button onClick={reserveStay} onMouseMove={(e) => onMousMove(e)} style={reservedBtnBc} className='reserve-button'>Reserve</button>
+            </div>
+            </NavLink>
            {!resModalIsOpen &&  <section className="price-section">
                 {(reservation.adults!=0 || reservation.childrens!=0) && reservation.checkIn && reservation.checkOut && <div>
                     <h4>You won't be charged yet</h4>
