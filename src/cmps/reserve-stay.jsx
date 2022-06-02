@@ -4,6 +4,7 @@ import { DateRangeSelector } from './date-picker'
 import { GuestPicker } from "./guest-picker"
 import { utilService } from "../services/util.service"
 import { userService } from "../services/user.service"
+import { tripsService } from "../services/trips.service"
 
 export function ReserveStay(props) {
     const [reservation, setReservation] = useState({
@@ -13,7 +14,7 @@ export function ReserveStay(props) {
         childrens: 0,
         totalPrice: 1000,
         user: null,
-        stay: { name: props.stay.name, _id: props.stay._id, img: props.stay.imgUrls[0]},
+        stay: { name: props.stay.name, _id: props.stay._id, img: props.stay.imgUrls[0] , country:props.stay.address.country},
         host: { name: props.stay.host.fullname, _id: props.stay.host._id }
     })
 
@@ -54,7 +55,8 @@ export function ReserveStay(props) {
         reservation.user = userService.getLoggedinUser()
         if (!reservation.checkIn || !reservation.checkOut || (reservation.adults + reservation.childrens) === 0) console.log('fill all details')
         else if (!reservation.user) console.log('u have to be logged in')
-        else console.log(reservation)
+        else tripsService.addTrip(reservation)
+
     }
 
     const onMousMove = (e) => {

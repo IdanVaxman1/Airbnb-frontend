@@ -29,10 +29,13 @@
 @import '/src/style/components/sign-up';
 @import '/src/style/components/user-menu';
 @import '/src/style/components/map';
+@import '/src/style/components/trips-header.scss';
+@import '/src/style/components/trip-card';
 
 
 //pages
 @import '/src/style/pages/home';
 @import '/src/style/pages/Explore';
+@import '/src/style/pages/Trips';
 @import '/src/style/pages/stay-details';
 @import '/src/style/basics/for-all';
