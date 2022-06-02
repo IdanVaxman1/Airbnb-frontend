@@ -110,16 +110,16 @@ export const ExploreFilter = (props) => {
 
             {typeIsShown && <div className='room-type-filter noselect'>
                 <FormGroup>
-                    <label><Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }}
+                    <label><Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#222222', }, }}
                         onChange={() => handleRoomType('Entire home/apt', 'entire')} checked={checked.entire} inputProps={{ 'aria-label': 'controlled' }} />
                         <div><span>Entire home</span><p>A place all for yourself</p></div></label>
-                    <label><Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }}
+                    <label><Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#222222', }, }}
                         onChange={() => handleRoomType('Hotel room', 'hotel')} checked={checked.hotel} inputProps={{ 'aria-label': 'controlled' }} />
                         <div><span>Hotel Room</span><p>A private or shared room in a boutique hotel</p></div></label>
-                    <label><Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }}
+                    <label><Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#222222', }, }}
                         onChange={() => handleRoomType('Private room', 'private')} checked={checked.private} inputProps={{ 'aria-label': 'controlled' }} />
                         <div><span>Private room</span><p>Your own room in a home or a hotel, plus some shared common spaces</p></div></label>
-                    <label><Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#FE385C', }, }}
+                    <label><Checkbox sx={{ color: '#FE385C', '&.Mui-checked': { color: '#222222', }, }}
                         onChange={() => handleRoomType('Shared room', 'shared')} checked={checked.shared} inputProps={{ 'aria-label': 'controlled' }} />
                         <div><span>Shared room</span><p>A sleeping space and common areas that may be shared with others</p></div></label>
                 </FormGroup>
