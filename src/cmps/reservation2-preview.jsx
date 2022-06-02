@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react"
 
 export function ReservationPreview2({ reservation }) {
 
-    { console.log('reservation name', reservation.stay) }
+    { console.log('reservation stay', reservation) }
     // var date = reservation.checkIn
 
 
@@ -15,7 +15,7 @@ export function ReservationPreview2({ reservation }) {
             <div>
                 <div>
                     <h2>Property:</h2>
-                    <h3>{reservation.name}</h3>
+                    <h3>{reservation.stay.name}</h3>
                     <h2>checkIn:</h2>
                     <h3>
                         {reservation.checkIn}
