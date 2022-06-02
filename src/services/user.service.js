@@ -1,4 +1,3 @@
-import { storageService } from './async-storage.service'
 import { httpService } from './http.service'
 // import { socketService, SOCKET_EVENT_USER_UPDATED, SOCKET_EMIT_USER_WATCH } from './socket.service'
 
@@ -10,34 +9,9 @@ export const userService = {
     signup,
     getLoggedinUser,
     saveLocalUser,
-    getUsers,
-    getById,
 }
 
 window.userService = userService
-
-
-function getUsers() {
-    return storageService.queryUser('user')
-    // return httpService.get(`user`)
-}
-
-// function onUserUpdate(user) {
-//     showSuccessMsg(`This user ${user.fullname} just got updated from socket, new score: ${user.score}`)
-//     store.dispatch({ type: 'SET_WATCHED_USER', user })
-// }
-
-async function getById(userId) {
-    const user = await storageService.get('user', userId)
-    // const user = await httpService.get(`user/${userId}`)
-    // gWatchedUser = user;
-
-    // socketService.emit(SOCKET_EMIT_USER_WATCH, userId)
-    // socketService.off(SOCKET_EVENT_USER_UPDATED, onUserUpdate)
-    // socketService.on(SOCKET_EVENT_USER_UPDATED, onUserUpdate)
-
-    return user
-}
 
 async function login(userCred) {
     const user = await httpService.post('auth/login', userCred)

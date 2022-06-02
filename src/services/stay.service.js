@@ -1,4 +1,3 @@
-import { storageService } from './async-storage.service.js'
 import { dataService } from './stay.data.js'
 import { utilService } from './util.service.js'
 import { httpService } from './http.service.js'
@@ -30,8 +29,9 @@ async function query(filterBy, exploreFilterBy) {
     return stays
 }
 async function getById(stayId) {
-    return storageService.get(STORAGE_KEY, stayId)
-    // return await httpService.get(`stay/${stayId}`)
+    const stay= await httpService.get(`stay/${stayId}`)
+    console.log(stay)
+    return stay
 }
 
 async function addStay(stay) {
@@ -45,7 +45,7 @@ function getTopRated() {
 }
 
 async function getRandomStayId() {
-    const stays = await storageService.query()
+    const stays = await httpService.get('stay')
     const idx = utilService.getRandomIntInclusive(0, stays.length - 1)
     return stays[idx]._id
 }
