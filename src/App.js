@@ -6,6 +6,7 @@ import {Explore} from './pages/explore'
 import {StayDetails} from './pages/stay-details'
 import {Helmet} from "react-helmet"
 import {LoginSignup} from './cmps/login-signup'
+import { Host } from './pages/host'
 
 
 
@@ -28,6 +29,7 @@ function App() {
                         <Route path='/stay/:stayId' element={<StayDetails />} />
                         <Route path='/home' element={<Home />} />
                         <Route path='/explore' element={<Explore />} />
+                        <Route path='/host' element={<Host />} />
                         <Route path='/' element={<Home />} />
                     </Routes>
                     <LoginSignup/>
