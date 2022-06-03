@@ -3,7 +3,10 @@ export const utilService = {
     makeLorem,
     getRandomIntInclusive,
     delay,
-    capitalizeFirst
+    capitalizeFirst,
+    getUsPrice,
+    make2digits
+
 }
 
 function capitalizeFirst(string) {
@@ -41,5 +44,15 @@ function delay(ms = 1500) {
     return new Promise(resolve => {
         setTimeout(resolve, ms)
     })
+}
+
+function getUsPrice(price){
+    return Math.floor((price)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+}
+function make2digits(num){
+    let string = num.toString()
+    if(string.length===1) string+='.0'
+    if(string.length>3) string = string.substring(0,3)
+    return string
 }
 
