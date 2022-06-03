@@ -3,9 +3,11 @@ import { AppHeader } from './cmps/app-header'
 import {AppFooter} from './cmps/app-footer'
 import {Home} from './pages/home.jsx'
 import {Explore} from './pages/explore'
-import { Login } from './pages/login'
 import {StayDetails} from './pages/stay-details'
-import {Helmet} from "react-helmet";
+import {Helmet} from "react-helmet"
+import {LoginSignup} from './cmps/login-signup'
+import {Trips} from './pages/trips'
+import { Host } from './pages/host'
 
 
 
@@ -28,12 +30,13 @@ function App() {
                         <Route path='/stay/:stayId' element={<StayDetails />} />
                         <Route path='/home' element={<Home />} />
                         <Route path='/explore' element={<Explore />} />
-                        <Route path='/login' element={<Login />} />
+                        <Route path='/trips' element={<Trips />} />
+                        <Route path='/host' element={<Host />} />
                         <Route path='/' element={<Home />} />
-                        
                     </Routes>
+                    <LoginSignup/>
                 </main>
-              <AppFooter/>
+              <AppFooter />
             </div>
         </Router>
   );
