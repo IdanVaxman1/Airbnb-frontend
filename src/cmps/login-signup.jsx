@@ -84,7 +84,6 @@ export class _LoginSignup extends React.Component {
     render() {
         const { isModalOpen } = this.props
         const { isLogin } = this.props
-        console.log(this.props)
         if (!isModalOpen) return (<React.Fragment></React.Fragment>)
         return (
             <>
