@@ -67,7 +67,7 @@ export const Host = () => {
                     {reservations.map(reservation =>
                     <tr>
 
-                        <ReservationPreview2  reservation={reservation} key={reservation._id} />
+                        <ReservationPreview2 getReservations={getReservations}   reservation={reservation} key={reservation._id} />
                     </tr>
                     )}
                 </table>

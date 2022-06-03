@@ -7,7 +7,7 @@ import { utilService } from "../services/util.service"
 import { useState } from "react"
 
 
-export const ConfirmedResModal = (props) => {
+export const ConfirmedResModalTrips = (props) => {
 
     const dispatch = useDispatch()
 
@@ -68,10 +68,8 @@ export const ConfirmedResModal = (props) => {
                     </li>
                     <li>
                         <h3>
-{console.log('checkin:',props.reservation.checkIn)}
-                        {props.reservation.checkIn.toISOString().split('T')[0] || props.reservation.checkIn.substring(0, 10)}
+                        {props.reservation.checkIn.substring(0, 10)}
                         </h3>
-                        {/*  */}
                     </li>
                 </div>
                 <span>
@@ -87,8 +85,7 @@ export const ConfirmedResModal = (props) => {
                         </li>
                         <li>
                             <h3>
-
-                            {/* {props.reservation.checkOut.toISOString().split('T')[0]} */}
+                            {props.reservation.checkOut.substring(0, 10)}
                             </h3>
                         </li>
                     </div>

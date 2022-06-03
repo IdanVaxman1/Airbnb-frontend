@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ConfirmedResModal } from "./confirmed-res-modal";
+import { ConfirmedResModalTrips } from "./confirmed-res-modal-trips";
 
 export const TripCard = ({ trip }) => {
 
@@ -8,15 +9,17 @@ export const TripCard = ({ trip }) => {
 
 
 
-    const onpenResModal = () => {
-        setResModalIsOpen(true)
+    const toggleModalIsOpen = () => {
+        
+        setResModalIsOpen(!resModalIsOpen)
     }
+    
 
-
+    // onpenResModal={ModalIsOpen()}
 
     // return <Link to={`/stay/${trip.stay._id}`}>
-    return <section onClick={onpenResModal} className="trip-card-container">
-        {resModalIsOpen && <ConfirmedResModal reservation={trip}/>}
+    return <section onClick={toggleModalIsOpen} className="trip-card-container">
+        {resModalIsOpen && <ConfirmedResModalTrips  reservation={trip}/>}
         <section className="trip-card">
             <div>
                 <img src={trip.stay.img}></img>
