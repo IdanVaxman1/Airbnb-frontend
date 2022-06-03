@@ -8,10 +8,7 @@ import { userService } from "../services/user.service"
 export const Host = () => {
 
     const [reservations, setreservations] = useState(null)
-
-
-
-
+    
     useEffect(() => {
         getReservations()
     }, [])
@@ -25,11 +22,6 @@ export const Host = () => {
         // {hostId:loggedinUser._id}
 
     }
-
-
-
-
-
 
     { if (!reservations) return <h1>loading</h1> }
 

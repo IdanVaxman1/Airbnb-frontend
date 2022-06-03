@@ -21,11 +21,6 @@ export const Host = () => {
 
     }
 
-
-
-
-
-
     { if (!reservations) return <h1>loading</h1> }
 
     return (<div className="stock-margin main-host-page">
