@@ -46,7 +46,7 @@ export const ConfirmedResModal = (props) => {
     {if (!props.reservation) return <h1>loading...</h1>}
 
     return (<>
-    <div className='modal-blur' onClick={closeModal}></div>
+    <div style={modalStyling} className='modal-blur' onClick={closeModal}></div>
     <section style={modalStyling}  className="res-confirmed-modal">
         
         <img src={props.reservation.stay.img} alt="" />
@@ -68,7 +68,7 @@ export const ConfirmedResModal = (props) => {
                     <li>
                         <h3>
 
-                        {props.reservation.checkIn.toISOString().split('T')[0]}
+                        {/* {props.reservation.checkIn.toISOString().split('T')[0]} */}
                         </h3>
                     </li>
                 </div>
@@ -86,7 +86,7 @@ export const ConfirmedResModal = (props) => {
                         <li>
                             <h3>
 
-                            {props.reservation.checkOut.toISOString().split('T')[0]}
+                            {/* {props.reservation.checkOut.toISOString().split('T')[0]} */}
                             </h3>
                         </li>
                     </div>

@@ -1,11 +1,22 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { ConfirmedResModal } from "./confirmed-res-modal";
 
 export const TripCard = ({ trip }) => {
+
+    const [resModalIsOpen, setResModalIsOpen] = useState (false)
+
+
+
+    const onpenResModal = () => {
+        setResModalIsOpen(true)
+    }
 
 
 
     // return <Link to={`/stay/${trip.stay._id}`}>
-    return <section className="trip-card-container">
+    return <section onClick={onpenResModal} className="trip-card-container">
+        {resModalIsOpen && <ConfirmedResModal reservation={trip}/>}
         <section className="trip-card">
             <div>
                 <img src={trip.stay.img}></img>

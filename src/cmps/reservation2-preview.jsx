@@ -2,12 +2,18 @@ import { utilService } from "../services/util.service"
 // import 'font-awesome/css/font-awesome.min.css';
 import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from "react"
+import { reservationService } from "../services/reservation.service"
 
 export function ReservationPreview2({ reservation }) {
 
     { console.log('reservation stay', reservation) }
     // var date = reservation.checkIn
 
+    const onRemove = async () => {
+        const deletedRes = await reservationService.removeReservation(reservation)
+        if(deletedRes) console.log('reservation has been deleted')
+        else console.log('couldnt delete a reservation')
+    }
 
 
     return (<>
@@ -38,7 +44,7 @@ export function ReservationPreview2({ reservation }) {
                         <button>Add a review</button>
                     </td>
                     <td>
-                        <button>Cancel</button>
+                        <button onClick={onRemove}>Cancel</button>
                     </td>
                    
                
