@@ -1,12 +1,13 @@
+import { useEffect, useState } from "react"
+import { ReservationPreview2 } from "../cmps/reservation2-preview"
+import { reservationService } from "../services/reservation.service"
+import { userService } from "../services/user.service"
 
 
 export const Host = () => {
 
     const [reservations, setreservations] = useState(null)
-
-
-
-
+    
     useEffect(() => {
         getReservations()
     }, [])
@@ -56,8 +57,7 @@ export const Host = () => {
 
                     {reservations.map(reservation =>
                     <tr>
-
-                        <ReservationPreview2 getReservations={getReservations}   reservation={reservation} key={reservation._id} />
+                        <ReservationPreview2  reservation={reservation} key={reservation._id} />
                     </tr>
                     )}
                 </table>
