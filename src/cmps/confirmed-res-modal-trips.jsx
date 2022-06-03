@@ -35,7 +35,7 @@ export const ConfirmedResModalTrips = (props) => {
     const closeModal = () => {
         console.log('close modal')
         setShowmodalStyling({display: 'none'})
-        // props.ModalIsOpen(false)
+        props.toggleModalIsOpen()
         dispatchReservation()
     }
 

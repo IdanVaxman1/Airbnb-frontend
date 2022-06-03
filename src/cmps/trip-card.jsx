@@ -18,10 +18,10 @@ export const TripCard = ({ trip }) => {
     // onpenResModal={ModalIsOpen()}
 
     // return <Link to={`/stay/${trip.stay._id}`}>
-    return <section onClick={toggleModalIsOpen} className="trip-card-container">
-        {resModalIsOpen && <ConfirmedResModalTrips  reservation={trip}/>}
+    return <section  className="trip-card-container">
+        {resModalIsOpen && <ConfirmedResModalTrips  toggleModalIsOpen={toggleModalIsOpen} reservation={trip}/>}
         <section className="trip-card">
-            <div>
+            <div onClick={toggleModalIsOpen} className="clickable">
                 <img src={trip.stay.img}></img>
             </div>
             <div className="trip-card-text">
