@@ -51,7 +51,7 @@ export function StayPreview({ stay }) {
                 {/* <img src='https://res.cloudinary.com/dhy6ndeij/image/upload/v1653480425/001_urftcv.jpg'></img> */}
                 <div className="stay-preiview-details location-rate">
                     <li><h1 className="font-medium" >{stay.address.city}, {stay.address.country}</h1></li>
-                    <li><h1 className="font-light">{stay.reviewScores.value / 2}
+                    <li><h1 className="font-light">{utilService.make2digits(stay.reviewScores.value / 2)}
                         <span className="material-icons">star</span>
                     </h1></li>
                 </div>
