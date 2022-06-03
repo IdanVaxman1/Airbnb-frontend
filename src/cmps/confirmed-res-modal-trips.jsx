@@ -7,7 +7,7 @@ import { utilService } from "../services/util.service"
 import { useState } from "react"
 
 
-export const ConfirmedResModal = (props) => {
+export const ConfirmedResModalTrips = (props) => {
 
     const dispatch = useDispatch()
 
@@ -35,7 +35,7 @@ export const ConfirmedResModal = (props) => {
     const closeModal = () => {
         console.log('close modal')
         setShowmodalStyling({display: 'none'})
-        // props.ModalIsOpen(false)
+        props.toggleModalIsOpen()
         dispatchReservation()
     }
 
@@ -68,7 +68,7 @@ export const ConfirmedResModal = (props) => {
                     </li>
                     <li>
                         <h3>
-                        {props.reservation.checkIn.toISOString().split('T')[0]}
+                        {props.reservation.checkIn.substring(0, 10)}
                         </h3>
                     </li>
                 </div>
@@ -85,8 +85,7 @@ export const ConfirmedResModal = (props) => {
                         </li>
                         <li>
                             <h3>
-
-                            {props.reservation.checkOut.toISOString().split('T')[0]}
+                            {props.reservation.checkOut.substring(0, 10)}
                             </h3>
                         </li>
                     </div>

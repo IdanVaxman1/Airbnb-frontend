@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from "react"
 import { reservationService } from "../services/reservation.service"
 
-export function ReservationPreview2({ reservation }) {
+export function ReservationPreview2({ reservation, getReservations }) {
 
     { console.log('reservation stay', reservation) }
     // var date = reservation.checkIn
@@ -13,6 +13,7 @@ export function ReservationPreview2({ reservation }) {
         const deletedRes = await reservationService.removeReservation(reservation)
         if(deletedRes) console.log('reservation has been deleted')
         else console.log('couldnt delete a reservation')
+        getReservations()
     }
 
 
