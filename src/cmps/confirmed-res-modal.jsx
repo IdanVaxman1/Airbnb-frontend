@@ -68,10 +68,8 @@ export const ConfirmedResModal = (props) => {
                     </li>
                     <li>
                         <h3>
-{console.log('checkin:',props.reservation.checkIn)}
-                        {props.reservation.checkIn.toISOString().split('T')[0] || props.reservation.checkIn.substring(0, 10)}
+                        {props.reservation.checkIn.toISOString().split('T')[0]}
                         </h3>
-                        {/*  */}
                     </li>
                 </div>
                 <span>
@@ -88,7 +86,7 @@ export const ConfirmedResModal = (props) => {
                         <li>
                             <h3>
 
-                            {/* {props.reservation.checkOut.toISOString().split('T')[0]} */}
+                            {props.reservation.checkOut.toISOString().split('T')[0]}
                             </h3>
                         </li>
                     </div>
